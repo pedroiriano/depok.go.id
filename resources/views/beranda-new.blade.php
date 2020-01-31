@@ -1,7 +1,9 @@
 @extends('includes.layout')
 @section('content')
 {{-- Segement 1 --}}
-<div class="container-fluid"
+@include('includes.carousel-video')
+
+<!-- <div class="container-fluid"
     style="background-image:url('{{asset('img/depok.jpeg')}}'); min-height: 80vh;background-position: center;background-repeat: no-repeat;background-size: cover;box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);">
     <div class="container">
         <div class="row py-5 justify-content-center text-center">
@@ -13,7 +15,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 {{-- Segment Cuaca --}}
 <div class="d-block" style="background-color: #3598db">
 <div class="container py-4">
