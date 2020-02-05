@@ -45,6 +45,7 @@ Route::get('/api/agenda', 'BerandaController@AgendaAPI')->name('api.agenda');
 Route::get('/api/berita', 'BerandaController@beritaAPI');
 Route::get('/api/cuaca', 'BerandaController@cuacaAPI');
 Route::get('/api/youtube', 'BerandaController@youtubeAPI');
+Route::get('/rss/berita', 'BerandaController@beritaRSS')->name('rss.berita');
 
 Auth::routes();
 
