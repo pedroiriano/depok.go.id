@@ -175,6 +175,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Vedmant\FeedReader\FeedReaderServiceProvider::class,
 
     ],
 
@@ -227,6 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
+        'FeedReader' => Vedmant\FeedReader\Facades\FeedReader::class,
     ],
 
 ];

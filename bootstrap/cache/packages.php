@@ -56,4 +56,15 @@
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
+  'vedmant/laravel-feed-reader' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Vedmant\\FeedReader\\FeedReaderServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'FeedReader' => 'Vedmant\\FeedReader\\Facades\\FeedReader',
+    ),
+  ),
 );

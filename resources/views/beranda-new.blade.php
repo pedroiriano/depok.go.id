@@ -274,7 +274,7 @@
             }
         });
         $.ajax({
-            url: '/api/berita',
+            url: '/rss/berita',
             dataType: 'json',
             success: function (data) {
                 $.each(data.berita, function(index, item){
@@ -298,14 +298,11 @@
                 $('#berita-loading').addClass('d-none');
                 $('#berita-other-link').removeClass('d-none');
             },
-            error: function() {
-                // console.log(data);
-        }
+            error: function() {}
         });
         $.ajax({
             url: '/api/cuaca',
             success: function(data) {
-                console.log(data.suhu);
                 $('#suhuHariIni').html(data.suhu.temperature_hariini + '&deg;C');
                 $('#suhuBesok').html(data.suhu.temperature_besok_rendah +' - '+ data.suhu.temperature_besok_tinggi + '&deg;C');
                 $('#suhuLusa').html(data.suhu.temperature_lusa_rendah +' - '+ data.suhu.temperature_lusa_tinggi + '&deg;C');
@@ -324,12 +321,10 @@
         $.ajax({
             url: '/api/youtube',
             success: function(data){
-                console.log(data);
                 $('#youtube-frame').removeClass('d-none');
                 $('.embed-responsive-item').attr('src', 'https://www.youtube.com/embed/'+ data.youtube[0].id.videoId +'?rel=0"');
                 youtubeFrame = 'youtube-frame';
                 $.each(data.youtube, function(index, item){
-                    console.log(item.snippet.thumbnails.medium);
                     // let formatted_date = item.snippet.publishedAt.getFullYear() + "-" + (item.snippet.publishedAt.getMonth() + 1) + "-" + item.snippet.publishedAt.getDate()
                     var date = item.snippet.publishedAt;
                     var linkYoutube = 'https://www.youtube.com/embed/';

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Alaouy\Youtube\Facades\Youtube;
+use FeedReader;
 use GuzzleHttp\Exception\RequestException;
 use App\Agenda;
 use App\Sejarah;
@@ -140,7 +141,7 @@ class BerandaController extends Controller
     {
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', 'https://berita.depok.go.id/api/v1/berita', ['verify' => false]);
-	$data = $response->getBody()->getContents();
+	    $data = $response->getBody()->getContents();
         $berita = json_decode($data, true);
         $result = array();
         foreach ($berita as $key => $value) {
@@ -154,8 +155,22 @@ class BerandaController extends Controller
     }
     public function youtubeAPI()
     {
-        $youtube = Youtube::listChannelVideos('UCco0gmWTlN9nsxnlAy-tWFA', 5, "date");            
+        $youtube = Youtube::listChannelVideos('UCco0gmWTlN9nsxnlAy-tWFA', 5, "date");
         return array('youtube' => $youtube);
+    }
+    public function beritaRSS()
+    {
+        $feed = FeedReader::read('http://feeds.feedburner.com/testdepokgoid');
+        $result = array();
+        foreach ($feed->get_items(0, 6) as $key => $item) {
+            $result[$key]['title'] = $item->get_title();
+            $result[$key]['date'] = $item->get_date();
+            $result[$key]['link'] = $item->get_permalink();
+            preg_match( '@src="([^"]+)"@' , $item->get_description(), $match );
+            $src = array_pop($match);
+            $result[$key]['image'] = $src;
+        }
+        return array('berita' => $result);
     }
     //=========================================================================//
     //GET API CUACA DRAKSKY UNTUK DIKIRIM KE INDEX
@@ -165,7 +180,7 @@ class BerandaController extends Controller
         $api_url = 'https://api.darksky.net/forecast/81d686a66f2b78515e71aab6652e47ad/' . $coordinates;
         try {
             $forecast = json_decode(file_get_contents($api_url));
-        } catch (Exception $e) {    
+        } catch (Exception $e) {
             $result = [
                 'temperature_current' => 0,
                 'temperature_besok_rendah' => 0,
@@ -175,7 +190,7 @@ class BerandaController extends Controller
                 'icon' => ['hari_ini' => '', 'besok' => '', 'lusa' => ''],
             ];
         }
-        
+
         if ($forecast) {
             $temperature_current                = round($forecast->currently->temperature);
             $icon['hari_ini']                   = $forecast->currently->icon;
@@ -186,7 +201,7 @@ class BerandaController extends Controller
             $result['temperature_besok_tinggi'] = $forecast->daily->data[1]->temperatureHigh;
             $result['temperature_lusa_tinggi']  = $forecast->daily->data[2]->temperatureHigh;
             $result['temperature_lusa_rendah']  = $forecast->daily->data[2]->temperatureLow;
-            $result['icon'] = $icon;            
+            $result['icon'] = $icon;
         }
 
         return $result;
