@@ -2,7 +2,7 @@
     <div class="carousel-inner">
         @foreach ($sliders as $index => $slider)
         <div class="carousel-item @if($index == 0) {{ 'active' }} @endif">
-            <img class="img-fluid rounded" src="{{ asset('uploads/slider/'.$slider->imageName) }}" alt="First slide">
+            <img class="img-fluid rounded" src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="First slide">
         </div>
         @endforeach
     </div>

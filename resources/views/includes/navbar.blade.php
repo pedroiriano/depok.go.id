@@ -9,7 +9,7 @@
                     <a href="#" class="nav-link"><i class="fab fa-youtube"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fas fa-phone-alt"></i><span style="padding-left:10px">08121221221 |</span></a>
+                    <a href="#" class="nav-link"><i class="fas fa-phone-alt"></i><span style="padding-left:10px">08111232222 |</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link"><i class="fas fa-envelope"></i><span style="padding-left:10px">portal@depok.go.id |</span></a>

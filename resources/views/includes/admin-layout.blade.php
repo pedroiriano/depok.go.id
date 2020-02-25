@@ -9,10 +9,16 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
         <!-- Fonts -->
-        {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicon/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('img/favicon/site.webmanifest') }}">
+
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
+        <script src="https://kit.fontawesome.com/d54b50045e.js" crossorigin="anonymous"></script>
         <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+
     </head>
     <body id="page-top">
         <div id="wrapper">
@@ -47,8 +53,6 @@
                 </div>
                 <!-- End of Page Wrapper -->
                 @endguest
-                <script type="text/javascript">
-                    @yield('js')
-                </script>
+                @yield('js')
             </body>
         </html>

@@ -26,7 +26,9 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.9.0",
+        "@fortawesome/fontawesome-free": "^5.12.1",
+        "moment": "^2.24.0",
+        "placeholder-loading": "^0.2.5",
         "scroll-parallax": "^3.0.3",
         "simple-parallax-js": "^5.1.0",
         "tinymce": "^5.1.1",

@@ -104,16 +104,20 @@
             @foreach ($sliders as $index => $slider)
             <div class="row @if($index == 0) {{ 'pt-5' }} @endif">
                 <div class="col-4">
-                    <img src="{{asset('uploads/slider/'.$slider->imageName)}}" alt="" class="img-fluid rounded">
+                    <a href="{{ route('pengumuman', $slider->url) }}">
+                    <img src="{{asset('storage/uploads/sliders/'.$slider->imageName)}}" class="img-fluid rounded">
+                    </a>
                 </div>
                 <div class="col">
-                        <span class="lead text-muted"><i class="fas fa-calendar-alt"></i>&nbsp;{{ $slider->created_at->format('d/m/Y') }}</span>
-                    <p class="lead">{{ $slider->deskripsi }}</p>
+                    <small class="text-muted">{{ $slider->created_at->format('d M, Y') }}</small>
+                    <a href="{{ route('pengumuman', $slider->url) }}" class="alink">
+                    <p class="lead font-weight-600" style="font-size:14px">{{ $slider->nama }}</p>
+                    </a>
                 </div>
             </div>
             <hr>
             @endforeach
-            <a href="#" target="_blank" class="d-block d-sm-none">Pengumuman Lainnya <i class="fas fa-arrow-right"></i></a>
+            <a href="{{ route('list.pengumuman') }}" class="d-block d-sm-none">Pengumuman Lainnya <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="col-12 col-md-4">
             <h4 class="display-5">Berita</h4>
@@ -171,19 +175,19 @@
                     @endif
                 @endforeach
             </div>
-            <a href="{{ route('agenda') }}" class="d-block d-sm-none">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+            <a href="{{ route('agenda') }}" class="d-block d-sm-none text-decoration-none">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
     <div class="d-none d-md-block">
         <div class="row pb-5">
             <div class="col-5">
-                <a href="#" target="_blank">Pengumuman Lainnya <i class="fas fa-arrow-right"></i></a>
+                <a href="{{ route('list.pengumuman') }}" class="text-decoration-none">Pengumuman Lainnya <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="col-4">
-                <a href="https://berita.depok.go.id" target="_blank">Berita Lainnya <i class="fas fa-arrow-right"></i></a>
+                <a href="https://berita.depok.go.id" target="_blank" class="text-decoration-none">Berita Lainnya <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="col">
-                <a href="{{ route('agenda') }}" target="_blank">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+                <a href="{{ route('agenda') }}" class="text-decoration-none">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -222,7 +226,7 @@
                 </div>
             </div>
             <div id="youtube-other-link" class="pt-3">
-                <a href="https://www.youtube.com/user/kominfodepok">Video lainnya<i class="fas fa-arrow-right"></i></a>
+                <a href="https://www.youtube.com/user/kominfodepok" class="text-decoration-none">Video lainnya<i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
         <div class="col-12 col-md col-lg-3">
@@ -233,7 +237,7 @@
                 </a>
                 @include('includes.modal-infografis')
             @endforeach
-            <a href="{{ route('infografis') }}">Infografis lainnya<i class="fas fa-arrow-right"></i></a>
+            <a href="{{ route('infografis') }}" class="text-decoration-none">Infografis lainnya<i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="col-12 col-md col-lg" align="center">
             <h1 class="display-5">Government Public Relations</h1>
@@ -246,20 +250,18 @@
     </div>
 </div>
 <div class="modal" tabindex="-1" role="dialog" id="pengumuman-modal">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="card bg-light" style="border:none">
+                <img class="card-img-top" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Pengumuman Banner">
+                <div class="card-body">
+                    <h5 class="h5 font-weight-bold">{{ $popup->nama }}</h5>
+                    <p class="card-text">{!! substr($popup->deskripsi,0,150)."..." !!}</p>
+                    <a href="{{ route('pengumuman', $popup->url) }}" class="btn btn-primary">Selengkapnya<i class="fas fa-arrow-right"></i></a>
+                    <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">
+                        Tutup
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -274,7 +276,7 @@
             }
         });
         $.ajax({
-            url: '/rss/berita',
+            url: '/api/berita',
             dataType: 'json',
             success: function (data) {
                 $.each(data.berita, function(index, item){
@@ -287,8 +289,8 @@
                             '</div>' +
                             '<div class="col">' +
                                 '<small class="text-muted">' + item.date + '</small>' +
-                                '<a href="'+ item.link +'" target="_blank" style="color:#1d1d1d">'+
-                                '<p class="lead" style="font-size:14px">' + item.title + '</p>' +
+                                '<a href="'+ item.link +'" target="_blank" class="alink">'+
+                                '<p class="lead font-weight-600" style="font-size:14px">' + item.title + '</p>' +
                                 '</a>' +
                             '</div>' +
                         '</div>' +
@@ -326,21 +328,23 @@
                 youtubeFrame = 'youtube-frame';
                 $.each(data.youtube, function(index, item){
                     // let formatted_date = item.snippet.publishedAt.getFullYear() + "-" + (item.snippet.publishedAt.getMonth() + 1) + "-" + item.snippet.publishedAt.getDate()
-                    var date = item.snippet.publishedAt;
+                    var date =new Date(item.snippet.publishedAt);
                     var linkYoutube = 'https://www.youtube.com/embed/';
-                    date = date.slice(0,-14);
+                    date = moment().format('D MMM, YYYY');
                     $('#youtube-wrapper').append(
-                        '<a style="text-decoration:none; color:#1d1d1d" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
-                            '<div class="row">' +
-                                '<div class="col-2">' +
+                        '<div class="row">' +
+                            '<div class="col-4">' +
+                                '<a class="alink" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
                                     '<img src="'+ item.snippet.thumbnails.default.url +'" class="img-fluid">' +   
-                                '</div>' +
-                                '<div class="col-10 align-self-center">' +
-                                    '<small class="text-muted">' + date + '</small>' +
-                                    '<h6 class="small-text f-14 pt-12" >'+ item.snippet.title +'</h6>' +
-                                '</div>' +
+                                '</a>' +
                             '</div>' +
-                        '</a>'+
+                            '<div class="col-8">' +
+                                '<small class="text-muted">' + date + '</small>' +
+                                '<a class="alink" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
+                                    '<p class="lead font-weight-600" style="font-size:14px">'+ item.snippet.title +'</p>' +
+                                '</a>'+
+                            '</div>' +
+                        '</div>' +
                         '<hr style="margin-bottom:5px;margin-top:5px">'
                     );
                     $('#youtube-loading').addClass('d-none');

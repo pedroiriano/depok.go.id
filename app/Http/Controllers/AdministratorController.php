@@ -57,7 +57,7 @@ class AdministratorController extends Controller
             $agenda->save();
 
         return back()->with('success', 'Gambar telah diupload');
-        
+
     }
     public function layanan()
     {
@@ -88,7 +88,7 @@ class AdministratorController extends Controller
             }else{
                 $otherService = Service::where('pos', $request->inputPosisi)->update(['pos' => 99]);
                 $service->pos = $request->inputPosisi;
-            } 
+            }
             $service->icon = $imageName;
             $service->save();
         }
@@ -109,7 +109,7 @@ class AdministratorController extends Controller
         $service->url = $request->inputUbahURL;
         $service->status = $request->inputUbahStatus;
         $service->tooltip = $request->inputUbahTooltip;
-        if ($request->hasFile('inputUbahIcon')) {    
+        if ($request->hasFile('inputUbahIcon')) {
             $userImage = public_path("img/icon/{$slider->imageName}");
             if(file::exists($userImage)){
                 unlink($userImage);
@@ -122,80 +122,17 @@ class AdministratorController extends Controller
         $service->save();
         return back()->with('success', 'Layanan telah di Update');
     }
-    public function slider()
-    {
-        $sliders = Slider::orderBy('status', 'DESC')->get();
-        return view('admin.slider')->with('sliders', $sliders);
-    }
-    public function tambahSlider(Request $request)
-    {
-        request()->validate([
-            'inputNama' => 'required',
-            'inputDeskripsi' => 'required',
-            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-        ]);
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time().'.'.request()->image->getClientOriginalExtension();
-            request()->image->move(public_path('uploads/slider'), $imageName);
-            $slider = new Slider();
-            $slider->nama = $request->inputNama;
-            $slider->deskripsi = $request->inputDeskripsi;
-            $slider->imageName = $imageName;
-            $slider->status = $request->status;
-            $slider->save();
-        }
-
-        return back()->with('success', 'Slider telah diupload');
-    }
-    public function ubahSlider(Request $request, $id)
-    {
-        request()->validate([
-            'inputUbahNama' => 'required',
-            'inputUbahDeskripsi' => 'required',
-            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-        ]);
-        $slider = Slider::find($id);
-        $slider->nama = $request->inputUbahNama;
-        $slider->deskripsi = $request->inputUbahDeskripsi;
-        $slider->status = $request->inputUbahStatus;
-        if ($request->hasFile('image')) {    
-            $userImage = public_path("uploads/slider/{$slider->imageName}");
-            if(file::exists($userImage)){
-                unlink($userImage);
-            }
-            $image = $request->file('image');
-            $imageName = time().'.'.request()->image->getClientOriginalExtension();
-            request()->image->move(public_path('uploads/slider'), $imageName);
-            $slider->imageName = $imageName;
-        }
-        $slider->save();
-        return back()->with('success', 'Slider telah di Update');
-    }
-    public function hapusSlider ($id)
-    {
-        $slider = Slider::find($id);
-        $userImage = public_path("uploads/slider/{$slider->imageName}");
-            if(file::exists($userImage)){
-                unlink($userImage);
-            }
-        Slider::find($id)->delete($id);
-
-        return response()->json([
-            'success' => "Slider telah dihapus"
-        ]);
-    }
     public function sejarah()
     {
         $sejarah = Sejarah::find(1);
-        return view('admin.sejarah')->with('sejarah', $sejarah);  
+        return view('admin.sejarah')->with('sejarah', $sejarah);
     }
     public function ubahSejarah(Request $request)
     {
         $sejarah = Sejarah::find(1);
         $sejarah->content = $request->inputContent;
         $sejarah->save();
-        
+
         return back()->with('success', 'Sukses');
     }
     public function header()
@@ -216,8 +153,8 @@ class AdministratorController extends Controller
         $ikon = ikon::find(1);
         $ikon->content = $request->inputContent;
         $ikon->save();
-        
-        return back()->with('success', 'Sukses');   
+
+        return back()->with('success', 'Sukses');
     }
     public function user()
     {

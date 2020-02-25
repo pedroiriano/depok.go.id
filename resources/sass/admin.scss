@@ -13,13 +13,14 @@
  // Fonts
 // @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap');
 // @import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:600,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway:600,800&display=swap');
 // Variables
 @import 'variables';
 // @import 'vegas';
 @import '_revolution';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~placeholder-loading/src/scss/placeholder-loading';
 :root {
   --blue: #4e73df;
   --indigo: #6610f2;
@@ -433,7 +434,7 @@ h6, .h6 {
 }
 
 .display-4 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 300;
   line-height: 1.2;
 }
@@ -12308,6 +12309,16 @@ $enable-responsive-font-sizes : true;
 }
 .card-service:hover{
   background-color: #ececec;
+}
+.font-weight-600{
+  font-weight: 600;
+}
+.alink{
+  font-weight: 600;
+  color: rgba(0,0,0,.84);
+}
+.alink:hover{
+  color: rgba(0,0,0,1);
 }
 @media (max-width: 767.98px) {
   .weather{

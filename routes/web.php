@@ -16,7 +16,10 @@
 // });
 Route::get('/', 'BerandaController@index')->name('beranda');
 Route::get('/agenda', 'BerandaController@agenda')->name('agenda');
-Route::get('infografis', 'BerandaController@infografis')->name('infografis');
+Route::get('/pengumuman', 'BerandaController@listPengumuman')->name('list.pengumuman');
+Route::get('/pengumuman/{url}', 'BerandaController@pengumuman')->name('pengumuman');
+Route::get('/infografis', 'BerandaController@infografis')->name('infografis');
+Route::get('/download/{file}', 'DownloadsController@download')->name('download');
 
 // SEKILAS DEPOK
 Route::get('/sejarah', 'BerandaController@sejarah')->name('sejarah');
@@ -50,15 +53,13 @@ Route::get('/rss/berita', 'BerandaController@beritaRSS')->name('rss.berita');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/slider', 'SliderController');
 Route::get('/admin-agenda', 'AdministratorController@agenda')->name('admin.agenda');
 Route::get('/admin-slider', 'AdministratorController@slider')->name('admin.slider');
 Route::post('/tambahAgenda', 'AdministratorController@tambahAgenda')->name('admin.tambahAgenda');
-Route::post('/tambahSlider', 'AdministratorController@tambahSlider')->name('admin.tambahSlider');
 Route::get('/admin-layanan-dsw', 'AdministratorController@layanan')->name('admin.layanan');
 Route::post('/tambah-layanan', 'AdministratorController@tambahLayanan')->name('admin.tambahLayanan');
 Route::post('/ubah-layanan/{id}', 'AdministratorController@ubahLayanan')->name('admin.ubahLayanan');
-Route::post('/ubah-slider/{id}', 'AdministratorController@ubahSlider')->name('admin.ubahSlider');
-Route::delete('/hapus-slider/{id}', 'AdministratorController@hapusSlider')->name('admin.hapusSlider');
 Route::get('/admin-sejarah', 'AdministratorController@sejarah')->name('admin.sejarah');
 Route::post('/ubahSejarah', 'AdministratorController@ubahSejarah')->name('admin.ubahSejarah');
 Route::get('/admin-header', 'AdministratorController@header')->name('admin.header');

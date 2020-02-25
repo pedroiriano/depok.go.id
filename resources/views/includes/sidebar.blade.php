@@ -29,8 +29,8 @@
     </li>
     
     <!-- Nav Item - Slider -->
-    <li class="nav-item {{ Request::is('admin-slider') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.slider') }}">
+    <li class="nav-item {{ Request::is('slider') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('slider.index') }}">
             <i class="fas fa-image"></i>
             <span>Slider</span></a>
     </li>

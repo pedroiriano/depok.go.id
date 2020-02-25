@@ -28,11 +28,12 @@ class BerandaController extends Controller
         $tanggalHijriyah  = \GeniusTS\HijriDate\Date::now()->format('d F Y');
         $tanggal = Carbon::now()->format('d F Y');
         $infografis = Infografis::where('status', 1)->get();
-        $sliders = Slider::where('status', 1)->get();
+        $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
         $categories = Category::with('services')->orderBy('pos', 'asc')->take(12)->get();
         $agendas = Agenda::orderBy('tanggal', 'asc')->get();
+        $popup = Slider::where('popup', 1)->first();
 
-        return view('beranda-new', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah'));
+        return view('beranda-new', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah', 'popup'));
     }
     public function agenda()
     {
@@ -124,6 +125,16 @@ class BerandaController extends Controller
     {
         return view('berita');
     }
+    public function listPengumuman()
+    {
+        $pengumuman = Slider::all();
+        return view('list-pengumuman', compact('pengumuman'));
+    }
+    public function pengumuman($url)
+    {
+        $pengumuman = Slider::where('url', '=', $url)->first();
+        return view('pengumuman', compact('pengumuman'));
+    }
     public function cuacaAPI()
     {
         $cuaca = $this->cuaca();
@@ -149,7 +160,7 @@ class BerandaController extends Controller
             $result[$key]['isi'] = strip_tags($value['body']);
             $result[$key]['link'] = 'https://berita.depok.go.id/' . $value['type'] . '/' . $value['slug'] . '-' . $value['id'];
             $result[$key]['image'] = 'https://berita.depok.go.id/upload/media/posts/' . $value['thumb'] . '-s.jpg';
-            $result[$key]['date'] = Carbon::parse($value['published_at'], 'Asia/Jakarta')->format('d F Y');
+            $result[$key]['date'] = Carbon::parse($value['published_at'], 'Asia/Jakarta')->format('d M, Y');
         }
         return array('berita' => $result);
     }
