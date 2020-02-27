@@ -132,7 +132,7 @@ class BerandaController extends Controller
     }
     public function pengumuman($url)
     {
-        $pengumuman = Slider::where('url', '=', $url)->first();
+        $pengumuman = Slider::where('url', '=', $url)->firstOrFail();
         return view('pengumuman', compact('pengumuman'));
     }
     public function cuacaAPI()
