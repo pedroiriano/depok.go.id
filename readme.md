@@ -7,3 +7,4 @@
 4. Kemudian isikan semua pengaturan yang perlu kamu masukkan, biasanya yang penting adalah pengaturan koneksi database.
 5. Jalankan perintah `php artisan key:generate`
 6. Jalankan perintah `php artisan migrate:refresh --seed`
+7. Jalankan perintah `php artisan storage:link`
