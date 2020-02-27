@@ -1,2 +1,9 @@
 *
+!public/
+!public/uploads/
+!public/uploads/file
+!public/uploads/sliders
+!public/uploads/sliders/dsw.png
+!public/uploads/sliders/puskesmas.png
+!public/uploads/sliders/sigap.png
 !.gitignore

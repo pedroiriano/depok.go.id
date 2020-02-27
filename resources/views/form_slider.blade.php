@@ -61,7 +61,6 @@
                         @isset($slider)
                         <div class="form-group">
                             <img src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="" class="img-thumbnail">
-                            <a href="" type="button" class="btn btn-sm btn-danger mt-1">Hapus gambar</a>
                         </div>
                         @endisset
                         <div class="form-group">
@@ -117,8 +116,9 @@
                         </div>
                         @isset($slider->file)
                         <div class="form-group">
-                            {{ $slider->file }}
-                            <a href="" type="submit" class="btn btn-sm btn-danger">Hapus File</a>
+                            <div class="alert alert-info" role="alert">
+                                <i class="far fa-file"></i>&ensp;{{ $slider->file }}
+                            </div>
                         </div>
                         @endisset
                     </div>
