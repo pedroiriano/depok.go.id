@@ -100,6 +100,7 @@
     <div class="row pt-5">
         <div class="col-12 col-md-5">
             <h4 class="display-5">Pengumuman</h4>
+            <hr>
             @include('includes.carousel')
             @foreach ($sliders as $index => $slider)
             <div class="row @if($index == 0) {{ 'pt-5' }} @endif">
@@ -117,10 +118,11 @@
             </div>
             <hr>
             @endforeach
-            <a href="{{ route('list.pengumuman') }}" class="d-block d-sm-none">Pengumuman Lainnya <i class="fas fa-arrow-right"></i></a>
+            <a href="{{ route('list.pengumuman') }}" class="d-block d-sm-none pb-3">Pengumuman Lainnya <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="col-12 col-md-4">
             <h4 class="display-5">Berita</h4>
+            <hr>
             <div id="berita-wrapper">
                 <div id="berita-loading">
                     @for($i=0; $i<5; $i++)
@@ -141,14 +143,15 @@
                     @endfor
                 </div>
             </div>
-            <div class="d-none d-sm-block d-md-none d-lg-none d-xl-none">
+            <div class="d-sm-block d-md-none d-lg-none d-xl-none">
                 <div class="py-2" id="berita-other-link">
-                    <a href="https://berita.depok.go.id" target="_blank" class="d-block d-sm-none">Berita Lainnya <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://berita.depok.go.id" target="_blank" class="d-block d-sm-none pb-3">Berita Lainnya <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div> 
         </div>
         <div class="col-12 col-md">
             <h4 class="display-5 pb-1">Agenda Kota</h4>
+            <hr>
             <div class="agenda f-14" style="height:600px;overflow: scroll">
                 @foreach ($agendas as $agenda)
                     @if($agenda->tanggal >= Carbon\Carbon::today())
@@ -175,7 +178,7 @@
                     @endif
                 @endforeach
             </div>
-            <a href="{{ route('agenda') }}" class="d-block d-sm-none text-decoration-none">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+            <a href="{{ route('agenda') }}" class="d-block d-sm-none text-decoration-none pb-3">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
     <div class="d-none d-md-block">

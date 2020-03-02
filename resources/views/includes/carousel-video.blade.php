@@ -49,21 +49,19 @@ header .overlay {
 }
 </style>
 
-
-
 <header>
-  <div class="overlay"></div>
+    <div class="overlay"></div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
         <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
     </video>
-  <div class="container h-100">
-    <div class="d-flex h-100 text-center align-items-center">
-      <div class="w-100 text-white">
-        <img src="{{ asset('img/lambang.png') }}" alt="" class="logo-pemkot">
-        <h1 class="display-4" style="z-index: 2; position: relative; color:white; font-size:2.5rem">Selamat Datang di Website
-            Resmi Kota Depok
-        </h1>
-      </div>
+    <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 text-white">
+                <img src="{{ asset('img/lambang.png') }}" alt="" class="logo-pemkot">
+                <h1 class="display-4" style="z-index: 2; position: relative; color:white; font-size:2.5rem">Selamat Datang di Website
+                Resmi Kota Depok
+                </h1>
+            </div>
+        </div>
     </div>
-  </div>
 </header>

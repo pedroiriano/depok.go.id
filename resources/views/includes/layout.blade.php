@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div>
         {{-- <a id="myBtn" class="shadow-lg btn btn-outline-success btn-light rounded btn-lg" style="color:#1cc88a"><i class="far fa-comment-dots"></i>&nbsp; Kirim Pesan</a> --}}
         @include('includes.navbar')
         <main>
