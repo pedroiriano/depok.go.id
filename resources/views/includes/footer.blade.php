@@ -45,6 +45,9 @@
                 <a target="_blank" href="https://www.instagram.com/pemkotdepok/" style="text-decoration: none">
                     <i class="fab fa-instagram" style='font-size:24px;margin-right:30px;'></i>
                 </a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCco0gmWTlN9nsxnlAy-tWFA" style="text-decoration: none">
+                    <i class="fab fa-youtube" style='font-size:24px;margin-right:30px;'></i>
+                </a>
             </div>
         </div>
         <div class="d-none d-md-block">
