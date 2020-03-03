@@ -3,16 +3,16 @@
         <nav class="navbar navbar-expand navbar-dark" style="padding:0;">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fab fa-facebook-square"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
+                    <a href="https://www.facebook.com/PemerintahKotaDepok/" target="_blank" class="nav-link"><i class="fab fa-facebook-square"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fab fa-youtube"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
+                    <a href="https://www.youtube.com/channel/UCco0gmWTlN9nsxnlAy-tWFA" target="_blank" class="nav-link"><i class="fab fa-youtube"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fas fa-phone-alt"></i><span style="padding-left:10px">08111232222 |</span></a>
+                    <a href="tel:08121221221" class="nav-link"><i class="fas fa-phone-alt"></i><span style="padding-left:10px">08121221221 |</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fas fa-envelope"></i><span style="padding-left:10px">portal@depok.go.id |</span></a>
+                    <a href="mailto:portal@depok.go.id" class="nav-link"><i class="fas fa-envelope"></i><span style="padding-left:10px">portal@depok.go.id |</span></a>
                 </li>
             </ul>
         </nav>
@@ -54,10 +54,11 @@
                         <a class="dropdown-item" href="{{ route('visiMisi') }}">Visi & Misi Kota</a>
                         <a class="dropdown-item" href="{{ route('pimpinanDaerah') }}">Pimpinan Daerah</a>
                         <a class="dropdown-item" href="{{ route('strukturDaerah') }}">Struktur Daerah</a>
-                        {{-- <a class="dropdown-item" href="{{ route('perundangundangan') }}">Perundang-Undangan</a> --}}
+                        <a class="dropdown-item" href="{{ route('dinas') }}">Perangkat Daerah</a>
+                        {{-- <a class="dropdown-item" href="{{ route('perundangundangan') }}">Perundang-Undangan</a> --}}                    
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Perangkat Daerah
@@ -68,7 +69,7 @@
                         <a class="dropdown-item" href="{{ route('kecamatan') }}">Kecamatan</a>
                         <a class="dropdown-item" href="{{ route('kelurahan') }}">Kelurahan</a>
                     </div>
-                </li>
+                </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -82,6 +83,20 @@
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/informasi-tentang-hak-dan-tata-cara-memperoleh-informasi-publik/daftar-informasi-publik/">Daftar Info Publik</a>
                     </div>
                 </li>
+                <li>
+                    <section id="section01" class="demo">
+                        <a href="{{ route('layanan') }}" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                        Layanan
+                        </a>
+                    </section>
+                </li>
+             
+                <!-- <li class="nav-item dropdown">
+                    <a href="#layanan" class="nav-link" 
+                        aria-haspopup="true" aria-expanded="false">
+                        Layanan
+                    </a>
+                </li> -->
                 {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
