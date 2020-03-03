@@ -54,6 +54,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/slider', 'SliderController');
+Route::resource('/kategori-dsw', 'CategoryController');
 Route::get('/admin-agenda', 'AdministratorController@agenda')->name('admin.agenda');
 Route::get('/admin-slider', 'AdministratorController@slider')->name('admin.slider');
 Route::post('/tambahAgenda', 'AdministratorController@tambahAgenda')->name('admin.tambahAgenda');
@@ -62,7 +63,7 @@ Route::post('/tambah-layanan', 'AdministratorController@tambahLayanan')->name('a
 Route::post('/ubah-layanan/{id}', 'AdministratorController@ubahLayanan')->name('admin.ubahLayanan');
 Route::get('/admin-sejarah', 'AdministratorController@sejarah')->name('admin.sejarah');
 Route::post('/ubahSejarah', 'AdministratorController@ubahSejarah')->name('admin.ubahSejarah');
-Route::get('/admin-header', 'AdministratorController@header')->name('admin.header');
+// Route::get('/admin-header', 'AdministratorController@header')->name('admin.header');
 Route::post('/ubahHeader', 'AdministratorController@ubahHeader')->name('admin.ubahHeader');
 Route::get('/user', 'AdministratorController@user')->name('admin.user');
 Route::get('/admin-ikon', 'AdministratorController@ikon')->name('admin.ikon');

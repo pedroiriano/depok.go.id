@@ -17,13 +17,13 @@
         </ul>
     </div>
     @endif
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Layanan DSW</h1>
+    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Kategori DSW</h1>
     <button class="btn btn-primary btn-icon-split text-white mb-4" data-toggle="modal"
         data-target="#modalTambahLayanan">
         <span class="icon">
             <i class="fas fa-plus"></i>
         </span>
-        <span class="text">Tambah Layanan</span>
+        <span class="text">Tambah Kategori</span>
     </button>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -72,62 +72,6 @@
                 </table>
                 <div class="text-xs-center">
                     {{ $categories->links() }}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Layanan</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($services as $key=>$service)
-                        <tr>
-                            <td>
-                                {{ $key+1 }}
-                            </td>
-                            <td>
-                                {{ $service->namaservice }}
-                            </td>
-                            <td>
-                                @if ($service->statusservice == 1)
-                                Aktif
-                                @else
-                                Tidak Aktif
-                                @endif
-                            </td>
-                            <td>
-                                <button class="btn btn-success btn-sm btn-icon-split"
-                                    onclick="loadUbahLayanan('{{ $service->namaservice }}', '{{ $service->url }}','{{ $service->statusservice }}', '{{ $service->category->nama }}', '{{ $service->id }}')">
-                                    <span class="icon">
-                                        <i class="fas fa-edit"></i>
-                                    </span>
-                                    <span class="text">Ubah</span>
-                                </button>
-                                <button class="btn btn-danger btn-icon-split btn-sm" id="deleteSlider">
-                                    <span class="icon">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                    <span class="text">Hapus</span>
-                                </button>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <div class="text-xs-center">
-                    {{ $services->links() }}
                 </div>
             </div>
         </div>

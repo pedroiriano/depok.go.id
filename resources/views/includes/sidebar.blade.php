@@ -22,17 +22,25 @@
             <span>Agenda</span></a>
     </li>
     <!-- Nav Item - Layanan DSW -->
-    <li class="nav-item {{ Request::is('admin-layanan-dsw') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.layanan') }}">
-            <i class="fas fa-border-all"></i>
-            <span>Layanan DSW</span></a>
+    <li class="nav-item">
+        <a class="nav-link collapsed {{ Request::is('admin-layanan-dsw') ? 'active' : '' }}" href="#" data-toggle="collapse" data-target="#collapseDSW"
+            aria-expanded="true" aria-controls="collapseDSW">
+            <i class="fas fa-hashtag"></i>
+            <span>DSW</span>
+        </a>
+        <div id="collapseDSW" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Depok Single Window:</h6>
+                <a class="collapse-item {{ Request::is('admin-layanan-dsw') ? 'active' : '' }}" href="{{ route('admin.layanan') }}">Layanan</a>
+                <a class="collapse-item {{ Request::is('kategori-dsw') ? 'active' : '' }}" href="{{ route('kategori-dsw.index') }}">Kategori</a>
+            </div>
+        </div>
     </li>
-    
     <!-- Nav Item - Slider -->
     <li class="nav-item {{ Request::is('slider') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('slider.index') }}">
             <i class="fas fa-image"></i>
-            <span>Slider</span></a>
+            <span>Pengumuman</span></a>
     </li>
 
     <!-- Nav Item - Slider -->
@@ -43,11 +51,11 @@
     </li>
 
     <!-- Nav Item - Slider -->
-    <li class="nav-item {{ Request::is('admin-header') ? 'active' : '' }}">
+    {{-- <li class="nav-item {{ Request::is('admin-header') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.header') }}">
             <i class="fas fa-heading"></i>
             <span>Header top</span></a>
-    </li>
+    </li> --}}
     <!-- Divider -->
     <hr class="sidebar-divider">
 

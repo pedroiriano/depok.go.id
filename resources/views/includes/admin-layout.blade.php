@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>Pemerintah Kota Depok</title>
+        <title>Portal Resmi Pemerintah Kota Depok</title>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
         <!-- Fonts -->
