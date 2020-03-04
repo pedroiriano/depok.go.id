@@ -33,5 +33,18 @@
         @include('includes.footer')
     </div>
 </body>
+
+
+    <!-- Untuk Analytics Google : Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-17742526-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-17742526-4');
+</script>
+
+
     @yield('js')
 </html>
