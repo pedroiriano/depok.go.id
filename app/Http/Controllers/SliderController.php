@@ -59,12 +59,7 @@ class SliderController extends Controller
             $image = $request->file('image');
             $imageName = 'slider-'.\Carbon\Carbon::now()->format('Y-m-dH:i:s') . '.' . $image->getClientOriginalExtension();
             $path = $image->storeAs('public/uploads/sliders', $imageName);
-            if ($request->hasFile('file')) {
-                $file = $request->file('file');
-                $opd = OPD::find($request->opd);
-                $fileName = $opd->nama .'-'. $file->getClientOriginalName();
-                $pathFile = $file->storeAs('public/uploads/file', $fileName);
-            }
+
             $slider = new Slider();
             $slider->nama = $request->nama;
             $slider->deskripsi = $request->deskripsi;
@@ -75,7 +70,13 @@ class SliderController extends Controller
             $slider->popup = intval($request->popup);
             $slider->url = str_slug($request->nama);
             $slider->imageName = $imageName;
-            $slider->file = $fileName;
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $opd = OPD::find($request->opd);
+                $fileName = $opd->nama .'-'. $file->getClientOriginalName();
+                $pathFile = $file->storeAs('public/uploads/file', $fileName);
+                $slider->file = $fileName;
+            }
             $slider->status = $request->status;
             $slider->save();
 

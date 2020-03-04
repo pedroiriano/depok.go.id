@@ -178,7 +178,7 @@
                     @endif
                 @endforeach
             </div>
-            <a href="{{ route('agenda') }}" class="d-block d-sm-none text-decoration-none pb-3">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+            <a href="{{ route('list.agenda-kota') }}" class="d-block d-sm-none text-decoration-none pb-3">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
     <div class="d-none d-md-block">
@@ -190,7 +190,7 @@
                 <a href="https://berita.depok.go.id" target="_blank" class="text-decoration-none">Berita Lainnya <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="col">
-                <a href="{{ route('agenda') }}" class="text-decoration-none">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+                <a href="{{ route('list.agenda-kota') }}" class="text-decoration-none">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
