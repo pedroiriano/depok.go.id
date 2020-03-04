@@ -41,7 +41,7 @@ header .overlay {
 
 @media (pointer: coarse) and (hover: none) {
   header {
-    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+    background: url('https://depok.go.id/img/depok.jpeg') black no-repeat center center scroll;
   }
   header video {
     display: none;
