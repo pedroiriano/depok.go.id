@@ -8,3 +8,4 @@
 5. Jalankan perintah `php artisan key:generate`
 6. Jalankan perintah `php artisan migrate:refresh --seed`
 7. Jalankan perintah `php artisan storage:link`
+8. OK
