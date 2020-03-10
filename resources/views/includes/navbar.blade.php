@@ -9,7 +9,7 @@
                     <a href="https://www.youtube.com/channel/UCco0gmWTlN9nsxnlAy-tWFA" target="_blank" class="nav-link"><i class="fab fa-youtube"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="tel:08121221221" class="nav-link"><i class="fas fa-phone-alt"></i><span style="padding-left:10px">08121221221 |</span></a>
+                    <a href="tel:112" class="nav-link"><i class="fas fa-phone-alt"></i><span style="padding-left:10px">112 |</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="mailto:portal@depok.go.id" class="nav-link"><i class="fas fa-envelope"></i><span style="padding-left:10px">portal@depok.go.id |</span></a>
