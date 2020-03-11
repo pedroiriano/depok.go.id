@@ -356,7 +356,7 @@
                 });
             },
             error: function(xhr){
-                alert(xhr.status);
+            
             }
         });
 
