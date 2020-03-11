@@ -326,10 +326,12 @@
         $.ajax({
             url: '/api/youtube',
             success: function(data){
+                console.log("tes");
+                console.log(data);
                 $('#youtube-frame').removeClass('d-none');
-                $('.embed-responsive-item').attr('src', 'https://www.youtube.com/embed/'+ data.youtube[0].id.videoId +'?rel=0"');
+                $('.embed-responsive-item').attr('src', 'https://www.youtube.com/embed/'+ data[0].id.videoId +'?rel=0"');
                 youtubeFrame = 'youtube-frame';
-                $.each(data.youtube, function(index, item){
+                $.each(data, function(index, item){
                     // let formatted_date = item.snippet.publishedAt.getFullYear() + "-" + (item.snippet.publishedAt.getMonth() + 1) + "-" + item.snippet.publishedAt.getDate()
                     var date =new Date(item.snippet.publishedAt);
                     var linkYoutube = 'https://www.youtube.com/embed/';
@@ -353,8 +355,8 @@
                     $('#youtube-loading').addClass('d-none');
                 });
             },
-            error: function(){
-
+            error: function(xhr){
+                alert(xhr.status);
             }
         });
 

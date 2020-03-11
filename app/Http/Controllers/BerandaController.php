@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Alaouy\Youtube\Facades\Youtube;
 use FeedReader;
@@ -37,7 +40,7 @@ class BerandaController extends Controller
     }
     public function agenda()
     {
-        $agendas = Agenda::all();
+        $agendas = Agenda::orderBy('created_at', 'desc')->get();
         return view('agenda', compact('agendas'));
     }
     public function sejarah()
@@ -138,6 +141,7 @@ class BerandaController extends Controller
     public function cuacaAPI()
     {
         $cuaca = $this->cuaca();
+        return $cuaca;
         $suhu['temperature_hariini']        = $this->celcius($cuaca['temperature_current']);
         $suhu['temperature_besok_rendah']   = $this->celcius($cuaca['temperature_besok_rendah']);
         $suhu['temperature_besok_tinggi']   = $this->celcius($cuaca['temperature_besok_tinggi']);
@@ -166,8 +170,26 @@ class BerandaController extends Controller
     }
     public function youtubeAPI()
     {
-        $youtube = Youtube::listChannelVideos('UCco0gmWTlN9nsxnlAy-tWFA', 5, "date");
-        return array('youtube' => $youtube);
+        try {
+            $youtube = Youtube::listChannelVideos('UCco0gmWTlN9nsxnlAy-tWFA', 5, "date");
+
+            Storage::put('youtube.json', json_encode($youtube));
+
+            return response()->json($youtube);
+
+        } catch (Exception $e) {
+            if (Str::startsWith($e->getMessage(), 'Error 403 Daily Limit Exceeded')) {
+                // Get Cache or return custom response
+                if (Storage::exists('youtube.json')) {
+                    return response(Storage::get('youtube.json'))->header('Content-Type', 'application/json');
+                }
+
+                return ['errors' => 'API Limit Reached'];
+            }
+
+            throw $e;
+
+        }
     }
     public function beritaRSS()
     {
