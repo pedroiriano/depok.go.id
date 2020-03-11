@@ -178,7 +178,7 @@ class BerandaController extends Controller
             return response()->json($youtube);
 
         } catch (Exception $e) {
-            if (Str::startsWith($e->getMessage(), 'Error 403 Daily Limit Exceeded')) {
+            if (Str::startsWith($e->getMessage(), 'Error 403')) {
                 // Get Cache or return custom response
                 if (Storage::exists('youtube.json')) {
                     return response(Storage::get('youtube.json'))->header('Content-Type', 'application/json');
