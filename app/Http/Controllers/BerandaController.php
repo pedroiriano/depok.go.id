@@ -34,7 +34,7 @@ class BerandaController extends Controller
         $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
         $categories = Category::with('services')->orderBy('pos', 'asc')->take(12)->get();
         $agendas = Agenda::orderBy('tanggal', 'asc')->get();
-        $popup = Slider::where('popup', 1)->first();
+        $popup = Slider::where('popup', 1)->latest()->first();
 
         return view('beranda-new', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah', 'popup'));
     }

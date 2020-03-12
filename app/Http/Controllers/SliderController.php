@@ -22,7 +22,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::orderBy('status', 'DESC')->get();
+        $sliders = Slider::orderBy('created_at', 'DESC')->get();
         return view('admin.slider')->with('sliders', $sliders);
     }
 
@@ -134,6 +134,7 @@ class SliderController extends Controller
         $slider->sumber = $request->opd;
         if ($request->popup == "1") {
             DB::table('sliders')->update(['popup' => 0]);
+            DB::table('sliders')->where('id', 3)->update(['popup' => 1]);
         }
         $slider->popup = intval($request->popup);
         $slider->url = str_slug($request->nama);

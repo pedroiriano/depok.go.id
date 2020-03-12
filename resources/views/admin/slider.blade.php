@@ -30,14 +30,14 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th style="width: 5%">No</th>
                             <th>Nama</th>
                             <th>OPD</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th style="width: 8%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,22 +54,28 @@
                             </td>
                             <td>
                                 @if ($slider->status == 1)
-                                Aktif
+                                <span class="badge badge-pill badge-success">Aktif</span>
                                 @else
+                                <span class="badge badge-pill badge-danger">Tidak Aktif</span>
                                 Tidak Aktif
                                 @endif
                             </td>
                             <td>
                                 <div class="btn-group btn-group-sm" role="group">
-                                    <a class="btn btn-sm btn-success float-left" href="{{ route('slider.edit', $slider->id) }}">
+                                    <a class="btn btn-sm btn-success float-left rounded-0" href="{{ route('slider.edit', $slider->id) }}">
                                         <span class="icon">
                                             <i class="fas fa-edit"></i>
                                         </span>
                                     </a>
+                                    <button type="button" class="btn btn-sm btn-primary rounded-0">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
                                     <form action="{{ route("slider.destroy", $slider->id) }}" method="POST" class="form-inline">
                                         @method('DELETE')
                                         @csrf
-                                        <button class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')" style=""><i class="fa fa-trash"></i></button>
+                                        @unless($slider->id == 3)
+                                        <button class="btn btn-sm btn-danger rounded-0" onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')" style=""><i class="fa fa-trash"></i></button>
+                                        @endunless
                                     </form>
                                 </div>
                             </td>

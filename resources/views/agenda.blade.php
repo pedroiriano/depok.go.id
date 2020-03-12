@@ -17,6 +17,7 @@
                   {{ $agenda->nama }}    
                </h5>
                <p class="lead"> Tanggal: {{ $agenda->tanggal }} </p>
+               <p class="lead"> Tempat: {{ $agenda->tempat }} </p>
                <p class="lead"> Sumber: {{ $agenda->sumber }} </p>
             </div>
          </div>
