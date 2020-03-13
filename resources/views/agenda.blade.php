@@ -10,7 +10,12 @@
          @foreach ($agendas as $agenda)
          <div class="row mb-3">
             <div class="col-2">
+            @if ($agenda->imageName == null)
+            <?php $imageName="noimage.png"; ?>
+            <img src="{{ asset('uploads/agenda/'.$agenda->imageName.$imageName) }}" alt="" class="img-fluid">
+            @else
             <img src="{{ asset('uploads/agenda/'.$agenda->imageName) }}" alt="" class="img-fluid">
+            @endif
             </div>
             <div class="col">
                <h5 class="h5">
@@ -26,5 +31,4 @@
 </div>
    </div>
 </div>
-
 @endsection
