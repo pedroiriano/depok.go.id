@@ -308,15 +308,15 @@
         $.ajax({
             url: '/api/cuaca',
             success: function(data) {
-                $('#suhuHariIni').html(data.suhu.temperature_hariini + '&deg;C');
-                $('#suhuBesok').html(data.suhu.temperature_besok_rendah +' - '+ data.suhu.temperature_besok_tinggi + '&deg;C');
-                $('#suhuLusa').html(data.suhu.temperature_lusa_rendah +' - '+ data.suhu.temperature_lusa_tinggi + '&deg;C');
+                $('#suhuHariIni').html(data.temperature_current + '&deg;C');
+                $('#suhuBesok').html(data.temperature_besok_rendah +' - '+ data.temperature_besok_tinggi + '&deg;C');
+                $('#suhuLusa').html(data.temperature_lusa_rendah +' - '+ data.temperature_lusa_tinggi + '&deg;C');
                 $('#iconSuhuHariIni').removeClass('fa-cloud');
                 $('#iconSuhuBesok').removeClass('fa-cloud');
                 $('#iconSuhuLusa').removeClass('fa-cloud');
-                $('#iconSuhuHariIni').addClass(data.suhu.icon_cuaca.hari_ini);
-                $('#iconSuhuBesok').addClass(data.suhu.icon_cuaca.besok);
-                $('#iconSuhuLusa').addClass(data.suhu.icon_cuaca.lusa);
+                $('#iconSuhuHariIni').addClass(data.icon.hari_ini);
+                $('#iconSuhuBesok').addClass(data.icon.besok);
+                $('#iconSuhuLusa').addClass(data.icon.lusa);
 
             },
             error: function(){
@@ -326,8 +326,6 @@
         $.ajax({
             url: '/api/youtube',
             success: function(data){
-                console.log("tes");
-                console.log(data);
                 $('#youtube-frame').removeClass('d-none');
                 $('.embed-responsive-item').attr('src', 'https://www.youtube.com/embed/'+ data[0].id.videoId +'?rel=0"');
                 youtubeFrame = 'youtube-frame';

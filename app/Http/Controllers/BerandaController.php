@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use FeedReader;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-use Carbon\Carbon;
+use Illuminate\Http\Response;
 use Alaouy\Youtube\Facades\Youtube;
-use FeedReader;
 use GuzzleHttp\Exception\RequestException;
 use App\Agenda;
 use App\Sejarah;
@@ -207,44 +208,46 @@ class BerandaController extends Controller
     }
     //=========================================================================//
     //GET API CUACA DRAKSKY UNTUK DIKIRIM KE INDEX
-    public function cuaca() {
+    public function cuaca()
+    {
         $coordinates = '-6.3944475, 106.8213664';
+        $api_url = 'https://api.darksky.net/forecast/760b82e261c5be16214234e316b05fd8/' . $coordinates;
 
-        $api_url = 'https://api.darksky.net/forecast/81d686a66f2b78515e71aab6652e47ad/' . $coordinates;
         try {
             $forecast = json_decode(file_get_contents($api_url));
-        } catch (Exception $e) {
-            $result = [
-                'temperature_current' => 0,
-                'temperature_besok_rendah' => 0,
-                'temperature_besok_tinggi' => 0,
-                'temperature_lusa_tinggi' => 0,
-                'temperature_lusa_rendah' => 0,
-                'icon' => ['hari_ini' => '', 'besok' => '', 'lusa' => ''],
-            ];
+            Storage::put('cuaca.json', json_encode($forecast));
+        } catch (exception $e) {
+            if(Str::contains($e->getMessage(), ['403', 'Forbidden'])){
+                // Get Cache or return custom response
+                if (!Storage::exists('cuaca.json')) {
+                    return ['errors' => 'API Limit Reached'];
+                }
+                $forecast = json_decode(Storage::get('cuaca.json'));
+            }
         }
-
         if ($forecast) {
             $temperature_current                = round($forecast->currently->temperature);
-            $icon['hari_ini']                   = $forecast->currently->icon;
-            $icon['besok']                      = $forecast->daily->data[1]->icon;
-            $icon['lusa']                       = $forecast->daily->data[2]->icon;
-            $result['temperature_current']      = $temperature_current;
-            $result['temperature_besok_rendah'] = $forecast->daily->data[1]->temperatureLow;
-            $result['temperature_besok_tinggi'] = $forecast->daily->data[1]->temperatureHigh;
-            $result['temperature_lusa_tinggi']  = $forecast->daily->data[2]->temperatureHigh;
-            $result['temperature_lusa_rendah']  = $forecast->daily->data[2]->temperatureLow;
+            $icon['hari_ini']                   = $this->get_icon($forecast->currently->icon);
+            $icon['besok']                      = $this->get_icon($forecast->daily->data[1]->icon);
+            $icon['lusa']                       = $this->get_icon($forecast->daily->data[2]->icon);
+            $result['temperature_current']      = $this->celcius($temperature_current);
+            $result['temperature_besok_rendah'] = $this->celcius($forecast->daily->data[1]->temperatureLow);
+            $result['temperature_besok_tinggi'] = $this->celcius($forecast->daily->data[1]->temperatureHigh);
+            $result['temperature_lusa_tinggi']  = $this->celcius($forecast->daily->data[2]->temperatureHigh);
+            $result['temperature_lusa_rendah']  = $this->celcius($forecast->daily->data[2]->temperatureLow);
             $result['icon'] = $icon;
         }
 
         return $result;
     }
     //MENGHITUNG SUHU DALAM CELCIUS
-    public function celcius($temperature_current) {
+    public function celcius($temperature_current)
+    {
         return round(($temperature_current - 32) * .5556);
     }
     //SETTING ICON CUACA SESUAI DENGAN DATA DARI API
-    public function get_icon($icon) {
+    public function get_icon($icon)
+    {
         if ($icon === 'clear-day')
         {
             $the_icon = 'fas fa-cloud-sun';
@@ -300,6 +303,4 @@ class BerandaController extends Controller
             $the_icon = 'fas fa-cloud';
         }
     }
-    //=========================================================================//
 }
-
