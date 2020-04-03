@@ -7,7 +7,7 @@
             <h1 class="display-4">{{ $pengumuman->nama }}</h1>
             <h5 class="h6 text-muted pb-4">Sumber: {{ $pengumuman->opd->nama }}</h5>
          </div>
-         <div class="col-10">
+         <div class="col-10 text-center">
             <img src="{{ asset('storage/uploads/sliders/'.$pengumuman->imageName) }}" alt="" class="img-fluid rounded">
          </div>
          <div class="col-8 pt-5">

@@ -83,31 +83,16 @@
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/informasi-tentang-hak-dan-tata-cara-memperoleh-informasi-publik/daftar-informasi-publik/">Daftar Info Publik</a>
                     </div>
                 </li>
-                <li>
-                    <section id="section01" class="demo">
-                        <a href="{{ route('layanan') }}" class="nav-link" aria-haspopup="true" aria-expanded="false">
-                        Layanan
-                        </a>
-                    </section>
+                <li class="nav-item">
+                    <a href="{{ route('layanan') }}" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                    Layanan
+                    </a>
                 </li>
-             
-                <!-- <li class="nav-item dropdown">
-                    <a href="#layanan" class="nav-link" 
-                        aria-haspopup="true" aria-expanded="false">
-                        Layanan
+                <li class="nav-item">
+                    <a target="_blank" href="http://ccc-19.depok.go.id" class="btn btn-outline-danger" aria-haspopup="true" aria-expanded="false">
+                    Informasi COVID-19
                     </a>
-                </li> -->
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Transparansi
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">LPSE</a>
-                        <a class="dropdown-item" href="#">SIRUP</a>
-                        <a class="dropdown-item" href="#">MONEV</a>
-                    </div>
-                </li> --}}
+                </li>
             </ul>
         </div>
     </div>
