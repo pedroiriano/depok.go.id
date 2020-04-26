@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Agenda;
+use App\OPD;
 use Illuminate\Http\Request;
 
 class AgendaController extends Controller
@@ -18,7 +19,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        $agendas = Agenda::all();
+        $agendas = Agenda::orderBy('created_at', 'DESC')->get();
         return view('admin.agenda')->with('agendas', $agendas);
     }
 
@@ -29,7 +30,8 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        //
+        $opd = OPD::all();
+        return view('admin.form_agenda', compact('opd'));
     }
 
     /**
@@ -40,7 +42,38 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'nama' => 'required',
+                'opd' => 'required',
+                'status' => 'required',
+                'tempat' => 'required',
+                'tanggal' => 'required|date',
+                'image' => 'mimes:jpg,png,jpeg|max:2048',
+            ]
+        );
+
+        try {
+            $agenda = new Agenda();
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() .'.'.request()->image->getClientOriginalExtension();
+                request()->image->move(public_path('uploads/agenda'), $imageName);
+            } else{
+                $imageName = "no-image";
+            }
+            $agenda->nama = $request->nama;
+            $agenda->tanggal = $request->tanggal;
+            $agenda->sumber = $request->opd;
+            $agenda->status = $request->status;
+            $agenda->imageName = $imageName;
+            $agenda->tempat = $request->tempat;
+            $agenda->save();
+
+            return back()->with('success', 'Agenda telah diupload');
+        } catch (Exception $e) {
+            return back()->withInput()->with('failed', 'Data gagal ditambah');
+        }
     }
 
     /**

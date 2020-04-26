@@ -27,57 +27,6 @@
     </button>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Kategori</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Position</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($categories as $key=>$category)
-                        <tr>
-                            <td>
-                                {{ $key+1 }}
-                            </td>
-                            <td>
-                                {{ $category->nama }}
-                            </td>
-                            <td>
-                                {{ $category->pos }}
-                            </td>
-                            <td>
-                                <button class="btn btn-success btn-sm btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-edit"></i>
-                                    </span>
-                                    <span class="text">Ubah</span>
-                                </button>
-                                <button class="btn btn-danger btn-icon-split btn-sm" id="deleteSlider">
-                                    <span class="icon">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                    <span class="text">Hapus</span>
-                                </button>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <div class="text-xs-center">
-                    {{ $categories->links() }}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Daftar Layanan</h6>
         </div>
         <div class="card-body">

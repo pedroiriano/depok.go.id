@@ -18,7 +18,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(5);
+        $categories = Category::paginate(10);
         return view('admin.kategori', compact('categories'));
     }
 
@@ -29,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.form_kategori');
     }
 
     /**
@@ -40,7 +40,37 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
+        request()->validate([
+            'nama' => 'required',
+            'status' => 'required',
+            'tooltip' => 'required',
+            'posisi' => 'required',
+            'icon' => 'required|image|mimes:jpg,png,jpeg|max:128',
+        ]);
+        if ($request->hasFile('icon')) {
+            $image = $request->file('icon');
+            $category = new Category();
+            $category->nama = $request->nama;
+            $category->tooltip = $request->tooltip;
+            $category->status = $request->status;
+            if ($request->status == '0') {
+                $category->pos = 99;
+            }else{
+                if ($request->posisi == '0') {
+                    $category->pos = 99;
+                }else{
+                    $othercategory = category::where('pos', $request->posisi)->update(['pos' => 99]);
+                    $category->pos = $request->posisi;
+                }
+            }
+            $imageName = $category->nama.'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('img/icon'), $imageName);
+            $category->icon = $imageName;
+            $category->save();
+        }
+
+        return back()->with('success', 'Kategori '. $category->nama .'telah berhasil ditambahkan');
     }
 
     /**

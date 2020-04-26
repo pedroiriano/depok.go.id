@@ -14,13 +14,13 @@ class InfografisTableSeeder extends Seeder
         DB::table('infografis')->insert([
         [
             'nama' => 'Renovasi Dua Kantor Kecamatan',
-            'sumber' => 'Dinas Perumahan dan Permukiman Kota Depok',
+            'sumber' => '6',
             'ImageName' => '1.jpeg',
             'status' => 1,
         ],
         [
             'nama' => '215 IKM Tersertifikasi',
-            'sumber' => 'Dinas Perdagangan dan Perindustrian Kota Depok',
+            'sumber' => '6',
             'ImageName' => '2.jpeg',
             'status' => 1,
         ],

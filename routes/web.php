@@ -20,6 +20,9 @@ Route::get('/pengumuman', 'BerandaController@listPengumuman')->name('list.pengum
 Route::get('/pengumuman/{url}', 'BerandaController@pengumuman')->name('pengumuman');
 Route::get('/infografis', 'BerandaController@infografis')->name('infografis');
 Route::get('/download/{file}', 'DownloadsController@download')->name('download');
+//Pendaftaran PDAM
+Route::get('/pendaftaran-direksi-pdam/berhasil', 'PendaftaranController@success')->name('pendaftaran.success');
+Route::resource('/pendaftaran-direksi-pdam', 'PendaftaranController');
 
 // SEKILAS DEPOK
 Route::get('/sejarah', 'BerandaController@sejarah')->name('sejarah');
@@ -55,9 +58,10 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('/slider', 'SliderController');
-    Route::resource('/kategori-dsw', 'CategoryController');
-    Route::resource('/agenda', 'AgendaController');
-    Route::get('/admin-agenda', 'AdministratorController@agenda')->name('admin.agenda');
+    Route::resource('/admin-kategori-dsw', 'CategoryController');
+    Route::resource('/admin-agenda', 'AgendaController');
+    Route::resource('/admin-infografis', 'InfografisController', ['parameters' => ['admin-infografis' => 'infografis']]);
+    // Route::get('/admin-agenda', 'AdministratorController@agenda')->name('admin.agenda');
     Route::get('/admin-slider', 'AdministratorController@slider')->name('admin.slider');
     Route::post('/tambahAgenda', 'AdministratorController@tambahAgenda')->name('admin.tambahAgenda');
     Route::get('/admin-layanan-dsw', 'AdministratorController@layanan')->name('admin.layanan');

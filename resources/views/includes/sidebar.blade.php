@@ -17,7 +17,7 @@
     </li>
     <!-- Nav Item - Agenda -->
     <li class="nav-item {{ Request::is('admin-agenda') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.agenda') }}">
+        <a class="nav-link" href="{{ route('admin-agenda.index') }}">
             <i class="fas fa-calendar-alt"></i>
             <span>Agenda</span></a>
     </li>
@@ -32,30 +32,37 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Depok Single Window:</h6>
                 <a class="collapse-item {{ Request::is('admin-layanan-dsw') ? 'active' : '' }}" href="{{ route('admin.layanan') }}">Layanan</a>
-                <a class="collapse-item {{ Request::is('kategori-dsw') ? 'active' : '' }}" href="{{ route('kategori-dsw.index') }}">Kategori</a>
+                <a class="collapse-item {{ Request::is('admin-kategori-dsw') ? 'active' : '' }}" href="{{ route('admin-kategori-dsw.index') }}">Kategori</a>
             </div>
         </div>
     </li>
-    <!-- Nav Item - Slider -->
+    <!-- Nav Item - Pengumuman -->
     <li class="nav-item {{ Request::is('slider') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('slider.index') }}">
-            <i class="fas fa-image"></i>
+            <i class="fas fa-images"></i>
             <span>Pengumuman</span></a>
     </li>
+    <!-- Nav Item - Infografis -->
+    <li class="nav-item {{ Request::is('admin-infografis') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin-infografis.index') }}">
+            <i class="fas fa-image"></i>
+            <span>Infografis</span></a>
+    </li>
 
-    <!-- Nav Item - Slider -->
+    <!-- Nav Item - User -->
     <li class="nav-item {{ Request::is('user') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.user') }}">
             <i class="fas fa-user"></i>
             <span>User</span></a>
     </li>
-
-    <!-- Nav Item - Slider -->
-    {{-- <li class="nav-item {{ Request::is('admin-header') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.header') }}">
-            <i class="fas fa-heading"></i>
-            <span>Header top</span></a>
-    </li> --}}
+    
+    <!-- Nav Item - PDAM -->
+    <li class="nav-item">
+        <a class="nav-link">
+            <i class="fas fa-tint"></i>
+            <span>Pendaftaran PDAM</span></a>
+    </li>
+    
     <!-- Divider -->
     <hr class="sidebar-divider">
 

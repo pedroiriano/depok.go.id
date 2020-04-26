@@ -1,10 +1,10 @@
 @extends('includes.admin-layout')
 @section('content')
 <div class="container-fluid">
-    @empty($agenda)
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Tambah Agenda</h1>
+    @empty($infografis)
+    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Tambah Infografis</h1>
     @else
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Ubah Agenda</h1>
+    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Ubah Infografis</h1>
     @endempty
     
     @if ($message = Session::get('success'))
@@ -28,18 +28,18 @@
     @endif
 
     <div class="card shadow mb-4">
-        <div class="card-header">Agenda</div>
+        <div class="card-header">Infografis</div>
         <div class="card-body">
-            <form role="form" method="POST" action="{{ empty($agenda) ? route('admin-agenda.store') : route('admin-agenda.update', $agenda->id) }}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{ empty($infografis) ? route('admin-infografis.store') : route('admin-infografis.update', $infografis->id) }}" enctype="multipart/form-data">
                 @csrf
-                @isset($agenda)
+                @isset($infografis)
                     {{ method_field('PATCH') }}
                 @endisset
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="nama">Nama Kegiatan</label>
-                            <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukkan Nama Kegiatan" value="{{ old('nama', $agenda->nama ?? '') }}">
+                            <label for="nama">Judul Infografis</label>
+                            <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukkan Judul Infografis" value="{{ old('nama', $infografis->nama ?? '') }}">
                             @error('nama')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -47,19 +47,10 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                        <label for="tanggal">Tanggal</label>
-                            <input type="date" name="tanggal" max="2100-12-31" min="1900-01-01" id="date" class="form-control @error('tanggal') is-invalid @enderror" data-provide="datepicker">
-                            @error('tanggal')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Upload Gambar Banner</label>
+                            <label for="image">Upload Infografis</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="image" name="image" value="tes">
-                                <label class="custom-file-label" for="image">Pilih gambar</label>
+                                <label class="custom-file-label" for="image">Pilih Infografis</label>
                                 @error('image')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -67,9 +58,9 @@
                                 @enderror
                             </div>
                         </div>
-                        @isset($agenda)
+                        @isset($infografis)
                         <div class="form-group">
-                            <img src="{{ asset('storage/uploads/agendas/'.$agenda->imageName) }}" alt="" class="img-thumbnail">
+                            <img src="{{ asset('storage/uploads/infografis/'.$infografis->imageName) }}" alt="" class="img-thumbnail">
                         </div>
                         @endisset
                         <div class="form-group">
@@ -91,19 +82,10 @@
                             <select class="custom-select @error('opd') is-invalid @enderror" name="opd" id="opd">
                                 <option selected disabled="disabled">Pilih OPD</option>
                                 @foreach($opd as $data)
-                                    <option value="{{ $data->id }}" @if (old('opd', $agenda->sumber ?? '') == $data->id) selected @endif>{{ $data->nama }}</option>
+                                    <option value="{{ $data->id }}" @if (old('opd', $infografis->sumber ?? '') == $data->id) selected @endif>{{ $data->nama }}</option>
                                 @endforeach
                             </select>
                             @error('opd')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="tempat">Tempat</label>
-                            <input type="text" name="tempat" id="tempat" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukkan Nama Tempat" value="{{ old('tempat', $agenda->tempat ?? '') }}">
-                            @error('tempat')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -114,14 +96,13 @@
             </div>     
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{ route('admin-agenda.index') }}" class="btn btn-outline-secondary">Kembali</a>
+                <a href="{{ route('admin-infografis.index') }}" class="btn btn-outline-secondary">Kembali</a>
             </div>
         </form>
     </div>
 </div>
 @endsection
 @section('js')
-<script src="{{ asset('node_modules/tinymce/tinymce.min.js') }}"></script>
 <script type="text/javascript">
     $('#image, #file').on('change',function(e){
         var fileName = e.target.files[0].name;;

@@ -11,7 +11,7 @@
 				<center>
 				<img src="{{ asset('uploads/infografis/'.$info->imageName) }}" alt="" class="img-fluid">
 				</center>
-				<h6 class="h6">Sumber: {{ $info->sumber }}</h6>
+				<h6 class="h6">Sumber: {{ $info->opd->nama }}</h6>
 			</div>
 		</div>
 	</div>

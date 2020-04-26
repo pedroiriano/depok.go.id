@@ -145,6 +145,18 @@ return [
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        'no_kk' => 'Kartu Keluarga',
+        'nik' => 'NIK',
+        'email' => 'Email',
+        'kecamatan' => 'Kecamatan',
+        'kelurahan' => 'Kelurahan',
+        'nama' => 'Nama',
+        'handphone' => 'Nomor Handphone',
+        'alamat' => 'Alamat',
+        'rt' => 'RT',
+        'rw' => 'RW',
+        'sertifikat' => 'Sertifikat',
+        'surat_lamaran' => 'Surat Lamaran',
+    ],
 ];

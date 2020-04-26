@@ -29,15 +29,14 @@ class BerandaController extends Controller
      */
     public function index()
     {
-        $tanggalHijriyah  = \GeniusTS\HijriDate\Date::now()->format('d F Y');
         $tanggal = Carbon::now()->format('d F Y');
-        $infografis = Infografis::where('status', 1)->get();
+        $infografis = Infografis::where('status', 1)->orderBy('created_at', 'desc')->take(2)->get();
         $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
         $categories = Category::with('services')->orderBy('pos', 'asc')->take(12)->get();
         $agendas = Agenda::orderBy('tanggal', 'asc')->get();
         $popup = Slider::where('popup', 1)->latest()->first();
 
-        return view('beranda-new', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah', 'popup'));
+        return view('beranda-new', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'popup'));
     }
     public function agenda()
     {
@@ -117,7 +116,7 @@ class BerandaController extends Controller
     }
     public function infografis()
     {
-        $infografis = Infografis::where('status', 1)->get();
+        $infografis = Infografis::where('status', 1)->orderBy('created_at', 'desc')->get();
         return view('infografis', compact('infografis'));
     }
     public function agendaAPI()
@@ -131,7 +130,7 @@ class BerandaController extends Controller
     }
     public function listPengumuman()
     {
-        $pengumuman = Slider::all();
+        $pengumuman = Slider::where('status', 1)->orderBy('created_at', 'desc')->get();
         return view('list-pengumuman', compact('pengumuman'));
     }
     public function pengumuman($url)
