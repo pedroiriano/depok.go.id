@@ -132,13 +132,13 @@ class SliderController extends Controller
         $slider->nama = $request->nama;
         $slider->deskripsi = $request->deskripsi;
         $slider->sumber = $request->opd;
-        if ($request->popup == "1") {
+        if ($request->popup == "0") {
             DB::table('sliders')->update(['popup' => 0]);
             DB::table('sliders')->where('id', 3)->update(['popup' => 1]);
         }
         $slider->popup = intval($request->popup);
-        $slider->url = str_slug($request->nama);
         $slider->status = $request->status;
+        $request->status == "1" ? $slider->url = str_slug($request->nama) : $slider->url = str_slug($request->nama)."-disabled";
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');

@@ -8,7 +8,15 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
+    <!-- Nav Item - PDAM -->
+    @auth()
+    <li class="nav-item {{ Request::is('pendaftaran-pdam') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('pendaftaran.pdam') }}">
+            <i class="fas fa-tint"></i>
+            <span>Pendaftaran PDAM</span></a>
+    </li>
+    @endauth
+    @if(Auth::user()->email == 'admin@depok.go.id')
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
@@ -55,17 +63,8 @@
             <i class="fas fa-user"></i>
             <span>User</span></a>
     </li>
-    
-    <!-- Nav Item - PDAM -->
-    <li class="nav-item">
-        <a class="nav-link">
-            <i class="fas fa-tint"></i>
-            <span>Pendaftaran PDAM</span></a>
-    </li>
-    
     <!-- Divider -->
     <hr class="sidebar-divider">
-
     <!-- Heading -->
     <div class="sidebar-heading">
         HALAMAN
@@ -149,6 +148,7 @@
             </div>
         </div>
     </li>
+    @endif
     <!-- Divider -->
     <hr class="sidebar-divider">
 

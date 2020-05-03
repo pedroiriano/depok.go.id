@@ -255,11 +255,11 @@
 <div class="modal" tabindex="-1" role="dialog" id="pengumuman-modal">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="card bg-light" style="border:none">
-                <img class="card-img-top" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Pengumuman Banner">
+            <div class="card bg-light rounded" style="border:none">
+                <a href="{{ route('pengumuman', $popup->url) }}">  
+                    <img class="card-img-top" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Pengumuman Banner">
+                </a>
                 <div class="card-body">
-                    <h5 class="h5 font-weight-bold">{{ $popup->nama }}</h5>
-                    <p class="card-text">{!! substr($popup->deskripsi,0,150)."..." !!}</p>
                     <a href="{{ route('pengumuman', $popup->url) }}" class="btn btn-primary">Selengkapnya<i class="fas fa-arrow-right"></i></a>
                     <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">
                         Tutup

@@ -11,10 +11,19 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->delete();
+
         DB::table('users')->insert([
-            'name' => 'Adminstrator',
-            'email' => 'admin@depok.go.id',
-            'password' => bcrypt('password'),
+            [
+                'name' => 'Adminstrator',
+                'email' => 'admin@depok.go.id',
+                'password' => bcrypt('password'),
+            ],
+            [
+                'name' => 'Panitia PDAM',
+                'email' => 'panitia-pdam@depok.go.id',
+                'password' => bcrypt('pdambersahabat'),
+            ]
         ]);
     }
 }
