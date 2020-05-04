@@ -4,7 +4,7 @@
    <div class="container">
        <div class="row justify-content-center">
             <div class="col-12">
-                <h1 class="display-4 py-5 text-center">Pendaftaran Redaksi PDAM</h1>
+                <h1 class="display-4 py-5 text-center">Pendaftaran Direksi PDAM</h1>
             </div>
             <div class="col-md-8 col-12">
                 <div class="callout callout-danger">
@@ -45,7 +45,7 @@
                         <small id="handphoneHelp" class="form-text text-muted">contoh <span class="font-weight-bold">081288112233</span> dan Nomor Handphone yang terdapat Whatsapp</small>
                     </div>
                     <div class="form-group">
-                        <label for="surat_lamaran">Upload Surat Lamaran</label>
+                        <label for="surat_lamaran">Unggah Surat Lamaran</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input @error('surat_lamaran') is-invalid @enderror" id="surat_lamaran" name="surat_lamaran">
                             <label class="custom-file-label" for="surat_lamaran">Choose file</label>
@@ -56,7 +56,7 @@
                         <small id="emailHelp" class="form-text text-muted">Upload File Word(.docx) yang telah di download</small>
                     </div>
                     <div class="form-group">
-                        <label for="sertifikat">Upload Sertifikat</label>
+                        <label for="sertifikat">Unggah Berkas Persyaratan Administrasi</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input @error('sertifikat') is-invalid @enderror" id="sertifikat" name="sertifikat">
                             <label class="custom-file-label" for="sertifikat">Choose file</label>
@@ -64,7 +64,7 @@
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
-                        <small id="emailHelp" class="form-text text-muted">Upload Sertifikat dalam satu file dengan bentuk PDF(.pdf) atau Word(.docx)</small>
+                        <small id="emailHelp" class="form-text text-muted">Unggah Berkas Persyaratan Administrasi dalam satu file dengan bentuk PDF(.pdf) atau Word(.docx)</small>
                     </div>
                     <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah data yang di isi sudah benar?');return false;">Kirim</button>
                 </form>
