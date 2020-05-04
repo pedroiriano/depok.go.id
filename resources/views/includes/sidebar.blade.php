@@ -10,6 +10,12 @@
     <hr class="sidebar-divider my-0">
     <!-- Nav Item - PDAM -->
     @auth()
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('home') }}">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span></a>
+    </li>
     <li class="nav-item {{ Request::is('pendaftaran-pdam') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('pendaftaran.pdam') }}">
             <i class="fas fa-tint"></i>
@@ -17,12 +23,6 @@
     </li>
     @endauth
     @if(Auth::user()->email == 'admin@depok.go.id')
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('home') }}">
-            <i class="fas fa-home"></i>
-            <span>Dashboard</span></a>
-    </li>
     <!-- Nav Item - Agenda -->
     <li class="nav-item {{ Request::is('admin-agenda') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin-agenda.index') }}">

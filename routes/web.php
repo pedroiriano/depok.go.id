@@ -56,8 +56,11 @@ Route::get('/rss/berita', 'BerandaController@beritaRSS')->name('rss.berita');
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/pendaftaran-pdam', 'HomeController@pendaftaranPDAM')->name('pendaftaran.pdam');
+    Route::get('/pendaftaran-pdam/unduh-surat-lamaran-{fileName}', 'HomeController@downloadSuratLamaran')->name('pendaftaran.unduh.surat-lamaran');
+    Route::get('/pendaftaran-pdam/unduh-persyaratan-{fileName}', 'HomeController@downloadPersyaratan')->name('pendaftaran.unduh.persyaratan');
     Route::middleware('check.user')->group(function(){
-        Route::get('/home', 'HomeController@index')->name('home');
         Route::resource('/slider', 'SliderController');
         Route::resource('/admin-kategori-dsw', 'CategoryController');
         Route::resource('/admin-agenda', 'AgendaController');
@@ -76,7 +79,4 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin-ikon', 'AdministratorController@ikon')->name('admin.ikon');
         Route::post('/ubah-ikon', 'AdministratorController@ubahIkon')->name('admin.ubahIkon');
     });
-    Route::get('/pendaftaran-pdam', 'HomeController@pendaftaranPDAM')->name('pendaftaran.pdam');
-    Route::get('/pendaftaran-pdam/unduh-surat-lamaran-{fileName}', 'HomeController@downloadSuratLamaran')->name('pendaftaran.unduh.surat-lamaran');
-    Route::get('/pendaftaran-pdam/unduh-persyaratan-{fileName}', 'HomeController@downloadPersyaratan')->name('pendaftaran.unduh.persyaratan');
 });
