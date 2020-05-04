@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1">
-
+    <meta name="description" content="Portal Resmi Pemerintah Kota Depok. Depok sebagai Kota untuk Berbagi, Bersahabat dan Berkolaborasi">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
