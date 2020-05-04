@@ -156,13 +156,13 @@ class SliderController extends Controller
         if ($request->hasFile('file')) {
             $opd = OPD::find($request->opd);
             $file = $request->file('file');
-            $userFile = public_path("storage/uploads/sliders/{$slider->file}");
+            $userFile = public_path("storage/uploads/file/{$slider->file}");
 
             if(file::exists($userFile)){
                 unlink($userFile);
             }
             $fileName = $opd->nama .'-'. $file->getClientOriginalName();
-            $path = $image->storeAs('public/uploads/sliders', $fileName);
+            $path = $file->storeAs('public/uploads/file', $fileName);
 
             $slider->file = $fileName;
         }
