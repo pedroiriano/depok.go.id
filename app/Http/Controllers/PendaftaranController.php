@@ -44,7 +44,7 @@ class PendaftaranController extends Controller
         ];
         $request->validate(
             [
-                'nik' => 'required|unique:pendaftaran,nik|digits:16|not_regex:/0{2}$/',
+                'nik' => 'required|digits:16|not_regex:/0{2}$/',
                 'nama' => 'required',
                 'email' => 'required',
                 'handphone' => 'required',
