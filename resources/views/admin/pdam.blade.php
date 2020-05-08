@@ -15,6 +15,7 @@
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>Handphone</th>
+                            <th>Tanggal Upload</th>
                             <th style="width: 8%">Action</th>
                         </tr>
                     </thead>
@@ -32,6 +33,9 @@
                             </td>
                             <td>
                                 {{ $data->handphone }}
+                            </td>
+                            <td>
+                                {{ $data->created_at }}
                             </td>
                             <td>
                                 <div class="btn-group btn-group-sm" role="group">
@@ -83,6 +87,12 @@
                                                 <div class="form-group">
                                                     <label>Handphone</label>
                                                     <input type="text" class="form-control" id="nama" value="{{ $data->handphone }}" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label>Tanggal Upload</label>
+                                                    <input type="text" class="form-control" id="nama" value="{{ $data->created_at }}" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-12">
