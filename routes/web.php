@@ -21,8 +21,8 @@ Route::get('/pengumuman/{url}', 'BerandaController@pengumuman')->name('pengumuma
 Route::get('/infografis', 'BerandaController@infografis')->name('infografis');
 Route::get('/download/{file}', 'DownloadsController@download')->name('download');
 //Pendaftaran PDAM
-Route::get('/pendaftaran-direksi-pdam/berhasil', 'PendaftaranController@success')->name('pendaftaran.success');
-Route::resource('/pendaftaran-direksi-pdam', 'PendaftaranController');
+//Route::get('/pendaftaran-direksi-pdam/berhasil', 'PendaftaranController@success')->name('pendaftaran.success');
+//Route::resource('/pendaftaran-direksi-pdam', 'PendaftaranController');
 
 // SEKILAS DEPOK
 Route::get('/sejarah', 'BerandaController@sejarah')->name('sejarah');
