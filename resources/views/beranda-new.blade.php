@@ -236,7 +236,7 @@
             <h1 class="display-5">Infografis</h1>
             @foreach ($infografis as $info)
                 <a style="cursor: pointer">
-                <img src="{{ asset('uploads/infografis/'.$info->imageName) }}" alt="" class="img-fluid pb-3" data-toggle="modal" data-target="#modal-infografis-{{ $info->id }}">
+                <img src="{{ asset('storage/uploads/infografis/'.$info->imageName) }}" alt="" class="img-fluid pb-3" data-toggle="modal" data-target="#modal-infografis-{{ $info->id }}">
                 </a>
                 @include('includes.modal-infografis')
             @endforeach
