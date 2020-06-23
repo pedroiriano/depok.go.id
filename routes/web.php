@@ -24,6 +24,10 @@ Route::get('/download/{file}', 'DownloadsController@download')->name('download')
 //Route::get('/pendaftaran-direksi-pdam/berhasil', 'PendaftaranController@success')->name('pendaftaran.success');
 //Route::resource('/pendaftaran-direksi-pdam', 'PendaftaranController');
 
+Route::prefix('beta')->group(function (){
+    Route::get('beranda', 'BerandaController@betaIndex');
+});
+
 // SEKILAS DEPOK
 Route::get('/sejarah', 'BerandaController@sejarah')->name('sejarah');
 Route::get('/lambang-identitas', 'BerandaController@lambangIdentitas')->name('lambangIdentitas');

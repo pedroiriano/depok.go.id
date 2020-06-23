@@ -38,6 +38,18 @@ class BerandaController extends Controller
 
         return view('beranda-new', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'popup'));
     }
+    public function betaIndex()
+    {
+        $tanggalHijriyah  = \GeniusTS\HijriDate\Date::now()->format('d F Y');
+        $tanggal = Carbon::now()->format('d F Y');
+        $infografis = Infografis::where('status', 1)->get();
+        $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
+        $categories = Category::with('services')->orderBy('pos', 'asc')->take(8)->get();
+        $agendas = Agenda::orderBy('tanggal', 'asc')->get();
+        $popup = Slider::where('popup', 1)->first();
+
+        return view('beranda-v1', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah', 'popup'));
+    }
     public function agenda()
     {
         $agendas = Agenda::orderBy('created_at', 'desc')->get();

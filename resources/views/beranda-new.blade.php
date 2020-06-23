@@ -24,7 +24,7 @@
             <div class="card text-white" style="border: 1px solid #3598db; background-color: #3598db">
                 <img src="{{ asset('images/2.png') }}" class="card-img-top">
                 <div class="card-body text-center p-2 rounded-bottom" style="background-color: #26498d">
-                    <h5 class="h5 font-weight-bold">{{ $tanggal }}</h5>
+                    <h5 class="h5">{{ $tanggal }}</h5>
                     <p class="card-text">@include('includes.waktu-shalat')</p>
                 </div>
             </div>
@@ -33,7 +33,7 @@
             <div class="card" style="background-color: #26498d; border: 1px solid #3598db">
                 <div class="card-body text-center text-light weather">
                     <i class="fas fa-cloud fa-3x py-2" id="iconSuhuHariIni"></i>
-                    <h5 class="h5 font-weight-bold" id="suhuHariIni">0 &deg;C</h5>
+                    <h5 class="h5" id="suhuHariIni">0 &deg;C</h5>
                     <h6 class="h6 lead"> Hari Ini </h6>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div class="card">
                 <div class="card-body text-center text-dark weather">
                     <i class="fas fa-cloud fa-3x py-2" id="iconSuhuBesok"></i>
-                    <h5 class="h5 font-weight-bold" id="suhuBesok">0 &deg;C</h5>
+                    <h5 class="h5" id="suhuBesok">0 &deg;C</h5>
                     <h6 class="h6 lead"> Besok </h6>
                 </div>
             </div>
@@ -51,7 +51,7 @@
             <div class="card">
                 <div class="card-body text-center text-dark weather">
                     <i class="fas fa-cloud fa-3x py-2" id="iconSuhuLusa"></i>
-                    <h5 class="h5 font-weight-bold" id="suhuLusa">0 &deg;C</h5>
+                    <h5 class="h5" id="suhuLusa">0 &deg;C</h5>
                     <h6 class="h6 lead"> Lusa </h6>
                 </div>
             </div>
@@ -64,8 +64,7 @@
     <div class="row justify-content-center py-5">
         <div class="col-8 text-center">
             <h1 class="display-5">Depok Single Window</h1>
-            <p class="lead">Depok Single Window adalah Media bagi masyarakat Kota Depok untuk memudahkan layanan
-                Informasi yang dapat diakses di smartphone hanya dengan satu aplikasi</p>
+            <p class="lead">Kemudahan kini ada digenggaman anda dengan Depok Single Window</p>
         </div>
         <div class="col-12 col-md-10">
             <div class="row justify-content-center">
@@ -112,7 +111,7 @@
                 <div class="col">
                     <small class="text-muted">{{ $slider->created_at->format('d M, Y') }}</small>
                     <a href="{{ route('pengumuman', $slider->url) }}" class="alink">
-                    <p class="lead font-weight-600" style="font-size:14px">{{ $slider->nama }}</p>
+                    <p class="lead" style="font-size:14px">{{ $slider->nama }}</p>
                     </a>
                 </div>
             </div>
@@ -260,6 +259,8 @@
                     <img class="card-img-top" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Pengumuman Banner">
                 </a>
                 <div class="card-body">
+                    <h5 class="h5">{{ $popup->nama }}</h5>
+                    <p class="card-text">{!! substr($popup->deskripsi,0,150)."..." !!}</p>
                     <a href="{{ route('pengumuman', $popup->url) }}" class="btn btn-primary">Selengkapnya<i class="fas fa-arrow-right"></i></a>
                     <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">
                         Tutup
@@ -293,7 +294,7 @@
                             '<div class="col">' +
                                 '<small class="text-muted">' + item.date + '</small>' +
                                 '<a href="'+ item.link +'" target="_blank" class="alink">'+
-                                '<p class="lead font-weight-600" style="font-size:14px">' + item.title + '</p>' +
+                                '<p class="lead" style="font-size:14px">' + item.title + '</p>' +
                                 '</a>' +
                             '</div>' +
                         '</div>' +
@@ -344,7 +345,7 @@
                             '<div class="col-8">' +
                                 '<small class="text-muted">' + date + '</small>' +
                                 '<a class="alink" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
-                                    '<p class="lead font-weight-600" style="font-size:14px">'+ item.snippet.title +'</p>' +
+                                    '<p class="lead" style="font-size:14px">'+ item.snippet.title +'</p>' +
                                 '</a>'+
                             '</div>' +
                         '</div>' +
