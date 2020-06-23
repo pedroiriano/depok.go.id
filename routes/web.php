@@ -57,7 +57,7 @@ Route::get('/api/cuaca', 'BerandaController@cuacaAPI');
 Route::get('/api/youtube', 'BerandaController@youtubeAPI');
 Route::get('/rss/berita', 'BerandaController@beritaRSS')->name('rss.berita');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
