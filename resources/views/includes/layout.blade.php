@@ -23,7 +23,7 @@
     <link rel="manifest" href="{{ asset('img/favicon/site.webmanifest') }}">
 </head>
 
-<body>
+<body style="background-color: #F7FAFC">
     <div id="app">
         {{-- <a id="myBtn" class="shadow-lg btn btn-outline-success btn-light rounded btn-lg" style="color:#1cc88a"><i class="far fa-comment-dots"></i>&nbsp; Kirim Pesan</a> --}}
         @include('includes.navbar')

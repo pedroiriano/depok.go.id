@@ -1,30 +1,176 @@
 @extends('includes.layout')
 @section('content')
 {{-- Segement 1 --}}
-@include('includes.carousel-video')
-
-<!-- <div class="container-fluid"
-    style="background-image:url('{{asset('img/depok.jpeg')}}'); min-height: 80vh;background-position: center;background-repeat: no-repeat;background-size: cover;box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);">
-    <div class="container">
-        <div class="row py-5 justify-content-center text-center">
-            <div class="col-10">
-                <img src="{{ asset('img/lambang.png') }}" alt="" class="logo-pemkot" style="padding-top: 100px;">
-                <h1 class="display-4" style="z-index: 2; position: relative; color:white; font-size:2.5rem">Selamat Datang di Website
-                    Resmi Kota Depok
-                </h1>
+<div class="container py-4">
+    <div class="row py-3">
+        <div class="col-md-8">
+            <div class="card text-white bg-primary mb-3 border-0 shadow">
+                <div class="card-header" style="background-color: #5EB154">Pengumuman</div>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top: -1px;">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner rounded-bottom">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3 text-white border-0 shadow">
+                <div class="card-header" style="background-color: #5EB154">Berita</div>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top: -1px;">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="card-footer text-dark bg-transparent">Footer</div>
             </div>
         </div>
     </div>
-</div> -->
-{{-- Segment Cuaca --}}
-<div class="d-block" style="background-color: #3598db">
-<div class="container py-4">
+    <div class="row py-3">
+        <div class="col-md-5">
+            <div class="card mb-3 border-0 shadow">
+                <div class="card-body">
+                    <h6 class="pb-3">Agenda Kota</h6>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4 class="h4 lead font-weight-bold" style="color: #1D4F88">14 Mei</h4>
+                        </div>
+                        <div class="col-9">
+                            <div class="card mb-1">
+                                <div class="card-body">
+                                    <span>Pendampingan Menteri Kemensos</span>
+                                    <span class="badge badge-pill badge-success f-12 font-weight-normal">Walikota Depok</span>
+                                </div>
+                            </div>
+                            <div class="card mb-1">
+                                <div class="card-body">
+                                    <span>Vidcon PKK Kota Depok</span>
+                                    <span class="badge badge-pill badge-success f-12 font-weight-normal">Walikota Depok</span>
+                                </div>
+                            </div>
+                            <div class="card mb-1">
+                                <div class="card-body">
+                                    <span>Vidcon Gugus Tugas dengan MUI</span>
+                                    <span class="badge badge-pill badge-success f-12 font-weight-normal">Walikota Depok</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="card mb-3 border-0 shadow">
+                <div class="card-body">
+                    <h6 class="pb-3">Layanan Depok Single Window</h6>
+                    <div class="row justify-content-center">
+                        @foreach ($categories as $key => $category)
+                        @if ($category->pos > 6)
+                        <div class="col-4 col-md-3 my-1 d-none d-sm-block">
+                        @else
+                        <div class="col-4 col-md-3 my-1">
+                        @endif
+                            <a href="#" id="btnModal-{{ $category->id }}" class="btnModal" data-toggle="modal" data-target="#modalLayanan-{{ $category->id }}" data-content="#" style="color:#1d1d1d;text-decoration:none; ">
+                                <div class="card h-100 card-service border">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <img src="{{ asset('img/icon/'. $category->icon) }}" alt=""
+                                                class="img-fluid w-25">
+                                            <h5 class="card-title pt-2 f-12">{{ $category->nama }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        @include('includes.modal-layanan')
+                        @endforeach
+                    </div>
+                    <a href=" {{ route('layanan') }} " class="btn btn-light border mt-3 f-12">Layanan Lainnya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row py-3">
+        <div class="col-12 p-3">
+            <h3>Sekilas Tentang Depok</h3>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1531975474574-e9d2732e8386?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Kota Depok">
+                <div class="card-body">
+                    <small class="text-muted">{{ $tanggal }}</small>
+                    <h4 class="h4 font-weight-bold" style="color: #1D4F88">Depok</h4>
+                    <p class="text-center">
+                    <i class="fas fa-cloud fa-3x py-2" id="iconSuhuHariIni"></i>
+                    <span class="font-weight-bold" id="suhuHariIni" style="font-size: 1.5rem">0 &deg;C</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row">
+                @for($i = 0; $i < 6; $i++)
+                <div class="col-4">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h6 class="pb-3">Pariwisata</h6>
+                            <h5 class="h5 font-weight-bold" style="color: #1D4F88">5.3 Ribu</h5>
+                            <small class="text-muted">Jumlah turis yang datang pada bulan ini</small>
+                        </div>
+                    </div>
+                </div>
+                @endfor
+            </div>
+        </div>
+    </div>
+    <iframe src="idsd.depok.go.id" frameborder="0" width="500px"></iframe>
     <div class="row">
         <div class="col-12 col-md-5">
             <div class="card text-white" style="border: 1px solid #3598db; background-color: #3598db">
                 <img src="{{ asset('images/2.png') }}" class="card-img-top">
                 <div class="card-body text-center p-2 rounded-bottom" style="background-color: #26498d">
-                    <h5 class="h5">{{ $tanggal }}</h5>
+                    <h5 class="h5 font-weight-bold">{{ $tanggal }}</h5>
                     <p class="card-text">@include('includes.waktu-shalat')</p>
                 </div>
             </div>
@@ -33,7 +179,7 @@
             <div class="card" style="background-color: #26498d; border: 1px solid #3598db">
                 <div class="card-body text-center text-light weather">
                     <i class="fas fa-cloud fa-3x py-2" id="iconSuhuHariIni"></i>
-                    <h5 class="h5" id="suhuHariIni">0 &deg;C</h5>
+                    <h5 class="h5 font-weight-bold" id="suhuHariIni">0 &deg;C</h5>
                     <h6 class="h6 lead"> Hari Ini </h6>
                 </div>
             </div>
@@ -42,7 +188,7 @@
             <div class="card">
                 <div class="card-body text-center text-dark weather">
                     <i class="fas fa-cloud fa-3x py-2" id="iconSuhuBesok"></i>
-                    <h5 class="h5" id="suhuBesok">0 &deg;C</h5>
+                    <h5 class="h5 font-weight-bold" id="suhuBesok">0 &deg;C</h5>
                     <h6 class="h6 lead"> Besok </h6>
                 </div>
             </div>
@@ -51,46 +197,10 @@
             <div class="card">
                 <div class="card-body text-center text-dark weather">
                     <i class="fas fa-cloud fa-3x py-2" id="iconSuhuLusa"></i>
-                    <h5 class="h5" id="suhuLusa">0 &deg;C</h5>
+                    <h5 class="h5 font-weight-bold" id="suhuLusa">0 &deg;C</h5>
                     <h6 class="h6 lead"> Lusa </h6>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-</div>
-{{-- Segment 2 --}}
-<div class="container-fluid" style="background-color: #ecf0f1">
-    <div class="row justify-content-center py-5">
-        <div class="col-8 text-center">
-            <h1 class="display-5">Depok Single Window</h1>
-            <p class="lead">Kemudahan kini ada digenggaman anda dengan Depok Single Window</p>
-        </div>
-        <div class="col-12 col-md-10">
-            <div class="row justify-content-center">
-
-        @foreach ($categories as $key => $category)
-        @if ($category->pos > 6)
-            <div class="col-4 col-md-2 my-3 d-none d-sm-block">
-        @else
-            <div class="col-4 col-md-2 my-3">
-        @endif
-            <a href="#" id="btnModal-{{ $category->id }}" class="btnModal" data-toggle="modal" data-target="#modalLayanan-{{ $category->id }}" data-content="#" style="color:#1d1d1d;text-decoration:none; ">
-                <div class="card h-100 card-service" style="border: 1px solid #3598db">
-                    <div class="card-body">
-                        <div class="text-center">
-                            <img src="{{ asset('img/icon/'. $category->icon) }}" alt=""
-                                class="img-fluid w-50">
-                            <h5 class="card-title pt-2 f-12">{{ $category->nama }}</h5>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        @include('includes.modal-layanan')
-        @endforeach
-        <a href=" {{ route('layanan') }} " class="btn btn-outline-primary mt-5">Layanan Lainnya</a>
-        </div>
         </div>
     </div>
 </div>
@@ -110,7 +220,7 @@
                 <div class="col">
                     <small class="text-muted">{{ $slider->created_at->format('d M, Y') }}</small>
                     <a href="{{ route('pengumuman', $slider->url) }}" class="alink">
-                    <p class="lead" style="font-size:14px">{{ $slider->nama }}</p>
+                    <p class="lead font-weight-600" style="font-size:14px">{{ $slider->nama }}</p>
                     </a>
                 </div>
             </div>
@@ -193,7 +303,7 @@
 </div>
 {{-- Segment 4 --}}
 
-<div class="container-fluid py-5" style="background-color: #ecf0f1">
+<div class="container-fluid py-5">
     <div class="row">
         <div class="col-12 col-md-4 col-lg-5">
             <h1 class="display-5">Video Terbaru</h1>
@@ -254,8 +364,6 @@
             <div class="card bg-light" style="border:none">
                 <img class="card-img-top" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Pengumuman Banner">
                 <div class="card-body">
-                    <h5 class="h5">{{ $popup->nama }}</h5>
-                    <p class="card-text">{!! substr($popup->deskripsi,0,150)."..." !!}</p>
                     <a href="{{ route('pengumuman', $popup->url) }}" class="btn btn-primary">Selengkapnya<i class="fas fa-arrow-right"></i></a>
                     <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">
                         Tutup
@@ -267,7 +375,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#pengumuman-modal').modal('show');
+        // $('#pengumuman-modal').modal('show');
         
         $.ajaxSetup({
             headers: {
@@ -289,7 +397,7 @@
                             '<div class="col">' +
                                 '<small class="text-muted">' + item.date + '</small>' +
                                 '<a href="'+ item.link +'" target="_blank" class="alink">'+
-                                '<p class="lead" style="font-size:14px">' + item.title + '</p>' +
+                                '<p class="lead font-weight-600" style="font-size:14px">' + item.title + '</p>' +
                                 '</a>' +
                             '</div>' +
                         '</div>' +
@@ -340,7 +448,7 @@
                             '<div class="col-8">' +
                                 '<small class="text-muted">' + date + '</small>' +
                                 '<a class="alink" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
-                                    '<p class="lead" style="font-size:14px">'+ item.snippet.title +'</p>' +
+                                    '<p class="lead font-weight-600" style="font-size:14px">'+ item.snippet.title +'</p>' +
                                 '</a>'+
                             '</div>' +
                         '</div>' +

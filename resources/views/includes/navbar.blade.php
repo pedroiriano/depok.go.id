@@ -1,23 +1,41 @@
+@if(Request::is('beta/beranda'))
+<header class="text-center text-white py-2" style="background-color: #1D4F88">
+    <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
+        <i class="fab fa-youtube"></i>
+    </a>
+    <span>Temukan informasi terkini dengan mengikuti akun resmi sosial media kami</span>
+</header><!-- /header -->
+@else
 <div class="d-sm-block d-none text-center text-bold text-white" style="font-size:12px; background-color: #3598db">
     <div class="container">
         <nav class="navbar navbar-expand navbar-dark" style="padding:0;">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fab fa-facebook-square"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
+                    <a href="https://www.facebook.com/PemerintahKotaDepok/" target="_blank" class="nav-link"><i class="fab fa-facebook-square"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fab fa-youtube"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
+                    <a href="https://www.youtube.com/channel/UCco0gmWTlN9nsxnlAy-tWFA" target="_blank" class="nav-link"><i class="fab fa-youtube"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fas fa-phone-alt"></i><span style="padding-left:10px">08111232222 |</span></a>
+                    <a href="tel:112" class="nav-link"><i class="fas fa-phone-alt"></i><span style="padding-left:10px">112 |</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fas fa-envelope"></i><span style="padding-left:10px">portal@depok.go.id |</span></a>
+                    <a href="mailto:portal@depok.go.id" class="nav-link"><i class="fas fa-envelope"></i><span style="padding-left:10px">portal@depok.go.id |</span></a>
                 </li>
             </ul>
         </nav>
     </div>
 </div>
+@endif
 <nav class="shadow navbar navbar-expand-lg navbar-light bg-white flex-column flex-md-row sticky-top ">
     <div class="container">
         <a class="navbar-brand py-2" href="{{ route('beranda') }}">
@@ -54,19 +72,6 @@
                         <a class="dropdown-item" href="{{ route('visiMisi') }}">Visi & Misi Kota</a>
                         <a class="dropdown-item" href="{{ route('pimpinanDaerah') }}">Pimpinan Daerah</a>
                         <a class="dropdown-item" href="{{ route('strukturDaerah') }}">Struktur Daerah</a>
-                        {{-- <a class="dropdown-item" href="{{ route('perundangundangan') }}">Perundang-Undangan</a> --}}
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Perangkat Daerah
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('dinas') }}">Dinas</a>
-                        <a class="dropdown-item" href="{{ route('sekda') }}">Sekretariat Daerah</a>
-                        <a class="dropdown-item" href="{{ route('kecamatan') }}">Kecamatan</a>
-                        <a class="dropdown-item" href="{{ route('kelurahan') }}">Kelurahan</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -82,17 +87,9 @@
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/informasi-tentang-hak-dan-tata-cara-memperoleh-informasi-publik/daftar-informasi-publik/">Daftar Info Publik</a>
                     </div>
                 </li>
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Transparansi
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">LPSE</a>
-                        <a class="dropdown-item" href="#">SIRUP</a>
-                        <a class="dropdown-item" href="#">MONEV</a>
-                    </div>
-                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Layanan</a>
+                </li>
             </ul>
         </div>
     </div>

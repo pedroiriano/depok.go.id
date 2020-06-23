@@ -21,6 +21,10 @@ Route::get('/pengumuman/{url}', 'BerandaController@pengumuman')->name('pengumuma
 Route::get('/infografis', 'BerandaController@infografis')->name('infografis');
 Route::get('/download/{file}', 'DownloadsController@download')->name('download');
 
+Route::prefix('beta')->group(function (){
+    Route::get('beranda', 'BerandaController@betaIndex');
+});
+
 // SEKILAS DEPOK
 Route::get('/sejarah', 'BerandaController@sejarah')->name('sejarah');
 Route::get('/lambang-identitas', 'BerandaController@lambangIdentitas')->name('lambangIdentitas');
