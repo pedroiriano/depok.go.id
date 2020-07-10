@@ -150,10 +150,18 @@ class BerandaController extends Controller
         $pengumuman = Slider::where('url', '=', $url)->firstOrFail();
         return view('pengumuman', compact('pengumuman'));
     }
+    public function kesehatanAPI()
+    {
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('GET', 'http://dsw.depok.go.id/html/penyakitdata', ['verify' => false]);
+        $data = $response->getBody()->getContents();
+        $diseases = json_decode($data, true);
+
+        return $diseases;
+    }
     public function cuacaAPI()
     {
         $cuaca = $this->cuaca();
-        return $cuaca;
         $suhu['temperature_hariini']        = $this->celcius($cuaca['temperature_current']);
         $suhu['temperature_besok_rendah']   = $this->celcius($cuaca['temperature_besok_rendah']);
         $suhu['temperature_besok_tinggi']   = $this->celcius($cuaca['temperature_besok_tinggi']);
@@ -163,6 +171,16 @@ class BerandaController extends Controller
         $suhu['temperature_lusa'] = ($suhu['temperature_lusa_rendah']+$suhu['temperature_lusa_tinggi'])/2;
         $suhu['icon_cuaca'] = ['hari_ini' => $this->get_icon($cuaca['icon']['hari_ini']) , 'besok' => $this->get_icon($cuaca['icon']['besok']) , 'lusa' => $this->get_icon($cuaca['icon']['lusa']) , ];
         return array('suhu' => $suhu);
+    }
+    public function cuacaBMKGAPI()
+    {
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('GET', 'https://data.bmkg.go.id/datamkg/MEWS/DigitalForecast/DigitalForecast-JawaBarat.xml');
+        $xml = simplexml_load_string($response->getBody(),'SimpleXMLElement',LIBXML_NOCDATA);
+
+        $suhu['temperature'] = $xml->forecast->area[11]->parameter[5]->timerange->value[0];
+
+        return $suhu;
     }
     public function beritaAPI()
     {
