@@ -26,6 +26,7 @@ Route::get('/download/{file}', 'DownloadsController@download')->name('download')
 
 Route::prefix('beta')->group(function (){
     Route::get('beranda', 'BerandaController@betaIndex');
+    Route::get('data', 'BerandaController@data');
 });
 
 // SEKILAS DEPOK
