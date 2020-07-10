@@ -29,11 +29,11 @@
         </div>
     </div>
 </div>
-@section('js')
+@push('js')
 <script type="text/javascript">
     $(document).ready(function(){
         $('.btnModal').click(function(){
-
+            console.log("asd");
         // $('.service:not(:nth-child(2))').hide();
         $('.service-selector').change(function(){
             var $iframe = $('#' + $(this).val() + ' iframe');
@@ -49,4 +49,4 @@
         });
     });
 </script>
-@endsection
+@endpush

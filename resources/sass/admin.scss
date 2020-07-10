@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Google+Sans');
 // Variables
 @import 'variables';
-// @import 'vegas';
-@import '_revolution';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~placeholder-loading/src/scss/placeholder-loading';
@@ -21,7 +19,7 @@
   --white: #fff;
   --gray: #858796;
   --gray-dark: #5a5c69;
-  --primary: #4e73df;
+  --primary: #1d4f88;
   --secondary: #858796;
   --success: #01a3a4;
   --info: #36b9cc;
@@ -158,13 +156,13 @@ sup {
 }
 
 a {
-  color: #4e73df;
+  color: #1D4F88;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #224abe;
+  color: #1D4F88;
   text-decoration: underline;
 }
 

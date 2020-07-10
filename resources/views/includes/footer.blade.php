@@ -24,33 +24,67 @@
         </div>
     </div>
 </div>
-<footer class="page-footer container-fluid font-small pt-4 bg-light">
+<footer class="page-footer container-fluid font-small py-4 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-4 offset-4 col-md-1 offset-md-0">
                 <img src="{{ asset('img/lambang.png') }}" alt="" class="img-fluid">
             </div>
-            <div class="col-12 col-md-5 ">
-                <h6 class="lora h6">Portal Resmi Kota Depok</h6>
+            <div class="col-12 col-md-4 ">
+                <h6 class="lora h6">Portal Resmi Pemerintah Kota Depok</h6>
                 <p class="lead p">Dikelola Oleh: Dinas Komunikasi dan Informatika Kota Depok Jl. Margonda Raya No. 54
                 Gedung Dibaleka 2 Depok Lt.7 </p>
-            </div>
-            <div class="col-12 col-md-3 offset-md-3 justify-content-end pb-3">
-                <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none"> 
+                <div class="pt-2 pb-5">
+                    <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none"> 
                     <i class="fab fa-facebook-f" style='font-size:24px;margin-right:30px;'></i>
-                </a>
-                <a target="_blank" href="https://twitter.com/pemkotdepok?lang=en" style="text-decoration: none">
-                    <i class="fab fa-twitter" style='font-size:24px;margin-right:30px;'></i>
-                </a>
-                <a target="_blank" href="https://www.instagram.com/pemkotdepok/" style="text-decoration: none">
-                    <i class="fab fa-instagram" style='font-size:24px;margin-right:30px;'></i>
-                </a>
-                <a target="_blank" href="https://www.youtube.com/channel/UCco0gmWTlN9nsxnlAy-tWFA" style="text-decoration: none">
-                    <i class="fab fa-youtube" style='font-size:24px;margin-right:30px;'></i>
-                </a>
+                    </a>
+                    <a target="_blank" href="https://twitter.com/pemkotdepok?lang=en" style="text-decoration: none">
+                        <i class="fab fa-twitter" style='font-size:24px;margin-right:30px;'></i>
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/pemkotdepok/" style="text-decoration: none">
+                        <i class="fab fa-instagram" style='font-size:24px;margin-right:30px;'></i>
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCco0gmWTlN9nsxnlAy-tWFA" style="text-decoration: none">
+                        <i class="fab fa-youtube" style='font-size:24px;margin-right:30px;'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 offset-md-1 justify-content-end pb-3">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <span class="text-muted">Call Center</span>
+                                <a href="">
+                                    <h6 class="lora h6 pt-2"><i class="mr-2 fas fa-phone-alt"></i>112</h6>
+                                </a>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="col-6">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <span class="text-muted">Surel Pemkot Depok</span>
+                                <a href="">
+                                    <h6 class="lora h6 pt-2"><i class="mr-2 far fa-envelope"></i>portal@depok.go.id</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <span class="text-muted">Kirim Pesan Whatsapp</span>
+                                <a href="">
+                                    <h6 class="lora h6 pt-2"><i class="mr-2 fab fa-whatsapp"></i>Klik untuk kirim pesan</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="d-none d-md-block">
+        <div class="d-none d-md-block py-3">
             <div class="row">
                 <div class="col">
                     <!-- Links -->
@@ -136,28 +170,10 @@
                         </li>
                     </ul>
                 </div>
-                {{-- <div class="col">
-                    <!-- Links -->
-                    <h5>Transparansi</h5>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Infografis</a>
-                        </li>
-                        <li>
-                            <a href="#!">LPSE</a>
-                        </li>
-                        <li>
-                            <a href="#!">SIRUP</a>
-                        </li>
-                        <li>
-                            <a href="#!">MONEV</a>
-                        </li>
-                    </ul>
-                </div> --}}
             </div>
         </div>
     </div>
 </footer>
-<div class="container-fluid" style="background-color: #3598db">
-    <div class="footer-copyright text-center py-3" style="color:#EAEAEA">© 2019 Pemerintah Kota Depok</div>
+<div class="container-fluid" style="background-color: #1D4F88">
+    <div class="footer-copyright text-center py-3" style="color:#EAEAEA">© 2020 Website Resmi Pemerintah Kota Depok</div>
 </div>
