@@ -310,6 +310,57 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-9 d-flex align-items-stretch">
+            <div class="card mb-3 border-0 shadow">
+                <div class="card-body">
+                    <h6 class="pb-3">Berita</h6>
+                    <hr>
+                    <div id="berita-wrapper">
+                        <div id="berita-loading">
+                            @for($i=0; $i<5; $i++)
+                            <div class="ph-item" style="background-color: transparent;border: none;margin-bottom:0px;padding:0px">
+                                <div class="ph-col-4" style="padding-left:0px">
+                                    <div class="ph-picture rounded" style="height: 80px"></div>
+                                </div>
+                                <div class="ph-col-8" style="padding-left: 9px">
+                                    <div class="ph-row">
+                                        <div class="ph-col-6"></div>
+                                        <div class="ph-col-6 empty"></div>
+                                        <div class="ph-col-12 big"></div>
+                                        <div class="ph-col-8 big"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            @endfor
+                        </div>
+                    </div>
+                    <div class="d-sm-block d-md-none d-lg-none d-xl-none">
+                        <div class="py-2" id="berita-other-link">
+                            <a href="https://berita.depok.go.id" target="_blank" class="d-block d-sm-none pb-3">Berita Lainnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-flex align-items-stretch">
+            <div class="card mb-3 border-0 shadow">
+                <div class="card-body">
+                    <h6 class="pb-3">Goverment Public Relation</h6>
+                    <div class="row">
+                        <div style="width:300px !important">
+                            <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js">
+                            </script>
+                            <div id="gpr-kominfo-widget-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </div>
 @push('js')
 <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
