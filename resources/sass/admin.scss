@@ -12316,8 +12316,8 @@ $enable-responsive-font-sizes : true;
   }
 }
 .callout {
-  padding: 20px;
-  margin: 20px 0;
+  padding: 15px;
+  margin: 10px 0;
   border: 1px solid #eee;
   border-left-width: 5px;
   border-radius: 3px;
@@ -12337,6 +12337,7 @@ $enable-responsive-font-sizes : true;
 }
 @each $name,$color in (default,#777),(primary,#428bca),(success,#5cb85c),(danger,#d9534f),(warning,#f0ad4e),(info,#5bc0de), (bdc,#29527a) {
   .callout-#{$name} {
+    background: rgba($color, 0.2);
     border-left-color: $color;
     h4 {
       color: $color;

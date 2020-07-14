@@ -46,9 +46,11 @@ class BerandaController extends Controller
         $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
         $categories = Category::with('services')->orderBy('pos', 'asc')->take(8)->get();
         $agendas = Agenda::orderBy('tanggal', 'asc')->get();
+        $agendasToday = Agenda::where('tanggal', Carbon::today())->orderBy('tanggal', 'asc')->take(3)->get();
+        $agendasNext = Agenda::where('tanggal', '!=', Carbon::today())->orderBy('tanggal', 'asc')->take(2)->get();
         $popup = Slider::where('popup', 1)->first();
 
-        return view('beranda-v1', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah', 'popup'));
+        return view('beranda-v1', compact('agendasToday','agendasNext' ,'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah', 'popup'));
     }
     public function data()
     {
@@ -192,9 +194,12 @@ class BerandaController extends Controller
         $response = $client->request('GET', 'https://data.bmkg.go.id/datamkg/MEWS/DigitalForecast/DigitalForecast-JawaBarat.xml');
         $xml = simplexml_load_string($response->getBody(),'SimpleXMLElement',LIBXML_NOCDATA);
 
-        $suhu['temperature'] = $xml->forecast->area[11]->parameter[5]->timerange->value[0];
+        $forecast['suhu'] = $xml->forecast->area[11]->parameter[5]->timerange[2]->value[0];
+        $forecast['cuaca'] = $xml->forecast->area[11]->parameter[6]->timerange->value[0];
+        $forecast['kelembapan'] = $xml->forecast->area[11]->parameter[0]->timerange->value[0];
+        $forecast['angin'] = $xml->forecast->area[11]->parameter[8]->timerange->value[1];
 
-        return $suhu;
+        return $forecast;
     }
     public function beritaAPI()
     {

@@ -24,11 +24,11 @@
                     <div class="carousel-inner rounded-bottom">
                         @foreach($sliders as $key => $slider)
                         <div class="carousel-item @if($key == 0) {{ 'active' }} @endif">
-                            <img class="d-block w-100" src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="First slide">
-                            <div class="carousel-caption" style="background-color: rgba(0,0,0,0.7);left: 0;right: 0;bottom: 0;text-align: left">
-                                <span class="ml-3 text-light pb-3">{{ $slider->nama }}</span>
+                                <img class="d-block w-100" src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="First slide">
+                                <div class="carousel-caption" style="background-color: rgba(0,0,0,0.7);left: 0;right: 0;bottom: 0;text-align: left">
+                                    <span class="ml-3 text-light pb-3">{{ $slider->nama }}</span>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -53,7 +53,7 @@
                             <div class="ph-row h-100" style="margin-top: -1px;margin-bottom: 0">
                                 <div class="ph-col-12 rounded-bottom h-100" style="height: 233px;margin-bottom: 0"></div>
                             </div>
-                            <div class="carousel-caption" style="background-color: rgba(0,0,0,0.7);left: 0;right: 0;bottom: 0;text-align: left;padding-top:10px"> 
+                            <div class="carousel-caption" style="background-color: rgba(0,0,0,0.7);left: 0;right: 0;bottom: 0;text-align: left;padding-top:20px"> 
                                 <span class="ml-3 text-light pb-3" style="font-size:14px">Harap Tunggu ...</span>
                             </div>
                         </div>
@@ -73,29 +73,42 @@
     <div class="row">
         <div class="col-md-5 d-flex align-items-stretch">
             <div class="card mb-3 border-0 shadow">
+                <div class="card-header text-white bg-dark">Agenda Kota</div>
                 <div class="card-body">
-                    <h6 class="pb-3">Agenda Kota</h6>
                     <div class="row">
-                        <div class="col-3">
-                            <h4 class="h4 lead font-weight-bold" style="color: #1D4F88">14 Mei</h4>
+                        <div class="col-12 pb-3">
+                            <ul class="nav nav-tabs nav-fill" id="AgendaTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="hariIni-tab" data-toggle="tab" href="#hariIni" role="tab" aria-controls="hariIni" aria-selected="true">Hari ini</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="mendatang-tab" data-toggle="tab" href="#mendatang" role="tab" aria-controls="mendatang" aria-selected="false">Mendatang</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="col-9">
-                            <div class="card mb-1">
-                                <div class="card-body">
-                                    <span>Pendampingan Menteri Kemensos</span>
-                                    <span class="badge badge-pill badge-success f-12 font-weight-normal">Walikota Depok</span>
+                        <div class="col-12">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="hariIni" role="tabpanel" aria-labelledby="hariIni-tab">
+                                    <small class="text-muted">{{ $tanggal }}</small>
+                                    @foreach($agendasToday as $agenda)
+                                        <div class="callout callout-success">
+                                            <span>{{ $agenda->nama }}</span>
+                                        </div>
+                                    @endforeach
+                                    <div class="pt-2">
+                                        <a href="" class="pt-2">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card mb-1">
-                                <div class="card-body">
-                                    <span>Vidcon PKK Kota Depok</span>
-                                    <span class="badge badge-pill badge-success f-12 font-weight-normal">Walikota Depok</span>
-                                </div>
-                            </div>
-                            <div class="card mb-1">
-                                <div class="card-body">
-                                    <span>Vidcon Gugus Tugas dengan MUI</span>
-                                    <span class="badge badge-pill badge-success f-12 font-weight-normal">Walikota Depok</span>
+                                <div class="tab-pane fade" id="mendatang" role="tabpanel" aria-labelledby="mendatang-tab">
+                                    @foreach($agendasNext as $agenda)
+                                    <small class="text-muted">{{ $agenda->tanggal }}</small>
+                                    <div class="callout callout-success">
+                                        <span>{{ $agenda->nama  }}</span>
+                                    </div>
+                                    @endforeach
+                                    <div class="pt-2">
+                                        <a href="" class="pt-2">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -105,8 +118,8 @@
         </div>
         <div class="col-md-7 d-flex align-items-stretch">
             <div class="card mb-3 border-0 shadow">
+                <div class="card-header text-white bg-primary">Layanan Depok Single Window</div>
                 <div class="card-body">
-                    <h6 class="pb-3">Layanan Depok Single Window</h6>
                     <div class="row justify-content-center">
                         @foreach ($categories as $key => $category)
                         @if ($category->pos > 6)
@@ -134,7 +147,7 @@
             </div>
         </div>
     </div>
-    <div class="row py-3">
+    <div class="row py-2">
         <div class="col-12 p-3">
             <h3>Sekilas Tentang Depok</h3>
         </div>
@@ -146,36 +159,32 @@
                         <div class="col-6">
                             <h6 class="lora h6" style="color: #1D4F88">Depok</h6>
                             <small class="text-muted">{{ $tanggal }}</small>  
-                            <p>
-                                <i class="fas fa-cloud fa-1x py-2" style="color: #D9B06A" id="iconSuhuHariIni"></i>
-                            </p>
                         </div>
                         <div class="col-6">
-                            <span class="lead ml-3" id="suhuHariIni" style="font-size: 2.5rem; color: #D9B06A">0 &deg;C</span>
+                            <span class="lead ml-3" id="suhuHariIni" style="font-size: 2rem; color: #D9B06A">0 &deg;C</span>
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
+                    <div class="row pb-3">
                         <div class="col-12">
                             <h6>Informasi Tambahan</h6>
                         </div>
-                        <div class="col-4">
-                            <small class="text-muted">Insolation</small>
+                        <div class="col-6">
+                            <p class="text-dark">Angin</p>
+                            <p class="text-dark">Kelembapan</p>
                         </div>
-                        <div class="col-4">
-                            <small class="text-muted">Humidity</small>
-                        </div>
-                        <div class="col-4">
-                            <small class="text-muted">Wind</small>
+                        <div class="col-6">
+                            <p class="text-muted" id="anginHariIni">...</p>
+                            <p class="text-muted" id="kelembapanHariIni">...</p>
                         </div>
                     </div>
-                    <p>
+                    <p class="m-0">
                         <small class="text-muted">Sumber: BMKG Indonesia</small>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-9" id="data-all-wrapper">
             <div class="row" id="data-loading">
                 @for($i=0; $i<6; $i++)
                 <div class="col-4">
@@ -195,8 +204,8 @@
                 @endfor
             </div>
             <div class="row d-none" id="data-wrapper">
-                <div class="col-4">
-                    <div class="card @if($i<3) mb-2 @endif shadow">
+                <div class="col-4 d-flex align-items-stretch">
+                    <div class="card mb-2 shadow w-100">
                         <div class="card-body">
                             <h6 class="pb-3">Penyakit Terbanyak Bulan ini</h6>
                             <h6 class="lora h6" style="color: #1D4F88" id="penyakit"></h6>
@@ -205,8 +214,8 @@
                     </div>
                 </div>
                 @for($i = 0; $i < 5; $i++)
-                <div class="col-4">
-                    <div class="card @if($i<3) mb-2 @endif shadow">
+                <div class="col-4 @if($i < 2) mb-2 @endif d-flex align-items-stretch">
+                    <div class="card shadow w-100">
                         <div class="card-body">
                             <h6 class="pb-3">Jumlah Turis Bulan ini</h6>
                             <h6 class="lora h6" style="color: #1D4F88">5.603 Orang</h6>
@@ -217,7 +226,7 @@
                 @endfor
             </div>
         </div>
-        <div class="col-12 pb-5 mt-4 text-center">
+        <div class="col-12 pb-2 mt-4 text-center">
             <a href="">Data Selengkapnya <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
@@ -225,7 +234,7 @@
         <div class="col-8">
             <div class="card shadow">
                 <div class="card-body">
-                    <ul class="nav nav-pills" id="myTab" role="tablist">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="berita-tab" data-toggle="tab" href="#berita" role="tab" aria-controls="berita" aria-selected="true">Berita</a>
                         </li>
@@ -310,57 +319,6 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-9 d-flex align-items-stretch">
-            <div class="card mb-3 border-0 shadow">
-                <div class="card-body">
-                    <h6 class="pb-3">Berita</h6>
-                    <hr>
-                    <div id="berita-wrapper">
-                        <div id="berita-loading">
-                            @for($i=0; $i<5; $i++)
-                            <div class="ph-item" style="background-color: transparent;border: none;margin-bottom:0px;padding:0px">
-                                <div class="ph-col-4" style="padding-left:0px">
-                                    <div class="ph-picture rounded" style="height: 80px"></div>
-                                </div>
-                                <div class="ph-col-8" style="padding-left: 9px">
-                                    <div class="ph-row">
-                                        <div class="ph-col-6"></div>
-                                        <div class="ph-col-6 empty"></div>
-                                        <div class="ph-col-12 big"></div>
-                                        <div class="ph-col-8 big"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            @endfor
-                        </div>
-                    </div>
-                    <div class="d-sm-block d-md-none d-lg-none d-xl-none">
-                        <div class="py-2" id="berita-other-link">
-                            <a href="https://berita.depok.go.id" target="_blank" class="d-block d-sm-none pb-3">Berita Lainnya <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div> 
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 d-flex align-items-stretch">
-            <div class="card mb-3 border-0 shadow">
-                <div class="card-body">
-                    <h6 class="pb-3">Goverment Public Relation</h6>
-                    <div class="row">
-                        <div style="width:300px !important">
-                            <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js">
-                            </script>
-                            <div id="gpr-kominfo-widget-container"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
 </div>
 @push('js')
 <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
@@ -382,6 +340,7 @@
                 $('#penyakit').text(data.data[0].penyakit);
                 $('#penyakit-desc').text('Jumlah pasien ' + data.data[0].total + ' orang');
                 $('#data-loading').addClass('d-none');
+                $('#data-all-wrapper').addClass('d-flex align-items-stretch');
                 $('#data-wrapper').removeClass('d-none');
             }
         })
@@ -404,12 +363,12 @@
                                 '<h6 class="h6" style="font-size:18px">' + item.title + '</h6>' +
                                 '</a>' +
                                 '<small class="text-muted">' + item.date + '</small>' +
-                                '<p class="text-muted">' + desc.slice(0, 120) + '</p>' +
+                                '<p class="text-muted">' + desc.slice(0, 120) + '...</p>' +
                             '</div>' +
                         '</div>'
                     );
                     $('#berita-indicators').append(
-                        '<li data-target="#carouselExampleIndicators" data-slide-to="'+ index +'" class="active"></li>'
+                        '<li data-target="#carouselBerita" data-slide-to="'+ index +'" class="active"></li>'
                     );
                     if (index == 0) {
                         asd = " active";
@@ -418,11 +377,13 @@
                     }
                     $('#berita-carousel-wrapper').append(
                         '<div class="carousel-item h-100 '+ asd +'">' +
-                        '<img class="d-block w-100 h-100" src="'+ item.image +'" style="object-fit: cover;">' +
-                            '<div class="carousel-caption" style="background-color: rgba(0,0,0,0.7);left: 0;right: 0;bottom: 0;text-align: left;padding-top:10px">' + 
-                                '<span class="ml-3 text-light pb-3" style="font-size:14px">'+ item.title.slice(0,35) +' ...</span>' +
+                        '<a href="'+ item.link +'" target="_blank">' +
+                            '<img class="d-block w-100 h-100" src="'+ item.image +'" style="object-fit: cover;">' +
+                                '<div class="carousel-caption" style="background-color: rgba(0,0,0,0.7);left: 0;right: 0;bottom: 0;text-align: left;padding-top:20px">' + 
+                                    '<span class="ml-3 text-light pb-3" style="font-size:14px">'+ item.title.slice(0,35) +' ...</span>' +
+                                '</div>' +
                             '</div>' +
-                        '</div>'
+                        '</a>'
                     )
                 });
                 $('#berita-loading').addClass('d-none');
@@ -434,7 +395,9 @@
             url: '/api/cuacaBMKG',
             success: function(data) {
                 console.log(data);
-                $('#suhuHariIni').html(data.temperature[0] + '&deg;C');
+                $('#suhuHariIni').html(data.suhu[0] + '&deg;C');
+                $('#anginHariIni').html(data.angin[0].slice(0,3) + ' MPH');
+                $('#kelembapanHariIni').html(data.kelembapan[0] + ' %');
                 // $('#suhuBesok').html(data.suhu.temperature_besok_rendah +' - '+ data.suhu.temperature_besok_tinggi + '&deg;C');
                 // $('#suhuLusa').html(data.suhu.temperature_lusa_rendah +' - '+ data.suhu.temperature_lusa_tinggi + '&deg;C');
                 // $('#iconSuhuHariIni').removeClass('fa-cloud');

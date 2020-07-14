@@ -22088,8 +22088,8 @@ body.sidebar-toggled footer.sticky-footer {
   }
 }
 .callout {
-  padding: 20px;
-  margin: 20px 0;
+  padding: 15px;
+  margin: 10px 0;
   border: 1px solid #eee;
   border-left-width: 5px;
   border-radius: 3px;
@@ -22109,6 +22109,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .callout-default {
+  background: rgba(119, 119, 119, 0.2);
   border-left-color: #777;
 }
 .callout-default h4 {
@@ -22116,6 +22117,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .callout-primary {
+  background: rgba(66, 139, 202, 0.2);
   border-left-color: #428bca;
 }
 .callout-primary h4 {
@@ -22123,6 +22125,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .callout-success {
+  background: rgba(92, 184, 92, 0.2);
   border-left-color: #5cb85c;
 }
 .callout-success h4 {
@@ -22130,6 +22133,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .callout-danger {
+  background: rgba(217, 83, 79, 0.2);
   border-left-color: #d9534f;
 }
 .callout-danger h4 {
@@ -22137,6 +22141,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .callout-warning {
+  background: rgba(240, 173, 78, 0.2);
   border-left-color: #f0ad4e;
 }
 .callout-warning h4 {
@@ -22144,6 +22149,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .callout-info {
+  background: rgba(91, 192, 222, 0.2);
   border-left-color: #5bc0de;
 }
 .callout-info h4 {
@@ -22151,6 +22157,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .callout-bdc {
+  background: rgba(41, 82, 122, 0.2);
   border-left-color: #29527a;
 }
 .callout-bdc h4 {

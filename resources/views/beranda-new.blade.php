@@ -309,15 +309,16 @@
         $.ajax({
             url: '/api/cuaca',
             success: function(data) {
-                $('#suhuHariIni').html(data.temperature_current + '&deg;C');
-                $('#suhuBesok').html(data.temperature_besok_rendah +' - '+ data.temperature_besok_tinggi + '&deg;C');
-                $('#suhuLusa').html(data.temperature_lusa_rendah +' - '+ data.temperature_lusa_tinggi + '&deg;C');
-                $('#iconSuhuHariIni').removeClass('fa-cloud');
-                $('#iconSuhuBesok').removeClass('fa-cloud');
-                $('#iconSuhuLusa').removeClass('fa-cloud');
-                $('#iconSuhuHariIni').addClass(data.icon.hari_ini);
-                $('#iconSuhuBesok').addClass(data.icon.besok);
-                $('#iconSuhuLusa').addClass(data.icon.lusa);
+                console.log(data);
+                $('#suhuHariIni').html(data.suhu.temperature_hariini + '&deg;C');
+                // $('#suhuBesok').html(suhu.temperature_besok_rendah +' - '+ suhu.temperature_besok_tinggi + '&deg;C');
+                // $('#suhuLusa').html(suhu.temperature_lusa_rendah +' - '+ suhu.temperature_lusa_tinggi + '&deg;C');
+                // $('#iconSuhuHariIni').removeClass('fa-cloud');
+                // $('#iconSuhuBesok').removeClass('fa-cloud');
+                // $('#iconSuhuLusa').removeClass('fa-cloud');
+                // $('#iconSuhuHariIni').addClass(data.icon.hari_ini);
+                // $('#iconSuhuBesok').addClass(data.icon.besok);
+                // $('#iconSuhuLusa').addClass(data.icon.lusa);
 
             },
             error: function(){

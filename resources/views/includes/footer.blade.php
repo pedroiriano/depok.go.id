@@ -62,11 +62,11 @@
                         </div>  
                     </div>
                     <div class="col-6">
-                        <div class="card shadow">
+                        <div class="card shadow pb-1">
                             <div class="card-body">
                                 <span class="text-muted">Surel Pemkot Depok</span>
                                 <a href="">
-                                    <h6 class="lora h6 pt-2"><i class="mr-2 far fa-envelope"></i>portal@depok.go.id</h6>
+                                    <h6 class="lora h6 pt-2" style="font-size: 1rem"><i class="mr-2 far fa-envelope"></i>portal@depok.go.id</h6>
                                 </a>
                             </div>
                         </div>
