@@ -28,29 +28,29 @@ Route::prefix('beta')->group(function (){
     Route::get('beranda', 'BerandaController@betaIndex');
     Route::get('data', 'BerandaController@data');
 });
-
 // SEKILAS DEPOK
-Route::get('/sejarah', 'BerandaController@sejarah')->name('sejarah');
-Route::get('/lambang-identitas', 'BerandaController@lambangIdentitas')->name('lambangIdentitas');
-Route::get('/ikon-kota', 'BerandaController@ikonKota')->name('ikonKota');
-Route::get('/seni-budaya', 'BerandaController@seniBudaya')->name('seniBudaya');
-Route::get('/sosial-ekonomi', 'BerandaController@sosialEkonomi')->name('sosialEkonomi');
-Route::get('/demografi', 'BerandaController@demografi')->name('demografi');
-Route::get('/geografi', 'BerandaController@geografi')->name('geografi');
-// PEMERINTAHAN
-Route::get('/visi-misi', 'BerandaController@visiMisi')->name('visiMisi');
-Route::get('/pimpinan-daerah', 'BerandaController@pimpinanDaerah')->name('pimpinanDaerah');
-Route::get('/struktur-daerah', 'BerandaController@strukturDaerah')->name('strukturDaerah');
-Route::get('/perundang-undangan', 'BerandaController@perundangundangan')->name('perundangundangan');
-Route::get('/penghargaan', 'BerandaController@penghargaan')->name('penghargaan');
-// PERANGKAT DAERAH
-Route::get('/dinas', 'BerandaController@dinas')->name('dinas');
-Route::get('/sekda', 'BerandaController@sekda')->name('sekda');
-Route::get('/kecamatan', 'BerandaController@kecamatan')->name('kecamatan');
-Route::get('/kelurahan', 'BerandaController@kelurahan')->name('kelurahan');
+// Route::get('/sejarah', 'BerandaController@sejarah')->name('sejarah');
+// Route::get('/lambang-identitas', 'BerandaController@lambangIdentitas')->name('lambangIdentitas');
+// Route::get('/ikon-kota', 'BerandaController@ikonKota')->name('ikonKota');
+// Route::get('/seni-budaya', 'BerandaController@seniBudaya')->name('seniBudaya');
+// Route::get('/sosial-ekonomi', 'BerandaController@sosialEkonomi')->name('sosialEkonomi');
+// Route::get('/demografi', 'BerandaController@demografi')->name('demografi');
+// Route::get('/geografi', 'BerandaController@geografi')->name('geografi');
+// // PEMERINTAHAN
+// Route::get('/visi-misi', 'BerandaController@visiMisi')->name('visiMisi');
+// Route::get('/pimpinan-daerah', 'BerandaController@pimpinanDaerah')->name('pimpinanDaerah');
+// Route::get('/struktur-daerah', 'BerandaController@strukturDaerah')->name('strukturDaerah');
+// Route::get('/perundang-undangan', 'BerandaController@perundangundangan')->name('perundangundangan');
+// Route::get('/penghargaan', 'BerandaController@penghargaan')->name('penghargaan');
+// // PERANGKAT DAERAH
+// Route::get('/dinas', 'BerandaController@dinas')->name('dinas');
+// Route::get('/sekda', 'BerandaController@sekda')->name('sekda');
+// Route::get('/kecamatan', 'BerandaController@kecamatan')->name('kecamatan');
+// Route::get('/kelurahan', 'BerandaController@kelurahan')->name('kelurahan');
 // INFO PUBLIK
 // TRANSPARANSI
 Route::get('/layanan', 'BerandaController@layanan')->name('layanan');
+Route::get('/{content}', 'BerandaController@content')->name('content');
 
 Route::get('/api/agenda', 'BerandaController@AgendaAPI')->name('api.agenda');
 Route::get('/api/berita', 'BerandaController@beritaAPI');

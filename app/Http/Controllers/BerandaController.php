@@ -18,6 +18,7 @@ use App\Slider;
 use App\Category;
 use App\Infografis;
 use App\Ikon;
+use App\Content;
 
 class BerandaController extends Controller
 {
@@ -70,6 +71,15 @@ class BerandaController extends Controller
     {
         $agendas = Agenda::orderBy('created_at', 'desc')->get();
         return view('agenda', compact('agendas'));
+    }
+    public function content($nama)
+    {
+        $content = Content::where('slug', $nama)->first();
+        if ($content == NULL) {
+            abort(404);
+        }
+        return view('content', compact('content'));
+    
     }
     public function sejarah()
     {

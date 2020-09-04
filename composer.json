@@ -10,12 +10,14 @@
     "require": {
         "php": "^7.1.3",
         "alaouy/youtube": "^2.2",
+        "caouecs/laravel-lang": "^7.0",
         "fideloper/proxy": "^4.0",
         "geniusts/hijri-dates": "^1.1",
         "guzzlehttp/guzzle": "~6.0",
         "intervention/image": "^2.5",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "laravolt/avatar": "^3.2",
         "vedmant/laravel-feed-reader": "^1.3"
     },
     "require-dev": {
