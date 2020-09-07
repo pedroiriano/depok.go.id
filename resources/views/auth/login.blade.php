@@ -3,10 +3,9 @@
 <div class="container">
 
     <!-- Outer Row -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center pt-5">
 
         <div class="col-xl-10 col-lg-12 col-md-9">
-
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
@@ -21,7 +20,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <input id="email" type="email"
-                                            class="form-control form-control-user @error('email') is-invalid @enderror"
+                                            class="form-control @error('email') is-invalid @enderror"
                                             name="email" value="{{ old('email') }}" required autocomplete="email"
                                             autofocus id="exampleInputEmail" aria-describedby="emailHelp"
                                             placeholder="Masukkan Email Address...">
@@ -33,7 +32,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input id="password" type="password"
-                                            class="form-control form-control-user @error('password') is-invalid @enderror"
+                                            class="form-control @error('password') is-invalid @enderror"
                                             name="password" required autocomplete="current-password" placeholder="Masukkan Password">
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -41,13 +40,7 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input class="custom-control-input" type="checkbox" name="remember"
-                                                id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    <button type="submit" class="btn btn-primary btn-block py-2">
                                         Login
                                     </button>
                                 </form>
