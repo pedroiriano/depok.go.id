@@ -207,9 +207,13 @@
                 <div class="col-4 d-flex align-items-stretch">
                     <div class="card mb-2 shadow w-100">
                         <div class="card-body">
-                            <h6 class="pb-3">Penyakit Terbanyak Bulan ini</h6>
-                            <h6 class="lora h6" style="color: #1D4F88" id="penyakit"></h6>
-                            <small class="text-muted" id="penyakit-desc"></small>
+                            <h6 class="pb-3">Penyakit Terpantau Bulan ini</h6>
+                            <h6 style="color: #1D4F88" id="penyakit-0"></h6>
+                            <small class="text-muted" id="penyakit-0-desc"></small>
+                            <h6 style="color: #1D4F88" id="penyakit-1"></h6>
+                            <small class="text-muted" id="penyakit-1-desc"></small>
+                            <h6 style="color: #1D4F88" id="penyakit-2"></h6>
+                            <small class="text-muted" id="penyakit-2-desc"></small>
                         </div>
                     </div>
                 </div>
@@ -337,8 +341,12 @@
             dataType: 'json',
             success: function (data){
                 console.log();
-                $('#penyakit').text(data.data[0].penyakit);
-                $('#penyakit-desc').text('Jumlah pasien ' + data.data[0].total + ' orang');
+                $('#penyakit-0').text(data.data[0].penyakit);
+                $('#penyakit-0-desc').text('Jumlah pasien ' + data.data[0].total + ' orang');
+                $('#penyakit-1').text(data.data[1].penyakit);
+                $('#penyakit-1-desc').text('Jumlah pasien ' + data.data[1].total + ' orang');
+                $('#penyakit-2').text(data.data[2].penyakit);
+                $('#penyakit-2-desc').text('Jumlah pasien ' + data.data[2].total + ' orang');
                 $('#data-loading').addClass('d-none');
                 $('#data-all-wrapper').addClass('d-flex align-items-stretch');
                 $('#data-wrapper').removeClass('d-none');

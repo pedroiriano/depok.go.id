@@ -91,28 +91,28 @@
                     <h5>Sekilas Depok</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{ route('sejarah') }}">Sejarah</a>
+                            <a href="{{ route('content','sejarah') }}">Sejarah</a>
                         </li>
                         <li>
-                            <a href="{{ route('lambangIdentitas') }}">Lambang Identitas</a>
+                            <a href="{{ route('content','lambangIdentitas') }}">Lambang Identitas</a>
                         </li>
                         <li>
-                            <a href="{{ route('ikonKota') }}">Ikon Kota</a>
+                            <a href="{{ route('content','ikonKota') }}">Ikon Kota</a>
                         </li>
                         <li>
-                            <a href="{{ route('seniBudaya') }}">Seni Budaya</a>
+                            <a href="{{ route('content','seniBudaya') }}">Seni Budaya</a>
                         </li>
                         <li>
-                            <a href="{{ route('sosialEkonomi') }}">Sosial Ekonomi</a>
+                            <a href="{{ route('content','sosialEkonomi') }}">Sosial Ekonomi</a>
                         </li>
                         <li>
-                            <a href="{{ route('demografi') }}">Demografi</a>
+                            <a href="{{ route('content','demografi') }}">Demografi</a>
                         </li>
                         <li>
-                            <a href="{{ route('geografi') }}">Geografi</a>
+                            <a href="{{ route('content','geografi') }}">Geografi</a>
                         </li>
                         <li>
-                            <a href="{{route('penghargaan')}}">Penghargaan</a>
+                            <a href="{{route('content','penghargaan')}}">Penghargaan</a>
                         </li>
                     </ul>
                 </div>
@@ -121,13 +121,13 @@
                     <h5>Pemerintahan</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{route('visiMisi')}}">Visi & Misi</a>
+                            <a href="{{route('content','visiMisi')}}">Visi & Misi</a>
                         </li>
                         <li>
-                            <a href="{{route('pimpinanDaerah')}}">Pimpinan Daerah</a>
+                            <a href="{{route('content','pimpinanDaerah')}}">Pimpinan Daerah</a>
                         </li>
                         <li>
-                            <a href="{{route('strukturDaerah')}}">Struktur Daerah</a>
+                            <a href="{{route('content','strukturDaerah')}}">Struktur Daerah</a>
                         </li>
                     </ul>
                 </div>
@@ -136,16 +136,16 @@
                     <h5>Perangkat Daerah</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{ route('dinas') }}">Dinas</a>
+                            <a href="{{ route('content','dinas') }}">Dinas</a>
                         </li>
                         <li>
-                            <a href="{{ route('sekda') }}">Sekretariat Daerah</a>
+                            <a href="{{ route('content','sekda') }}">Sekretariat Daerah</a>
                         </li>
                         <li>
-                            <a href="{{ route('kecamatan') }}">Kecamatan</a>
+                            <a href="{{ route('content','kecamatan') }}">Kecamatan</a>
                         </li>
                         <li>
-                            <a href="{{ route('kelurahan') }}">Kelurahan</a>
+                            <a href="{{ route('content','kelurahan') }}">Kelurahan</a>
                         </li>
                     </ul>
                 </div>
@@ -154,7 +154,7 @@
                     <h5>Info Publik</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{ route('infografis') }}">Infografis</a>
+                            <a href="{{ route('content','infografis') }}">Infografis</a>
                         </li>
                         <li>
                             <a href="https://ppid.depok.go.id/#1532597359183-e12432b3-c0a9">Info Berkala</a>

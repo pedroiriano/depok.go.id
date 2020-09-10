@@ -1,5 +1,4 @@
-@if(Request::is('beta/beranda'))
-<header class="text-center text-white py-2" style="background-color: #1D4F88">
+<div class="text-center text-white py-2" style="background-color: #1D4F88">
     <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
         <i class="fab fa-facebook-f"></i>
     </a>
@@ -13,29 +12,7 @@
         <i class="fab fa-youtube"></i>
     </a>
     <span>Temukan informasi terkini dengan mengikuti akun resmi sosial media kami</span>
-</header><!-- /header -->
-@else
-<div class="d-sm-block d-none text-center text-bold text-white" style="font-size:12px; background-color: #3598db">
-    <div class="container">
-        <nav class="navbar navbar-expand navbar-dark" style="padding:0;">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="https://www.facebook.com/PemerintahKotaDepok/" target="_blank" class="nav-link"><i class="fab fa-facebook-square"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.youtube.com/channel/UCco0gmWTlN9nsxnlAy-tWFA" target="_blank" class="nav-link"><i class="fab fa-youtube"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="tel:112" class="nav-link"><i class="fas fa-phone-alt"></i><span style="padding-left:10px">112 |</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="mailto:portal@depok.go.id" class="nav-link"><i class="fas fa-envelope"></i><span style="padding-left:10px">portal@depok.go.id |</span></a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
-@endif
+</div><!-- /header -->
 <nav class="shadow navbar navbar-expand-lg navbar-light bg-white flex-column flex-md-row sticky-top ">
     <div class="container">
         <a class="navbar-brand py-2" href="{{ route('beranda') }}">
@@ -53,14 +30,14 @@
                         Sekilas Depok
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('sejarah') }}">Sejarah</a>
-                        <a class="dropdown-item" href="{{ route('lambangIdentitas') }}">Lambang Identitas</a>
-                        <a class="dropdown-item" href="{{ route('ikonKota') }}">Ikon Kota</a>
-                        <a class="dropdown-item" href="{{ route('seniBudaya') }}">Seni Budaya</a>
-                        {{-- <a class="dropdown-item" href="{{ route('sosialEkonomi') }}">Sosial Ekonomi</a> --}}
-                        <a class="dropdown-item" href="{{ route('penghargaan') }}">Penghargaan</a>
-                        <a class="dropdown-item" href="{{ route('demografi') }}">Demografi</a>
-                        <a class="dropdown-item" href="{{ route('geografi') }}">Geografi</a>
+                        <a class="dropdown-item" href="{{ route('content', 'sejarah') }}">Sejarah</a>
+                        <a class="dropdown-item" href="{{ route('content', 'lambangIdentitas') }}">Lambang Identitas</a>
+                        <a class="dropdown-item" href="{{ route('content', 'ikonKota') }}">Ikon Kota</a>
+                        <a class="dropdown-item" href="{{ route('content', 'seniBudaya') }}">Seni Budaya</a>
+                        {{-- <a class="dropdown-item" href="{{ route('content', 'sosialEkonomi') }}">Sosial Ekonomi</a> --}}
+                        <a class="dropdown-item" href="{{ route('content', 'penghargaan') }}">Penghargaan</a>
+                        <a class="dropdown-item" href="{{ route('content', 'demografi') }}">Demografi</a>
+                        <a class="dropdown-item" href="{{ route('content', 'geografi') }}">Geografi</a>
                         </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -69,10 +46,10 @@
                         Pemerintahan
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('visiMisi') }}">Visi & Misi Kota</a>
-                        <a class="dropdown-item" href="{{ route('pimpinanDaerah') }}">Pimpinan Daerah</a>
-                        <a class="dropdown-item" href="{{ route('dinas') }}">Perangkat Daerah</a>
-                        <a class="dropdown-item" href="{{ route('strukturDaerah') }}">Struktur Daerah</a>
+                        <a class="dropdown-item" href="{{ route('content', 'visiMisi') }}">Visi & Misi Kota</a>
+                        <a class="dropdown-item" href="{{ route('content', 'pimpinanDaerah') }}">Pimpinan Daerah</a>
+                        <a class="dropdown-item" href="{{ route('content', 'dinas') }}">Perangkat Daerah</a>
+                        <a class="dropdown-item" href="{{ route('content', 'strukturDaerah') }}">Struktur Daerah</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

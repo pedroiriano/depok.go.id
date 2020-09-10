@@ -45,6 +45,78 @@ class ContentTableSeeder extends Seeder
 	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         	],
+        	[
+	        	'nama' => 'Geografi',
+	            'slug' => 'geografi',
+	            'desc' => 'tes',
+	            'image' => 'geografi.jpg',
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        	],
+        	[
+	        	'nama' => 'Visi dan Misi',
+	            'slug' => 'visi-misi',
+	            'desc' => 'tes',
+	            'image' => 'visi-misi.jpg',
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        	],
+        	[
+	        	'nama' => 'Struktur Daerah',
+	            'slug' => 'struktur-daerah',
+	            'desc' => 'tes',
+	            'image' => 'struktur-daerah.jpg',
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        	],
+        	[
+	        	'nama' => 'Perundang-Undangan',
+	            'slug' => 'perundang-undangan',
+	            'desc' => 'tes',
+	            'image' => 'perundangan.jpg',
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        	],
+        	[
+	        	'nama' => 'Penghargaan',
+	            'slug' => 'penghargaan',
+	            'desc' => 'tes',
+	            'image' => 'penghargaan.jpg',
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        	],
+        	[
+	        	'nama' => 'Dinas',
+	            'slug' => 'dinas',
+	            'desc' => 'tes',
+	            'image' => 'dinas.jpg',
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        	],
+        	[
+	        	'nama' => 'Sekretariat Daerah',
+	            'slug' => 'sekretariat-daerah',
+	            'desc' => 'tes',
+	            'image' => 'sekretariat-daerah.jpg',
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        	],
+        	[
+	        	'nama' => 'Kecamatan',
+	            'slug' => 'kecamatan',
+	            'desc' => 'tes',
+	            'image' => 'kecamatan.jpg',
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        	],
+        	[
+	        	'nama' => 'Kelurahan',
+	            'slug' => 'kelurahan',
+	            'desc' => 'tes',
+	            'image' => 'kelurahan.jpg',
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        	],
         ]);
     }
 }

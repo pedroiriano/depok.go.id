@@ -17,6 +17,7 @@
 
         <!-- Styles -->
         <script src="https://kit.fontawesome.com/d54b50045e.js" crossorigin="anonymous"></script>
+        @stack('js')
         <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 
     </head>

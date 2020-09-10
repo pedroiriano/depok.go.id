@@ -11,6 +11,7 @@ use App\Sejarah;
 use App\Slider;
 use App\Service;
 use App\Ikon;
+use App\Content;
 
 class AdministratorController extends Controller
 {
@@ -121,6 +122,21 @@ class AdministratorController extends Controller
         }
         $service->save();
         return back()->with('success', 'Layanan telah di Update');
+    }
+    public function content($content)
+    {
+        $content = Content::where('slug', $content)->first();
+        if ($content == NULL) {
+            abort(404);
+        }
+        return view('admin.content', compact('content'));
+    }
+    public function updateContent(Request $request, $content)
+    {
+        $content = Content::where('slug', $content)->first();
+        $content->desc = $request->inputContent;
+        $content->save();
+        return back()->with('success', 'Konten '.$content->nama.' telah diubah'); 
     }
     public function sejarah()
     {

@@ -9,9 +9,6 @@
             <div class="col-12">
                 <p class="lead">{!! $content->desc !!}</p>
             </div>
-            <div class="col-12 py-4">
-                <img src="{{ asset('images/pempindepok.svg') }}" alt="" class="img-fluid">
-            </div>
         </div>
     </div>
 </div>
