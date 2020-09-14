@@ -186,6 +186,38 @@ class BerandaController extends Controller
         
         return $population['Jumlah_Penduduk'];
     }
+    public function getTableHTML($url, $x, $y)
+    {
+        $htmlContent = file_get_contents($url);
+        
+        $DOM = new \DOMDocument();
+        $DOM->loadHTML($htmlContent);
+        
+        $Header = $DOM->getElementsByTagName('tr');
+        $Detail = $DOM->getElementsByTagName('td');
+
+        foreach($Header as $NodeHeader) 
+        {
+            $aDataTableHeaderHTML[] = trim($NodeHeader->textContent);
+        }
+        $i = 0;
+        $j = 0;
+        foreach($Detail as $sNodeDetail) 
+        {
+            $dataDetail[$j][] = trim($sNodeDetail->textContent);
+            $i = $i + 1;
+            $j = $i % count($aDataTableHeaderHTML) == 0 ? $j + 1 : $j;
+        }
+        return $dataDetail[$x][$y];
+    }
+    public function bphtbAPI()
+    {
+        return response()->json($this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx', 2, 3));
+    }
+    public function pbbAPI()
+    {
+        return response()->json($this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx', 1, 10));
+    }
     public function kesehatanAPI()
     {
         $client = new \GuzzleHttp\Client();

@@ -228,7 +228,16 @@
                         </div>
                     </div>
                 </div>
-                @for($i = 0; $i < 4; $i++)
+                <div class="col-4 d-flex align-items-stretch">
+                    <div class="card mb-2 shadow w-100">
+                        <div class="card-body">
+                            <h6 class="pb-3">Penerimaan</h6>
+                            <h5 style="color: #1D4F88" id="bphtb"></h5>
+                            <h5 style="color: #1D4F88" id="pbb"></h5>
+                        </div>
+                    </div>
+                </div>
+                @for($i = 0; $i < 3; $i++)
                 <div class="col-4 @if($i < 2) mb-2 @endif d-flex align-items-stretch">
                     <div class="card shadow w-100">
                         <div class="card-body">
@@ -353,6 +362,23 @@
             success: function (data){
                 console.log(data[0].Total);
                 $('#jumlah-penduduk').text(data[0].Total);
+            }
+        });
+        $.ajax({
+            url: '/api/pbb',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#pbb').text(data);
+            }
+        });
+        $.ajax({
+            url: '/api/bphtb',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#bphtb').text(data);
+
             }
         });
         $.ajax({
