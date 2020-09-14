@@ -11,6 +11,9 @@
 @section('content')
 {{-- Segement 1 --}}
 <div class="container py-4">
+    <div class="alert alert-danger" role="alert">
+        Informasi COVID-19
+    </div>
     <div class="row py-3">
         <div class="col-md-8">
             <div class="card text-white bg-primary mb-3 border-0 shadow">
@@ -217,12 +220,20 @@
                         </div>
                     </div>
                 </div>
-                @for($i = 0; $i < 5; $i++)
+                <div class="col-4 d-flex align-items-stretch">
+                    <div class="card mb-2 shadow w-100">
+                        <div class="card-body">
+                            <h6 class="pb-3">Jumlah Penduduk</h6>
+                            <h5 style="color: #1D4F88" id="jumlah-penduduk"></h5>
+                        </div>
+                    </div>
+                </div>
+                @for($i = 0; $i < 4; $i++)
                 <div class="col-4 @if($i < 2) mb-2 @endif d-flex align-items-stretch">
                     <div class="card shadow w-100">
                         <div class="card-body">
-                            <h6 class="pb-3">Jumlah Turis Bulan ini</h6>
-                            <h6 class="lora h6" style="color: #1D4F88">5.603 Orang</h6>
+                            <h6 class="pb-3">Jumlah Penduduk</h6>
+                            <h6 class="h6" style="color: #1D4F88">5.603 Orang</h6>
                             <small class="text-muted">Jumlah turis luar dan dalam negeri</small>
                         </div>
                     </div>
@@ -337,10 +348,17 @@
             }
         });
         $.ajax({
+            url: '/api/kependudukan',
+            dataType: 'json',
+            success: function (data){
+                console.log(data[0].Total);
+                $('#jumlah-penduduk').text(data[0].Total);
+            }
+        });
+        $.ajax({
             url: '/api/kesehatan',
             dataType: 'json',
             success: function (data){
-                console.log();
                 $('#penyakit-0').text(data.data[0].penyakit);
                 $('#penyakit-0-desc').text('Jumlah pasien ' + data.data[0].total + ' orang');
                 $('#penyakit-1').text(data.data[1].penyakit);
@@ -351,7 +369,7 @@
                 $('#data-all-wrapper').addClass('d-flex align-items-stretch');
                 $('#data-wrapper').removeClass('d-none');
             }
-        })
+        });
         $.ajax({
             url: '/api/berita',
             dataType: 'json',

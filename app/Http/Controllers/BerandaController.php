@@ -176,6 +176,16 @@ class BerandaController extends Controller
         $pengumuman = Slider::where('url', '=', $url)->firstOrFail();
         return view('pengumuman', compact('pengumuman'));
     }
+    public function kependudukanAPI()
+    {
+        $client = new \GuzzleHttp\Client();
+        $md5 = md5('CMSDataWaReHoUseK3PeNduDukaN'.str_replace('-','',Carbon::now()->toDateString()));
+        $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan=Beji&kelurahan=Kukusan&dimensi=&subdimensi=&Limit=&Offset=');
+        $data = $response->getBody()->getContents();
+        $population = json_decode($data, true);
+        
+        return $population['Jumlah_Penduduk'];
+    }
     public function kesehatanAPI()
     {
         $client = new \GuzzleHttp\Client();

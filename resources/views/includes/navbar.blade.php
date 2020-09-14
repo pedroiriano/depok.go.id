@@ -71,8 +71,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a target="_blank" href="http://ccc-19.depok.go.id" class="btn btn-outline-danger" aria-haspopup="true" aria-expanded="false">
-                    Informasi COVID-19
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" class="btn btn-primary" aria-haspopup="true" aria-expanded="false">
+                    Download DSW
                     </a>
                 </li>
             </ul>

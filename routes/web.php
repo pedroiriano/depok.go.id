@@ -49,6 +49,7 @@ Route::get('/api/cuacaBMKG', 'BerandaController@cuacaBMKGAPI');
 Route::get('/api/cuaca', 'BerandaController@cuacaAPI');
 Route::get('/api/youtube', 'BerandaController@youtubeAPI');
 Route::get('/api/kesehatan', 'BerandaController@kesehatanAPI');
+Route::get('/api/kependudukan', 'BerandaController@kependudukanAPI');
 Route::get('/rss/berita', 'BerandaController@beritaRSS')->name('rss.berita');
 
 Auth::routes(['register' => false]);
