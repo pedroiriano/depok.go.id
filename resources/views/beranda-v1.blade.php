@@ -250,9 +250,6 @@
                 @endfor
             </div>
         </div>
-        <div class="col-12 pb-2 mt-4 text-center">
-            <a href="">Data Selengkapnya <i class="fas fa-arrow-right"></i></a>
-        </div>
     </div>
     <div class="row py-3">
         <div class="col-8">
