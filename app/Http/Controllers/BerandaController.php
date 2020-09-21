@@ -180,7 +180,8 @@ class BerandaController extends Controller
     {
         $client = new \GuzzleHttp\Client();
         $md5 = md5('CMSDataWaReHoUseK3PeNduDukaN'.str_replace('-','',Carbon::now()->toDateString()));
-        $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan=Beji&kelurahan=Kukusan&dimensi=&subdimensi=&Limit=&Offset=');
+        $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan=&kelurahan=&dimensi=&subdimensi=&Limit=&Offset=');
+
         $data = $response->getBody()->getContents();
         $population = json_decode($data, true);
         
