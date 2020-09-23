@@ -180,7 +180,7 @@ class BerandaController extends Controller
     {
         $client = new \GuzzleHttp\Client();
         $md5 = md5('CMSDataWaReHoUseK3PeNduDukaN'.str_replace('-','',Carbon::now()->toDateString()));
-        $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan=Beji&kelurahan=Kukusan&dimensi=&subdimensi=&Limit=&Offset=');
+        $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan=&kelurahan=&dimensi=agama&subdimensi=&Limit=&Offset=');
         $data = $response->getBody()->getContents();
         $population = json_decode($data, true);
         
@@ -227,7 +227,7 @@ class BerandaController extends Controller
 
         return $diseases;
     }
-    public function cuacaAPI()
+        public function cuacaAPI()
     {
         $cuaca = $this->cuaca();
         $suhu['temperature_hariini']        = $this->celcius($cuaca['temperature_current']);
@@ -268,6 +268,29 @@ class BerandaController extends Controller
             $result[$key]['date'] = Carbon::parse($value['published_at'], 'Asia/Jakarta')->format('d M, Y');
         }
         return array('berita' => $result);
+    }
+    public function kunjunganAPI()
+    {
+        $client = new \GuzzleHttp\Client();
+        $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
+        $response = $client->request('GET', 'https://cms.depok.go.id/Api/KesehatanKunjungan?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=2020&bulan=&Limit=&Offset=');
+        $data = $response->getBody()->getContents();
+        $visit = json_decode($data, true);
+        /*$kunjungan = $json['data'];*/
+
+        $count = array();
+        $count['puskesmas'] = 0;
+        $count['rsud'] = 0;
+
+        foreach ($visit['data'] as $key => $value) {
+            if ($value['JenisFaskes'] == 'puskesmas') {
+                $count['puskesmas'] = $count['puskesmas'] + $value['jumlah'];
+            } elseif ($value['JenisFaskes'] == 'Rumah Sakit') {
+                $count['rsud'] = $count['rsud'] + $value['jumlah'];
+            }
+        }
+
+        return $count;
     }
     public function youtubeAPI()
     {

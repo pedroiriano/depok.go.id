@@ -11,8 +11,13 @@
 @section('content')
 {{-- Segement 1 --}}
 <div class="container py-4">
-    <div class="alert alert-danger" role="alert">
-        Informasi COVID-19
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <h5 class="py-3 pb-2" style="font-weight:500"><i class="fas fa-exclamation-circle"></i> Pengumuman </h5>
+        <p class="pb-2">Pusat Informasi dan Koordinasi COVID-19 Kota Depok</p>
+        <a href="https://ccc-19.depok.go.id/">Selengkapnya</a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="row py-3">
         <div class="col-md-8">
@@ -181,16 +186,63 @@
                             <p class="text-muted" id="kelembapanHariIni">...</p>
                         </div>
                     </div>
-                    <p class="m-0">
-                        <small class="text-muted">Sumber: BMKG Indonesia</small>
-                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Sumber: BMKG Indonesia</small>
                 </div>
             </div>
         </div>
-        <div class="col-9" id="data-all-wrapper">
+        <div class="col-3 d-flex align-items-stretch">
+            <div class="ph-item w-100 shadow rounded" id="penyakit-loading">
+                <div class="ph-col-12">
+                    <div class="ph-row">
+                        <div class="ph-col-6"></div>
+                        <div class="ph-col-6 empty"></div>
+                        <div class="ph-col-12 big empty"></div>
+                        @for ($i = 0; $i < 5; $i++)    
+                            <div class="ph-col-12 big"></div>
+                            <div class="ph-col-10 "></div>
+                            <div class="ph-col-2 empty"></div>
+                            <div class="ph-col-12 empty"></div>
+                        @endfor
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-2 shadow w-100 d-none" id="penyakit-card">
+                <div class="card-body">
+                    <h6 class="pb-3">Penyakit Terpantau Bulan ini</h6>
+                    <ol class="pl-4" style="color: #1D4F88">
+                        <li class="pb-3">
+                            <span id="penyakit-0" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-0-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-1" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-1-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-2" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-2-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-3" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-3-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-4" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-4-desc"></small>
+                        </li>
+                    </ol>
+                </div>
+                <div class="card-footer text-muted">
+                    <small>Sumber: Dinkes Kota Depok</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-6" id="data-all-wrapper">
             <div class="row" id="data-loading">
-                @for($i=0; $i<6; $i++)
-                <div class="col-4">
+                @for($i=0; $i<4; $i++)
+                <div class="col-6">
                     <div class="ph-item shadow rounded">
                         <div class="ph-col-12">
                             <div class="ph-row">
@@ -207,51 +259,76 @@
                 @endfor
             </div>
             <div class="row d-none" id="data-wrapper">
-                <div class="col-4 d-flex align-items-stretch">
+                <div class="col-6 d-flex align-items-stretch">
                     <div class="card mb-2 shadow w-100">
                         <div class="card-body">
-                            <h6 class="pb-3">Penyakit Terpantau Bulan ini</h6>
-                            <h6 style="color: #1D4F88" id="penyakit-0"></h6>
-                            <small class="text-muted" id="penyakit-0-desc"></small>
-                            <h6 style="color: #1D4F88" id="penyakit-1"></h6>
-                            <small class="text-muted" id="penyakit-1-desc"></small>
-                            <h6 style="color: #1D4F88" id="penyakit-2"></h6>
-                            <small class="text-muted" id="penyakit-2-desc"></small>
+                            <h6 class="pb-1">Penerimaan Bulan ini</h6>
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <h6 class="text-muted" style="font-size: 0.8rem">BPHTB</h6>
+                                    <h5 style="color: #1D4F88" id="bphtb"></h5>
+                                </div>
+                            </div>
+                            <div class="card mt-2 border-success">
+                                <div class="card-body">
+                                    <h6 class="text-muted" style="font-size: 0.8rem">PBB</h6>
+                                    <h5 style="color: #1D4F88" id="pbb"></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <small>Sumber: BKD Kota Depok</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-4 d-flex align-items-stretch">
+                <div class="col-6 d-flex align-items-stretch">
                     <div class="card mb-2 shadow w-100">
                         <div class="card-body">
-                            <h6 class="pb-3">Jumlah Penduduk</h6>
-                            <h5 style="color: #1D4F88" id="jumlah-penduduk"></h5>
+                            <h6 class="pb-1">Jumlah Kunjungan Tahun ini</h6>
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <h6 class="text-muted" style="font-size: 0.8rem">RSUD</h6>
+                                    <h5 style="color: #1D4F88" id="kunjungan-rsud"></h5>
+                                </div>
+                            </div>
+                            <div class="card mt-2 border-success">
+                                <div class="card-body">
+                                    <h6 class="text-muted" style="font-size: 0.8rem">Puskesmas</h6>
+                                    <h5 style="color: #1D4F88" id="kunjungan-puskesmas"></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <small>Sumber: Dinkes Kota Depok</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-4 d-flex align-items-stretch">
+                <div class="col-6 d-flex align-items-stretch">
                     <div class="card mb-2 shadow w-100">
                         <div class="card-body">
-                            <h6 class="pb-3">Penerimaan</h6>
-                            <h5 style="color: #1D4F88" id="bphtb"></h5>
-                            <h5 style="color: #1D4F88" id="pbb"></h5>
+                            <h6>Jumlah Penduduk</h6>
+                            <h5 style="color: #1D4F88" id="jumlah-penduduk"></h5><br>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <small>Sumber: Disdukcapil Kota Depok</small>
                         </div>
                     </div>
                 </div>
-                @for($i = 0; $i < 3; $i++)
-                <div class="col-4 @if($i < 2) mb-2 @endif d-flex align-items-stretch">
+                @for($i = 0; $i < 1; $i++)
+                <div class="col-6 @if($i < 1) mb-2 @endif d-flex align-items-stretch">
                     <div class="card shadow w-100">
                         <div class="card-body">
                             <h6 class="pb-3">Jumlah Penduduk</h6>
                             <h6 class="h6" style="color: #1D4F88">5.603 Orang</h6>
                             <small class="text-muted">Jumlah turis luar dan dalam negeri</small>
                         </div>
+                        <div class="card-footer text-muted">
+                            <small>Sumber: BKD Kota Depok</small>
+                        </div>
                     </div>
                 </div>
                 @endfor
             </div>
-        </div>
-        <div class="col-12 pb-2 mt-4 text-center">
-            <a href="">Data Selengkapnya <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
     <div class="row py-3">
@@ -361,15 +438,27 @@
             dataType: 'json',
             success: function (data){
                 console.log(data[0].Total);
-                $('#jumlah-penduduk').text(data[0].Total);
+                $('#jumlah-penduduk').text(parseFloat(data[0].Total + ' Orang').toLocaleString(window.document.documentElement.lang));
             }
         });
+        $.ajax({
+            url: '/api/kunjungan',
+            dataType: 'json',
+            success:function(data){
+                console.log("ini jumlah kunjungan" + data.puskesmas);
+                $('#kunjungan-rsud').text(parseFloat(data.rsud).toLocaleString(window.document.documentElement.lang));
+                $('#kunjungan-puskesmas').text(parseFloat(data.puskesmas).toLocaleString(window.document.documentElement.lang));
+            }
+        })
         $.ajax({
             url: '/api/pbb',
             dataType: 'json',
             success: function (data){
                 console.log(data);
-                $('#pbb').text(data);
+                $('#pbb').text("Rp. " + data);
+                $('#data-loading').addClass('d-none');
+                $('#data-all-wrapper').addClass('d-flex align-items-stretch');
+                $('#data-wrapper').removeClass('d-none');
             }
         });
         $.ajax({
@@ -377,23 +466,26 @@
             dataType: 'json',
             success: function (data){
                 console.log(data);
-                $('#bphtb').text(data);
-
+                $('#bphtb').text("Rp. " + data);
             }
         });
         $.ajax({
             url: '/api/kesehatan',
             dataType: 'json',
             success: function (data){
+                console.log(data);
+                $('#penyakit-loading').addClass('d-none');
+                $('#penyakit-card').removeClass('d-none');
                 $('#penyakit-0').text(data.data[0].penyakit);
                 $('#penyakit-0-desc').text('Jumlah pasien ' + data.data[0].total + ' orang');
                 $('#penyakit-1').text(data.data[1].penyakit);
                 $('#penyakit-1-desc').text('Jumlah pasien ' + data.data[1].total + ' orang');
                 $('#penyakit-2').text(data.data[2].penyakit);
                 $('#penyakit-2-desc').text('Jumlah pasien ' + data.data[2].total + ' orang');
-                $('#data-loading').addClass('d-none');
-                $('#data-all-wrapper').addClass('d-flex align-items-stretch');
-                $('#data-wrapper').removeClass('d-none');
+                $('#penyakit-3').text(data.data[3].penyakit);
+                $('#penyakit-3-desc').text('Jumlah pasien ' + data.data[3].total + ' orang');
+                $('#penyakit-4').text(data.data[4].penyakit);
+                $('#penyakit-4-desc').text('Jumlah pasien ' + data.data[4].total + ' orang');
             }
         });
         $.ajax({
