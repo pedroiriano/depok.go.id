@@ -3,7 +3,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-text">Depok.go.id</div>
+        <div class="sidebar-brand-text" style="font-weight: 500; text-transform: none;">Depok.go.id</div>
     </a>
 
     <!-- Divider -->

@@ -16,7 +16,7 @@ class ContentTableSeeder extends Seeder
         	[
 	        	'nama' => 'Sejarah',
 	            'slug' => 'sejarah',
-	            'desc' => '{"ops":[{"attributes":{"color":"#5f6167"},"insert":"Depok berawal dari sebuah Kecamatan yang berada di lingkungan Kewedanaan (Pembantu Bupati) wilayah Parung Kabupaten Bogor, kemudian pada tahun 1976 perumahan mulai dibangun baik oleh Perum Perumnas maupun pengembang yang kemudian diikuti dengan dibangunnya kampus Universitas Indonesia (UI), serta meningkatnya perdagangan dan Jasa yang semakin pesat sehingga diperlukan kecepatan pelayanan."},{"insert":"\n"}]}',
+	            'desc' => 'Depok berawal dari sebuah Kecamatan yang berada di lingkungan Kewedanaan (Pembantu Bupati) wilayah Parung Kabupaten Bogor, kemudian pada tahun 1976 perumahan mulai dibangun baik oleh Perum Perumnas maupun pengembang yang kemudian diikuti dengan dibangunnya kampus Universitas Indonesia (UI), serta meningkatnya perdagangan dan Jasa yang semakin pesat sehingga diperlukan kecepatan pelayanan',
 	            'image' => 'sejarah.jpg',
 	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -24,7 +24,7 @@ class ContentTableSeeder extends Seeder
         	[
 	        	'nama' => 'Ikon Kota',
 	            'slug' => 'ikon-kota',
-	            'desc' => '{"ops":[{"attributes":{"color":"#5f6167"},"insert":"Depok berawal dari sebuah Kecamatan yang berada di lingkungan Kewedanaan (Pembantu Bupati) wilayah Parung Kabupaten Bogor, kemudian pada tahun 1976 perumahan mulai dibangun baik oleh Perum Perumnas maupun pengembang yang kemudian diikuti dengan dibangunnya kampus Universitas Indonesia (UI), serta meningkatnya perdagangan dan Jasa yang semakin pesat sehingga diperlukan kecepatan pelayanan."},{"insert":"\n"}]}',
+	            'desc' => 'Depok berawal dari sebuah Kecamatan yang berada di lingkungan Kewedanaan (Pembantu Bupati) wilayah Parung Kabupaten Bogor, kemudian pada tahun 1976 perumahan mulai dibangun baik oleh Perum Perumnas maupun pengembang yang kemudian diikuti dengan dibangunnya kampus Universitas Indonesia (UI), serta meningkatnya perdagangan dan Jasa yang semakin pesat sehingga diperlukan kecepatan pelayanan',
 	            'image' => 'ikon-kota.jpg',
 	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -32,7 +32,7 @@ class ContentTableSeeder extends Seeder
         	[
 	        	'nama' => 'Seni Budaya',
 	            'slug' => 'seni-budaya',
-	            'desc' => '{"ops":[{"attributes":{"color":"#5f6167"},"insert":"Depok berawal dari sebuah Kecamatan yang berada di lingkungan Kewedanaan (Pembantu Bupati) wilayah Parung Kabupaten Bogor, kemudian pada tahun 1976 perumahan mulai dibangun baik oleh Perum Perumnas maupun pengembang yang kemudian diikuti dengan dibangunnya kampus Universitas Indonesia (UI), serta meningkatnya perdagangan dan Jasa yang semakin pesat sehingga diperlukan kecepatan pelayanan."},{"insert":"\n"}]}',
+	            'desc' => 'Depok berawal dari sebuah Kecamatan yang berada di lingkungan Kewedanaan (Pembantu Bupati) wilayah Parung Kabupaten Bogor, kemudian pada tahun 1976 perumahan mulai dibangun baik oleh Perum Perumnas maupun pengembang yang kemudian diikuti dengan dibangunnya kampus Universitas Indonesia (UI), serta meningkatnya perdagangan dan Jasa yang semakin pesat sehingga diperlukan kecepatan pelayanan',
 	            'image' => 'seni-budaya.jpg',
 	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -40,7 +40,7 @@ class ContentTableSeeder extends Seeder
         	[
 	        	'nama' => 'Demografi',
 	            'slug' => 'demografi',
-	            'desc' => '{"ops":[{"attributes":{"color":"#5f6167"},"insert":"Depok berawal dari sebuah Kecamatan yang berada di lingkungan Kewedanaan (Pembantu Bupati) wilayah Parung Kabupaten Bogor, kemudian pada tahun 1976 perumahan mulai dibangun baik oleh Perum Perumnas maupun pengembang yang kemudian diikuti dengan dibangunnya kampus Universitas Indonesia (UI), serta meningkatnya perdagangan dan Jasa yang semakin pesat sehingga diperlukan kecepatan pelayanan."},{"insert":"\n"}]}',
+	            'desc' => 'Depok berawal dari sebuah Kecamatan yang berada di lingkungan Kewedanaan (Pembantu Bupati) wilayah Parung Kabupaten Bogor, kemudian pada tahun 1976 perumahan mulai dibangun baik oleh Perum Perumnas maupun pengembang yang kemudian diikuti dengan dibangunnya kampus Universitas Indonesia (UI), serta meningkatnya perdagangan dan Jasa yang semakin pesat sehingga diperlukan kecepatan pelayanan',
 	            'image' => 'demografi.jpg',
 	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
