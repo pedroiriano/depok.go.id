@@ -176,11 +176,32 @@ class BerandaController extends Controller
         $pengumuman = Slider::where('url', '=', $url)->firstOrFail();
         return view('pengumuman', compact('pengumuman'));
     }
+    public function jumlahLayananKesehatanAPI()
+    {
+        $client = new \GuzzleHttp\Client();
+        $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
+        $response = $client->request('GET', 'https://cms.depok.go.id/Api/KesehatanKunjungan?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=2020&bulan=August&Limit=&Offset=');
+        $data = $response->getBody()->getContents();
+        $kunjungan = json_decode($data, true);
+        // return $kunjungan['data'];
+        $count = array();
+        $count['puskesmas'] = 0;
+        $count['rsud'] = 0;
+        foreach ($kunjungan['data'] as $key => $value) {
+            if ($value['JenisFaskes'] == "puskesmas") {
+                $count['puskesmas'] = $count['puskesmas'] + $value['jumlah'];
+            }elseif($value['JenisFaskes'] == "Rumah Sakit"){
+                $count['rsud'] = $count['rsud'] + $value['jumlah'];
+            }
+        }
+        return $count;
+        // $kunjungan['data'][1]['JenisFaskes'];
+    }
     public function kependudukanAPI()
     {
         $client = new \GuzzleHttp\Client();
         $md5 = md5('CMSDataWaReHoUseK3PeNduDukaN'.str_replace('-','',Carbon::now()->toDateString()));
-        $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan=&kelurahan=&dimensi=&subdimensi=&Limit=&Offset=');
+        $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan=&kelurahan=&dimensi=Agama&subdimensi=&Limit=&Offset=');
 
         $data = $response->getBody()->getContents();
         $population = json_decode($data, true);

@@ -210,22 +210,32 @@
             </div>
             <div class="card mb-2 shadow w-100 d-none" id="penyakit-card">
                 <div class="card-body">
-                    <h6>Penyakit Terpantau Bulan ini</h6>
+                    <h6 class="pb-3">Penyakit Terpantau Bulan ini</h6>
                     <ol class="pl-4" style="color: #1D4F88">
-                        <li id="penyakit-0"></li>
-                        <small class="text-muted" id="penyakit-0-desc"></small>
-                        <li id="penyakit-1"></li>
-                        <small class="text-muted" id="penyakit-1-desc"></small>
-                        <li id="penyakit-2"></li>
-                        <small class="text-muted" id="penyakit-2-desc"></small>
-                        <li id="penyakit-3"></li>
-                        <small class="text-muted" id="penyakit-3-desc"></small>
-                        <li id="penyakit-4"></li>
-                        <small class="text-muted" id="penyakit-4-desc"></small>
+                        <li class="pb-3">
+                            <span id="penyakit-0" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-0-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-1" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-1-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-2" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-2-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-3" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-3-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-4" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-4-desc"></small>
+                        </li>
                     </ol>
                 </div>
                 <div class="card-footer text-muted">
-                    <small>Sumber: Dinas Kesehatan Kota Depok</small>
+                    <small>Sumber: Dinkes Kota Depok</small>
                 </div>
             </div>
         </div>
@@ -256,7 +266,7 @@
                             <h5 style="color: #1D4F88" id="jumlah-penduduk"></h5><br>
                         </div>
                         <div class="card-footer text-muted">
-                            <small>Sumber: Dinas Kependudukan dan Pencatatan Sipil Kota Depok</small>
+                            <small>Sumber: Disdukcapil Kota Depok</small>
                         </div>
                     </div>
                 </div>
@@ -264,14 +274,21 @@
                     <div class="card mb-2 shadow w-100">
                         <div class="card-body">
                             <h6 class="pb-1">Penerimaan Bulan ini</h6>
-                            <h6 class="text-muted" style="font-size: 0.8rem">BPHTB</h6>
-                            <h5 style="color: #1D4F88" id="bphtb"></h5>
-                            <h5>PBB</h5>
-                            <h5 style="color: #1D4F88" id="pbb"></h5><br>
-                            <a href="">Selengkapnya</a>
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <h6 class="text-muted" style="font-size: 0.8rem">BPHTB</h6>
+                                    <h5 style="color: #1D4F88" id="bphtb"></h5>
+                                </div>
+                            </div>
+                            <div class="card mt-2 border-success">
+                                <div class="card-body">
+                                    <h6 class="text-muted" style="font-size: 0.8rem">PBB</h6>
+                                    <h5 style="color: #1D4F88" id="pbb"></h5>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer text-muted">
-                            <small>Sumber: Badan Keuangan Daerah Kota Depok</small>
+                            <small>Sumber: BKD Kota Depok</small>
                         </div>
                     </div>
                 </div>
@@ -284,7 +301,7 @@
                             <small class="text-muted">Jumlah turis luar dan dalam negeri</small>
                         </div>
                         <div class="card-footer text-muted">
-                            <small>Sumber: Badan Keuangan Daerah Kota Depok</small>
+                            <small>Sumber: BKD Kota Depok</small>
                         </div>
                     </div>
                 </div>
@@ -407,7 +424,10 @@
             dataType: 'json',
             success: function (data){
                 console.log(data);
-                $('#pbb').text(data);
+                $('#pbb').text("Rp. " + data);
+                $('#data-loading').addClass('d-none');
+                $('#data-all-wrapper').addClass('d-flex align-items-stretch');
+                $('#data-wrapper').removeClass('d-none');
             }
         });
         $.ajax({
@@ -415,14 +435,14 @@
             dataType: 'json',
             success: function (data){
                 console.log(data);
-                $('#bphtb').text(data);
-
+                $('#bphtb').text("Rp. " + data);
             }
         });
         $.ajax({
             url: '/api/kesehatan',
             dataType: 'json',
             success: function (data){
+                console.log(data);
                 $('#penyakit-loading').addClass('d-none');
                 $('#penyakit-card').removeClass('d-none');
                 $('#penyakit-0').text(data.data[0].penyakit);
@@ -435,9 +455,6 @@
                 $('#penyakit-3-desc').text('Jumlah pasien ' + data.data[3].total + ' orang');
                 $('#penyakit-4').text(data.data[4].penyakit);
                 $('#penyakit-4-desc').text('Jumlah pasien ' + data.data[4].total + ' orang');
-                $('#data-loading').addClass('d-none');
-                $('#data-all-wrapper').addClass('d-flex align-items-stretch');
-                $('#data-wrapper').removeClass('d-none');
             }
         });
         $.ajax({
