@@ -132,9 +132,9 @@
                     <div class="row justify-content-center">
                         @foreach ($categories as $key => $category)
                         @if ($category->pos > 6)
-                        <div class="col-4 col-md-3 my-1 d-none d-sm-block">
+                        <div class="col-6 col-md-3 my-1 d-none d-sm-block">
                         @else
-                        <div class="col-4 col-md-3 my-1">
+                        <div class="col-6 col-md-3 my-1">
                         @endif
                             <a href="#" id="btnModal-{{ $category->id }}" class="btnModal" data-toggle="modal" data-target="#modalLayanan-{{ $category->id }}" data-content="#" style="color:#1d1d1d;text-decoration:none; ">
                                 <div class="card h-100 card-service border">
@@ -160,7 +160,7 @@
         <div class="col-12 p-3">
             <h3>Sekilas Tentang Depok</h3>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 my-2">
             <div class="card w-100 shadow">
                 <img class="card-img-top" src="https://images.unsplash.com/photo-1531975474574-e9d2732e8386?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Kota Depok">
                 <div class="card-body">
@@ -197,7 +197,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 my-2">
             <div class="ph-item w-100 shadow rounded" id="penyakit-loading">
                 <div class="ph-col-12">
                     <div class="ph-row">
@@ -213,24 +213,34 @@
                     </div>
                 </div>
             </div>
-            <div class="card mb-2 shadow w-100 d-none" id="penyakit-card">
+            <div class="card shadow w-100 d-none" id="penyakit-card">
                 <div class="card-body">
-                    <h6>Penyakit Terpantau Bulan ini</h6>
+                    <h6 class="pb-3">Penyakit Terpantau Bulan ini</h6>
                     <ol class="pl-4" style="color: #1D4F88">
-                        <li id="penyakit-0"></li>
-                        <small class="text-muted" id="penyakit-0-desc"></small>
-                        <li id="penyakit-1"></li>
-                        <small class="text-muted" id="penyakit-1-desc"></small>
-                        <li id="penyakit-2"></li>
-                        <small class="text-muted" id="penyakit-2-desc"></small>
-                        <li id="penyakit-3"></li>
-                        <small class="text-muted" id="penyakit-3-desc"></small>
-                        <li id="penyakit-4"></li>
-                        <small class="text-muted" id="penyakit-4-desc"></small>
+                         <li class="pb-3">
+                            <span id="penyakit-0" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-0-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-1" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-1-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-2" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-2-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-3" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-3-desc"></small>
+                        </li>
+                        <li class="pb-3">
+                            <span id="penyakit-4" class="d-block"></span>
+                            <small class="text-muted d-block" id="penyakit-4-desc"></small>
+                        </li>
                     </ol>
                 </div>
                 <div class="card-footer text-muted">
-                    <small>Sumber: Dinas Kesehatan Kota Depok</small>
+                    <small>Sumber: Dinkes Kota Depok</small>
                 </div>
             </div>
         </div>
@@ -238,7 +248,7 @@
             <div class="col-12" id="data-all-wrapper">
                 <div class="row" id="data-loading">
                     @for($i=0; $i<4; $i++)
-                    <div class="col-6">
+                    <div class="col-6 my-2">
                         <div class="ph-item shadow rounded">
                             <div class="ph-col-12">
                                 <div class="ph-row">
@@ -255,54 +265,72 @@
                     @endfor
                 </div>
                 <div class="row d-none" id="data-wrapper">
-                    <div class="col-6 d-flex align-items-stretch">
-                        <div class="card mb-2 shadow w-100">
-                            <div class="card-body">
-                                <h6>Jumlah Penduduk</h6>
-                                <h5 style="color: #1D4F88" id="jumlah-penduduk"></h5><br>
-                            </div>
-                            <div class="card-footer text-muted">
-                                <small>Sumber: Dinas Kependudukan dan Pencatatan Sipil Kota Depok</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 d-flex align-items-stretch">
-                        <div class="card mb-2 shadow w-100">
-                            <div class="card-body">
-                                <h6 class="pb-1">Penerimaan Bulan ini</h6>
-                                <h6 class="text-muted" style="font-size: 0.8rem">BPHTB</h6>
-                                <h5 style="color: #1D4F88" id="bphtb"></h5>
-                                <h5>PBB</h5>
-                                <h5 style="color: #1D4F88" id="pbb"></h5><br>
-                                <a href="">Selengkapnya</a>
-                            </div>
-                            <div class="card-footer text-muted">
-                                <small>Sumber: Badan Keuangan Daerah Kota Depok</small>
-                            </div>
-                        </div>
-                    </div>
-                    @for($i = 0; $i < 2; $i++)
-                    <div class="col-6 @if($i < 2) mb-2 @endif d-flex align-items-stretch">
+                    <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3">Jumlah Penduduk</h6>
-                                <h6 class="h6" style="color: #1D4F88">5.603 Orang</h6>
-                                <small class="text-muted">Jumlah turis luar dan dalam negeri</small>
+                                <h6 class="pb-3">Kunjungan RSUD</h6>
+                                <h6 class="h6" style="color: #1D4F88" id="kunjungan-rsud"></h6>
+                                <small class="text-muted">Jumlah layanan yang terlayani pada bulan ini</small>
                             </div>
                             <div class="card-footer text-muted">
-                                <small>Sumber: Badan Keuangan Daerah Kota Depok</small>
+                                <small>Sumber: Dinkes Kota Depok</small>
                             </div>
                         </div>
                     </div>
-                    @endfor
+                    <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
+                        <div class="card shadow w-100">
+                            <div class="card-body">
+                                <h6 class="pb-3">Kunjungan Puskesmas</h6>
+                                <h6 class="h6" style="color: #1D4F88" id="kunjungan-puskesmas"></h6>
+                                <small class="text-muted">Jumlah layanan yang terlayani pada bulan ini</small>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <small>Sumber: Dinkes Kota Depok</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
+                        <div class="card mb-2 shadow w-100">
+                            <div class="card-body">
+                                <h6 class="pb-3">Jumlah Penduduk</h6>
+                                <h5 class="text-center" style="color: #1D4F88" id="jumlah-penduduk"></h5>
+                                <h6 class="text-muted text-center">Total penduduk</h6>
+                                <div class="row text-center pt-5">
+                                    <div class="col-6">
+                                        <h5 class="h5">52%</h5>
+                                        <h6 class="text-muted">Pria</h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5 class="h5">48%</h5>
+                                        <h6 class="text-muted">Wanita</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <small>Sumber: Disdukcapil Kota Depok</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
+                        <div class="card mb-2 shadow w-100">
+                            <div class="card-body">
+                                <h6 class="pb-3">Penerimaan Bulan ini</h6>
+                                <h6 class="text-muted" style="font-size: 0.8rem">BPHTB</h6>
+                                <h5 style="color: #1D4F88" id="bphtb"></h5>
+                                <h5 class="text-muted" style="font-size: 0.8rem">PBB</h5>
+                                <h5 style="color: #1D4F88" id="pbb"></h5><br>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <small>Sumber: BKD Kota Depok</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
     </div>
-
     <div class="row py-3">
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-12 my-2">
             <div class="card shadow">
                 <div class="card-body">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -335,10 +363,8 @@
                                     @endfor
                                 </div>
                             </div>
-                            <div class="">
-                                <div class="py-2" id="berita-other-link">
-                                    <a href="https://berita.depok.go.id" target="_blank" class="pb-3">Berita Lainnya <i class="fas fa-arrow-right"></i></a>
-                                </div>
+                            <div class="py-2" id="berita-other-link">
+                                <a href="https://berita.depok.go.id" target="_blank" class="pb-3">Berita Lainnya <i class="fas fa-arrow-right"></i></a>
                             </div> 
                         </div>
                         <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
@@ -379,7 +405,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-sm-12 d-flex align-items-stretch">
+        <div class="col-md-4 col-sm-12 d-flex align-items-stretch my-2">
             <div class="card shadow">
                 <div class="card-body">
                     <h5 class="h5">Government Public Relation</h5>
@@ -390,15 +416,18 @@
             </div>
         </div>
     </div>
-
 </div>
 @push('js')
 <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
 <script type="text/javascript">
 
+    if ($(window).width() < 514) {
+        $('#data-all-wrapper').removeClass('col-12');
+    } else {
+        $('#data-all-wrapper').addClass('col-12');
+    }
     $(document).ready(function(){
         // $('#pengumuman-modal').modal('show');
-        
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -409,9 +438,19 @@
             dataType: 'json',
             success: function (data){
                 console.log(data[0].Total);
-                $('#jumlah-penduduk').text(parseFloat(data[0].Total).toLocaleString(window.document.documentElement.lang));
+                $('#jumlah-penduduk').text(parseFloat(data[0].Total  + ' Orang').toLocaleString(window.document.documentElement.lang));
             }
         });
+        $.ajax({
+            url: '/api/kunjungan',
+            dataType: 'json',
+            success:function(data){
+                console.log("ini jumlah kunjungan" + data.puskesmas);
+                $('#kunjungan-rsud').text(parseFloat(data.rsud).toLocaleString(window.document.documentElement.lang));
+                $('#kunjungan-puskesmas').text(parseFloat(data.puskesmas).toLocaleString(window.document.documentElement.lang));
+            }
+        })
+
         $.ajax({
             url: '/api/pbb',
             dataType: 'json',

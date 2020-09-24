@@ -276,8 +276,6 @@ class BerandaController extends Controller
         $response = $client->request('GET', 'https://cms.depok.go.id/Api/KesehatanKunjungan?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=2020&bulan=&Limit=&Offset=');
         $data = $response->getBody()->getContents();
         $visit = json_decode($data, true);
-        /*$kunjungan = $json['data'];*/
-
         $count = array();
         $count['puskesmas'] = 0;
         $count['rsud'] = 0;
