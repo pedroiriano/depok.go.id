@@ -290,6 +290,15 @@ class BerandaController extends Controller
 
         return $count;
     }
+    public function hargaKomoditasAPI()
+    {
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('GET', 'https://dsw.depok.go.id/api/komoditas/harga_depok', ['verify' => false]);
+        $data = $response->getBody()->getContents();
+        $price = json_decode($data, true);
+
+        return $price['data'];
+    }
     public function youtubeAPI()
     {
         try {

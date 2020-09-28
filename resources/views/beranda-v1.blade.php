@@ -1,5 +1,7 @@
 @extends('includes.layout')
 @push('css')
+<link rel="stylesheet" href={{ asset("css/owl/owl.carousel.min.css") }}>
+<link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}>
 <style>
 .card-img-top {
     width: 100%;
@@ -154,6 +156,14 @@
                     <a href=" {{ route('layanan') }} " class="btn btn-light border mt-3 f-12">Layanan Lainnya</a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-12 p-3">
+            <h3>Harga Komoditas Pasar</h3>
+        </div>
+        <div class="col-12">
+            @include('includes.komoditas-pasar')
         </div>
     </div>
     <div class="row py-2">
@@ -418,9 +428,9 @@
     </div>
 </div>
 @push('js')
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
 <script type="text/javascript">
-
     if ($(window).width() < 514) {
         $('#data-all-wrapper').removeClass('col-12');
     } else {
@@ -433,6 +443,55 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        $.ajax({
+            url: '/api/harga-komoditas',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#pangan-loading').addClass('d-none');
+                $.each(data, function(index, item){
+                    if (item.selisih.slice(0,1) == '-') {
+                        text = "text-success";
+                        icon = '<i class="fas fa-chevron-down"></i>';
+                    }else{
+                        text = "text-danger";
+                        icon = '<i class="fas fa-chevron-up"></i>';
+                    }
+                    $('#pangan-wrapper').append(
+                        '<div class="item card border-0">' +
+                                '<div class="card-body">' +
+                                    '<img src="http://placehold.it/500x300/4DC7A0/ffffff" alt="" class="img-fluid">' +
+                                    '<div class="card-body-header">' +
+                                        '<h6 id="pangan-komoditi" class="pt-2">' + item.komoditi +'</h6>' +
+                                    '</div>' +
+                                    '<h6 id="pangan-harga font-weight-bold">Rp. ' + 
+                                        parseInt(item.price_today).toLocaleString() + 
+                                        '<span class="'+ text +'"> (' +
+                                        icon + 
+                                        parseInt(item.selisih).toLocaleString().replace('-', '') +')</span>' +
+                                    '</h6>' +
+                                '</div>' +
+                        '</div>'
+                    );
+                });
+                $(".owl-carousel").owlCarousel({
+                    loop:true,
+                    margin:10,
+                    nav:true,
+                    responsive:{
+                        0:{
+                            items:1
+                        },
+                        600:{
+                            items:3
+                        },
+                        1000:{
+                            items:4
+                        }
+                    }
+                });
+            }
+        })
         $.ajax({
             url: '/api/kependudukan',
             dataType: 'json',
