@@ -452,10 +452,10 @@
                 $.each(data, function(index, item){
                     if (item.selisih.slice(0,1) == '-') {
                         text = "text-success";
-                        icon = '<i class="fas fa-chevron-down"></i>';
+                        icon = '<i class="fas fa-arrow-down"></i>';
                     }else{
                         text = "text-danger";
-                        icon = '<i class="fas fa-chevron-up"></i>';
+                        icon = '<i class="fas fa-arrow-up"></i>';
                     }
                     $('#pangan-wrapper').append(
                         '<div class="item card border-0">' +
@@ -466,8 +466,8 @@
                                     '</div>' +
                                     '<h6 id="pangan-harga font-weight-bold">Rp. ' + 
                                         parseInt(item.price_today).toLocaleString() + 
-                                        '<span class="'+ text +'"> (' +
-                                        icon + 
+                                        ' <span class="'+ text +'"> (' +
+                                        icon + '  ' + 
                                         parseInt(item.selisih).toLocaleString().replace('-', '') +')</span>' +
                                     '</h6>' +
                                 '</div>' +
