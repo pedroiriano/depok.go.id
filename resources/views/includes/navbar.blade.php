@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-{{-- <div class="text-center text-white py-2" style="background-color: #1D4F88">
-=======
 <div class="text-center text-white py-2 d-none d-sm-block" style="background-color: #1D4F88">
->>>>>>> 55e3136321c8ca2b90dd6e145242bc64e8ca0273
     <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
         <i class="fab fa-facebook-f"></i>
     </a>

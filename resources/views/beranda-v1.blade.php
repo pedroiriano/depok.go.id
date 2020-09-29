@@ -284,11 +284,7 @@
                             <div class="card-body">
                                 <h6 class="pb-3">Kunjungan RSUD</h6>
                                 <h6 class="h6" style="color: #1D4F88" id="kunjungan-rsud"></h6>
-<<<<<<< HEAD
                                 <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
-=======
-                                <small class="text-muted">Jumlah layanan yang terlayani pada bulan ini</small>
->>>>>>> 55e3136321c8ca2b90dd6e145242bc64e8ca0273
                             </div>
                             <div class="card-footer text-muted">
                                 <small>Sumber: Dinkes Kota Depok</small>
@@ -300,11 +296,7 @@
                             <div class="card-body">
                                 <h6 class="pb-3">Kunjungan Puskesmas</h6>
                                 <h6 class="h6" style="color: #1D4F88" id="kunjungan-puskesmas"></h6>
-<<<<<<< HEAD
                                 <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
-=======
-                                <small class="text-muted">Jumlah layanan yang terlayani pada bulan ini</small>
->>>>>>> 55e3136321c8ca2b90dd6e145242bc64e8ca0273
                             </div>
                             <div class="card-footer text-muted">
                                 <small>Sumber: Dinkes Kota Depok</small>
@@ -337,15 +329,9 @@
                         <div class="card mb-2 shadow w-100">
                             <div class="card-body">
                                 <h6 class="pb-3">Penerimaan Bulan ini</h6>
-<<<<<<< HEAD
                                 <a href="http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx" style="font-size: 0.8rem">BPHTB</a>
                                 <h5 style="color: #1D4F88" id="bphtb"></h5>
                                 <a href="http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx" style="font-size: 0.8rem">PBB</a>
-=======
-                                <h6 class="text-muted" style="font-size: 0.8rem">BPHTB</h6>
-                                <h5 style="color: #1D4F88" id="bphtb"></h5>
-                                <h5 class="text-muted" style="font-size: 0.8rem">PBB</h5>
->>>>>>> 55e3136321c8ca2b90dd6e145242bc64e8ca0273
                                 <h5 style="color: #1D4F88" id="pbb"></h5><br>
                             </div>
                             <div class="card-footer text-muted">
@@ -449,10 +435,6 @@
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
-
-=======
->>>>>>> 55e3136321c8ca2b90dd6e145242bc64e8ca0273
     if ($(window).width() < 514) {
         $('#data-all-wrapper').removeClass('col-12');
     } else {
