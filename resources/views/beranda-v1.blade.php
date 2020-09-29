@@ -105,20 +105,41 @@
                                         </div>
                                     @endforeach
                                     <div class="pt-2">
-                                        <a href="" class="pt-2">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+                                        <a href="https://www.depok.go.id/agenda-kota" class="pt-2">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="mendatang" role="tabpanel" aria-labelledby="mendatang-tab">
                                     @foreach($agendasNext as $agenda)
                                     <small class="text-muted">{{ $agenda->tanggal }}</small>
-                                    <div class="callout callout-success">
-                                        <span>{{ $agenda->nama  }}</span>
-                                    </div>
+                                        <a href="#" data-target="#modalagenda-{{ $agenda->id }}" data-toggle="modal">
+                                            <div class="callout callout-success">
+                                                <span>{{ $agenda->nama  }}</span>
+                                            </div>
+                                        </a>
                                     @endforeach
                                     <div class="pt-2">
-                                        <a href="" class="pt-2">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+                                        <a href="https://www.depok.go.id/agenda-kota" class="pt-2">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <!-- Modal Agenda-->
+                        <div class="modal fade" id="modalagenda-{{ $agenda->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                               <div class="modal-content">
+                                  <div class="modal-header">
+                                     <h5 class="modal-title" id="exampleModalLabel">{{ $agenda->nama }}</h5>
+                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                     </button>
+                                  </div>
+                                  <div class="modal-body text-center">
+                                     <img src="{{ asset('uploads/agendas/'.$agenda->imageName) }}" alt="" class="img-fluid">
+                                  </div>
+                                  <div class="modal-footer">
+                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  </div>
+                               </div>
                             </div>
                         </div>
                     </div>
@@ -340,6 +361,9 @@
                         <li class="nav-item">
                             <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video Terbaru</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="video-tab" data-toggle="tab" href="#infografis" role="tab" aria-controls="video" aria-selected="false">Infografis</a>
+                        </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="berita" role="tabpanel" aria-labelledby="berita-tab">
@@ -369,37 +393,58 @@
                         </div>
                         <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
                             <div class="pt-3">
-                            <div id="youtube-frame" class="embed-responsive embed-responsive-16by9 mb-3 d-none">
-                                <iframe name="youtube-frame" src="" frameborder="0" allowfullscreen class="embed-responsive-item"></iframe>
-                            </div>
-                            <div id="youtube-wrapper" class="pt-4">
-                                <div id="youtube-loading">
-                                    <div class="ph-item" style="background-color: transparent;border: none;margin-bottom:0px;padding:0px">
-                                        <div class="ph-col-12" style="padding-left:0px; padding-right:0px">
-                                            <div class="ph-picture" style="height: 300px"></div>
+                                <div id="youtube-frame" class="embed-responsive embed-responsive-16by9 mb-3 d-none">
+                                    <iframe name="youtube-frame" src="" frameborder="0" allowfullscreen class="embed-responsive-item"></iframe>
+                                </div>
+                                <div id="youtube-wrapper" class="pt-4">
+                                    <div id="youtube-loading">
+                                        <div class="ph-item" style="background-color: transparent;border: none;margin-bottom:0px;padding:0px">
+                                            <div class="ph-col-12" style="padding-left:0px; padding-right:0px">
+                                                <div class="ph-picture" style="height: 300px"></div>
+                                            </div>
                                         </div>
+                                        @for($i=0; $i<5; $i++)
+                                        <div class="ph-item" style="background-color: transparent;border: none;margin-bottom:0px;padding:0px">
+                                            <div class="ph-col-2" style="padding-left:0px; padding-right:0px">
+                                                <div class="ph-picture" style="height: 60px; width: 80%"></div>
+                                            </div>
+                                            <div class="ph-col-10" style="padding-left: 0px">
+                                                <div class="ph-row">
+                                                    <div class="ph-col-6"></div>
+                                                    <div class="ph-col-6 empty"></div>
+                                                    <div class="ph-col-8 big"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr style="margin-bottom: 5px;margin-top: 5px">
+                                        @endfor
                                     </div>
-                                    @for($i=0; $i<5; $i++)
-                                    <div class="ph-item" style="background-color: transparent;border: none;margin-bottom:0px;padding:0px">
-                                        <div class="ph-col-2" style="padding-left:0px; padding-right:0px">
-                                            <div class="ph-picture" style="height: 60px; width: 80%"></div>
-                                        </div>
-                                        <div class="ph-col-10" style="padding-left: 0px">
+                                </div>
+                                <div id="youtube-other-link" class="pt-3">
+                                    <a href="https://www.youtube.com/user/kominfodepok" class="text-decoration-none">Video lainnya<i class="fas fa-arrow-right"></i></a>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="tab-pane fade pt-3" id="infografis" role="tabpanel" aria-labelledby="infografis-tab">
+                            <div class="row" id="infografis-loading">
+                                @for($x=0; $x<2; $x++)
+                                <div class="col-6">
+                                    <div class="ph-item border-0 shadow">
+                                        <div class="ph-col-12">
+                                            <div class="ph-picture"></div>
                                             <div class="ph-row">
-                                                <div class="ph-col-6"></div>
-                                                <div class="ph-col-6 empty"></div>
                                                 <div class="ph-col-8 big"></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <hr style="margin-bottom: 5px;margin-top: 5px">
-                                    @endfor
                                 </div>
+                                @endfor
+                            </div>  
+                            <div id="infografis-wrapper" class="row pt-4 d-none">
                             </div>
-                            <div id="youtube-other-link" class="pt-3">
-                                <a href="https://www.youtube.com/user/kominfodepok" class="text-decoration-none">Video lainnya<i class="fas fa-arrow-right"></i></a>
+                            <div id="infografi-other-link" class="pt-3">
+                                <a href="https://www.depok.go.id/infografis" class="text-decoration-none">Infografis lainnya<i class="fas fa-arrow-right"></i></a>
                             </div> 
-                        </div>
                         </div>
                     </div> 
                 </div>
@@ -431,6 +476,44 @@
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/api/infografis',
+            dataType: 'json',
+            success: function(data){
+                console.log(data)
+                $.each(data, function(index, item){
+                    $('#infografis-wrapper').append(
+                        '<div class="col-6">' +
+                            '<a href="#" data-target="#modal-infografis-'+ item.id +'" data-toggle="modal">'+
+                            '<img src="' + item.src + '" alt="" class="img-fluid rounded">' +
+                            '<h6 class="h6" style="font-size:18px">' + item.nama + '</h6>' +
+                            '</a>'+
+                        '</div>'+
+                        '<div class="modal fade" id="modal-infografis-'+ item.id +'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">'+
+                            '<div class="modal-dialog modal-md" role="document">'+
+                                '<div class="modal-content">'+
+                                    '<div class="modal-header">'+
+                                        '<h5 class="modal-title" id="exampleModalLabel">'+ item.nama +'</h5>'+
+                                        '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'+
+                                        '<span aria-hidden="true">&times;</span>'+
+                                        '</button>'+
+                                    '</div>'+
+                                    '<div class="modal-body text-center">'+
+                                        '<img src="' + item.src + '" alt="" class="img-fluid rounded">' +
+                                    '</div>'+
+                                    '<div class="modal-footer">'+
+                                        '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'
+                    );
+                });
+                $('#infografis-loading').addClass('d-none');
+                $('#infografis-wrapper').removeClass('d-none');
+                $('#infografis-other-link').removeClass('d-none');
             }
         });
         $.ajax({
@@ -589,6 +672,7 @@
 
             }
         });
+        
 
     });
 </script>
