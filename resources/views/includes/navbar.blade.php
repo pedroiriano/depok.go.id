@@ -12,7 +12,7 @@
         <i class="fab fa-youtube"></i>
     </a>
     <span>Temukan informasi terkini dengan mengikuti akun resmi sosial media kami</span>
-</div><!-- /header --> --}}
+</div>
 <nav class="shadow navbar navbar-expand-lg navbar-light bg-white flex-column flex-md-row sticky-top ">
     <div class="container">
         <a class="navbar-brand py-2" href="{{ route('beranda') }}">
