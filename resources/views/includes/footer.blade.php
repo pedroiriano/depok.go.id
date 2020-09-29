@@ -1,49 +1,50 @@
 <div class="container-fluid">
     <div class="container">
-            <div style="background-color: #D7DBDD" id="myCarousel" class="carousel slide py-5" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row ">
-                        <div class="col-4 col-md-3">
+            <div class="owl-carousel owl-theme owl-loaded">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage">
+                        <div class="owl-item">
                             <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
                                 <img src="{{ asset('images/dsw.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
-                        <div class="col-4 col-md-3">
+                        <div class="owl-item">
                             <a href="https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en" target="_blank">
                                 <img src="{{ asset('images/depok-sigap.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
-                        <div class="col-4 col-md-3">
+                        <div class="owl-item">
                             <a href="http://smartcity.devsc.id/" target="_blank">
                                 <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
-                        <div class="col-4 col-md-3">
+                        <div class="owl-item">
                             <a href="http://devsc.id/smarthealthy/" target="_blank">
                                 <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                        <div class="row">
-                        <div class="col-4 col-md-3">
+                        <div class="owl-item">
                             <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
                                 <img src="{{ asset('images/dsw.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
-                    </div>
+                        <div class="owl-item">
+                            <a href="https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en" target="_blank">
+                                <img src="{{ asset('images/depok-sigap.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="owl-item">
+                            <a href="http://smartcity.devsc.id/" target="_blank">
+                                <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="owl-item">
+                            <a href="http://devsc.id/smarthealthy/" target="_blank">
+                                <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="false"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="false"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
         </div>
     </div>
 </div>
@@ -74,7 +75,7 @@
             </div>
             <div class="col-12 col-md-6 offset-md-1 justify-content-end pb-3">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="card shadow">
                             <div class="card-body">
                                 <span class="text-muted">Call Center</span>
@@ -84,7 +85,7 @@
                             </div>
                         </div>  
                     </div>
-                    <div class="col-6">
+                    <div class="col-8">
                         <div class="card shadow pb-1">
                             <div class="card-body">
                                 <span class="text-muted">Surel Pemkot Depok</span>
