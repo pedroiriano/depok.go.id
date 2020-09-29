@@ -253,8 +253,10 @@
                         </li>
                     </ol>
                 </div>
-                <div class="card-footer text-muted">
-                    <small>Sumber: Dinkes Kota Depok</small>
+                <div class="card-footer">
+                    <a href="http://dinkes.depok.go.id/">
+                        <small>Sumber: Dinkes Kota Depok</small>
+                    </a>
                 </div>
             </div>
         </div>
@@ -286,8 +288,10 @@
                                 <h6 class="h6" style="color: #1D4F88" id="kunjungan-rsud"></h6>
                                 <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
                             </div>
-                            <div class="card-footer text-muted">
+                            <div class="card-footer">
+                                <a href="http://dinkes.depok.go.id/">
                                 <small>Sumber: Dinkes Kota Depok</small>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -298,8 +302,10 @@
                                 <h6 class="h6" style="color: #1D4F88" id="kunjungan-puskesmas"></h6>
                                 <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
                             </div>
-                            <div class="card-footer text-muted">
+                            <div class="card-footer">
+                                <a href="http://dinkes.depok.go.id/">
                                 <small>Sumber: Dinkes Kota Depok</small>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -320,8 +326,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer text-muted">
+                            <div class="card-footer">
+                                <a href="http://disdukcapil.depok.go.id/">
                                 <small>Sumber: Disdukcapil Kota Depok</small>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -334,8 +342,10 @@
                                 <a href="http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx" style="font-size: 0.8rem">PBB</a>
                                 <h5 style="color: #1D4F88" id="pbb"></h5><br>
                             </div>
-                            <div class="card-footer text-muted">
+                            <div class="card-footer">
+                                <a href="bkd.depok.go.id">
                                 <small>Sumber: BKD Kota Depok</small>
+                                </a>
                             </div>
                         </div>
                     </div>

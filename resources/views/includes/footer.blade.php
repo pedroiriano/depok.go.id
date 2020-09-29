@@ -75,7 +75,7 @@
             </div>
             <div class="col-12 col-md-6 offset-md-1 justify-content-end pb-3">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-md-6 col-sm-12">
                         <div class="card shadow">
                             <div class="card-body">
                                 <span class="text-muted">Call Center</span>
@@ -85,7 +85,7 @@
                             </div>
                         </div>  
                     </div>
-                    <div class="col-8">
+                    <div class="col-md-6 col-sm-12 pb-3">
                         <div class="card shadow pb-1">
                             <div class="card-body">
                                 <span class="text-muted">Surel Pemkot Depok</span>
@@ -95,12 +95,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 mt-3">
-                        <div class="card shadow">
+                    <div class="col-md-12 col-sm-12">
+                        <div style="background-color: #25d366" class="card shadow">
                             <div class="card-body">
-                                <span class="text-muted">Kirim Pesan Whatsapp</span>
+                                <span class="text-dark">Kirim Pesan Whatsapp</span>
                                 <a href="whatsapp://send?portal=phonenumber&text=Hello%2C%20World!">
-                                    <h6 class="lora h6 pt-2"><i class="mr-2 fab fa-whatsapp"></i>Klik untuk kirim pesan</h6>
+                                    <h5 class="text-light" class="lora h6 pt-2"><i class="mr-2 fab fa-whatsapp"></i>Klik untuk kirim pesan</h5>
                                 </a>
                             </div>
                         </div>
