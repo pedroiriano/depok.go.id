@@ -172,33 +172,37 @@
         </div>
         <div class="col-md-3 my-2">
             <div class="card w-100 shadow">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1531975474574-e9d2732e8386?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Kota Depok">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <h6 class="lora h6" style="color: #1D4F88">Depok</h6>
+                    <div class="row text-center">
+                        <div class="col-12 pb-3">
                             <small class="text-muted">{{ $tanggal }}</small>  
                         </div>
-                        <div class="col-6">
-                            <span class="lead ml-3" id="suhuHariIni" style="font-size: 2rem; color: #D9B06A">0 &deg;C</span>
+                        <div class="col-12">
+                            <span class="lead" id="suhuHariIni1" style="font-size: 2.5rem; color: #D9B06A"><i class="fas fa-cloud-sun pr-1"></i>26 &deg;C</span>
+                            <h6 class="text-muted">Cerah Berawan</h6>
                         </div>
                     </div>
-                    <hr>
+                    <div class="row text-center pt-3 pb-4">
+                        <div class="col-6">
+                            <h6><i class="fas fa-wind pr-1"></i><span id="anginHariIni">...</span></h6>
+                        </div>
+                        <div class="col-6">
+                            <h6><i class="fas fa-tint pr-1"></i><span id="kelembapanHariIni">...</span></h6>
+                        </div>
+                    </div>
+                    <p class="text-dark lead">Hari Ini</p>
                     <div class="row pb-3">
-                        <div class="col-12">
-                            <h6>Informasi Tambahan</h6>
+                        <div class="col-6">
+                            <p class="text-dark">00:00</p>
+                            <p class="text-dark">06:00</p>
+                            <p class="text-dark">12:00</p>
+                            <p class="text-dark">18:00</p>
                         </div>
                         <div class="col-6">
-                            <p class="text-dark">Angin</p>
-                            <p class="text-dark">Kelembapan</p>
-                            <p class="text-dark">Cuaca Besok</p>
-                            <p class="text-dark">Cuaca Lusa</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted" id="anginHariIni">...</p>
-                            <p class="text-muted" id="kelembapanHariIni">...</p>
-                            <p class="text-muted" id="suhuBesok">...</p>
-                            <p class="text-muted" id="suhuLusa">...</p>
+                            <p class="text-muted" id="hariIni24">...</p>
+                            <p class="text-muted" id="hariIni30">...</p>
+                            <p class="text-muted" id="hariIni36">...</p>
+                            <p class="text-muted" id="hariIni42">...</p>
                         </div>
                     </div>
                 </div>
@@ -452,9 +456,16 @@
                 $.each(data, function(index, item){
                     if (item.selisih.slice(0,1) == '-') {
                         text = "text-success";
+                        desc = " Harga turun ";
                         icon = '<i class="fas fa-arrow-down"></i>';
-                    }else{
+                    }else if(item.selisih == '0'){
+                        text = "text-primary";
+                        desc = " Harga stabil ";
+                        icon = '<i class="fas fa-equals"></i>';    
+                    }
+                    else{
                         text = "text-danger";
+                        desc = " Harga naik ";
                         icon = '<i class="fas fa-arrow-up"></i>';
                     }
                     $('#pangan-wrapper').append(
@@ -464,11 +475,11 @@
                                     '<div class="card-body-header">' +
                                         '<h6 id="pangan-komoditi" class="pt-2">' + item.komoditi +'</h6>' +
                                     '</div>' +
-                                    '<h6 id="pangan-harga font-weight-bold">Rp. ' + 
-                                        parseInt(item.price_today).toLocaleString() + 
-                                        ' <span class="'+ text +'"> (' +
-                                        icon + '  ' + 
-                                        parseInt(item.selisih).toLocaleString().replace('-', '') +')</span>' +
+                                    '<h6>Rp. ' + 
+                                        parseInt(item.price_today).toLocaleString() + '<small class="text-muted">/Kg</small>' + 
+                                    '</h6>' +
+                                    '<h6 class="'+ text +'">(' + 
+                                    icon + desc + parseInt(item.selisih).toLocaleString().replace('-', '') + ')' + 
                                     '</h6>' +
                                 '</div>' +
                         '</div>'
@@ -478,6 +489,7 @@
                     loop:true,
                     margin:10,
                     nav:true,
+                    dots: false,
                     responsive:{
                         0:{
                             items:1
@@ -486,7 +498,7 @@
                             items:3
                         },
                         1000:{
-                            items:4
+                            items:5
                         }
                     }
                 });
