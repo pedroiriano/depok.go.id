@@ -1,5 +1,8 @@
 @extends('includes.layout')
 @push('css')
+<link rel="stylesheet" href={{ asset("css/owl/owl.carousel.min.css") }}>
+<link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}>
+
 <style>
 .card-img-top {
     width: 100%;
@@ -161,8 +164,7 @@
                                 <div class="card h-100 card-service border">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img src="{{ asset('img/icon/'. $category->icon) }}" alt=""
-                                                class="img-fluid w-25">
+                                            <img src="{{ asset('img/icon/'. $category->icon) }}" alt="" class="img-fluid w-25">
                                             <h5 class="card-title pt-2 f-12">{{ $category->nama }}</h5>
                                         </div>
                                     </div>
@@ -179,37 +181,49 @@
     </div>
     <div class="row py-2">
         <div class="col-12 p-3">
+            <h3>Harga Komoditas Pasar</h3>
+        </div>
+        <div class="col-12">
+            @include('includes.komoditas-pasar')
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-12 p-3">
             <h3>Sekilas Tentang Depok</h3>
         </div>
         <div class="col-md-3 my-2">
             <div class="card w-100 shadow">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1531975474574-e9d2732e8386?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Kota Depok">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <h6 class="lora h6" style="color: #1D4F88">Depok</h6>
+                    <div class="row text-center">
+                        <div class="col-12 pb-3">
                             <small class="text-muted">{{ $tanggal }}</small>  
                         </div>
-                        <div class="col-6">
-                            <span class="lead ml-3" id="suhuHariIni" style="font-size: 2rem; color: #D9B06A">0 &deg;C</span>
+                        <div class="col-12">
+                            <span class="lead" id="suhuHariIni1" style="font-size: 2.5rem; color: #D9B06A"><i class="fas fa-cloud-sun pr-1"></i>26 &deg;C</span>
+                            <h6 class="text-muted">Cerah Berawan</h6>
                         </div>
                     </div>
-                    <hr>
+                    <div class="row text-center pt-3 pb-4">
+                        <div class="col-6">
+                            <h6><i class="fas fa-wind pr-1"></i><span id="anginHariIni">...</span></h6>
+                        </div>
+                        <div class="col-6">
+                            <h6><i class="fas fa-tint pr-1"></i><span id="kelembapanHariIni">...</span></h6>
+                        </div>
+                    </div>
+                    <p class="text-dark lead">Hari Ini</p>
                     <div class="row pb-3">
-                        <div class="col-12">
-                            <h6>Informasi Tambahan</h6>
+                        <div class="col-6">
+                            <p class="text-dark">00:00</p>
+                            <p class="text-dark">06:00</p>
+                            <p class="text-dark">12:00</p>
+                            <p class="text-dark">18:00</p>
                         </div>
                         <div class="col-6">
-                            <p class="text-dark">Angin</p>
-                            <p class="text-dark">Kelembapan</p>
-                            <p class="text-dark">Cuaca Besok</p>
-                            <p class="text-dark">Cuaca Lusa</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted" id="anginHariIni">...</p>
-                            <p class="text-muted" id="kelembapanHariIni">...</p>
-                            <p class="text-muted" id="suhuBesok">...</p>
-                            <p class="text-muted" id="suhuLusa">...</p>
+                            <p class="text-muted" id="hariIni24">...</p>
+                            <p class="text-muted" id="hariIni30">...</p>
+                            <p class="text-muted" id="hariIni36">...</p>
+                            <p class="text-muted" id="hariIni42">...</p>
                         </div>
                     </div>
                 </div>
@@ -291,7 +305,7 @@
                             <div class="card-body">
                                 <h6 class="pb-3">Kunjungan RSUD</h6>
                                 <h6 class="h6" style="color: #1D4F88" id="kunjungan-rsud"></h6>
-                                <small class="text-muted">Jumlah layanan yang terlayani pada bulan ini</small>
+                                <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
                             </div>
                             <div class="card-footer text-muted">
                                 <small>Sumber: Dinkes Kota Depok</small>
@@ -303,7 +317,7 @@
                             <div class="card-body">
                                 <h6 class="pb-3">Kunjungan Puskesmas</h6>
                                 <h6 class="h6" style="color: #1D4F88" id="kunjungan-puskesmas"></h6>
-                                <small class="text-muted">Jumlah layanan yang terlayani pada bulan ini</small>
+                                <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
                             </div>
                             <div class="card-footer text-muted">
                                 <small>Sumber: Dinkes Kota Depok</small>
@@ -336,9 +350,9 @@
                         <div class="card mb-2 shadow w-100">
                             <div class="card-body">
                                 <h6 class="pb-3">Penerimaan Bulan ini</h6>
-                                <h6 class="text-muted" style="font-size: 0.8rem">BPHTB</h6>
+                                <a href="http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx" style="font-size: 0.8rem">BPHTB</a>
                                 <h5 style="color: #1D4F88" id="bphtb"></h5>
-                                <h5 class="text-muted" style="font-size: 0.8rem">PBB</h5>
+                                <a href="http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx" style="font-size: 0.8rem">PBB</a>
                                 <h5 style="color: #1D4F88" id="pbb"></h5><br>
                             </div>
                             <div class="card-footer text-muted">
@@ -443,7 +457,7 @@
                             <div id="infografis-wrapper" class="row pt-4 d-none">
                             </div>
                             <div id="infografi-other-link" class="pt-3">
-                                <a href="https://www.depok.go.id/infografis" class="text-decoration-none">Infografis lainnya<i class="fas fa-arrow-right"></i></a>
+                                <a href="{{ route('infografis') }}" class="text-decoration-none">Infografis lainnya<i class="fas fa-arrow-right pl-1"></i></a>
                             </div> 
                         </div>
                     </div> 
@@ -463,9 +477,9 @@
     </div>
 </div>
 @push('js')
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
 <script type="text/javascript">
-
     if ($(window).width() < 514) {
         $('#data-all-wrapper').removeClass('col-12');
     } else {
@@ -514,6 +528,63 @@
                 $('#infografis-loading').addClass('d-none');
                 $('#infografis-wrapper').removeClass('d-none');
                 $('#infografis-other-link').removeClass('d-none');
+            }
+        });
+        $.ajax({
+            url: '/api/harga-komoditas',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#pangan-loading').addClass('d-none');
+                $.each(data, function(index, item){
+                    if (item.selisih.slice(0,1) == '-') {
+                        text = "text-success";
+                        desc = " Harga turun ";
+                        icon = '<i class="fas fa-arrow-down"></i>';
+                    }else if(item.selisih == '0'){
+                        text = "text-primary";
+                        desc = " Harga stabil ";
+                        icon = '<i class="fas fa-equals"></i>';    
+                    }
+                    else{
+                        text = "text-danger";
+                        desc = " Harga naik ";
+                        icon = '<i class="fas fa-arrow-up"></i>';
+                    }
+                    $('#pangan-wrapper').append(
+                        '<div class="item card border-0">' +
+                                '<div class="card-body">' +
+                                    '<img src="http://placehold.it/500x300/4DC7A0/ffffff" alt="" class="img-fluid">' +
+                                    '<div class="card-body-header">' +
+                                        '<h6 id="pangan-komoditi" class="pt-2">' + item.komoditi +'</h6>' +
+                                    '</div>' +
+                                    '<h6>Rp. ' + 
+                                        parseInt(item.price_today).toLocaleString() + '<small class="text-muted">/Kg</small>' + 
+                                    '</h6>' +
+                                    '<h6 class="'+ text +'">(' + 
+                                    icon + desc + parseInt(item.selisih).toLocaleString().replace('-', '') + ')' + 
+                                    '</h6>' +
+                                '</div>' +
+                        '</div>'
+                    );
+                });
+                $(".owl-carousel").owlCarousel({
+                    loop:true,
+                    margin:10,
+                    nav:true,
+                    dots: false,
+                    responsive:{
+                        0:{
+                            items:2
+                        },
+                        600:{
+                            items:3
+                        },
+                        1000:{
+                            items:5
+                        }
+                    }
+                });
             }
         });
         $.ajax({

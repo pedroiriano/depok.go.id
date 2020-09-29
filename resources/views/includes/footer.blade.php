@@ -1,30 +1,54 @@
 <div class="container-fluid">
     <div class="container">
-        <div class="row py-5 justify-content-center">
-            <div class="col-4 col-md-3 pb-5">
-                <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
-                    <img src="{{ asset('images/dsw.png') }}" alt="" class="img-fluid">
-                </a>
-            </div>
-            <div class="col-4 col-md-3 pb-5">
-                <a href="https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en" target="_blank">
-                    <img src="{{ asset('images/depok-sigap.png') }}" alt="" class="img-fluid">
-                </a>
-            </div>
-            <div class="col-4 col-md-3 pb-5">
-                <a href="http://smartcity.devsc.id/" target="_blank">
-                    <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
-                </a>
-            </div>
-            <div class="col-4 col-md-3 pb-5">
-                <a href="http://devsc.id/smarthealthy/" target="_blank">
-                    <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
-                </a>
+            <div class="owl-carousel owl-theme owl-loaded">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage">
+                        <div class="owl-item">
+                            <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
+                                <img src="{{ asset('images/dsw.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="owl-item">
+                            <a href="https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en" target="_blank">
+                                <img src="{{ asset('images/depok-sigap.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="owl-item">
+                            <a href="http://smartcity.devsc.id/" target="_blank">
+                                <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="owl-item">
+                            <a href="http://devsc.id/smarthealthy/" target="_blank">
+                                <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="owl-item">
+                            <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
+                                <img src="{{ asset('images/dsw.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="owl-item">
+                            <a href="https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en" target="_blank">
+                                <img src="{{ asset('images/depok-sigap.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="owl-item">
+                            <a href="http://smartcity.devsc.id/" target="_blank">
+                                <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="owl-item">
+                            <a href="http://devsc.id/smarthealthy/" target="_blank">
+                                <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<footer class="page-footer container-fluid font-small py-4 bg-light">
+<footer class="page-footer container-fluid font-small py-5 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-4 offset-4 col-md-1 offset-md-0">
@@ -51,7 +75,7 @@
             </div>
             <div class="col-12 col-md-6 offset-md-1 justify-content-end pb-3">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="card shadow">
                             <div class="card-body">
                                 <span class="text-muted">Call Center</span>
@@ -61,7 +85,7 @@
                             </div>
                         </div>  
                     </div>
-                    <div class="col-6">
+                    <div class="col-8">
                         <div class="card shadow pb-1">
                             <div class="card-body">
                                 <span class="text-muted">Surel Pemkot Depok</span>

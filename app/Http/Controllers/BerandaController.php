@@ -41,9 +41,7 @@ class BerandaController extends Controller
     }
     public function betaIndex()
     {
-        $tanggalHijriyah  = \GeniusTS\HijriDate\Date::now()->format('d F Y');
-        $tanggal = Carbon::now()->format('d F Y');
-        
+        $tanggal = Carbon::now()->format('l, d F');
         $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
         $categories = Category::with('services')->orderBy('pos', 'asc')->take(8)->get();
         $agendas = Agenda::orderBy('tanggal', 'asc')->get();
@@ -51,7 +49,7 @@ class BerandaController extends Controller
         $agendasNext = Agenda::where('tanggal', '!=', Carbon::today())->orderBy('tanggal', 'asc')->take(2)->get();
         $popup = Slider::where('popup', 1)->first();
 
-        return view('beranda-v1', compact('agendas','agendasToday','agendasNext' ,'categories', 'sliders','tanggal', 'tanggalHijriyah', 'popup'));
+        return view('beranda-v1', compact('agendas','agendasToday','agendasNext' ,'categories', 'sliders','tanggal', 'popup'));
     }
     public function data()
     {
@@ -242,14 +240,28 @@ class BerandaController extends Controller
     }
     public function cuacaBMKGAPI()
     {
+        // $xml = simplexml_load_file("https://data.bmkg.go.id/datamkg/MEWS/DigitalForecast/DigitalForecast-JawaBarat.xml") or die("Error: Cannot create object");
+        // // return $xml->forecast->area[11]->parameter[5]->timerange[2]->value[0];
+        // foreach($xml->forecast->area[11]->parameter[5]->timerange[2]->children() as $forecast){
+        //     echo $forecast ." asd ";
+        // }
+        
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', 'https://data.bmkg.go.id/datamkg/MEWS/DigitalForecast/DigitalForecast-JawaBarat.xml');
         $xml = simplexml_load_string($response->getBody(),'SimpleXMLElement',LIBXML_NOCDATA);
-
-        $forecast['suhu'] = $xml->forecast->area[11]->parameter[5]->timerange[2]->value[0];
-        $forecast['cuaca'] = $xml->forecast->area[11]->parameter[6]->timerange->value[0];
-        $forecast['kelembapan'] = $xml->forecast->area[11]->parameter[0]->timerange->value[0];
-        $forecast['angin'] = $xml->forecast->area[11]->parameter[8]->timerange->value[1];
+        // $xml = simplexml_load_string($xml_string);
+        $json = json_encode($xml->forecast->area[11]);
+        $array = json_decode($json, TRUE);
+        return $array->parameter[5];
+        foreach($array as $data){
+            $forecast['suhu'] = $data->parameter[5]->timerange[2]->value[0];
+        }
+        return $forecast;
+        // $forecast['suhu'][0] = $xml->forecast->area[11]->parameter[5]->timerange[2]->value[0];
+        // $forecast['suhu'][1] = $xml->forecast->area[11]->parameter[5]->timerange[2]->value[1];
+        // $forecast['cuaca'] = $xml->forecast->area[11]->parameter[6]->timerange->value[0];
+        // $forecast['kelembapan'] = $xml->forecast->area[11]->parameter[0]->timerange->value[0];
+        // $forecast['angin'] = $xml->forecast->area[11]->parameter[8]->timerange->value[1];
 
         return $forecast;
     }
@@ -289,6 +301,15 @@ class BerandaController extends Controller
         }
 
         return $count;
+    }
+    public function hargaKomoditasAPI()
+    {
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('GET', 'https://dsw.depok.go.id/api/komoditas/harga_depok', ['verify' => false]);
+        $data = $response->getBody()->getContents();
+        $price = json_decode($data, true);
+
+        return $price['data'];
     }
     public function youtubeAPI()
     {

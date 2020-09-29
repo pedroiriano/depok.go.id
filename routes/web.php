@@ -20,6 +20,7 @@ Route::get('/pengumuman', 'BerandaController@listPengumuman')->name('list.pengum
 Route::get('/pengumuman/{url}', 'BerandaController@pengumuman')->name('pengumuman');
 Route::get('/infografis', 'BerandaController@infografis')->name('infografis');
 Route::get('/download/{file}', 'DownloadsController@download')->name('download');
+Route::get('/pimpinan-daerah', 'BerandaController@pimpinanDaerah')->name('pimpinan');
 //Pendaftaran PDAM
 //Route::get('/pendaftaran-direksi-pdam/berhasil', 'PendaftaranController@success')->name('pendaftaran.success');
 //Route::resource('/pendaftaran-direksi-pdam', 'PendaftaranController');
@@ -30,7 +31,6 @@ Route::prefix('beta')->group(function (){
 });
 // // PEMERINTAHAN
 // Route::get('/visi-misi', 'BerandaController@visiMisi')->name('visiMisi');
-Route::get('/pimpinan-daerah', 'BerandaController@pimpinanDaerah')->name('pimpinanDaerah');
 // Route::get('/struktur-daerah', 'BerandaController@strukturDaerah')->name('strukturDaerah');
 // Route::get('/perundang-undangan', 'BerandaController@perundangundangan')->name('perundangundangan');
 // Route::get('/penghargaan', 'BerandaController@penghargaan')->name('penghargaan');
@@ -44,6 +44,7 @@ Route::get('/pimpinan-daerah', 'BerandaController@pimpinanDaerah')->name('pimpin
 Route::get('/layanan', 'BerandaController@layanan')->name('layanan');
 
 Route::get('/api/agenda', 'BerandaController@AgendaAPI')->name('api.agenda');
+Route::get('/api/harga-komoditas', 'BerandaController@hargaKomoditasAPI')->name('api.harga-komoditas');
 Route::get('/api/berita', 'BerandaController@beritaAPI');
 Route::get('/api/cuacaBMKG', 'BerandaController@cuacaBMKGAPI');
 Route::get('/api/cuaca', 'BerandaController@cuacaAPI');
