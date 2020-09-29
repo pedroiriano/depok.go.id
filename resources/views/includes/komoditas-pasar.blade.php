@@ -12,8 +12,8 @@
     }
 </style>
 <div class="row" id="pangan-loading">
-    @for($x = 0; $x < 4; $x++)
-    <div class="col-3">
+    @for($x = 0; $x < 5; $x++)
+    <div class="col">
         <div class="ph-item border-0 shadow">
             <div class="ph-col-12">
                 <div class="ph-picture"></div>
