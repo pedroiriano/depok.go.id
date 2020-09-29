@@ -41,9 +41,7 @@ class BerandaController extends Controller
     }
     public function betaIndex()
     {
-        $tanggalHijriyah  = \GeniusTS\HijriDate\Date::now()->format('d F Y');
         $tanggal = Carbon::now()->format('l, d F');
-        $infografis = Infografis::where('status', 1)->get();
         $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
         $categories = Category::with('services')->orderBy('pos', 'asc')->take(8)->get();
         $agendas = Agenda::orderBy('tanggal', 'asc')->get();
@@ -51,7 +49,7 @@ class BerandaController extends Controller
         $agendasNext = Agenda::where('tanggal', '!=', Carbon::today())->orderBy('tanggal', 'asc')->take(2)->get();
         $popup = Slider::where('popup', 1)->first();
 
-        return view('beranda-v1', compact('agendasToday','agendasNext' ,'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah', 'popup'));
+        return view('beranda-v1', compact('agendas','agendasToday','agendasNext' ,'categories', 'sliders','tanggal', 'popup'));
     }
     public function data()
     {
@@ -335,6 +333,14 @@ class BerandaController extends Controller
             throw $e;
 
         }
+    }
+    public function infografisAPI()
+    {
+        $infografis = Infografis::where('status', 1)->get();
+        foreach ($infografis as $key => $data) {
+            $infografis[$key]['src'] = asset('/uploads/infografis/'.$data->imageName);
+        }
+        return response()->json($infografis);
     }
     public function beritaRSS()
     {
