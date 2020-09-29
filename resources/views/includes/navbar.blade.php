@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {{-- <div class="text-center text-white py-2" style="background-color: #1D4F88">
+=======
+<div class="text-center text-white py-2 d-none d-sm-block" style="background-color: #1D4F88">
+>>>>>>> 55e3136321c8ca2b90dd6e145242bc64e8ca0273
     <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
         <i class="fab fa-facebook-f"></i>
     </a>
@@ -31,9 +35,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('content', 'sejarah') }}">Sejarah</a>
-                        <a class="dropdown-item" href="{{ route('content', 'lambangIdentitas') }}">Lambang Identitas</a>
-                        <a class="dropdown-item" href="{{ route('content', 'ikonKota') }}">Ikon Kota</a>
-                        <a class="dropdown-item" href="{{ route('content', 'seniBudaya') }}">Seni Budaya</a>
+                        <a class="dropdown-item" href="{{ route('content', 'lambang-identitas') }}">Lambang Identitas</a>
+                        <a class="dropdown-item" href="{{ route('content', 'ikon-kota') }}">Ikon Kota</a>
+                        <a class="dropdown-item" href="{{ route('content', 'seni-budaya') }}">Seni Budaya</a>
                         {{-- <a class="dropdown-item" href="{{ route('content', 'sosialEkonomi') }}">Sosial Ekonomi</a> --}}
                         <a class="dropdown-item" href="{{ route('content', 'penghargaan') }}">Penghargaan</a>
                         <a class="dropdown-item" href="{{ route('content', 'demografi') }}">Demografi</a>
@@ -46,10 +50,10 @@
                         Pemerintahan
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('content', 'visiMisi') }}">Visi & Misi Kota</a>
-                        <a class="dropdown-item" href="{{ route('content', 'pimpinanDaerah') }}">Pimpinan Daerah</a>
+                        <a class="dropdown-item" href="{{ route('content', 'visi-misi') }}">Visi & Misi Kota</a>
+                        <a class="dropdown-item" href="{{ route('pimpinan') }}">Pimpinan Daerah</a>
                         <a class="dropdown-item" href="{{ route('content', 'dinas') }}">Perangkat Daerah</a>
-                        <a class="dropdown-item" href="{{ route('content', 'strukturDaerah') }}">Struktur Daerah</a>
+                        <a class="dropdown-item" href="{{ route('content', 'struktur-daerah') }}">Struktur Daerah</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

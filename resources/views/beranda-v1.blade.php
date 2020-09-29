@@ -1,5 +1,7 @@
 @extends('includes.layout')
 @push('css')
+<link rel="stylesheet" href={{ asset("css/owl/owl.carousel.min.css") }}>
+<link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}>
 <style>
 .card-img-top {
     width: 100%;
@@ -158,6 +160,14 @@
     </div>
     <div class="row py-2">
         <div class="col-12 p-3">
+            <h3>Harga Komoditas Pasar</h3>
+        </div>
+        <div class="col-12">
+            @include('includes.komoditas-pasar')
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-12 p-3">
             <h3>Sekilas Tentang Depok</h3>
         </div>
         <div class="col-md-3 my-2">
@@ -270,7 +280,11 @@
                             <div class="card-body">
                                 <h6 class="pb-3">Kunjungan RSUD</h6>
                                 <h6 class="h6" style="color: #1D4F88" id="kunjungan-rsud"></h6>
+<<<<<<< HEAD
                                 <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
+=======
+                                <small class="text-muted">Jumlah layanan yang terlayani pada bulan ini</small>
+>>>>>>> 55e3136321c8ca2b90dd6e145242bc64e8ca0273
                             </div>
                             <div class="card-footer text-muted">
                                 <small>Sumber: Dinkes Kota Depok</small>
@@ -282,7 +296,11 @@
                             <div class="card-body">
                                 <h6 class="pb-3">Kunjungan Puskesmas</h6>
                                 <h6 class="h6" style="color: #1D4F88" id="kunjungan-puskesmas"></h6>
+<<<<<<< HEAD
                                 <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
+=======
+                                <small class="text-muted">Jumlah layanan yang terlayani pada bulan ini</small>
+>>>>>>> 55e3136321c8ca2b90dd6e145242bc64e8ca0273
                             </div>
                             <div class="card-footer text-muted">
                                 <small>Sumber: Dinkes Kota Depok</small>
@@ -315,9 +333,15 @@
                         <div class="card mb-2 shadow w-100">
                             <div class="card-body">
                                 <h6 class="pb-3">Penerimaan Bulan ini</h6>
+<<<<<<< HEAD
                                 <a href="http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx" style="font-size: 0.8rem">BPHTB</a>
                                 <h5 style="color: #1D4F88" id="bphtb"></h5>
                                 <a href="http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx" style="font-size: 0.8rem">PBB</a>
+=======
+                                <h6 class="text-muted" style="font-size: 0.8rem">BPHTB</h6>
+                                <h5 style="color: #1D4F88" id="bphtb"></h5>
+                                <h5 class="text-muted" style="font-size: 0.8rem">PBB</h5>
+>>>>>>> 55e3136321c8ca2b90dd6e145242bc64e8ca0273
                                 <h5 style="color: #1D4F88" id="pbb"></h5><br>
                             </div>
                             <div class="card-footer text-muted">
@@ -418,9 +442,13 @@
     </div>
 </div>
 @push('js')
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 55e3136321c8ca2b90dd6e145242bc64e8ca0273
     if ($(window).width() < 514) {
         $('#data-all-wrapper').removeClass('col-12');
     } else {
@@ -433,6 +461,55 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        $.ajax({
+            url: '/api/harga-komoditas',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#pangan-loading').addClass('d-none');
+                $.each(data, function(index, item){
+                    if (item.selisih.slice(0,1) == '-') {
+                        text = "text-success";
+                        icon = '<i class="fas fa-arrow-down"></i>';
+                    }else{
+                        text = "text-danger";
+                        icon = '<i class="fas fa-arrow-up"></i>';
+                    }
+                    $('#pangan-wrapper').append(
+                        '<div class="item card border-0">' +
+                                '<div class="card-body">' +
+                                    '<img src="http://placehold.it/500x300/4DC7A0/ffffff" alt="" class="img-fluid">' +
+                                    '<div class="card-body-header">' +
+                                        '<h6 id="pangan-komoditi" class="pt-2">' + item.komoditi +'</h6>' +
+                                    '</div>' +
+                                    '<h6 id="pangan-harga font-weight-bold">Rp. ' + 
+                                        parseInt(item.price_today).toLocaleString() + 
+                                        ' <span class="'+ text +'"> (' +
+                                        icon + '  ' + 
+                                        parseInt(item.selisih).toLocaleString().replace('-', '') +')</span>' +
+                                    '</h6>' +
+                                '</div>' +
+                        '</div>'
+                    );
+                });
+                $(".owl-carousel").owlCarousel({
+                    loop:true,
+                    margin:10,
+                    nav:true,
+                    responsive:{
+                        0:{
+                            items:1
+                        },
+                        600:{
+                            items:3
+                        },
+                        1000:{
+                            items:4
+                        }
+                    }
+                });
+            }
+        })
         $.ajax({
             url: '/api/kependudukan',
             dataType: 'json',
