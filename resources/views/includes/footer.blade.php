@@ -1,6 +1,10 @@
+@push('css')
+<link rel="stylesheet" href={{ asset("css/owl/owl.carousel.min.css") }}>
+<link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}>
+@endpush
 <div class="container-fluid">
     <div class="container">
-            <div class="owl-carousel owl-theme owl-loaded">
+            <div class="owl-carousel owl-theme owl-loaded" id="owl-carousel">
                 <div class="owl-stage-outer">
                     <div class="owl-stage">
                         <div class="owl-item">
@@ -96,11 +100,10 @@
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12">
-                        <div style="background-color: #25d366" class="card shadow">
+                        <div style="background-color: #25d366" class="card shadow p-2">
                             <div class="card-body">
-                                <span class="text-dark">Kirim Pesan Whatsapp</span>
                                 <a href="whatsapp://send?portal=phonenumber&text=Hello%2C%20World!">
-                                    <h5 class="text-light" class="lora h6 pt-2"><i class="mr-2 fab fa-whatsapp"></i>Klik untuk kirim pesan</h5>
+                                    <h5 class="text-light" class="lora h6 pt-2"><i class="mr-2 fab fa-whatsapp"></i>Klik untuk kirim pesan Whatsapp</h5>
                                 </a>
                             </div>
                         </div>

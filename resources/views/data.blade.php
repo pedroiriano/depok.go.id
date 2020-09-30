@@ -1,3 +1,30 @@
+@push('css')
+<link rel="stylesheet" href={{ asset("css/owl/owl.carousel.min.css") }}>
+<link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}>
+@endpush
+@push('js')
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<script type="text/javascript">
+    $("#owl-carousel").owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        dots: false,
+        navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+        responsive:{
+            0:{
+                items:2
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+    });
+</script>
+@endpush
 @extends('includes.layout')
 @push('css')
 <style>

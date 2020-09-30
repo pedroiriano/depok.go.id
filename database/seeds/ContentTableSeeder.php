@@ -116,6 +116,14 @@ class ContentTableSeeder extends Seeder
 	            'image' => 'kelurahan.jpg',
 	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+			],
+			[
+	        	'nama' => 'Lambang Identitas',
+	            'slug' => 'lambang-identitas',
+	            'desc' => 'tes',
+	            'image' => 'lambang-identitas.jpg',
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+	            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         	],
         ]);
     }

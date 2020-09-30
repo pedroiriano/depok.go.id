@@ -28,7 +28,6 @@
 
 <body style="background-color: #F7FAFC">
     <div id="app">
-        {{-- <a id="myBtn" class="shadow-lg btn btn-outline-success btn-light rounded btn-lg" style="color:#1cc88a"><i class="far fa-comment-dots"></i>&nbsp; Kirim Pesan</a> --}}
         @include('includes.navbar')
         <main>
             @yield('content')
@@ -40,13 +39,10 @@
     <!-- Untuk Analytics Google : Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-17742526-4"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-17742526-4');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-17742526-4');
 </script>
-
-
     @stack('js')
 </html>

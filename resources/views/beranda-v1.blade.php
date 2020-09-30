@@ -199,7 +199,7 @@
                             <small class="text-muted">{{ $tanggal }}</small>  
                         </div>
                         <div class="col-12">
-                            <span class="lead" id="suhuHariIni1" style="font-size: 2.5rem; color: #D9B06A"><i class="fas fa-cloud-sun pr-1"></i>26 &deg;C</span>
+                            <span class="lead" id="suhuHariIni1" style="font-size: 2.5rem; color: #D9B06A"><i class="fas fa-cloud-sun pr-2"></i>26&deg;C</span>
                             <h6 class="text-muted">Cerah Berawan</h6>
                         </div>
                     </div>
@@ -583,6 +583,7 @@
                     margin:10,
                     nav:true,
                     dots: false,
+                    navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
                     responsive:{
                         0:{
                             items:2
