@@ -114,7 +114,7 @@
                                 <div class="tab-pane fade" id="mendatang" role="tabpanel" aria-labelledby="mendatang-tab">
                                     @foreach($agendasNext as $agenda)
                                     <small class="text-muted">{{ $agenda->tanggal }}</small>
-                                        <a href="#" data-target="#modalagenda-{{ $agenda->id }}" data-toggle="modal">
+                                        <a href="#" data-target="#modalAgenda-{{ $agenda->id }}" data-toggle="modal">
                                             <div class="callout callout-success">
                                                 <span>{{ $agenda->nama  }}</span>
                                             </div>
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <!-- Modal Agenda-->
-                        <div class="modal fade" id="modalagenda-{{ $agenda->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modalAgenda-{{ $agenda->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                <div class="modal-content">
                                   <div class="modal-header">
@@ -137,7 +137,7 @@
                                      </button>
                                   </div>
                                   <div class="modal-body text-center">
-                                     <img src="{{ asset('uploads/agendas/'.$agenda->imageName) }}" alt="" class="img-fluid">
+                                     <img src="{{ asset('uploads/agenda/'.$agenda->imageName) }}" alt="" class="img-fluid">
                                   </div>
                                   <div class="modal-footer">
                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
