@@ -178,11 +178,23 @@ class BerandaController extends Controller
     {
         $client = new \GuzzleHttp\Client();
         $md5 = md5('CMSDataWaReHoUseK3PeNduDukaN'.str_replace('-','',Carbon::now()->toDateString()));
-        $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan=&kelurahan=&dimensi=agama&subdimensi=&Limit=&Offset=');
+        $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan=&kelurahan=&dimensi=Jenis%20Kelamin&subdimensi=&Limit=&Offset=');
         $data = $response->getBody()->getContents();
         $population = json_decode($data, true);
         
-        return $population['Jumlah_Penduduk'];
+        $result = array();
+        $result['Pria'] = 0;
+        $result['Wanita'] = 0;
+
+        foreach($population['data'] as $key => $data){
+            if ($data['subdimensi'] == 'Laki - Laki'){
+                $result['Pria'] = $result['Pria'] + $data['jumlah'];
+            }else{
+                $result['Wanita'] = $result['Wanita'] + $data['jumlah'];
+            }
+        }
+        $result['Jumlah_Penduduk'] = $population['Jumlah_Penduduk'];
+        return $result;
     }
     public function getTableHTML($url, $x, $y)
     {
@@ -240,30 +252,123 @@ class BerandaController extends Controller
     }
     public function cuacaBMKGAPI()
     {
-        // $xml = simplexml_load_file("https://data.bmkg.go.id/datamkg/MEWS/DigitalForecast/DigitalForecast-JawaBarat.xml") or die("Error: Cannot create object");
-        // // return $xml->forecast->area[11]->parameter[5]->timerange[2]->value[0];
-        // foreach($xml->forecast->area[11]->parameter[5]->timerange[2]->children() as $forecast){
-        //     echo $forecast ." asd ";
-        // }
-        
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', 'https://data.bmkg.go.id/datamkg/MEWS/DigitalForecast/DigitalForecast-JawaBarat.xml');
         $xml = simplexml_load_string($response->getBody(),'SimpleXMLElement',LIBXML_NOCDATA);
-        // $xml = simplexml_load_string($xml_string);
         $json = json_encode($xml->forecast->area[11]);
         $array = json_decode($json, TRUE);
-        return $array->parameter[5];
-        foreach($array as $data){
-            $forecast['suhu'] = $data->parameter[5]->timerange[2]->value[0];
+        $forecast = array();
+        $x = 0; $y = 0;
+        foreach($array['parameter'][6]['timerange'] as $key => $data){
+            if(Carbon::parse($data['@attributes']['datetime'])->gt(Carbon::now())){
+                $forecast['suhu'][$x]['icon'] = $this->getIconBMKG($data['value']);
+                $x++;
+            }
         }
+        foreach($array['parameter'][5]['timerange'] as $key => $data){
+            if(Carbon::parse($data['@attributes']['datetime'])->gt(Carbon::now())){
+                $forecast['suhu'][$y]['time'] = Carbon::parse($data['@attributes']['datetime'])->format('j M, H:i');
+                $forecast['suhu'][$y]['value'] = $data['value'][0];
+                $y++;
+            }
+        }
+        $forecast['kelembapan'] = $xml->forecast->area[11]->parameter[0]->timerange->value[0];
+        $forecast['angin'] = $xml->forecast->area[11]->parameter[8]->timerange->value[1];
         return $forecast;
-        // $forecast['suhu'][0] = $xml->forecast->area[11]->parameter[5]->timerange[2]->value[0];
-        // $forecast['suhu'][1] = $xml->forecast->area[11]->parameter[5]->timerange[2]->value[1];
-        // $forecast['cuaca'] = $xml->forecast->area[11]->parameter[6]->timerange->value[0];
-        // $forecast['kelembapan'] = $xml->forecast->area[11]->parameter[0]->timerange->value[0];
-        // $forecast['angin'] = $xml->forecast->area[11]->parameter[8]->timerange->value[1];
-
-        return $forecast;
+    }
+    public function getIconBMKG($icon)
+    {
+        $the_icon = array();
+        if ($icon == 0)
+        {
+            $the_icon['icon'] = 'fas fa-sun';
+            $the_icon['desc'] = 'Cerah';
+            
+            return $the_icon;
+        }
+        elseif ($icon == 1)
+        {
+            $the_icon['icon'] = 'fas fa-cloud-sun';
+            $the_icon['desc'] = 'Cerah Berawan';
+            return $the_icon;
+        }
+        elseif ($icon == 2)
+        {
+            $the_icon['icon'] = 'fas fa-cloud-sun';
+            $the_icon['desc'] = 'Cerah Berawan';
+            return $the_icon;
+        }
+        elseif ($icon == 3)
+        {
+            $the_icon['icon'] = 'fas fa-cloud';
+            $the_icon['desc'] = 'Berawan';
+            return $the_icon;
+        }
+        elseif ($icon == 4)
+        {
+            $the_icon['icon'] = 'fas fa-cloud';
+            $the_icon['desc'] = 'Berawan Tebal';
+            return $the_icon;
+        }
+        elseif ($icon == 5)
+        {
+            $the_icon['icon'] = 'fas fa-smog';
+            $the_icon['desc'] = 'Udara Kabur';
+            return $the_icon;
+        }
+        elseif ($icon == 10)
+        {
+            $the_icon['icon'] = 'fas fa-smog';
+            $the_icon['desc'] = 'Asap';
+            return $the_icon;
+        }
+        elseif ($icon == 45)
+        {
+            $the_icon['icon'] = 'fas fa-smog';
+            $the_icon['desc'] = 'Kabut';
+            return $the_icon;
+        }
+        elseif ($icon == 60)
+        {
+            $the_icon['icon'] = 'fas fa-umbrella';
+            $the_icon['desc'] = 'Hujan Ringan';
+            return $the_icon;
+        }
+        elseif ($icon == 61)
+        {
+            $the_icon['icon'] = 'fas fa-cloud-rain';
+            $the_icon['desc'] = 'Hujan Sedang';
+            return $the_icon;
+        }
+        elseif ($icon == 63)
+        {
+            $the_icon['icon'] = 'fas fa-cloud-rain';
+            $the_icon['desc'] = 'Hujan Lebat';
+            return $the_icon;
+        }
+        elseif ($icon == 80)
+        {
+            $the_icon['icon'] = 'fas fa-cloud-rain';
+            $the_icon['desc'] = 'Hujan Lokal';
+            return $the_icon;
+        }
+        elseif ($icon == 95)
+        {
+            $the_icon['icon'] = 'fas fa-bolt';
+            $the_icon['desc'] = 'Hujan Petir';
+            return $the_icon;
+        }
+        elseif ($icon == 97)
+        {
+            $the_icon['icon'] = 'fas fa-bolt';
+            $the_icon['desc'] = 'Hujan Petir';
+            return $the_icon;
+        }
+        else
+        {
+            $the_icon['icon'] = 'fas fa-cloud-sun';
+            $the_icon['desc'] = 'Cerah Berawan';
+        }
     }
     public function beritaAPI()
     {
@@ -283,6 +388,7 @@ class BerandaController extends Controller
     }
     public function kunjunganAPI()
     {
+        $month = Carbon::now()->format('F');
         $client = new \GuzzleHttp\Client();
         $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
         $response = $client->request('GET', 'https://cms.depok.go.id/Api/KesehatanKunjungan?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=2020&bulan=&Limit=&Offset=');
@@ -308,7 +414,10 @@ class BerandaController extends Controller
         $response = $client->request('GET', 'https://dsw.depok.go.id/api/komoditas/harga_depok', ['verify' => false]);
         $data = $response->getBody()->getContents();
         $price = json_decode($data, true);
-
+        
+        foreach($price['data'] as $key => $data){
+            $price['data'][$key]['src'] =  asset('img/komoditi/'. $data['komoditi'].'.jpg');
+        }
         return $price['data'];
     }
     public function youtubeAPI()
