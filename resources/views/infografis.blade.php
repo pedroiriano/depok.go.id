@@ -37,7 +37,7 @@
             <div class="col-12 col-md-3 d-flex align-items-stretch">
                 <div class="card mb-3">
                     <a href="#" data-target="#modalInfografis-{{ $infografi->id }}" data-toggle="modal">
-                        <img class="card-img-top" src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset('uploads/infografis/'.$infografi->imageName) }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $infografi->nama }}</h5>
                             <p class="card-text"><small class="text-muted">Sumber: {{ $infografi->opd->nama }}</small></p>
@@ -47,7 +47,7 @@
             </div>
             <!-- Modal Infografis-->
             <div class="modal fade" id="modalInfografis-{{ $infografi->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">{{ $infografi->nama }}</h5>
