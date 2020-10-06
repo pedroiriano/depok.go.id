@@ -4,7 +4,7 @@
 @endpush
 <div class="container-fluid">
     <div class="container">
-            <div class="owl-carousel owl-theme owl-loaded" id="owl-carousel">
+            <div class="owl-carousel owl-theme owl-loaded py-5" id="owl-carousel">
                 <div class="owl-stage-outer">
                     <div class="owl-stage">
                         <div class="owl-item">
@@ -52,7 +52,7 @@
         </div>
     </div>
 </div>
-<footer class="page-footer container-fluid font-small py-5 bg-light">
+<footer class="page-footer container-fluid font-small py-2 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-4 offset-4 col-md-1 offset-md-0">
@@ -87,7 +87,7 @@
                                     <h6 class="lora h6 pt-2"><i class="mr-2 fa fa-phone-alt"></i>112</h6>
                                 </a>
                             </div>
-                        </div>  
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-12 pb-3">
                         <div class="card shadow pb-1">

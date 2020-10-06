@@ -336,7 +336,7 @@
                                 <h6 class="pb-3">Jumlah Penduduk</h6>
                                 <h5 class="text-center" style="color: #1D4F88" id="jumlah-penduduk"></h5>
                                 <h6 class="text-muted text-center">Total penduduk</h6>
-                                <div class="row text-center pt-5">
+                                <div class="row text-center pt-3">
                                     <div class="col-6">
                                         <h5 class="h5">52%</h5>
                                         <h6 class="text-muted">Pria</h6>
