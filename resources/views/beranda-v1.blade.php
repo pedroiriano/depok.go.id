@@ -9,7 +9,13 @@
     height: 12vw;
     object-fit: cover;
 }
-
+.img-komoditi {
+    float: left;
+    width:  169px;
+    height: 10vw;
+    background-size: cover;
+    margin-bottom: 10px;
+}
 </style>
 @endpush
 @section('content')
@@ -114,7 +120,7 @@
                                 <div class="tab-pane fade" id="mendatang" role="tabpanel" aria-labelledby="mendatang-tab">
                                     @foreach($agendasNext as $agenda)
                                     <small class="text-muted">{{ $agenda->tanggal }}</small>
-                                        <a href="#" data-target="#modalagenda-{{ $agenda->id }}" data-toggle="modal">
+                                        <a href="#" data-target="#modalAgenda-{{ $agenda->id }}" data-toggle="modal">
                                             <div class="callout callout-success">
                                                 <span>{{ $agenda->nama  }}</span>
                                             </div>
@@ -127,7 +133,7 @@
                             </div>
                         </div>
                         <!-- Modal Agenda-->
-                        <div class="modal fade" id="modalagenda-{{ $agenda->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modalAgenda-{{ $agenda->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                <div class="modal-content">
                                   <div class="modal-header">
@@ -137,7 +143,7 @@
                                      </button>
                                   </div>
                                   <div class="modal-body text-center">
-                                     <img src="{{ asset('uploads/agendas/'.$agenda->imageName) }}" alt="" class="img-fluid">
+                                     <img src="{{ asset('uploads/agenda/'.$agenda->imageName) }}" alt="" class="img-fluid">
                                   </div>
                                   <div class="modal-footer">
                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -199,8 +205,8 @@
                             <small class="text-muted">{{ $tanggal }}</small>  
                         </div>
                         <div class="col-12">
-                            <span class="lead" id="suhuHariIni1" style="font-size: 2.5rem; color: #D9B06A"><i class="fas fa-cloud-sun pr-2"></i>26&deg;C</span>
-                            <h6 class="text-muted">Cerah Berawan</h6>
+                            <h4 class="h4" style="color: #1D4F88"><i class="pr-2" id="icon-weather-0"></i><span id="suhuHariIni"></span></h4>
+                            <h6 class="text-muted" id="desc-weather">...</h6>
                         </div>
                     </div>
                     <div class="row text-center pt-3 pb-4">
@@ -211,19 +217,24 @@
                             <h6><i class="fas fa-tint pr-1"></i><span id="kelembapanHariIni">...</span></h6>
                         </div>
                     </div>
-                    <p class="text-dark lead">Hari Ini</p>
-                    <div class="row pb-3">
-                        <div class="col-6">
-                            <p class="text-dark">00:00</p>
-                            <p class="text-dark">06:00</p>
-                            <p class="text-dark">12:00</p>
-                            <p class="text-dark">18:00</p>
+                    <div class="row" style="font-size: .85rem">
+                        <div class="col-8">
+                            <p class="text-dark"><span id="time-1">...</span></p>
+                            <p class="text-dark"><span id="time-2">...</span></p>
+                            <p class="text-dark"><span id="time-3">...</span></p>
+                            <p class="text-dark"><span id="time-4">...</span></p>
+                            <p class="text-dark"><span id="time-5">...</span></p>
+                            <p class="text-dark"><span id="time-6">...</span></p>
+                            <p class="text-dark"><span id="time-7">...</span></p>
                         </div>
-                        <div class="col-6">
-                            <p class="text-muted" id="hariIni24">...</p>
-                            <p class="text-muted" id="hariIni30">...</p>
-                            <p class="text-muted" id="hariIni36">...</p>
-                            <p class="text-muted" id="hariIni42">...</p>
+                        <div class="col-4">
+                            <p class="text-muted"><i class="pr-2" id="icon-weather-1"></i><span id="weather-1">...</span></p>
+                            <p class="text-muted"><i class="pr-2" id="icon-weather-2"></i><span id="weather-2">...</span></p>
+                            <p class="text-muted"><i class="pr-2" id="icon-weather-3"></i><span id="weather-3">...</span></p>
+                            <p class="text-muted"><i class="pr-2" id="icon-weather-4"></i><span id="weather-4">...</span></p>
+                            <p class="text-muted"><i class="pr-2" id="icon-weather-5"></i><span id="weather-5">...</span></p>
+                            <p class="text-muted"><i class="pr-2" id="icon-weather-6"></i><span id="weather-6">...</span></p>
+                            <p class="text-muted"><i class="pr-2" id="icon-weather-7"></i><span id="weather-7">...</span></p>
                         </div>
                     </div>
                 </div>
@@ -250,7 +261,7 @@
             </div>
             <div class="card shadow w-100 d-none" id="penyakit-card">
                 <div class="card-body">
-                    <h6 class="pb-3">Penyakit Terpantau Bulan ini</h6>
+                    <h6 class="pb-3"><i class="fas fa-viruses"></i>Penyakit Terpantau Bulan ini</h6>
                     <ol class="pl-4" style="color: #1D4F88">
                          <li class="pb-3">
                             <span id="penyakit-0" class="d-block"></span>
@@ -305,9 +316,11 @@
                     <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3">Kunjungan RSUD</h6>
-                                <h6 class="h6" style="color: #1D4F88" id="kunjungan-rsud"></h6>
-                                <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
+                                <h6 class="pb-3"><i class="fas fa-hospital pr-1"></i>Kunjungan RSUD</h6>
+                                <h5 class="h5" style="color: #1D4F88" id="kunjungan-rsud"></h5>
+                                <div style="line-height: 90%">
+                                    <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
+                                </div>
                             </div>
                             <div class="card-footer">
                                 <a href="http://dinkes.depok.go.id/">
@@ -319,9 +332,11 @@
                     <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3">Kunjungan Puskesmas</h6>
-                                <h6 class="h6" style="color: #1D4F88" id="kunjungan-puskesmas"></h6>
-                                <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
+                                <h6 class="pb-3"><i class="fas fa-clinic-medical pr-1"></i>Kunjungan Puskesmas</h6>
+                                <h5 class="h5" style="color: #1D4F88" id="kunjungan-puskesmas"></h5>
+                                <div style="line-height: 90%">
+                                    <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
+                                </div>
                             </div>
                             <div class="card-footer">
                                 <a href="http://dinkes.depok.go.id/">
@@ -333,16 +348,16 @@
                     <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card mb-2 shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3">Jumlah Penduduk</h6>
-                                <h5 class="text-center" style="color: #1D4F88" id="jumlah-penduduk"></h5>
+                                <h6 class="pb-3"><i class="fas fa-users pr-1"></i>Jumlah Penduduk</h6>
+                                <h5 class="text-center h5" style="color: #1D4F88" id="jumlah-penduduk"></h5>
                                 <h6 class="text-muted text-center">Total penduduk</h6>
                                 <div class="row text-center pt-3">
                                     <div class="col-6">
-                                        <h5 class="h5">52%</h5>
+                                        <h5 class="h5" id="jumlah-pria"></h5>
                                         <h6 class="text-muted">Pria</h6>
                                     </div>
                                     <div class="col-6">
-                                        <h5 class="h5">48%</h5>
+                                        <h5 class="h5" id="jumlah-wanita"></h5>
                                         <h6 class="text-muted">Wanita</h6>
                                     </div>
                                 </div>
@@ -357,11 +372,11 @@
                     <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card mb-2 shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3">Penerimaan Bulan ini</h6>
+                                <h6 class="pb-3"><i class="fas fa-money-bill-wave-alt pr-1"></i>Penerimaan Bulan ini</h6>
                                 <a href="http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx" style="font-size: 0.8rem">BPHTB</a>
-                                <h5 style="color: #1D4F88" id="bphtb"></h5>
+                                <h5 style="color: #1D4F88" id="bphtb" class="h5"></h5>
                                 <a href="http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx" style="font-size: 0.8rem">PBB</a>
-                                <h5 style="color: #1D4F88" id="pbb"></h5><br>
+                                <h5 style="color: #1D4F88" id="pbb" class="h5"></h5>
                             </div>
                             <div class="card-footer">
                                 <a href="bkd.depok.go.id">
@@ -562,10 +577,10 @@
                         icon = '<i class="fas fa-arrow-up"></i>';
                     }
                     $('#pangan-wrapper').append(
-                        '<div class="item card border-0">' +
+                        '<div class="item card border">' +
                                 '<div class="card-body">' +
-                                    '<img src="http://placehold.it/500x300/4DC7A0/ffffff" alt="" class="img-fluid">' +
-                                    '<div class="card-body-header">' +
+                                    '<img src="'+ item.src +'" alt="" class="img-komoditi">' +
+                                    '<div class="card-body-header" style="height:190px">' +
                                         '<h6 id="pangan-komoditi" class="pt-2">' + item.komoditi +'</h6>' +
                                     '</div>' +
                                     '<h6>Rp. ' + 
@@ -602,8 +617,16 @@
             url: '/api/kependudukan',
             dataType: 'json',
             success: function (data){
-                console.log(data[0].Total);
-                $('#jumlah-penduduk').text(parseFloat(data[0].Total  + ' Orang').toLocaleString(window.document.documentElement.lang));
+                pria = (data.Pria / data.Jumlah_Penduduk[0].Total * 100).toFixed(1);
+                wanita = (data.Wanita / data.Jumlah_Penduduk[0].Total * 100).toFixed(1);
+                $('#jumlah-penduduk').text(parseFloat(data.Jumlah_Penduduk[0].Total  + ' Orang').toLocaleString(window.document.documentElement.lang)
+                );
+                $('#jumlah-pria').append(
+                    pria + '<small class="text-muted">%</small>'
+                );
+                $('#jumlah-wanita').append(
+                    wanita + '<small class="text-muted">%</small>'
+                );
             }
         });
         $.ajax({
@@ -705,16 +728,23 @@
             url: '/api/cuacaBMKG',
             success: function(data) {
                 console.log(data);
-                $('#suhuHariIni').html(data.suhu[0] + '&deg;C');
+                console.log(data.suhu[0].value);
+                $('#suhuHariIni').html(data.suhu[0].value + ' <small>&deg;C</small>');
+                $('#desc-weather').html(data.suhu[0].icon.desc);
+                $('#icon-weather-0').addClass(data.suhu[0].icon.icon);
+                for(i = 1; i < data.suhu.length; i++){
+                    $('#weather-' + i).html(data.suhu[i].value + ' <small>&deg;C</small>');
+                    $('#time-' + i).html(data.suhu[i].time);
+                    $('#icon-weather-' + i).addClass(data.suhu[i].icon.icon)
+                }
                 $('#anginHariIni').html(data.angin[0].slice(0,3) + ' MPH');
                 $('#kelembapanHariIni').html(data.kelembapan[0] + ' %');
                 // $('#suhuBesok').html(data.suhu.temperature_besok_rendah +' - '+ data.suhu.temperature_besok_tinggi + '&deg;C');
-                $('#suhuBesok').html(data.suhu.temperature_besok + '&deg;C');
+                // $('#suhuBesok').html(data.suhu.temperature_besok + '&deg;C');
                 // $('#suhuLusa').html(data.suhu.temperature_lusa_rendah +' - '+ data.suhu.temperature_lusa_tinggi + '&deg;C');
                 // $('#iconSuhuHariIni').removeClass('fa-cloud');
                 // $('#iconSuhuBesok').removeClass('fa-cloud');
                 // $('#iconSuhuLusa').removeClass('fa-cloud');
-                // $('#iconSuhuHariIni').addClass(data.suhu.icon_cuaca.hari_ini);
                 // $('#iconSuhuBesok').addClass(data.suhu.icon_cuaca.besok);
                 // $('#iconSuhuLusa').addClass(data.suhu.icon_cuaca.lusa);
 
