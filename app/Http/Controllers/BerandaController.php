@@ -174,6 +174,11 @@ class BerandaController extends Controller
         $pengumuman = Slider::where('url', '=', $url)->firstOrFail();
         return view('pengumuman', compact('pengumuman'));
     }
+    public function pengumumanAPI()
+    {
+        $pengumuman = Slider::where('status', 1)->orderBy('created_at', 'desc')->get();
+        return $pengumuman;
+    }
     public function kependudukanAPI()
     {
         $client = new \GuzzleHttp\Client();
