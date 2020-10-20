@@ -33,7 +33,7 @@
     <div class="container">
         <h1 class="display-3 py-5">Pimpinan Daerah</h1>
         
-        <div class="row text-center">
+        <div class="row text-center py-5">
             <div class="col-6">
                 <a href="https://en.wikipedia.org/wiki/Mohammad_Idris" target="_blank">
                 <img src="{{ asset('img/Walikota.png') }}" alt="" class="img-fluid w-50">

@@ -261,7 +261,7 @@
             </div>
             <div class="card shadow w-100 d-none" id="penyakit-card">
                 <div class="card-body">
-                    <h6 class="pb-3"><i class="fas fa-viruses"></i>Penyakit Terpantau Bulan ini</h6>
+                    <h6 class="pb-3"><i class="fas fa-viruses"></i> Penyakit Bulan ini</h6>
                     <ol class="pl-4" style="color: #1D4F88">
                          <li class="pb-3">
                             <span id="penyakit-0" class="d-block"></span>
@@ -354,11 +354,11 @@
                                 <div class="row text-center pt-5">
                                     <div class="col-6">
                                         <h5 class="h5" id="jumlah-pria"></h5>
-                                        <h6 class="text-muted">Pria</h6>
+                                        <h6 class="text-muted"><i class="fas fa-male pr-1"></i> Pria</h6>
                                     </div>
                                     <div class="col-6">
                                         <h5 class="h5" id="jumlah-wanita"></h5>
-                                        <h6 class="text-muted">Wanita</h6>
+                                        <h6 class="text-muted"><i class="fas fa-female pr-1"></i> Wanita</h6>
                                     </div>
                                 </div>
                             </div>
@@ -625,10 +625,10 @@
                 $('#jumlah-penduduk').text(parseFloat(data.Jumlah_Penduduk[0].Total  + ' Orang').toLocaleString(window.document.documentElement.lang)
                 );
                 $('#jumlah-pria').append(
-                    pria + '<small class="text-muted">%</small>'
+                    pria + '<small class="">%</small>'
                 );
                 $('#jumlah-wanita').append(
-                    wanita + '<small class="text-muted">%</small>'
+                    wanita + '<small class="">%</small>'
                 );
             }
         });
