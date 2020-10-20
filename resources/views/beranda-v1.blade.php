@@ -90,7 +90,7 @@
     </div>
     <div class="row">
         <div class="col-md-5 d-flex align-items-stretch">
-            <div class="card mb-3 border-0 shadow">
+            <div class="card mb-3 border-0 shadow w-100">
                 <div class="card-header text-white bg-dark">Agenda Kota</div>
                 <div class="card-body">
                     <div class="row">
@@ -170,7 +170,7 @@
                                 <div class="card h-100 card-service border">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img src="{{ asset('img/icon/'. $category->icon) }}" alt="" class="img-fluid w-25">
+                                            <img src="{{ asset('img/icon/'. $category->icon) }}" alt="" class="img-fluid" style="width: 40% !important">
                                             <h5 class="card-title pt-2 f-12">{{ $category->nama }}</h5>
                                         </div>
                                     </div>
@@ -239,7 +239,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Sumber: BMKG Indonesia</small>
+                    <a href="https://www.bmkg.go.id/"><small class="text-muted">Sumber: BMKG Indonesia</small></a>
                 </div>
             </div>
         </div>
@@ -583,7 +583,7 @@
                                     '<div class="card-body-header" style="height:190px">' +
                                         '<h6 id="pangan-komoditi" class="pt-2">' + item.komoditi +'</h6>' +
                                     '</div>' +
-                                    '<h6>Rp. ' + 
+                                    '<h6 class="font-weight-bold">Rp. ' + 
                                         parseInt(item.price_today).toLocaleString() + '<small class="text-muted">/Kg</small>' + 
                                     '</h6>' +
                                     '<h6 class="'+ text +'">(' + 
@@ -597,6 +597,9 @@
                     loop:true,
                     margin:10,
                     nav:true,
+                    autoplay:true,
+                    autoplayTimeout:2000,
+                    autoplayHoverPause:true,
                     dots: false,
                     navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
                     responsive:{
@@ -739,15 +742,6 @@
                 }
                 $('#anginHariIni').html(data.angin[0].slice(0,3) + ' MPH');
                 $('#kelembapanHariIni').html(data.kelembapan[0] + ' %');
-                // $('#suhuBesok').html(data.suhu.temperature_besok_rendah +' - '+ data.suhu.temperature_besok_tinggi + '&deg;C');
-                // $('#suhuBesok').html(data.suhu.temperature_besok + '&deg;C');
-                // $('#suhuLusa').html(data.suhu.temperature_lusa_rendah +' - '+ data.suhu.temperature_lusa_tinggi + '&deg;C');
-                // $('#iconSuhuHariIni').removeClass('fa-cloud');
-                // $('#iconSuhuBesok').removeClass('fa-cloud');
-                // $('#iconSuhuLusa').removeClass('fa-cloud');
-                // $('#iconSuhuBesok').addClass(data.suhu.icon_cuaca.besok);
-                // $('#iconSuhuLusa').addClass(data.suhu.icon_cuaca.lusa);
-
             },
             error: function(){
 

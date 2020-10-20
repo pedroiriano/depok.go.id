@@ -13,7 +13,7 @@
 </style>
 <div class="row" id="pangan-loading">
     @for($x = 0; $x < 5; $x++)
-    <div class="col">
+    <div class="col-md col-6">
         <div class="ph-item border shadow">
             <div class="ph-col-12">
                 <div class="ph-picture"></div>

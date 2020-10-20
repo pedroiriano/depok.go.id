@@ -56,6 +56,7 @@ Route::get('/api/bphtb', 'BerandaController@bphtbAPI');
 Route::get('/api/pbb', 'BerandaController@pbbAPI');
 Route::get('/rss/berita', 'BerandaController@beritaRSS')->name('rss.berita');
 Route::get('/api/infografis', 'BerandaController@infografisAPI')->name('api.infografis');
+Route::get('/api/pengumuman', 'BerandaController@pengumumanAPI')->name('api.pengumuman');
 
 
 Auth::routes(['register' => false]);
