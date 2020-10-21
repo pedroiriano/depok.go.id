@@ -65,6 +65,20 @@ class BerandaController extends Controller
         return view('data', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah', 'popup'));
     }
 
+    public function betademografi()
+    {
+        $tanggalHijriyah  = \GeniusTS\HijriDate\Date::now()->format('d F Y');
+        $tanggal = Carbon::now()->format('d F Y');
+        $infografis = Infografis::where('status', 1)->get();
+        $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
+        $categories = Category::with('services')->orderBy('pos', 'asc')->take(8)->get();
+        $agendas = Agenda::orderBy('tanggal', 'asc')->get();
+        $popup = Slider::where('popup', 1)->first();
+
+
+        return view('betademografi', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah', 'popup'));
+    }
+
     public function agenda()
     {
         $agendas = Agenda::orderBy('created_at', 'desc')->get();
