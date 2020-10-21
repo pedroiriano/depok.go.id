@@ -261,7 +261,7 @@
             </div>
             <div class="card shadow w-100 d-none" id="penyakit-card">
                 <div class="card-body">
-                    <h6 class="pb-3"><i class="fas fa-viruses"></i> Penyakit Bulan ini</h6>
+                    <h6 class="pb-3" style="font-size:.875rem"><i class="fas fa-viruses"></i> Penyakit Terpantau Bulan ini</h6>
                     <ol class="pl-4" style="color: #1D4F88">
                          <li class="pb-3">
                             <span id="penyakit-0" class="d-block"></span>
@@ -316,7 +316,7 @@
                     <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3"><i class="fas fa-hospital pr-1"></i>Kunjungan RSUD</h6>
+                                <h6 class="pb-3" style="font-size:.875rem"><i class="fas fa-hospital pr-1"></i>Kunjungan RSUD</h6>
                                 <h5 class="h5" style="color: #1D4F88" id="kunjungan-rsud"></h5>
                                 <div style="line-height: 90%">
                                     <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
@@ -332,7 +332,7 @@
                     <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3"><i class="fas fa-clinic-medical pr-1"></i>Kunjungan Puskesmas</h6>
+                                <h6 class="pb-3" style="font-size:.875rem"><i class="fas fa-clinic-medical pr-1"></i>Kunjungan Puskesmas</h6>
                                 <h5 class="h5" style="color: #1D4F88" id="kunjungan-puskesmas"></h5>
                                 <div style="line-height: 90%">
                                     <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
@@ -348,10 +348,10 @@
                     <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card mb-2 shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3"><i class="fas fa-users pr-1"></i>Jumlah Penduduk</h6>
+                                <h6 class="pb-3" style="font-size:.875rem"><i class="fas fa-users pr-1"></i>Jumlah Penduduk</h6>
                                 <h5 class="text-center h5" style="color: #1D4F88" id="jumlah-penduduk"></h5>
                                 <h6 class="text-muted text-center">Total penduduk</h6>
-                                <div class="row text-center pt-5">
+                                <div class="row text-center pt-3">
                                     <div class="col-6">
                                         <h5 class="h5" id="jumlah-pria"></h5>
                                         <h6 class="text-muted"><i class="fas fa-male pr-1"></i> Pria</h6>
@@ -372,7 +372,7 @@
                     <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card mb-2 shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3"><i class="fas fa-money-bill-wave-alt pr-1"></i>Penerimaan Bulan ini</h6>
+                                <h6 class="pb-3" style="font-size:.875rem"><i class="fas fa-money-bill-wave-alt pr-1"></i>Penerimaan Bulan ini</h6>
                                 <a href="http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx" style="font-size: 0.8rem">BPHTB</a>
                                 <h5 style="color: #1D4F88" id="bphtb" class="h5"></h5>
                                 <a href="http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx" style="font-size: 0.8rem">PBB</a>
@@ -581,10 +581,10 @@
                                 '<div class="card-body">' +
                                     '<img src="'+ item.src +'" alt="" class="img-komoditi">' +
                                     '<div class="card-body-header" style="height:190px">' +
-                                        '<h6 id="pangan-komoditi" class="pt-2">' + item.komoditi +'</h6>' +
+                                        '<h6 id="pangan-komoditi" class="pt-2" style="font-size: .875rem">' + item.komoditi +'</h6>' +
                                     '</div>' +
-                                    '<h6 class="font-weight-bold">Rp. ' + 
-                                        parseInt(item.price_today).toLocaleString() + '<small class="text-muted">/Kg</small>' + 
+                                    '<h6 class="font-weight-bold" style="font-size: 1rem">Rp. ' + 
+                                        parseInt(item.price_today).toLocaleString() + '<small class="font-weight-bold">/Kg</small>' + 
                                     '</h6>' +
                                     '<h6 class="'+ text +'">(' + 
                                     icon + desc + parseInt(item.selisih).toLocaleString().replace('-', '') + ')' + 
@@ -597,9 +597,9 @@
                     loop:true,
                     margin:10,
                     nav:true,
-                    autoplay:true,
-                    autoplayTimeout:2000,
-                    autoplayHoverPause:true,
+                    // autoplay:true,
+                    // autoplayTimeout:2000,
+                    // autoplayHoverPause:true,
                     dots: false,
                     navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
                     responsive:{
