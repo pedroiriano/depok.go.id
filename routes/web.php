@@ -28,6 +28,7 @@ Route::get('/pimpinan-daerah', 'BerandaController@pimpinanDaerah')->name('pimpin
 Route::prefix('beta')->group(function (){
     Route::get('beranda', 'BerandaController@betaIndex');
     Route::get('data', 'BerandaController@data');
+    Route::get('demografi', 'BerandaController@betademografi');
 });
 // // PEMERINTAHAN
 // Route::get('/visi-misi', 'BerandaController@visiMisi')->name('visiMisi');
