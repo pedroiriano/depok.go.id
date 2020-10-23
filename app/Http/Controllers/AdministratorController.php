@@ -68,31 +68,30 @@ class AdministratorController extends Controller
     }
     public function tambahLayanan(Request $request)
     {
+        return 
         request()->validate([
             'inputNamaLayanan' => 'required',
             'inputURL' => 'required',
             'inputStatus' => 'required',
-            'inputTooltip' => 'required',
-            'inputIcon' => 'required|image|mimes:jpg,png,jpeg|max:128',
         ]);
-        if ($request->hasFile('inputIcon')) {
-            $image = $request->file('inputIcon');
+        /*if ($request->hasFile('icon')) {
+            $image = $request->file('icon');
             $imageName = time().'.'.request()->inputIcon->getClientOriginalExtension();
-            request()->inputIcon->move(public_path('img/icon'), $imageName);
+            request()->inputIcon->move(public_path('img/icon'), $imageName);*/
             $service = new Service();
-            $service->nama = $request->inputNamaLayanan;
-            $service->url = $request->inputURL;
-            $service->tooltip = $request->inputTooltip;
-            $service->status = $request->inputStatus;
+            $service->namaservice = $request->inputNamaLayanan;
+            $service->url = $request->inputURL;/*
+            $service->tooltip = $request->inputTooltip;*/
+            $service->statusservice = $request->inputStatus;/*
             if ($request->inputStatus == 0) {
                 $service->pos = 99;
             }else{
                 $otherService = Service::where('pos', $request->inputPosisi)->update(['pos' => 99]);
                 $service->pos = $request->inputPosisi;
-            }
-            $service->icon = $imageName;
+            }*/
+            $service->category_id = $request->inputKategori;
             $service->save();
-        }
+        /*}*/
 
         return back()->with('success', 'Layanan baru telah sukses ditambahkan');
     }
