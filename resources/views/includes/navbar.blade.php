@@ -59,6 +59,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('infografis') }}">Infografis</a>
+                        <a class="dropdown-item" target="_blank" href="https://jdih.depok.go.id">Produk Hukum</a>
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/#1532597359183-e12432b3-c0a9">Info Berkala</a>
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/#1532600380234-c404d293-d71b">Info Serta Merta</a>
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/#1532597359184-8b1240f6-e28d">Info Setiap Saat</a>

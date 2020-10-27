@@ -20,15 +20,124 @@
 @endpush
 @section('content')
 {{-- Segement 1 --}}
-<div class="container py-4">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <h5 class="py-3 pb-2" style="font-weight:500"><i class="fas fa-exclamation-circle"></i> Pengumuman </h5>
-        <p class="pb-2">Pusat Informasi dan Koordinasi COVID-19 Kota Depok</p>
-        <a href="https://ccc-19.depok.go.id/">Selengkapnya</a>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+<div class="container py-4">    
+    <h3 class="pt-3">Info Covid-19 Kota Depok</h3>
+    <h6 class="text-muted">Update terakhir: <span id="covid-last-update">...</span></h6>
+    <div class="row py-4">
+        <div class="col-md-4 col-12">
+            <div class="card shadow bg-warning text-white">
+                <div class="card-body text-center">
+                    <small>Jumlah Pasien</small>
+                    <h6 class="h6">Total Terkonfirmasi</h6>
+                    <h5 class="h5" id="covid-positif">...</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="card shadow bg-success text-white">
+                <div class="card-body text-center">
+                    <small>Jumlah Pasien</small>
+                    <h6 class="h6">Total Sembuh</h6>
+                    <h5 class="h5" id="covid-sembuh">...</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="card shadow bg-danger text-white">
+                <div class="card-body text-center">
+                    <small>Jumlah Pasien</small>
+                    <h6 class="h6">Total Meninggal</h6>
+                    <h5 class="h5" id="covid-meninggal">...</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-2">
+            <div id="accordion">
+                <div class="card">
+                    <div id="headingOne">
+                        <h5 class="my-1" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="btn btn-link">
+                                Selengkapnya
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card card-body">
+                            <div class="row">
+                                <div class="col-md-4 col-12">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h6 class="h6 mb-0">ODP</h6>
+                                            <small>(Orang Dalam Pemantauan)</small>
+                                            <div class="row pt-3">
+                                                <div class="col-4">
+                                                    <h6 class="h6 mb-0" id="covid-odp-total">...</h6>
+                                                    <small>Total</small>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h6 class="h6 mb-0" id="covid-odp-selesai">...</h6>
+                                                    <small>Selesai</small>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h6 class="h6 mb-0" id="covid-odp-pantau">...</h6>
+                                                    <small>Pemantauan</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h6 class="h6 mb-0">PDP</h6>
+                                            <small>(Pasien Dalam Pengawasan)</small>
+                                            <div class="row pt-3">
+                                                <div class="col-4">
+                                                    <h6 class="h6 mb-0" id="covid-pdp-total">...</h6>
+                                                    <small>Total</small>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h6 class="h6 mb-0" id="covid-pdp-selesai">...</h6>
+                                                    <small>Selesai</small>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h6 class="h6 mb-0" id="covid-pdp-pantau">...</h6>
+                                                    <small>Pengawasan</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h6 class="h6 mb-0">OTG</h6>
+                                            <small>(Orang Tanpa Gejala)</small>
+                                            <div class="row pt-3">
+                                                <div class="col-4">
+                                                    <h6 class="h6 mb-0" id="covid-otg-total">...</h6>
+                                                    <small>Total</small>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h6 class="h6 mb-0" id="covid-otg-selesai">...</h6>
+                                                    <small>Selesai</small>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h6 class="h6 mb-0" id="covid-otg-pantau">...</h6>
+                                                    <small>Pemantauan</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <a href="https://ccc-19.depok.go.id/">Sumber: ccc-19.depok.go.id</a>
     <div class="row py-3">
         <div class="col-md-8">
             <div class="card text-white bg-primary mb-3 border-0 shadow">
@@ -316,8 +425,17 @@
                     <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3" style="font-size:.875rem"><i class="fas fa-hospital pr-1"></i>Kunjungan RSUD</h6>
-                                <h5 class="h5" style="color: #1D4F88" id="kunjungan-rsud"></h5>
+                                <h6 class="pb-3" style="font-size:.875rem"><i class="fas fa-hospital pr-1"></i>RSUD dan Puskesmas</h6>
+                                <div class="row pb-2">
+                                    <div class="col-6">
+                                        <h5 class="h5 mb-0" style="color: #1D4F88" id="kunjungan-rsud"></h5>
+                                        <small>RSUD</small>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5 class="h5 mb-0" style="color: #1D4F88" id="kunjungan-puskesmas"></h5>
+                                        <small>Puskesmas</small>
+                                    </div>
+                                </div>
                                 <div style="line-height: 90%">
                                     <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
                                 </div>
@@ -332,15 +450,25 @@
                     <div class="col-md-6 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card shadow w-100">
                             <div class="card-body">
-                                <h6 class="pb-3" style="font-size:.875rem"><i class="fas fa-clinic-medical pr-1"></i>Kunjungan Puskesmas</h6>
-                                <h5 class="h5" style="color: #1D4F88" id="kunjungan-puskesmas"></h5>
-                                <div style="line-height: 90%">
-                                    <small class="text-muted">Jumlah layanan yang terlayani tahun 2020 sampai dengan bulan ini</small>
+                                <h6 class="pb-3" style="font-size:.875rem"><i class="fas fa-user-graduate pr-1"></i>Jumlah Sekolah</h6>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="h5 mb-0" style="color: #1D4F88" id="pendidikan-sd"></h5>
+                                        <small>SD</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="h5 mb-0" style="color: #1D4F88" id="pendidikan-smp"></h5>
+                                        <small>SMP</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="h5 mb-0" style="color: #1D4F88" id="pendidikan-sma"></h5>
+                                        <small>SMA</small>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="http://dinkes.depok.go.id/">
-                                <small>Sumber: Dinkes Kota Depok</small>
+                                <a href="http://disdik.depok.go.id/">
+                                <small>Sumber: Disdik Kota Depok</small>
                                 </a>
                             </div>
                         </div>
@@ -617,6 +745,36 @@
             }
         });
         $.ajax({
+            url: '/api/covid',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#covid-last-update').text(data.LastUpdate);
+                $('#covid-positif').text(data.positif.total_terkonfirmasi);
+                $('#covid-sembuh').text(data.positif.total_sembuh);
+                $('#covid-meninggal').text(data.positif.total_meninggal);
+                $('#covid-odp-total').text(data.odp.total_odp);
+                $('#covid-odp-selesai').text(data.odp.total_odpselesai);
+                $('#covid-odp-pantau').text(data.odp.total_odppantau);
+                $('#covid-pdp-total').text(data.pdp.total_pdp);
+                $('#covid-pdp-selesai').text(data.pdp.total_pdpselesai);
+                $('#covid-pdp-pantau').text(data.pdp.total_pdppantau);
+                $('#covid-otg-total').text(data.otg.total_otg);
+                $('#covid-otg-selesai').text(data.otg.total_otgselesai);
+                $('#covid-otg-pantau').text(data.otg.total_otgpantau);
+            }
+        });
+        $.ajax({
+            url: '/api/pendidikan',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#pendidikan-sd').text(data.SD[0].jumlah);
+                $('#pendidikan-smp').text(data.SMP[0].jumlah);
+                $('#pendidikan-sma').text(data.SMA[0].jumlah);
+            }
+        });
+        $.ajax({
             url: '/api/kependudukan',
             dataType: 'json',
             success: function (data){
@@ -730,8 +888,6 @@
         $.ajax({
             url: '/api/cuacaBMKG',
             success: function(data) {
-                console.log(data);
-                console.log(data.suhu[0].value);
                 $('#suhuHariIni').html(data.suhu[0].value + ' <small>&deg;C</small>');
                 $('#desc-weather').html(data.suhu[0].icon.desc);
                 $('#icon-weather-0').addClass(data.suhu[0].icon.icon);

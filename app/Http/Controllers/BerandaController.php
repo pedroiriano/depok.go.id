@@ -256,6 +256,30 @@ class BerandaController extends Controller
 
         return $diseases;
     }
+    public function covidAPI()
+    {
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('GET', 'https://picodep.depok.go.id/api', ['verify' => false]);
+        $data = $response->getBody()->getContents();
+        $covid = json_decode($data, true);
+
+        return $covid;
+    }
+    public function pendidikanAPI()
+    {
+        $client = new \GuzzleHttp\Client();
+        $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
+        // $jenjang = ['SD', 'SMP', 'SMA'];
+        $jenjang = ['SD', 'SMP', 'SMA'];
+        foreach($jenjang as $key => $value){
+            $response = $client->request('GET', 'https://cms.depok.go.id/Api/Sekolah?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=&jenjang='. $value .'&semester=&Limit=&Offset=');
+            $data = $response->getBody()->getContents();
+            $result = json_decode($data, true);
+            $education[$value] = $result['Count'];
+        }
+        
+        return $education;
+    }
         public function cuacaAPI()
     {
         $cuaca = $this->cuaca();
