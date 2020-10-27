@@ -104,17 +104,25 @@
                     <div class="form-group">
                         <label for="inputURL">URL</label>
                         <input type="text" class="form-control" id="inputURL" name="inputURL" placeholder="URL">
-                    </div>
+                    </div>{{-- 
                     <div class="form-group">
                         <label for="inputTooltip">Tooltip</label>
                         <input type="text" class="form-control" id="inputTooltip" name="inputTooltip"
                             placeholder="Tooltip">
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label for="inputStatus">Status</label>
                         <select class="form-control form-control-sm" name="inputStatus" id="inputStatus">
                             <option value="0" selected="selected">Tidak Aktif</option>
                             <option value="1">Aktif</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputKategori">Kategori</label>
+                        <select name="" id="" class="form-control">
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->nama }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
@@ -124,7 +132,7 @@
                             @for ($i = 1; $i < 12; $i++) <option value={{ $i }}>{{ $i }}</option>
                                 @endfor
                         </select>
-                    </div>
+                    </div>{{-- 
                     <div class="form-group">
                         <label for="input-group">Upload Icon</label>
                         <div class="input-group">
@@ -137,7 +145,7 @@
                                 <label class="custom-file-label" for="inputGroupFile01" id="labelIcon">Pilih Icon</label>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                </div>
                <div class=" modal-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>

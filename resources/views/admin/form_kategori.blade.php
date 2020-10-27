@@ -64,9 +64,9 @@
                         @endisset
                         <div class="form-group">
                             <label for="posisi">Posisi</label>
-                            <select class="form-control form-control-sm" name="posisi" id="posisi" disabled>
+                            <select class="form-control form-control-sm" name="posisi" id="posisi">
                                 <option value="0" selected="selected">Tidak muncul di halaman utama</option>
-                                @for ($i = 1; $i < 13; $i++)
+                                @for ($i = 1; $i < 15; $i++)
                                     <option value={{ $i }}>{{ $i }}</option>
                                 @endfor
                             </select>
@@ -104,66 +104,7 @@
         </form>
     </div>
 </div>
-<!-- Modal Tambah Kategori-->
-<div class="modal fade" id="modalCategories" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori DSW</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="POST" action="{{ route('admin-kategori-dsw.store') }}" enctype="multipart/form-data">
-                <div class="modal-body">
-                    @csrf
-                    <div class="form-group">
-                        <label for="nama">Nama</label>
-                        <input type="text" class="form-control" id="nama" name="nama"
-                            placeholder="Nama Kategori">
-                    </div>
-                    <div class="form-group">
-                        <label for="tooltip">Tooltip</label>
-                        <input type="text" class="form-control" id="tooltip" name="tooltip"
-                            placeholder="Tooltip">
-                    </div>
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select class="form-control form-control-sm" name="status" id="status">
-                            <option value="0" selected="selected">Tidak Aktif</option>
-                            <option value="1">Aktif</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="posisi">Posisi</label>
-                        <select class="form-control form-control-sm" name="posisi" id="posisi" disabled>
-                            <option value="0" selected="selected">Tidak muncul di halaman utama</option>
-                            @for ($i = 1; $i < 13; $i++) <option value={{ $i }}>{{ $i }}</option>
-                                @endfor
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="input-group">Upload Icon</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="icon"
-                                    aria-describedby="inputGroupFileAddon01" name="icon">
-                                <label class="custom-file-label" for="inputGroupFile01" id="labelIcon">Pilih Icon</label>
-                            </div>
-                        </div>
-                    </div>
-               </div>
-               <div class=" modal-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
 @endsection
 @section('js')
 <script>

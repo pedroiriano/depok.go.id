@@ -40,7 +40,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        /*return $request->all();*/
         request()->validate([
             'nama' => 'required',
             'status' => 'required',
@@ -54,7 +54,7 @@ class CategoryController extends Controller
             $category->nama = $request->nama;
             $category->tooltip = $request->tooltip;
             $category->status = $request->status;
-            if ($request->status == '0') {
+            /*if ($request->status == '0') {
                 $category->pos = 99;
             }else{
                 if ($request->posisi == '0') {
@@ -63,14 +63,15 @@ class CategoryController extends Controller
                     $othercategory = category::where('pos', $request->posisi)->update(['pos' => 99]);
                     $category->pos = $request->posisi;
                 }
-            }
+            }*/
             $imageName = $category->nama.'.'.$image->getClientOriginalExtension();
             $image->move(public_path('img/icon'), $imageName);
+            $category->pos = $request->posisi;
             $category->icon = $imageName;
             $category->save();
+            
         }
-
-        return back()->with('success', 'Kategori '. $category->nama .'telah berhasil ditambahkan');
+        return redirect('admin-kategori-dsw')->with('success', 'Kategori '. $category->nama .'telah berhasil ditambahkan');
     }
 
     /**
@@ -102,9 +103,33 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        request()->validate([
+            'nama' => 'required',
+            'status' => 'required',
+            'tooltip' => 'required',
+            'posisi' => 'required',
+            'icon' => 'required|image|mimes:jpg,png,jpeg|max:128',
+        ]);
+
+        $category = Category::find($request->id);
+        $category->nama = $request->nama;
+        $category->tooltip = $request->tooltip;
+        $category->status = $request->status;
+        if($request->hasFile('icon')){
+            File::delete(public_path('img/icon/'.$category->icon));
+            $icon = $request->file('icon');
+            $imageName = time().'.'.request()->$icon->getClientOriginalExtension();
+            request()->$icon->move(public_path('img/icon'), $imageName);
+        }else{
+            $imageName = $request -> $oldImage;
+        }
+        $category->pos = $request->posisi;
+        $category->icon = $imageName;
+        $category->save();
+
+        return redirect('admin-kategori-dsw')->with('success', 'Kategori '. $category->nama . 'telah berhasil diupdate');
     }
 
     /**
@@ -115,6 +140,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return back()->with('success', 'Data berhasil di hapus');
     }
 }
