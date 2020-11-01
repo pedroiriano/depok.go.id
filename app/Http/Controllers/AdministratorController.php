@@ -67,33 +67,20 @@ class AdministratorController extends Controller
         return view('admin.layanan', compact('services', 'categories'));
     }
     public function tambahLayanan(Request $request)
-    {
-        return 
+    { 
         request()->validate([
             'inputNamaLayanan' => 'required',
             'inputURL' => 'required',
             'inputStatus' => 'required',
         ]);
-        /*if ($request->hasFile('icon')) {
-            $image = $request->file('icon');
-            $imageName = time().'.'.request()->inputIcon->getClientOriginalExtension();
-            request()->inputIcon->move(public_path('img/icon'), $imageName);*/
             $service = new Service();
             $service->namaservice = $request->inputNamaLayanan;
-            $service->url = $request->inputURL;/*
-            $service->tooltip = $request->inputTooltip;*/
-            $service->statusservice = $request->inputStatus;/*
-            if ($request->inputStatus == 0) {
-                $service->pos = 99;
-            }else{
-                $otherService = Service::where('pos', $request->inputPosisi)->update(['pos' => 99]);
-                $service->pos = $request->inputPosisi;
-            }*/
+            $service->url = $request->inputURL;
+            $service->statusservice = $request->inputStatus;
             $service->category_id = $request->inputKategori;
             $service->save();
-        /*}*/
 
-        return back()->with('success', 'Layanan baru telah sukses ditambahkan');
+        return back()->with('success', 'Layanan ' . $service->namaservice . ' telah sukses ditambahkan');
     }
     public function ubahLayanan(Request $request, $id)
     {
@@ -101,26 +88,20 @@ class AdministratorController extends Controller
             'inputUbahNamaLayanan' => 'required',
             'inputUbahURL' => 'required',
             'inputUbahStatus' => 'required',
-            'inputUbahTooltip' => 'required',
-            'inputUbahIcon' => 'required|image|mimes:jpg,png,jpeg|max:128',
         ]);
         $service = Service::find($id);
-        $service->nama = $request->inputUbahNamaLayanan;
+        $service->namaservice = $request->inputUbahNamaLayanan;
         $service->url = $request->inputUbahURL;
-        $service->status = $request->inputUbahStatus;
-        $service->tooltip = $request->inputUbahTooltip;
-        if ($request->hasFile('inputUbahIcon')) {
-            $userImage = public_path("img/icon/{$slider->imageName}");
-            if(file::exists($userImage)){
-                unlink($userImage);
-            }
-            $image = $request->file('image');
-            $imageName = time().'.'.request()->image->getClientOriginalExtension();
-            request()->image->move(public_path('uploads/slider'), $imageName);
-            $slider->imageName = $imageName;
-        }
+        $service->statusservice = $request->inputUbahStatus;
+        $service->category_id = $request->inputUbahKategori;
         $service->save();
         return back()->with('success', 'Layanan telah di Update');
+    }
+    public function hapusLayanan($id)
+    {
+        $service = Service::findOrFail($id);
+        $service->delete();
+        return back()->with('success', 'Data berhasil di hapus');
     }
     public function content($content)
     {
