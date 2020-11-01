@@ -62,7 +62,7 @@ class AdministratorController extends Controller
     }
     public function layanan()
     {
-        $categories = Category::paginate(5);
+        $categories = Category::all();
         $services = Service::paginate(10);
         return view('admin.layanan', compact('services', 'categories'));
     }
