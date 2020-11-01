@@ -17,9 +17,8 @@
 
         <!-- Styles -->
         <script src="https://kit.fontawesome.com/d54b50045e.js" crossorigin="anonymous"></script>
-        @stack('js')
         <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-
+        @stack('css')
     </head>
     <body id="page-top">
         <div id="wrapper">
@@ -54,6 +53,6 @@
                 </div>
                 <!-- End of Page Wrapper -->
                 @endguest
-                @yield('js')
+                @stack('js')
             </body>
         </html>
