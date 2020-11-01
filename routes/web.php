@@ -79,6 +79,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin-layanan-dsw', 'AdministratorController@layanan')->name('admin.layanan');
         Route::post('/tambah-layanan', 'AdministratorController@tambahLayanan')->name('admin.tambahLayanan');
         Route::post('/ubah-layanan/{id}', 'AdministratorController@ubahLayanan')->name('admin.ubahLayanan');
+        Route::post('/hapus-layanan/{id}', 'AdministratorController@hapusLayanan')->name('admin.hapusLayanan');
         Route::get('/user', 'AdministratorController@user')->name('admin.user');
         Route::get('/admin-ikon', 'AdministratorController@ikon')->name('admin.ikon');
         Route::post('/ubah-ikon', 'AdministratorController@ubahIkon')->name('admin.ubahIkon');\
