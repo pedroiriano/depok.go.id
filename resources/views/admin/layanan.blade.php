@@ -1,4 +1,7 @@
 @extends('includes.admin-layout')
+@push('css')
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+@endpush
 @section('content')
 <div class="container-fluid">
     @if ($message = Session::get('success'))
@@ -259,3 +262,11 @@
     });
 </script>
 @endsection
+@push('js')
+<script type="text/javascript" src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+        $('#dataTable').DataTable();
+    } );
+    </script>
+@endpush

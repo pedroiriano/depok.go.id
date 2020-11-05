@@ -25,7 +25,7 @@
     <h6 class="text-muted">Update terakhir: <span id="covid-last-update">...</span></h6>
     <div class="row py-4">
         <div class="col-md-4 col-12">
-            <div class="card shadow bg-warning text-white">
+            <div class="card shadow border-0 bg-warning text-white">
                 <div class="card-body text-center">
                     <small>Jumlah Pasien</small>
                     <h6 class="h6">Total Terkonfirmasi</h6>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="col-md-4 col-12">
-            <div class="card shadow bg-success text-white">
+            <div class="card shadow border-0 bg-success text-white">
                 <div class="card-body text-center">
                     <small>Jumlah Pasien</small>
                     <h6 class="h6">Total Sembuh</h6>
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col-md-4 col-12">
-            <div class="card shadow bg-danger text-white">
+            <div class="card shadow border-0 bg-danger text-white">
                 <div class="card-body text-center">
                     <small>Jumlah Pasien</small>
                     <h6 class="h6">Total Meninggal</h6>
@@ -53,10 +53,10 @@
         </div>
         <div class="col-12 mt-2">
             <div id="accordion">
-                <div class="card">
+                <div class="card bg-secondary border-0" style="cursor: pointer;">
                     <div id="headingOne">
                         <h5 class="my-1" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <button class="btn btn-link">
+                            <button class="btn text-white">
                                 Selengkapnya
                             </button>
                         </h5>

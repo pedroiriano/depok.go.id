@@ -40,7 +40,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        /*return $request->all();*/
         request()->validate([
             'nama' => 'required',
             'status' => 'required',
@@ -54,7 +53,7 @@ class CategoryController extends Controller
             $category->nama = $request->nama;
             $category->tooltip = $request->tooltip;
             $category->status = $request->status;
-            /*if ($request->status == '0') {
+            if ($request->status == '0') {
                 $category->pos = 99;
             }else{
                 if ($request->posisi == '0') {
@@ -63,10 +62,9 @@ class CategoryController extends Controller
                     $othercategory = category::where('pos', $request->posisi)->update(['pos' => 99]);
                     $category->pos = $request->posisi;
                 }
-            }*/
+            }
             $imageName = $category->nama.'.'.$image->getClientOriginalExtension();
             $image->move(public_path('img/icon'), $imageName);
-            $category->pos = $request->posisi;
             $category->icon = $imageName;
             $category->save();
             
@@ -93,7 +91,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.form_kategori', compact('category'));
     }
 
     /**
@@ -103,17 +102,15 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         request()->validate([
             'nama' => 'required',
             'status' => 'required',
             'tooltip' => 'required',
             'posisi' => 'required',
-            'icon' => 'required|image|mimes:jpg,png,jpeg|max:128',
         ]);
-
-        $category = Category::find($request->id);
+        $category = Category::find($id);
         $category->nama = $request->nama;
         $category->tooltip = $request->tooltip;
         $category->status = $request->status;
@@ -122,11 +119,18 @@ class CategoryController extends Controller
             $icon = $request->file('icon');
             $imageName = time().'.'.request()->$icon->getClientOriginalExtension();
             request()->$icon->move(public_path('img/icon'), $imageName);
-        }else{
-            $imageName = $request -> $oldImage;
+            $category->icon = $imageName;
         }
-        $category->pos = $request->posisi;
-        $category->icon = $imageName;
+        if ($request->status == '0') {
+            $category->pos = 99;
+        }else{
+            if ($request->posisi == '0') {
+                $category->pos = 99;
+            }else{
+                $othercategory = category::where('pos', $request->posisi)->update(['pos' => 99]);
+                $category->pos = $request->posisi;
+            }
+        }
         $category->save();
 
         return redirect('admin-kategori-dsw')->with('success', 'Kategori '. $category->nama . 'telah berhasil diupdate');
