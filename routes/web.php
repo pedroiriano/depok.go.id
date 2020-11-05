@@ -21,27 +21,12 @@ Route::get('/pengumuman/{url}', 'BerandaController@pengumuman')->name('pengumuma
 Route::get('/infografis', 'BerandaController@infografis')->name('infografis');
 Route::get('/download/{file}', 'DownloadsController@download')->name('download');
 Route::get('/pimpinan-daerah', 'BerandaController@pimpinanDaerah')->name('pimpinan');
+Route::get('/demografi', 'api\PendudukController@index')->name('demografi');
 //Pendaftaran PDAM
 //Route::get('/pendaftaran-direksi-pdam/berhasil', 'PendaftaranController@success')->name('pendaftaran.success');
 //Route::resource('/pendaftaran-direksi-pdam', 'PendaftaranController');
 
-Route::prefix('beta')->group(function (){
-    Route::get('beranda', 'BerandaController@betaIndex');
-    Route::get('data', 'BerandaController@data');
-    Route::get('demografi', 'BerandaController@betademografi');
-});
-// // PEMERINTAHAN
-// Route::get('/visi-misi', 'BerandaController@visiMisi')->name('visiMisi');
-// Route::get('/struktur-daerah', 'BerandaController@strukturDaerah')->name('strukturDaerah');
-// Route::get('/perundang-undangan', 'BerandaController@perundangundangan')->name('perundangundangan');
-// Route::get('/penghargaan', 'BerandaController@penghargaan')->name('penghargaan');
-// // PERANGKAT DAERAH
-// Route::get('/dinas', 'BerandaController@dinas')->name('dinas');
-// Route::get('/sekda', 'BerandaController@sekda')->name('sekda');
-// Route::get('/kecamatan', 'BerandaController@kecamatan')->name('kecamatan');
-// Route::get('/kelurahan', 'BerandaController@kelurahan')->name('kelurahan');
-// INFO PUBLIK
-// TRANSPARANSI
+Route::get('/get-kelurahan-list/{kecamatanId}', 'BerandaController@getKelurahan');
 Route::get('/layanan', 'BerandaController@layanan')->name('layanan');
 
 Route::get('/api/agenda', 'BerandaController@AgendaAPI')->name('api.agenda');
@@ -60,6 +45,9 @@ Route::get('/api/infografis', 'BerandaController@infografisAPI')->name('api.info
 Route::get('/api/pengumuman', 'BerandaController@pengumumanAPI')->name('api.pengumuman');
 Route::get('/api/pendidikan', 'BerandaController@pendidikanAPI')->name('api.pendidikan');
 Route::get('/api/covid', 'BerandaController@covidAPI')->name('api.covid');
+Route::get('/api/demografi/{type}', 'api\PendudukController@demografi')
+    ->name('api.demografi')
+    ->where('type', 'Agama|Jenis Kelamin|Kelompok Umur|Pekerjaan|Pendidikan|Status Kawin');
 
 
 Auth::routes(['register' => false]);

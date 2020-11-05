@@ -36,7 +36,7 @@
                         <a class="dropdown-item" href="{{ route('content', 'seni-budaya') }}">Seni Budaya</a>
                         {{-- <a class="dropdown-item" href="{{ route('content', 'sosialEkonomi') }}">Sosial Ekonomi</a> --}}
                         <a class="dropdown-item" href="{{ route('content', 'penghargaan') }}">Penghargaan</a>
-                        <a class="dropdown-item" href="{{ route('content', 'demografi') }}">Demografi</a>
+                        <a class="dropdown-item" href="{{ route('demografi') }}">Demografi</a>
                         <a class="dropdown-item" href="{{ route('content', 'geografi') }}">Geografi</a>
                         </div>
                 </li>
