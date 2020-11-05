@@ -69,10 +69,9 @@
                             yang berarti Abdi, sedangkan Dharma adalah Kebaikan, Kebenaran dan Keadilan jadi Paricara
                             Dharma mengandung makna bahwa Pemerintah Kota Depok sebagai Abdi Masyarakat dan Abdi Negara
                             senantiasa mengutamakan kepada Kebaikan, Kebenaran dan Keadilan.
+                        </p>
                     </div>
                 </div>
-                </p>
-
             </div>
         </div>
     </div>
