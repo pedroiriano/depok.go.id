@@ -42,6 +42,10 @@ class BerandaController extends Controller
 
         return view('beranda-v1', compact('agendas','agendasToday','agendasNext' ,'categories', 'sliders','tanggal', 'popup'));
     }
+     public function pimpinanDaerah()
+    {
+        return view('pimpinan-daerah');
+    }
     public function data()
     {
         $tanggalHijriyah  = \GeniusTS\HijriDate\Date::now()->format('d F Y');
