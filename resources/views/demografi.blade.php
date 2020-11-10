@@ -42,7 +42,7 @@
                             <div class="col-md-4">
                                 <div class="form-group ">
                                     <select name="kecamatan" id="kecamatan" class="custom-select">
-                                        <option disabled selected>Pilih Kecamatan</option>
+                                        <option value="0">Semua Kecamatan</option>
                                         @foreach($kecamatan as $kec)
                                             <option value="{{ $kec->id }}">{{ $kec->nama }}</option>
                                         @endforeach
@@ -52,6 +52,7 @@
                             <div class="col-md-4">
                                 <div class="form-group ">
                                     <select name="kelurahan" id="kelurahan" class="custom-select">
+                                        <option value="0">Semua Kelurahan</option>
                                     </select>
                                 </div>
                             </div>
@@ -63,7 +64,16 @@
                 </div>
             </div>
         </div>
-        <div class="row pt-5">
+        <div class="row pt-3">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="h5" id="total-penduduk"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-3">
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-6">
@@ -87,24 +97,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="card mb-2 shadow w-100">
-                            <div class="card-body">
-                                <h6 class="pb-3">Kelompok Umur</h6>
-                                
-                                <canvas id="kelompok-umur-chart" width="200" height="200"></canvas>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card mb-2 shadow w-100">
-                            <div class="card-body">
-                                <h6 class="pb-3">Pekerjaan</h6>
-                                <canvas id="pekerjaan-chart" width="200" height="200"></canvas>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-md-6">
                         <div class="card mb-2 shadow w-100">
                             <div class="card-body">
@@ -121,7 +113,28 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="card mb-2 shadow w-100">
+                            <div class="card-body">
+                                <h6 class="pb-3">Kelompok Umur</h6>
+                                <canvas id="kelompok-umur-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card mb-2 shadow w-100">
+                            <div class="card-body">
+                                <h6 class="pb-3">Pekerjaan</h6>
+                                <canvas id="pekerjaan-chart" height="500"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="row py-5">
+            <div class="col-12">
+                <h6 class="h6">Sumber data: Disdukcapil Kota Depok Tahun 2019 Semester 1</h6>
             </div>
         </div>
     </div>
@@ -148,7 +161,9 @@
                 success: function (res) {
                     if (res) {
                         $("#kelurahan").empty();
-                        $("#kelurahan").append('<option selected disabled>Pilih Kelurahan</option>');
+                        $("#kelurahan").append(
+                            '<option value="0">Semua Kelurahan</option>'
+                        );
 
                         $.each(res, function (key, value) {
                             selectedAttr = '';
@@ -169,146 +184,147 @@
     }).trigger('change');
 
     $("#submit").on('click', function(){
+
         var kecamatan = document.getElementById("kecamatan").value;
         var kelurahan = document.getElementById("kelurahan").value;
-        var background = [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-        ];
-        var border = [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ]
+        var background = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a','#ffff99','#b15928'];
 
+        var ctx = document.getElementById("agama-chart");
+        var agamaChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: '# Agama',
+                    data: [],
+                    backgroundColor: background,
+                }]
+            },
+            options: {},
+        });
+        var ctx = document.getElementById("kelamin-chart");
+        var jenisKelaminChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: '# Jenis Kelamin',
+                    data: [],
+                    backgroundColor: background,
+                }]
+            },
+            options: {},
+        });
+        var ctx = document.getElementById("kelompok-umur-chart");
+        var umurChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: '# Kelompok Umur',
+                    data: [],
+                    backgroundColor: background,
+                }]
+            },
+            options: {},
+        });
+        var ctx = document.getElementById("pekerjaan-chart");
+        var pekerjaanChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: '# Pekerjaan',
+                    data: [],
+                    backgroundColor: background,
+                }]
+            },
+            options: {},
+        });
+        var ctx = document.getElementById("pendidikan-chart");
+        var pendidikanChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: '# Pendidikan',
+                    data: [],
+                    backgroundColor: background,
+                }]
+            },
+            options: {},
+        });
+        var ctx = document.getElementById("status-kawin-chart");
+        var statusKawinChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: '# Status Kawin',
+                    data: [],
+                    backgroundColor: background,
+                }]
+            },
+            options: {},
+        });
         var types = [
             {
                 name: 'Agama',
                 handle: function (response) {
-                    var ctx = document.getElementById("agama-chart");
-                    var myChart = new Chart(ctx, {
-                        type: 'doughnut',
-                        data: {
-                            labels: response.label,
-                            datasets: [{
-                                label: '# Agama',
-                                data: response.count,
-                                backgroundColor: background,
-                                borderColor: border,
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {},
-                    });
+                    agamaChart.data.labels = response.label
+                    agamaChart.data.datasets[0].data = response.count;
+
+                    agamaChart.update();
                 }
             },
             {
                 name: 'Jenis Kelamin',
                 handle: function (response) {
-                   var ctx = document.getElementById("kelamin-chart");
-                    var myChart = new Chart(ctx, {
-                        type: 'pie',
-                        data: {
-                            labels: response.label,
-                            datasets: [{
-                                label: '# Agama',
-                                data: response.count,
-                                backgroundColor: background,
-                                borderColor: border,
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {},
-                    });
+                    jenisKelaminChart.data.labels = response.label
+                    jenisKelaminChart.data.datasets[0].data = response.count;
+
+                    jenisKelaminChart.update();
+
+                    var totalPenduduk = response.count.reduce(function(a, b){
+                        return a + b;
+                    }, 0);
+                    $('#total-penduduk').text('Total Penduduk = ' + totalPenduduk);
                 },
             },
             {
                 name: 'Kelompok Umur',
                 handle: function (response) {
-                    var ctx = document.getElementById("kelompok-umur-chart");
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: response.label,
-                            datasets: [{
-                                label: '# Kelompok Umur',
-                                data: response.count,
-                                backgroundColor: background,
-                                borderColor: border,
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {},
-                    });
+                    umurChart.data.labels = response.label
+                    umurChart.data.datasets[0].data = response.count;
+
+                    umurChart.update();
                 },
             },
             {
                 name: 'Pekerjaan',
                 handle: function (response) {
-                    var ctx = document.getElementById("pekerjaan-chart");
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: response.label,
-                            datasets: [{
-                                label: '# Kelompok Umur',
-                                data: response.count,
-                                backgroundColor: background,
-                                borderColor: border,
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {},
-                    });
+                    pekerjaanChart.data.labels = response.label
+                    pekerjaanChart.data.datasets[0].data = response.count;
+
+                    pekerjaanChart.update();
                 },
             },
             {
                 name: 'Pendidikan',
                 handle: function (response) {
-                    var ctx = document.getElementById("pendidikan-chart");
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: response.label,
-                            datasets: [{
-                                label: '# Kelompok Umur',
-                                data: response.count,
-                                backgroundColor: background,
-                                borderColor: border,
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {},
-                    });
-                    
+                    pendidikanChart.data.labels = response.label
+                    pendidikanChart.data.datasets[0].data = response.count;
+
+                    pendidikanChart.update();
                 },
             },
             {
                 name: 'Status Kawin',
                 handle: function (response) {
-                    var ctx = document.getElementById("status-kawin-chart");
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: response.label,
-                            datasets: [{
-                                label: '# Kelompok Umur',
-                                data: response.count,
-                                backgroundColor: background,
-                                borderColor: border,
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {},
-                    });
-                    
+                    statusKawinChart.data.labels = response.label
+                    statusKawinChart.data.datasets[0].data = response.count;
+
+                    statusKawinChart.update();
                 },
             }
         ];
@@ -324,7 +340,7 @@
                 success: type.handle,
             });
         })
-    });
+    }).trigger('click');
 </script>
 @endpush
 @endsection
