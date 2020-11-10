@@ -33,8 +33,9 @@
 
 <div class="container-fluid">
     <div class="container">
-        <h1 class="display-3 py-4">Demografi</h1>
-        <div class="row">
+        <h1 class="display-3 pt-4">Demografi</h1>
+        <h6 class="h6 pb-4">Sumber data: Disdukcapil Kota Depok Tahun 2020 Semester 1</h6>
+        <div class="row pb-4">
             <div class="col-md-12">
                 <div class="card acik-renk-form">
                     <div class="card-body">
@@ -62,11 +63,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row pt-4">
-            <div class="col-12">
-                <h6 class="h6">Sumber data: Disdukcapil Kota Depok Tahun 2020 Semester 1</h6>
             </div>
         </div>
         <div class="row">
@@ -198,7 +194,7 @@
                 var totalPenduduk = response.count.reduce(function(a, b){
                     return parseInt(a) + parseInt(b);
                 }, 0);
-                $('#total-penduduk').text('Total Penduduk = ' + totalPenduduk);
+                $('#total-penduduk').text('Total Penduduk : ' + totalPenduduk);
             },
         },
         {
