@@ -21,16 +21,16 @@ class PendudukController extends Controller
     {
         $removedKeys = ['status', 'Master_Dimensi', 'Master_Subdimensi', 'message'];
         $population = ['label'=> [], 'count' => [] ];
-        $seconds = 60 * 60;
+        $seconds = 0;
 
         $cacheKey = "{$type}-{$request->kecamatan}-{$request->kelurahan}";
         $data = Cache::remember($cacheKey, $seconds, function () use ($request, $type) {
-            $namaKecamatan = optional(Kecamatan::find($request->kecamatan))->value('nama');
-            $namaKelurahan = optional(Kelurahan::find($request->kelurahan))->value('nama');
+            $namaKecamatan = optional(Kecamatan::where('id', $request->kecamatan))->value('nama');
+            $namaKelurahan = optional(Kelurahan::where('id', $request->kelurahan))->value('nama');
 
             $client = new \GuzzleHttp\Client();
             $md5 = md5('CMSDataWaReHoUseK3PeNduDukaN'.str_replace('-','',Carbon::now()->toDateString()));
-            $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan='.              $namaKecamatan .'&kelurahan='. $namaKelurahan .'&dimensi='. $type .'&subdimensi=&Limit=&Offset=');
+            $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan='.$namaKecamatan .'&kelurahan='. $namaKelurahan .'&dimensi='. $type .'&subdimensi=&Limit=&Offset=');
             return json_decode($response->getBody()->getContents(), true);
         });
 
