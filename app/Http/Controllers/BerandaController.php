@@ -179,7 +179,7 @@ class BerandaController extends Controller
     {
         $client = new \GuzzleHttp\Client();
         $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
-        // $jenjang = ['SD', 'SMP', 'SMA'];
+        
         $jenjang = ['SD', 'SMP', 'SMA'];
         foreach($jenjang as $key => $value){
             $response = $client->request('GET', 'https://cms.depok.go.id/Api/Sekolah?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=&jenjang='. $value .'&semester=&Limit=&Offset=');
