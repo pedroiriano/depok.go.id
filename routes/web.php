@@ -22,6 +22,7 @@ Route::get('/infografis', 'BerandaController@infografis')->name('infografis');
 Route::get('/download/{file}', 'DownloadsController@download')->name('download');
 Route::get('/pimpinan-daerah', 'BerandaController@pimpinanDaerah')->name('pimpinan');
 Route::get('/demografi', 'api\PendudukController@index')->name('demografi');
+Route::get('/pendidikan', 'api\PendidikanController@index')->name('pendidikan');
 //Pendaftaran PDAM
 //Route::get('/pendaftaran-direksi-pdam/berhasil', 'PendaftaranController@success')->name('pendaftaran.success');
 //Route::resource('/pendaftaran-direksi-pdam', 'PendaftaranController');
@@ -48,6 +49,9 @@ Route::get('/api/covid', 'BerandaController@covidAPI')->name('api.covid');
 Route::get('/api/demografi/{type}', 'api\PendudukController@demografi')
     ->name('api.demografi')
     ->where('type', 'Agama|Jenis Kelamin|Kelompok Umur|Pekerjaan|Pendidikan|Status Kawin');
+Route::get('/api/pendidikan/{type}', 'api\PendidikanController@pendidikan')
+    ->name('api.pendidikan')
+    ->where('type', 'Sekolah|SekolahAkreditasi|SekolahKepemilikan|Pekerjaan|Pendidikan|SekolahKebutuhanKhusus');
 
 
 Auth::routes(['register' => false]);
