@@ -24,7 +24,7 @@
     <h3 class="pt-3">Info Covid-19 Kota Depok</h3>
     <h6 class="text-muted">Update terakhir: <span id="covid-last-update">...</span></h6>
     <div class="row py-4">
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 mb-2">
             <div class="card shadow border-0 bg-warning text-white">
                 <div class="card-body text-center">
                     <small>Jumlah Pasien</small>
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 mb-2">
             <div class="card shadow border-0 bg-success text-white">
                 <div class="card-body text-center">
                     <small>Jumlah Pasien</small>
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 mb-2">
             <div class="card shadow border-0 bg-danger text-white">
                 <div class="card-body text-center">
                     <small>Jumlah Pasien</small>
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 mt-2">
+        <div class="col-12 mt-2 mb-2">
             <div id="accordion">
                 <div class="card bg-secondary border-0" style="cursor: pointer;">
                     <div id="headingOne">
@@ -725,9 +725,9 @@
                     loop:true,
                     margin:10,
                     nav:true,
-                    // autoplay:true,
-                    // autoplayTimeout:2000,
-                    // autoplayHoverPause:true,
+                    autoplay:true,
+                    autoplayTimeout:2000,
+                    autoplayHoverPause:true,
                     dots: false,
                     navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
                     responsive:{

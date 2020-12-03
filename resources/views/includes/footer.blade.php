@@ -18,12 +18,12 @@
                             </a>
                         </div>
                         <div class="owl-item">
-                            <a href="http://smartcity.devsc.id/" target="_blank">
+                            <a href="https://smartcity.depok.go.id/" target="_blank">
                                 <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
                         <div class="owl-item">
-                            <a href="http://devsc.id/smarthealthy/" target="_blank">
+                            <a href="https://dinkes.depok.go.id/" target="_blank">
                                 <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
@@ -38,12 +38,12 @@
                             </a>
                         </div>
                         <div class="owl-item">
-                            <a href="http://smartcity.devsc.id/" target="_blank">
+                            <a href="https://smartcity.depok.go.id/" target="_blank">
                                 <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
                         <div class="owl-item">
-                            <a href="http://devsc.id/smarthealthy/" target="_blank">
+                            <a href="https://dinkes.depok.go.id/" target="_blank">
                                 <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
