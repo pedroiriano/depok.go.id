@@ -85,17 +85,24 @@
     <div class="modal-dialog modal-dialog-centered" >
         <div class="modal-content">
             <div class="modal-header">
+                <h5 class="modal-title">Download Depok Single Window</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
             <div class="modal-body modal-body-center">
-                <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
-                    <img src="{{ asset('img/play-store.png') }}" class="img-fluid w-50">
-                </a>
-                <a href="https://apps.apple.com/us/app/depok-single-window-dsw/id1530183936?app=itunes&ign-mpt=uo%3D4" target="_blank">
-                    <img src="{{ asset('img/app-store.png') }}" class="img-fluid w-50">
-                </a>
+                <div class="row">
+                    <div class="col-6">
+                        <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
+                            <img src="{{ asset('img/play-store.png') }}" class="img-fluid w-100">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="https://apps.apple.com/us/app/depok-single-window-dsw/id1530183936?app=itunes&ign-mpt=uo%3D4" target="_blank">
+                            <img src="{{ asset('img/app-store.png') }}" class="img-fluid w-100">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

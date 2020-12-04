@@ -622,8 +622,31 @@
                 <div class="card-body">
                     <h5 class="h5">Government Public Relation</h5>
                     <div id="gpr-widget">
-                    <div id="gpr-kominfo-widget-container"></div>
+                        <div stlye="display: block;width:100%;height:500px;overflow:scroll">
+                            <div id="gpr-kominfo-widget-container" class="mb-3"></div>
+                        </div>
+                        <div style="display: block;width:100%;height:500px;overflow:scroll">
+                            <a class="twitter-timeline" href="https://twitter.com/pemkotdepok?ref_src=twsrc%5Etfw" data-tweet-limit="3" class="border-1">Tweets by pemkotdepok</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="pengumuman-modal">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="card bg-light rounded border-none">
+                <a href="{{ route('pengumuman', $popup->url) }}">  
+                    <img class="card-img-top" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Pengumuman Banner">
+                </a>
+                <div class="card-body">
+                    <h5 class="h5">{{ $popup->nama }}</h5>
+                    <a href="{{ route('pengumuman', $popup->url) }}" class="btn btn-primary">Selengkapnya<i class="fas fa-arrow-right"></i></a>
+                    <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">
+                        Tutup
+                    </button>
                 </div>
             </div>
         </div>
@@ -639,7 +662,7 @@
         $('#data-all-wrapper').addClass('col-12');
     }
     $(document).ready(function(){
-        // $('#pengumuman-modal').modal('show');
+        $('#pengumuman-modal').modal('show');
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
