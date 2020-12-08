@@ -4,9 +4,9 @@
 <link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}>
 
 <style>
-.card-img-top {
+.pengumuman-img {
     width: 100%;
-    height: 12vw;
+    height: 18.125vw;
     object-fit: cover;
 }
 .img-komoditi {
@@ -151,7 +151,7 @@
                     <div class="carousel-inner rounded-bottom">
                         @foreach($sliders as $key => $slider)
                         <div class="carousel-item @if($key == 0) {{ 'active' }} @endif">
-                                <img class="d-block w-100" src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="First slide">
+                                <img class="pengumuman-img" src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="First slide">
                                 <div class="carousel-caption" style="background-color: rgba(0,0,0,0.7);left: 0;right: 0;bottom: 0;text-align: left">
                                     <span class="ml-3 text-light pb-3">{{ $slider->nama }}</span>
                                 </div>
@@ -638,15 +638,18 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="card bg-light rounded border-none">
-                <a href="{{ route('pengumuman', $popup->url) }}">  
-                    <img class="card-img-top" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Pengumuman Banner">
-                </a>
                 <div class="card-body">
-                    <h5 class="h5">{{ $popup->nama }}</h5>
-                    <a href="{{ route('pengumuman', $popup->url) }}" class="btn btn-primary">Selengkapnya<i class="fas fa-arrow-right"></i></a>
-                    <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">
-                        Tutup
-                    </button>
+                    <div class="mb-3">
+                        <a href="{{ route('pengumuman', $popup->url) }}">  
+                            <img class="img-fluid" src="{{ asset('storage/uploads/sliders/'.$popup->imageName) }}" alt="Pengumuman Banner" style="width: 100%;object-fit:cover">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="{{ route('pengumuman', $popup->url) }}" class="btn btn-primary">Selengkapnya<i class="fas fa-arrow-right"></i></a>
+                        <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">
+                            Tutup
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

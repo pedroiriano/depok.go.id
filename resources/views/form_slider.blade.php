@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label for="image">Upload Gambar Banner</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="image" name="image" value="tes">
+                                <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="image" name="image">
                                 <label class="custom-file-label" for="image">Pilih gambar</label>
                                 @error('image')
                                 <div class="invalid-feedback">
@@ -143,12 +143,11 @@
     </div>
 </div>
 @endsection
-@section('js')
-<script src="{{ asset('node_modules/tinymce/tinymce.min.js') }}"></script>
+@push('js')
+<script src="https://cdn.tiny.cloud/1/a2iaxv0rx32qwimjp9x8p6i57mxcv9ej5p44u3xeh0e6d0xj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script type="text/javascript">
-    $('#image, #file').on('change',function(e){
-        var fileName = e.target.files[0].name;;
-        $(this).next('.custom-file-label').html(fileName);
+    $(document).on('change', '.custom-file-input', function (event) {
+        $(this).next('.custom-file-label').html(event.target.files[0].name);
     })
     tinymce.init({
         selector: '#deskripsi',
@@ -156,4 +155,4 @@
         plugins: "link",
     });
 </script>
-@endsection
+@endpush

@@ -1,7 +1,4 @@
 @extends('includes.admin-layout')
-@push('js')
-<script src="https://cdn.tiny.cloud/1/a2iaxv0rx32qwimjp9x8p6i57mxcv9ej5p44u3xeh0e6d0xj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-@endpush
 @section('content')
 {{-- <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script> --}}
 <div class="container-fluid">
@@ -30,6 +27,8 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+@push('js')
+<script src="https://cdn.tiny.cloud/1/a2iaxv0rx32qwimjp9x8p6i57mxcv9ej5p44u3xeh0e6d0xj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     $('.content').html('{!! $content->desc !!} ');
     tinymce.init({
@@ -79,4 +78,5 @@
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
     });
 </script>
+@endpush
 @endsection
