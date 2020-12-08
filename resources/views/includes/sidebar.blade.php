@@ -83,9 +83,7 @@
                 <a class="collapse-item" href="{{ route('admin.content', 'sejarah') }}">Sejarah</a>
                 <a class="collapse-item" href="{{ route('admin.content', 'lambang-identitas') }}">Lambang Identitas</a>
                 <a class="collapse-item" href="{{ route('admin.content', 'ikon-kota') }}">Ikon Kota</a>
-                <a class="collapse-item" href="{{ route('admin.content', 'sebi-budaya') }}">Seni Budaya</a>
-                <a class="collapse-item" href="{{ route('admin.content', 'sosial-ekonomi') }}">Sosial Ekonomi</a>
-                <a class="collapse-item" href="{{ route('admin.content', 'demografi') }}">Demografi</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'seni-budaya') }}">Seni Budaya</a>
                 <a class="collapse-item" href="{{ route('admin.content', 'geografi') }}">Geografi</a>
             </div>
         </div>
