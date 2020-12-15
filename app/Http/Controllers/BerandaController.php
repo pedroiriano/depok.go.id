@@ -151,7 +151,7 @@ class BerandaController extends Controller
     }
     public function bphtbAPI()
     {
-        return response()->json($this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx', 2, 3));
+        return response()->json($this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx', 2, 4));
     }
     public function pbbAPI()
     {
