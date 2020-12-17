@@ -21,7 +21,7 @@ class PendudukController extends Controller
     {
         $removedKeys = ['status', 'Master_Dimensi', 'Master_Subdimensi', 'message'];
         $population = ['label'=> [], 'count' => [] ];
-        $seconds = 0;
+        $seconds = 60 * 50;
 
         $cacheKey = "{$type}-{$request->kecamatan}-{$request->kelurahan}";
         $data = Cache::remember($cacheKey, $seconds, function () use ($request, $type) {
