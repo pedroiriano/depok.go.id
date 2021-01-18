@@ -110,6 +110,20 @@ class CategoriesTableSeeder extends Seeder
                 'pos' => 99,
                 'status' => 1,
             ],
+            [
+                'nama' => 'Kampung Siaga COVID-19',
+                'icon' => 'Kepegawaian.png',
+                'tooltip' => 'Tooltip with Html',
+                'pos' => 99,
+                'status' => 1,
+            ],
+            [
+                'nama' => 'BNN',
+                'icon' => 'Kepegawaian.png',
+                'tooltip' => 'Tooltip with Html',
+                'pos' => 99,
+                'status' => 1,
+            ],
         ]);
     }
 }

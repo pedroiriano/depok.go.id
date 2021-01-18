@@ -30,4 +30,3 @@
     @endfor
 </div>
 <div class="owl-carousel owl-theme" id="pangan-wrapper"></div>
-<a href="http://disperdagin.depok.go.id/"><h6>Sumber: Disperdagin Kota Depok</h6></a>

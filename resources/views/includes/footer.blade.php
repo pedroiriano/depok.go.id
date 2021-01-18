@@ -99,15 +99,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div style="background-color: #25d366" class="card shadow p-2">
-                            <div class="card-body">
-                                <a href="whatsapp://send?portal=phonenumber&text=Hello%2C%20World!">
-                                    <h5 class="text-light" class="lora h6 pt-2"><i class="mr-2 fab fa-whatsapp"></i>Klik untuk kirim pesan Whatsapp</h5>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

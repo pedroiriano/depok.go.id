@@ -294,6 +294,13 @@ class ServicesTableSeeder extends Seeder
                 'url' => 'https://dsw.depok.go.id/html/peta_depok',
                 'statusservice' => 1,
             ],
+            [
+                'namaservice' => 'Kampung Siaga ',
+                'category_id' => 15,
+                'url' => 'https://ccc-19.depok.go.id/Forum/',
+                'statusservice' => 1,
+            ],
+            
         ]);
     }
 }

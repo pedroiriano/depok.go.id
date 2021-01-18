@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
 use Alaouy\Youtube\Facades\Youtube;
 use GuzzleHttp\Exception\RequestException;
+use Illuminate\Support\Facades\Cache;
 use App\Agenda;
 use App\Sejarah;
 use App\Service;
@@ -30,6 +31,8 @@ class BerandaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    private $seconds = 60*60;
+
     public function index()
     {
         $tanggal = Carbon::now()->format('l, d F');
@@ -151,7 +154,7 @@ class BerandaController extends Controller
     }
     public function bphtbAPI()
     {
-        return response()->json($this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx', 2, 3));
+        return response()->json($this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx', 2, 15));
     }
     public function pbbAPI()
     {
@@ -159,36 +162,44 @@ class BerandaController extends Controller
     }
     public function kesehatanAPI()
     {
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'http://dsw.depok.go.id/html/penyakitdata', ['verify' => false]);
-        $data = $response->getBody()->getContents();
-        $diseases = json_decode($data, true);
+        $dataCache = Cache::remember('data-kesehatan', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'http://dsw.depok.go.id/html/penyakitdata', ['verify' => false]);
+            return $response->getBody()->getContents();
+        });
+        $diseases = json_decode($dataCache, true);
 
         return $diseases;
     }
     public function covidAPI()
     {
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://picodep.depok.go.id/api', ['verify' => false]);
-        $data = $response->getBody()->getContents();
-        $covid = json_decode($data, true);
+        $dataCovid = Cache::remember('data-covid', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'https://picodep.depok.go.id/api', ['verify' => false]);
+            $data = $response->getBody()->getContents();
+            return $data;
+        });
+        $covid = json_decode($dataCovid, true);
 
         return $covid;
     }
     public function pendidikanAPI()
     {
-        $client = new \GuzzleHttp\Client();
-        $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
+        $dataPendidikan = Cache::remember('data-pendidikan', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
+            
+            $jenjang = ['SD', 'SMP', 'SMA'];
+            foreach($jenjang as $key => $value){
+                $response = $client->request('GET', 'https://cms.depok.go.id/Api/Sekolah?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=&jenjang='. $value .'&semester=&Limit=&Offset=');
+                $data = $response->getBody()->getContents();
+                $result = json_decode($data, true);
+                $education[$value] = $result['Count'];
+            }
+            return $education;
+        });
         
-        $jenjang = ['SD', 'SMP', 'SMA'];
-        foreach($jenjang as $key => $value){
-            $response = $client->request('GET', 'https://cms.depok.go.id/Api/Sekolah?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=&jenjang='. $value .'&semester=&Limit=&Offset=');
-            $data = $response->getBody()->getContents();
-            $result = json_decode($data, true);
-            $education[$value] = $result['Count'];
-        }
-        
-        return $education;
+        return $dataPendidikan;
     }
         public function cuacaAPI()
     {
@@ -205,11 +216,13 @@ class BerandaController extends Controller
     }
     public function cuacaBMKGAPI()
     {
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://data.bmkg.go.id/datamkg/MEWS/DigitalForecast/DigitalForecast-JawaBarat.xml');
-        $xml = simplexml_load_string($response->getBody(),'SimpleXMLElement',LIBXML_NOCDATA);
-        $json = json_encode($xml->forecast->area[11]);
-        $array = json_decode($json, TRUE);
+        $dataCuaca = Cache::remember('data-cuaca', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'https://data.bmkg.go.id/datamkg/MEWS/DigitalForecast/DigitalForecast-JawaBarat.xml');
+            $xml = simplexml_load_string($response->getBody(),'SimpleXMLElement',LIBXML_NOCDATA);
+            return json_encode($xml->forecast->area[11]);
+        });
+        $array = json_decode($dataCuaca, TRUE);
         $forecast = array();
         $x = 0; $y = 0;
         foreach($array['parameter'][6]['timerange'] as $key => $data){
@@ -225,8 +238,8 @@ class BerandaController extends Controller
                 $y++;
             }
         }
-        $forecast['kelembapan'] = $xml->forecast->area[11]->parameter[0]->timerange->value[0];
-        $forecast['angin'] = $xml->forecast->area[11]->parameter[8]->timerange->value[1];
+        $forecast['kelembapan'] = $array['parameter'][0]['timerange'][0];
+        $forecast['angin'] = $array['parameter'][8]['timerange'][1];
         return $forecast;
     }
     public function getIconBMKG($icon)
@@ -342,16 +355,18 @@ class BerandaController extends Controller
     public function kunjunganAPI()
     {
         $month = Carbon::now()->format('F');
-        $client = new \GuzzleHttp\Client();
-        $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
-        $response = $client->request('GET', 'https://cms.depok.go.id/Api/KesehatanKunjungan?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=2020&bulan=&Limit=&Offset=');
-        $data = $response->getBody()->getContents();
-        $visit = json_decode($data, true);
+        $dataKunjungan = Cache::remember('data-kunjungan', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
+            $response = $client->request('GET', 'https://cms.depok.go.id/Api/KesehatanKunjungan?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=2020&bulan=&Limit=&Offset=');
+            $data = $response->getBody()->getContents();
+            return json_decode($data, true);
+        });
         $count = array();
         $count['puskesmas'] = 0;
         $count['rsud'] = 0;
 
-        foreach ($visit['data'] as $key => $value) {
+        foreach ($dataKunjungan['data'] as $key => $value) {
             if ($value['JenisFaskes'] == 'puskesmas') {
                 $count['puskesmas'] = $count['puskesmas'] + $value['jumlah'];
             } elseif ($value['JenisFaskes'] == 'Rumah Sakit') {
@@ -363,10 +378,13 @@ class BerandaController extends Controller
     }
     public function hargaKomoditasAPI()
     {
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://dsw.depok.go.id/api/komoditas/harga_depok', ['verify' => false]);
-        $data = $response->getBody()->getContents();
-        $price = json_decode($data, true);
+        $dataKomoditas = Cache::remember('data-komoditas', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'https://dsw.depok.go.id/api/komoditas/harga_depok', ['verify' => false]);
+            $data = $response->getBody()->getContents();
+            return $data;
+        });
+        $price = json_decode($dataKomoditas, true);
         
         foreach($price['data'] as $key => $data){
             $price['data'][$key]['src'] =  asset('img/komoditi/'. $data['komoditi'].'.jpg');
