@@ -79,7 +79,7 @@
             </div>
             <div class="col-12 col-md-6 offset-md-1 justify-content-end pb-3">
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-6 col-sm-12 pb-3">
                         <div class="card shadow">
                             <div class="card-body">
                                 <span class="text-muted">Call Center</span>
