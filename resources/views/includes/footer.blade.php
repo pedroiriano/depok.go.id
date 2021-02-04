@@ -59,7 +59,7 @@
                 <img src="{{ asset('img/lambang.png') }}" alt="" class="img-fluid">
             </div>
             <div class="col-12 col-md-4 ">
-                <h6 class="lora h6">Portal Resmi Pemerintah Kota Depok</h6>
+                <h6 class="h6">Portal Resmi Pemerintah Kota Depok</h6>
                 <p class="lead p">Dikelola Oleh: Dinas Komunikasi dan Informatika Kota Depok Jl. Margonda Raya No. 54
                 Gedung Dibaleka 2 Depok Lt.7 </p>
                 <div class="pt-2 pb-5">
@@ -84,7 +84,7 @@
                             <div class="card-body">
                                 <span class="text-muted">Call Center</span>
                                 <a href="tel:112">
-                                    <h6 class="lora h6 pt-2"><i class="mr-2 fa fa-phone-alt"></i>112</h6>
+                                    <h6 class="h6 pt-2"><i class="mr-2 fa fa-phone-alt"></i>112</h6>
                                 </a>
                             </div>
                         </div>
@@ -94,7 +94,27 @@
                             <div class="card-body">
                                 <span class="text-muted">Surel Pemkot Depok</span>
                                 <a href="mailto:portal@depok.go.id">
-                                    <h6 class="lora h6 pt-2" style="font-size: 1rem"><i class="mr-2 far fa-envelope"></i>portal@depok.go.id</h6>
+                                    <h6 class="h6 pt-2" style="font-size: 1rem"><i class="mr-2 far fa-envelope"></i>portal@depok.go.id</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 pb-3">
+                        <div class="card shadow pb-1">
+                            <div class="card-body">
+                                <span class="text-muted">Telepon</span>
+                                <a href="Tel: +628111232222">
+                                    <h6 class="h6 pt-2" style="font-size: 1rem"><i class="mr-2 fa-lg fas fa-phone-square-alt"></i>08111232222</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 pb-3">
+                        <div class="card shadow pb-1">
+                            <div class="card-body">
+                                <span class="text-muted">SMS</span>
+                                <a href="sms:+628111631500">
+                                    <h6 class="h6 pt-2" style="font-size: 1rem"><i class="mr-2 fa-lg fas fa-sms"></i>08111631500</h6>
                                 </a>
                             </div>
                         </div>
