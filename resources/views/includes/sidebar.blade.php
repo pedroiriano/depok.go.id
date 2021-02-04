@@ -22,7 +22,7 @@
             <span>Pendaftaran PDAM</span></a>
     </li>
     @endauth
-    @if(Auth::user()->email == 'admin@depok.go.id')
+    {{-- @if(Auth::user()->email == 'admin@depok.go.id') --}}
     <!-- Nav Item - Agenda -->
     <li class="nav-item {{ Request::is('admin-agenda') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin-agenda.index') }}">
@@ -126,7 +126,7 @@
             </div>
         </div>
     </li>
-    @endif
+    {{-- @endif --}}
     <!-- Divider -->
     <hr class="sidebar-divider">
 

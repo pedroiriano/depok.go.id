@@ -21396,7 +21396,7 @@ a:focus {
   }
 }
 .bg-login-image {
-  background: url("../images/login.png");
+  background: url("../img/content/login.png");
   background-position: center;
   background-size: cover;
 }
