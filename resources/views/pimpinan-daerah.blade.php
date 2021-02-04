@@ -27,7 +27,7 @@
 @endpush
 @extends('includes.layout')
 @section('content')
-<div class="jumbotron jumbotron-fluid banner" style="background-image: url({{ asset('img/sekilas-depok/pimpinan.jpeg') }})">
+<div class="jumbotron jumbotron-fluid banner" style="background-image: url({{ asset('img/content/pimpinan.jpeg') }})">
 </div>
 <div class="container-fluid">
     <div class="container">

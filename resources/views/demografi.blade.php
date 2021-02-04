@@ -28,7 +28,7 @@
 @endpush
 @extends('includes.layout')
 @section('content')
-<div class="jumbotron jumbotron-fluid banner" style="background-image: url({{ asset('images/bg.jpg') }})">
+<div class="jumbotron jumbotron-fluid banner" style="background-image: url({{ asset('img/content/demografi.png') }})">
 </div>
 
 <div class="container-fluid">
@@ -147,6 +147,9 @@
         });
     });
 
+    function getNumberWithDot(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
 
     var chartBackgrounds = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a','#ffff99','#b15928'];
 
@@ -194,7 +197,7 @@
                 var totalPenduduk = response.count.reduce(function(a, b){
                     return parseInt(a) + parseInt(b);
                 }, 0);
-                $('#total-penduduk').text('Total Penduduk : ' + totalPenduduk);
+                $('#total-penduduk').text('Total Penduduk : ' + getNumberWithDot(totalPenduduk));
             },
         },
         {
@@ -256,6 +259,7 @@
                     }]
                 },
                 options: type == 'bar' || type == 'horizontalBar' ? { legend: { display: false } } : {},
+                
             }
         );
     }
