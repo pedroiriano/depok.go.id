@@ -154,11 +154,17 @@ class BerandaController extends Controller
     }
     public function bphtbAPI()
     {
-        return response()->json($this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx', 2, 15));
+        $dataBphtb = Cache::remember('data-bphtb', $this->seconds, function(){
+            return $this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx', 2, 15);
+        });
+        return response()->json($dataBphtb);
     }
     public function pbbAPI()
     {
-        return response()->json($this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx', 1, 10));
+        $dataPBB = Cache::remember('data-pbb', $this->seconds, function(){
+            return $this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx', 1, 10);
+        });
+        return response()->json($dataPBB);
     }
     public function kesehatanAPI()
     {
