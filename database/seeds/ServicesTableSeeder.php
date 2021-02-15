@@ -97,9 +97,27 @@ class ServicesTableSeeder extends Seeder
                 'statusservice' => 1,
             ],
             [
-                'namaservice' => 'Informasi Pencatatan Sipil',
+                'namaservice' => 'Persyaratan Pelayanan Daftar Penduduk',
                 'category_id' => 2,
-                'url' => 'https://dsw.depok.go.id/html/sipil',
+                'url' => 'https://dsw.depok.go.id/html/dafduk',
+                'statusservice' => 1,
+            ],
+            [
+                'namaservice' => 'Persyaratan Pelayanan Pencatatan Sipil Berdasarkan Per-Walikota Depok Nomor 94 Tahun 2018',
+                'category_id' => 2,
+                'url' => 'https://dsw.depok.go.id/html/persyaratan',
+                'statusservice' => 1,
+            ],
+            [
+                'namaservice' => 'Persyaratan dan Tata Cara Pendaftaran Penduduk dan Pencatatan Sipil',
+                'category_id' => 2,
+                'url' => 'https://dsw.depok.go.id/html/penduduk',
+                'statusservice' => 1,
+            ],
+            [
+                'namaservice' => 'Persyaratan Pembuatan KIA dan Akta Kelahiran',
+                'category_id' => 2,
+                'url' => 'https://dsw.depok.go.id/html/wali',
                 'statusservice' => 1,
             ],
             [
@@ -321,7 +339,7 @@ class ServicesTableSeeder extends Seeder
             [
                 'namaservice' => 'Prosedur Pendaftaran BNN ',
                 'category_id' => 16,
-                'url' => 'https://rehabilitasi.bnn.go.id/public/public/psd',
+                'url' => 'https://rehabilitasi.bnn.go.id/public/psd',
                 'statusservice' => 1,
             ],
             [
@@ -333,7 +351,7 @@ class ServicesTableSeeder extends Seeder
             [
                 'namaservice' => 'Pelayanan BNN ',
                 'category_id' => 16,
-                'url' => 'https://rehabilitasi.bnn.go.id/public/public/layanan/',
+                'url' => 'https://rehabilitasi.bnn.go.id/public/layanan/',
                 'statusservice' => 1,
             ],
         ]);
