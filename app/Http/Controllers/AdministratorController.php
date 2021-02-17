@@ -152,8 +152,4 @@ class AdministratorController extends Controller
 
         return back()->with('success', 'Sukses');
     }
-    public function user()
-    {
-        return view('admin.user');
-    }
 }

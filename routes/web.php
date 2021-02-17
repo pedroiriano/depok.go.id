@@ -61,23 +61,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/pendaftaran-pdam', 'HomeController@pendaftaranPDAM')->name('pendaftaran.pdam');
     Route::get('/pendaftaran-pdam/unduh-surat-lamaran-{fileName}', 'HomeController@downloadSuratLamaran')->name('pendaftaran.unduh.surat-lamaran');
     Route::get('/pendaftaran-pdam/unduh-persyaratan-{fileName}', 'HomeController@downloadPersyaratan')->name('pendaftaran.unduh.persyaratan');
-    Route::middleware('check.user')->group(function(){
-        Route::resource('/slider', 'SliderController');
-        Route::resource('/admin-kategori-dsw', 'CategoryController');
-        Route::resource('/admin-agenda', 'AgendaController');
-        Route::resource('/admin-infografis', 'InfografisController', ['parameters' => ['admin-infografis' => 'infografis']]);
-        Route::get('/admin-slider', 'AdministratorController@slider')->name('admin.slider');
-        Route::post('/tambahAgenda', 'AdministratorController@tambahAgenda')->name('admin.tambahAgenda');
-        Route::get('/admin-layanan-dsw', 'AdministratorController@layanan')->name('admin.layanan');
-        Route::post('/tambah-layanan', 'AdministratorController@tambahLayanan')->name('admin.tambahLayanan');
-        Route::post('/ubah-layanan/{id}', 'AdministratorController@ubahLayanan')->name('admin.ubahLayanan');
-        Route::post('/hapus-layanan/{id}', 'AdministratorController@hapusLayanan')->name('admin.hapusLayanan');
-        Route::get('/user', 'AdministratorController@user')->name('admin.user');
-        Route::get('/admin-ikon', 'AdministratorController@ikon')->name('admin.ikon');
-        Route::post('/ubah-ikon', 'AdministratorController@ubahIkon')->name('admin.ubahIkon');\
-        Route::get('/admin/content/{content}', 'AdministratorController@content')->name('admin.content');
-        Route::post('/admin/content/update/{content}', 'AdministratorController@updateContent')->name('admin.update.content');
-    });
+    Route::resource('/slider', 'SliderController');
+    Route::resource('/admin-kategori-dsw', 'CategoryController');
+    Route::resource('/admin-agenda', 'AgendaController');
+    Route::resource('/admin-infografis', 'InfografisController', ['parameters' => ['admin-infografis' => 'infografis']]);
+    Route::resource('/user', 'UserController');
+    Route::get('/admin-slider', 'AdministratorController@slider')->name('admin.slider');
+    Route::post('/tambahAgenda', 'AdministratorController@tambahAgenda')->name('admin.tambahAgenda');
+    Route::get('/admin-layanan-dsw', 'AdministratorController@layanan')->name('admin.layanan');
+    Route::post('/tambah-layanan', 'AdministratorController@tambahLayanan')->name('admin.tambahLayanan');
+    Route::post('/ubah-layanan/{id}', 'AdministratorController@ubahLayanan')->name('admin.ubahLayanan');
+    Route::post('/hapus-layanan/{id}', 'AdministratorController@hapusLayanan')->name('admin.hapusLayanan');
+    Route::get('/admin-ikon', 'AdministratorController@ikon')->name('admin.ikon');
+    Route::post('/ubah-ikon', 'AdministratorController@ubahIkon')->name('admin.ubahIkon');\
+    Route::get('/admin/content/{content}', 'AdministratorController@content')->name('admin.content');
+    Route::post('/admin/content/update/{content}', 'AdministratorController@updateContent')->name('admin.update.content');
 });
 
 Route::get('/{content}', 'BerandaController@content')->name('content');
