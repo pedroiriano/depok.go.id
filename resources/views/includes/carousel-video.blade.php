@@ -52,7 +52,8 @@ header .overlay {
 <header>
     <div class="overlay"></div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <source src="{{ asset('videos/alun-alun-depok.mp4') }}" type="video/mp4">
+        {{-- <source src="{{ asset('videos/alun-alun-depok.mp4') }}" type="video/mp4"> --}}
+	<source src="{{ asset('storage/uploads/video-covid19-fix.mp4') }}" type="video/mp4">
     </video>
     <div class="container h-100">
         <div class="d-flex h-100 text-center align-items-center">

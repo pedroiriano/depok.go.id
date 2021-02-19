@@ -12,12 +12,12 @@
                 </a>
             </div>
             <div class="col-4 col-md-3 pb-5">
-                <a href="http://smartcity.devsc.id/" target="_blank">
+                <a href="https://smartcity.depok.go.id/" target="_blank">
                     <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
                 </a>
             </div>
             <div class="col-4 col-md-3 pb-5">
-                <a href="http://devsc.id/smarthealthy/" target="_blank">
+                <a href="https://dinkes.depok.go.id/" target="_blank">
                     <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
                 </a>
             </div>

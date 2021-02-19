@@ -27,7 +27,7 @@
                 <ul class="lead list">
                     <li>Bagian Ekonomi</li>
                     <li>Bagian Pembangunan</li>
-                    <li>Bagian Layanan Pengadaan</li>
+                    <li>Bagian Pengadaan Barang/Jasa Sekretariat Daerah Kota Depok</li>
                 </ul>
                 <p class="lead">Asisten Administrasi dan Pemerintahan</p>
                 <ul class="lead list">
