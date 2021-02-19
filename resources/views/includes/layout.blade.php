@@ -17,6 +17,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    @stack('css')
+    
     <script src="https://kit.fontawesome.com/d54b50045e.js" crossorigin="anonymous"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon/favicon-32x32.png') }}">
@@ -24,9 +26,8 @@
     <link rel="manifest" href="{{ asset('img/favicon/site.webmanifest') }}">
 </head>
 
-<body>
-    <div>
-        {{-- <a id="myBtn" class="shadow-lg btn btn-outline-success btn-light rounded btn-lg" style="color:#1cc88a"><i class="far fa-comment-dots"></i>&nbsp; Kirim Pesan</a> --}}
+<body style="background-color: #F7FAFC">
+    <div id="app">
         @include('includes.navbar')
         <main>
             @yield('content')
@@ -35,17 +36,13 @@
     </div>
 </body>
 
-
     <!-- Untuk Analytics Google : Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-17742526-4"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-17742526-4');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-17742526-4');
 </script>
-
-
-    @yield('js')
+    @stack('js')
 </html>

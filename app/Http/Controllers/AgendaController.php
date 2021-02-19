@@ -95,7 +95,9 @@ class AgendaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $opd = OPD::all();
+        $agenda = Agenda::find($id);
+        return view('admin.form_agenda', compact('agenda','opd'));
     }
 
     /**
@@ -107,7 +109,34 @@ class AgendaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                'nama' => 'required',
+                'opd' => 'required',
+                'status' => 'required',
+                'tempat' => 'required',
+                'tanggal' => 'required|date',
+                'image' => 'mimes:jpg,png,jpeg|max:2048',
+            ]
+        );
+            $agenda = Agenda::find($id);
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() .'.'.request()->image->getClientOriginalExtension();
+                request()->image->move(public_path('uploads/agenda'), $imageName);
+            } else{
+                $imageName = "no-image";
+            }
+            $agenda->nama = $request->nama;
+            $agenda->tanggal = $request->tanggal;
+            $agenda->sumber = $request->opd;
+            $agenda->status = $request->status;
+            $agenda->imageName = $imageName;
+            $agenda->tempat = $request->tempat;
+            $agenda->save();
+
+            return redirect('admin-agenda')->with('success', 'Agenda Berhasil diupdate');
+        
     }
 
     /**
@@ -118,6 +147,8 @@ class AgendaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $agenda = Agenda::findOrFail($id);
+        $agenda->delete();
+        return back()->with('success', 'Data berhasil di hapus');
     }
 }

@@ -1,22 +1,17 @@
-<div class="d-sm-block d-none text-center text-bold text-white" style="font-size:12px; background-color: #3598db">
-    <div class="container">
-        <nav class="navbar navbar-expand navbar-dark" style="padding:0;">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="https://www.facebook.com/PemerintahKotaDepok/" target="_blank" class="nav-link"><i class="fab fa-facebook-square"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.youtube.com/channel/UCco0gmWTlN9nsxnlAy-tWFA" target="_blank" class="nav-link"><i class="fab fa-youtube"></i><span style="padding-left:10px">Pemkot Depok |</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="tel:112" class="nav-link"><i class="fas fa-phone-alt"></i><span style="padding-left:10px">112 |</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="mailto:portal@depok.go.id" class="nav-link"><i class="fas fa-envelope"></i><span style="padding-left:10px">portal@depok.go.id |</span></a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+<div class="text-center text-white py-2 d-none d-sm-block" style="background-color: #1D4F88">
+    <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a target="_blank" href="https://www.facebook.com/PemerintahKotaDepok/" style="text-decoration: none;color:white" class="mr-3"> 
+        <i class="fab fa-youtube"></i>
+    </a>
+    <span>Temukan informasi terkini dengan mengikuti akun resmi sosial media kami</span>
 </div>
 <nav class="shadow navbar navbar-expand-lg navbar-light bg-white flex-column flex-md-row sticky-top ">
     <div class="container">
@@ -35,14 +30,15 @@
                         Sekilas Depok
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('sejarah') }}">Sejarah</a>
-                        <a class="dropdown-item" href="{{ route('lambangIdentitas') }}">Lambang Identitas</a>
-                        <a class="dropdown-item" href="{{ route('ikonKota') }}">Ikon Kota</a>
-                        <a class="dropdown-item" href="{{ route('seniBudaya') }}">Seni Budaya</a>
-                        {{-- <a class="dropdown-item" href="{{ route('sosialEkonomi') }}">Sosial Ekonomi</a> --}}
-                        <a class="dropdown-item" href="{{ route('penghargaan') }}">Penghargaan</a>
+                        <a class="dropdown-item" href="{{ route('content', 'sejarah') }}">Sejarah</a>
+                        <a class="dropdown-item" href="{{ route('content', 'lambang-identitas') }}">Lambang Identitas</a>
+                        <a class="dropdown-item" href="{{ route('content', 'ikon-kota') }}">Ikon Kota</a>
+                        <a class="dropdown-item" href="{{ route('content', 'seni-budaya') }}">Seni Budaya</a>
+                        {{-- <a class="dropdown-item" href="{{ route('content', 'sosialEkonomi') }}">Sosial Ekonomi</a> --}}
+                        <a class="dropdown-item" href="{{ route('content', 'penghargaan') }}">Penghargaan</a>
                         <a class="dropdown-item" href="{{ route('demografi') }}">Demografi</a>
-                        <a class="dropdown-item" href="{{ route('geografi') }}">Geografi</a>
+                        <a class="dropdown-item" href="{{ route('pendidikan') }}">Pendidikan</a>
+                        <a class="dropdown-item" href="{{ route('content', 'geografi') }}">Geografi</a>
                         </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -51,25 +47,12 @@
                         Pemerintahan
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('visiMisi') }}">Visi & Misi Kota</a>
-                        <a class="dropdown-item" href="{{ route('pimpinanDaerah') }}">Pimpinan Daerah</a>
-                        <a class="dropdown-item" href="{{ route('strukturDaerah') }}">Struktur Daerah</a>
-                        <a class="dropdown-item" href="{{ route('dinas') }}">Perangkat Daerah</a>
-                        {{-- <a class="dropdown-item" href="{{ route('perundangundangan') }}">Perundang-Undangan</a> --}}                    
+                        <a class="dropdown-item" href="{{ route('content', 'visi-misi') }}">Visi & Misi Kota</a>
+                        <a class="dropdown-item" href="{{ route('pimpinan') }}">Pimpinan Daerah</a>
+                        <a class="dropdown-item" href="{{ route('content', 'dinas') }}">Perangkat Daerah</a>
+                        <a class="dropdown-item" href="{{ route('content', 'struktur-daerah') }}">Struktur Daerah</a>
                     </div>
                 </li>
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Perangkat Daerah
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('dinas') }}">Dinas</a>
-                        <a class="dropdown-item" href="{{ route('sekda') }}">Sekretariat Daerah</a>
-                        <a class="dropdown-item" href="{{ route('kecamatan') }}">Kecamatan</a>
-                        <a class="dropdown-item" href="{{ route('kelurahan') }}">Kelurahan</a>
-                    </div>
-                </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -77,6 +60,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('infografis') }}">Infografis</a>
+                        <a class="dropdown-item" target="_blank" href="https://jdih.depok.go.id">Produk Hukum</a>
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/#1532597359183-e12432b3-c0a9">Info Berkala</a>
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/#1532600380234-c404d293-d71b">Info Serta Merta</a>
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/#1532597359184-8b1240f6-e28d">Info Setiap Saat</a>
@@ -89,11 +73,37 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a target="_blank" href="http://ccc-19.depok.go.id" class="btn btn-outline-danger" aria-haspopup="true" aria-expanded="false">
-                    Informasi COVID-19
-                    </a>
+                    <button data-target="#download" data-toggle="modal" class="btn btn-info">
+                    Download DSW
+                    </button>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<div class="modal fade" id="download" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Download Depok Single Window</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <div class="modal-body modal-body-center">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
+                            <img src="{{ asset('img/play-store.png') }}" class="img-fluid w-100">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="https://apps.apple.com/us/app/depok-single-window-dsw/id1530183936?app=itunes&ign-mpt=uo%3D4" target="_blank">
+                            <img src="{{ asset('img/app-store.png') }}" class="img-fluid w-100">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                    

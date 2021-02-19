@@ -2,9 +2,9 @@
 @section('content')
 <div class="container-fluid">
     @empty($category)
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Tambah Kategori</h1>
+    <h1 class="h3 mb-0 text-gray-800 mb-4">Tambah Kategori</h1>
     @else
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Ubah Kategori</h1>
+    <h1 class="h3 mb-0 text-gray-800 mb-4">Ubah Kategori</h1>
     @endempty
     
     @if ($message = Session::get('success'))
@@ -28,9 +28,9 @@
     @endif
     <div class="card shadow mb-4">
         <div class="card-header">Kategori DSW</div>
-            <form role="form" method="POST" action="{{ empty($infografis) ? route('admin-kategori-dsw.store') : route('admin-kategori-dsw.update', $infografis->id) }}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{ empty($category) ? route('admin-kategori-dsw.store') : route('admin-kategori-dsw.update', $category->id) }}" enctype="multipart/form-data">
                 @csrf
-                @isset($infografis)
+                @isset($category)
                     {{ method_field('PATCH') }}
                 @endisset
             <div class="card-body">
@@ -38,7 +38,7 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label for="nama">Nama Kategori DSW</label>
-                            <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukkan Nama Kategori" value="{{ old('nama', $infografis->nama ?? '') }}">
+                            <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukkan Nama Kategori" value="{{ old('nama', $category->nama ?? '') }}">
                             @error('nama')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -57,25 +57,26 @@
                                 @enderror
                             </div>
                         </div>
-                        @isset($infografis)
+                        @isset($category)
                         <div class="form-group">
-                            <img src="{{ asset('storage/uploads/infografis/'.$infografis->imageName) }}" alt="" class="img-thumbnail">
+                            <img src="{{ asset('img/icon/'.$category->icon) }}" alt="" class="img-thumbnail">
                         </div>
                         @endisset
                         <div class="form-group">
                             <label for="posisi">Posisi</label>
-                            <select class="form-control form-control-sm" name="posisi" id="posisi" disabled>
-                                <option value="0" selected="selected">Tidak muncul di halaman utama</option>
-                                @for ($i = 1; $i < 13; $i++)
-                                    <option value={{ $i }}>{{ $i }}</option>
+                            <select class="form-control custom-select form-control-sm" name="posisi" id="posisi">
+                                <option selected disabled="disabled">Pilih Posisi</option>
+                                <option value="0" @if (old('status', $category->pos ?? '') == '0') selected @endif>Tidak muncul di halaman utama</option>
+                                @for ($i = 1; $i < 9; $i++)
+                                    <option value={{ $i }} @if (old('status', $category->pos ?? '') == $i) selected @endif>{{ $i }}</option>
                                 @endfor
                             </select>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="tooltip">Tooltip</label>
-                            <input type="text" class="form-control @error('tooltip') is-invalid @enderror" id="tooltip" name="tooltip" placeholder="Masukkan Tooltip" value="{{ old('tooltip', $infografis->tooltip ?? '') }}">
+                            <label for="tooltip">Deskripsi Kategori</label>
+                            <input type="text" class="form-control @error('tooltip') is-invalid @enderror" id="tooltip" name="tooltip" placeholder="Masukkan Tooltip" value="{{ old('tooltip', $category->tooltip ?? '') }}">
                             @error('tooltip')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -85,8 +86,9 @@
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select class="custom-select @error('status') is-invalid @enderror" name="status" id="status">
-                                <option value="1">Aktif</option>
-                                <option value="0">Tidak Aktif</option>
+                                <option selected disabled="disabled">Pilih Status</option>
+                                <option value="1" @if (old('status', $category->status ?? '') == '1') selected @endif>Aktif</option>
+                                <option value="0" @if (old('status', $category->status ?? '') == '0') selected @endif>Tidak Aktif</option>
                             </select>
                             @error('status')
                             <div class="invalid-feedback">
@@ -99,71 +101,12 @@
             </div>     
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{ route('admin-infografis.index') }}" class="btn btn-outline-secondary">Kembali</a>
+                <a href="{{ route('admin-kategori-dsw.index') }}" class="btn btn-outline-secondary">Kembali</a>
             </div>
         </form>
     </div>
 </div>
-<!-- Modal Tambah Kategori-->
-<div class="modal fade" id="modalCategories" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori DSW</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="POST" action="{{ route('admin-kategori-dsw.store') }}" enctype="multipart/form-data">
-                <div class="modal-body">
-                    @csrf
-                    <div class="form-group">
-                        <label for="nama">Nama</label>
-                        <input type="text" class="form-control" id="nama" name="nama"
-                            placeholder="Nama Kategori">
-                    </div>
-                    <div class="form-group">
-                        <label for="tooltip">Tooltip</label>
-                        <input type="text" class="form-control" id="tooltip" name="tooltip"
-                            placeholder="Tooltip">
-                    </div>
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select class="form-control form-control-sm" name="status" id="status">
-                            <option value="0" selected="selected">Tidak Aktif</option>
-                            <option value="1">Aktif</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="posisi">Posisi</label>
-                        <select class="form-control form-control-sm" name="posisi" id="posisi" disabled>
-                            <option value="0" selected="selected">Tidak muncul di halaman utama</option>
-                            @for ($i = 1; $i < 13; $i++) <option value={{ $i }}>{{ $i }}</option>
-                                @endfor
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="input-group">Upload Icon</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="icon"
-                                    aria-describedby="inputGroupFileAddon01" name="icon">
-                                <label class="custom-file-label" for="inputGroupFile01" id="labelIcon">Pilih Icon</label>
-                            </div>
-                        </div>
-                    </div>
-               </div>
-               <div class=" modal-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
 @endsection
 @section('js')
 <script>

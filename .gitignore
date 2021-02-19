@@ -10,3 +10,6 @@ npm-debug.log
 yarn-error.log
 .DS_Store
 .env
+bootstrap/cache
+/storage/app/cuaca.json
+/storage/app/youtube.json

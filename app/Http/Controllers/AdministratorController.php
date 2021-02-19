@@ -11,6 +11,7 @@ use App\Sejarah;
 use App\Slider;
 use App\Service;
 use App\Ikon;
+use App\Content;
 
 class AdministratorController extends Controller
 {
@@ -61,39 +62,25 @@ class AdministratorController extends Controller
     }
     public function layanan()
     {
-        $categories = Category::paginate(5);
+        $categories = Category::all();
         $services = Service::paginate(10);
         return view('admin.layanan', compact('services', 'categories'));
     }
     public function tambahLayanan(Request $request)
-    {
+    { 
         request()->validate([
             'inputNamaLayanan' => 'required',
             'inputURL' => 'required',
             'inputStatus' => 'required',
-            'inputTooltip' => 'required',
-            'inputIcon' => 'required|image|mimes:jpg,png,jpeg|max:128',
         ]);
-        if ($request->hasFile('inputIcon')) {
-            $image = $request->file('inputIcon');
-            $imageName = time().'.'.request()->inputIcon->getClientOriginalExtension();
-            request()->inputIcon->move(public_path('img/icon'), $imageName);
             $service = new Service();
-            $service->nama = $request->inputNamaLayanan;
+            $service->namaservice = $request->inputNamaLayanan;
             $service->url = $request->inputURL;
-            $service->tooltip = $request->inputTooltip;
-            $service->status = $request->inputStatus;
-            if ($request->inputStatus == 0) {
-                $service->pos = 99;
-            }else{
-                $otherService = Service::where('pos', $request->inputPosisi)->update(['pos' => 99]);
-                $service->pos = $request->inputPosisi;
-            }
-            $service->icon = $imageName;
+            $service->statusservice = $request->inputStatus;
+            $service->category_id = $request->inputKategori;
             $service->save();
-        }
 
-        return back()->with('success', 'Layanan baru telah sukses ditambahkan');
+        return back()->with('success', 'Layanan ' . $service->namaservice . ' telah sukses ditambahkan');
     }
     public function ubahLayanan(Request $request, $id)
     {
@@ -101,26 +88,35 @@ class AdministratorController extends Controller
             'inputUbahNamaLayanan' => 'required',
             'inputUbahURL' => 'required',
             'inputUbahStatus' => 'required',
-            'inputUbahTooltip' => 'required',
-            'inputUbahIcon' => 'required|image|mimes:jpg,png,jpeg|max:128',
         ]);
         $service = Service::find($id);
-        $service->nama = $request->inputUbahNamaLayanan;
+        $service->namaservice = $request->inputUbahNamaLayanan;
         $service->url = $request->inputUbahURL;
-        $service->status = $request->inputUbahStatus;
-        $service->tooltip = $request->inputUbahTooltip;
-        if ($request->hasFile('inputUbahIcon')) {
-            $userImage = public_path("img/icon/{$slider->imageName}");
-            if(file::exists($userImage)){
-                unlink($userImage);
-            }
-            $image = $request->file('image');
-            $imageName = time().'.'.request()->image->getClientOriginalExtension();
-            request()->image->move(public_path('uploads/slider'), $imageName);
-            $slider->imageName = $imageName;
-        }
+        $service->statusservice = $request->inputUbahStatus;
+        $service->category_id = $request->inputUbahKategori;
         $service->save();
         return back()->with('success', 'Layanan telah di Update');
+    }
+    public function hapusLayanan($id)
+    {
+        $service = Service::findOrFail($id);
+        $service->delete();
+        return back()->with('success', 'Data berhasil di hapus');
+    }
+    public function content($content)
+    {
+        $content = Content::where('slug', $content)->first();
+        if ($content == NULL) {
+            abort(404);
+        }
+        return view('admin.content', compact('content'));
+    }
+    public function updateContent(Request $request, $content)
+    {
+        $content = Content::where('slug', $content)->first();
+        $content->desc = $request->inputContent;
+        $content->save();
+        return back()->with('success', 'Konten '.$content->nama.' telah diubah'); 
     }
     public function sejarah()
     {
@@ -155,9 +151,5 @@ class AdministratorController extends Controller
         $ikon->save();
 
         return back()->with('success', 'Sukses');
-    }
-    public function user()
-    {
-        return view('admin.user');
     }
 }

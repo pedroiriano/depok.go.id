@@ -3,7 +3,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-text">Depok.go.id</div>
+        <div class="sidebar-brand-text" style="font-weight: 500; text-transform: none;">Depok.go.id</div>
     </a>
 
     <!-- Divider -->
@@ -22,7 +22,7 @@
             <span>Pendaftaran PDAM</span></a>
     </li>
     @endauth
-    @if(Auth::user()->email == 'admin@depok.go.id')
+    {{-- @if(Auth::user()->email == 'admin@depok.go.id') --}}
     <!-- Nav Item - Agenda -->
     <li class="nav-item {{ Request::is('admin-agenda') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin-agenda.index') }}">
@@ -59,7 +59,7 @@
 
     <!-- Nav Item - User -->
     <li class="nav-item {{ Request::is('user') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.user') }}">
+        <a class="nav-link" href="{{ route('user.index') }}">
             <i class="fas fa-user"></i>
             <span>User</span></a>
     </li>
@@ -80,13 +80,11 @@
         <div id="collapseSekilasDepok" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Sekilas Depok:</h6>
-                <a class="collapse-item" href="{{ route('admin.sejarah') }}">Sejarah</a>
-                <a class="collapse-item" href="#">Lambang Identitas</a>
-                <a class="collapse-item" href="{{ route('admin.ikon') }}">Ikon Kota</a>
-                <a class="collapse-item" href="#">Seni Budaya</a>
-                <a class="collapse-item" href="#">Sosial Ekonomi</a>
-                <a class="collapse-item" href="#">Demografi</a>
-                <a class="collapse-item" href="#">Geografi</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'sejarah') }}">Sejarah</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'lambang-identitas') }}">Lambang Identitas</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'ikon-kota') }}">Ikon Kota</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'seni-budaya') }}">Seni Budaya</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'geografi') }}">Geografi</a>
             </div>
         </div>
     </li>
@@ -102,11 +100,10 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pemerintahan:</h6>
-                <a class="collapse-item" href="#">Visi & Misi</a>
-                <a class="collapse-item" href="#">Pimpinan Daerah</a>
-                <a class="collapse-item" href="#">Struktur Daerah</a>
-                <a class="collapse-item" href="#">Perundangan-Undangan</a>
-                <a class="collapse-item" href="#">Penghargaan</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'visi-misi') }}">Visi & Misi</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'struktur-daerah') }}">Struktur Daerah</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'perundang-undangan') }}">Perundangan-Undangan</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'penghargaan') }}">Penghargaan</a>
             </div>
         </div>
     </li>
@@ -122,33 +119,14 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Perangkat Daerah:</h6>
-                <a class="collapse-item" href="#">Dinas</a>
-                <a class="collapse-item" href="#">Sekretariat Daerah</a>
-                <a class="collapse-item" href="#">Kecamatan</a>
-                <a class="collapse-item" href="#">Kelurahan</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'dinas') }}">Dinas</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'sekretariat-daerah') }}">Sekretariat Daerah</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'kecamatan') }}">Kecamatan</a>
+                <a class="collapse-item" href="{{ route('admin.content', 'kelurahan') }}">Kelurahan</a>
             </div>
         </div>
     </li>
-
-    <!-- Nav Item - Info Publik Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInfoPublik"
-            aria-expanded="true" aria-controls="collapseInfoPublik">
-            <i class="fas fa-hashtag"></i>
-            <span>Info Publik</span>
-        </a>
-        <div id="collapseInfoPublik" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Info Publik:</h6>
-                <a class="collapse-item" href="#">Info Berkala</a>
-                <a class="collapse-item" href="#">Info Serta Merta</a>
-                <a class="collapse-item" href="#">Info Setiap Saat</a>
-                <a class="collapse-item" href="#">Daftar Info Publik</a>
-            </div>
-        </div>
-    </li>
-    @endif
+    {{-- @endif --}}
     <!-- Divider -->
     <hr class="sidebar-divider">
 

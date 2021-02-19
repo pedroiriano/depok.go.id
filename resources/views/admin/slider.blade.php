@@ -192,51 +192,56 @@
 </div>
 <script>
 $(document).ready(function () {
-$('#inputImage').change(function (e) {
-var fileName = e.target.files[0].name;
-$('#labelImage').text(fileName);
+    $('#inputImage').change(function (e) {
+    var fileName = e.target.files[0].name;
+    $('#labelImage').text(fileName);
+    });
 });
-});
+
 function loadUbahModal(nama, deskripsi, status, image, id) {
-var public_url = {!!json_encode(asset('uploads\\slider\\')) !!};
-var route = {!!json_encode(url('/ubah-slider')) !!};
-console.log(id);
-$('#modalUbahSlider').modal('show');
-$('#modalUbahSlider').find("#inputUbahId").val(id);
-$('#modalUbahSlider').find("#inputUbahNama").val(nama);
-$('#modalUbahSlider').find("#inputUbahDeskripsi").val(deskripsi);
-$('#modalUbahSlider').find("#image").attr('src', public_url + image);
-$('#modalUbahSlider').find("#inputUbahStatus").val(status);
-$('#formUbahSlider').attr('action', route + '/' + id);
+    var public_url = {
+        !!json_encode(asset('uploads\\slider\\')) !!
+    };
+    var route = {
+        !!json_encode(url('/ubah-slider')) !!
+    };
+    console.log(id);
+    $('#modalUbahSlider').modal('show');
+    $('#modalUbahSlider').find("#inputUbahId").val(id);
+    $('#modalUbahSlider').find("#inputUbahNama").val(nama);
+    $('#modalUbahSlider').find("#inputUbahDeskripsi").val(deskripsi);
+    $('#modalUbahSlider').find("#image").attr('src', public_url + image);
+    $('#modalUbahSlider').find("#inputUbahStatus").val(status);
+    $('#formUbahSlider').attr('action', route + '/' + id);
 }
 $('#deleteSlider').click(function () {
-var id = $(this).data("id");
-$.ajax({
-url: "hapus-slider/" + id,
-type: "DELETE",
-data: {
-id: id,
-_token: '{{ csrf_token() }}',
-},
-success: function () {
-console.log("Data Berhasil Dihapus");
-}
-});
+    var id = $(this).data("id");
+    $.ajax({
+        url: "hapus-slider/" + id,
+        type: "DELETE",
+        data: {
+            id: id,
+            _token: '{{ csrf_token() }}',
+        },
+        success: function () {
+            console.log("Data Berhasil Dihapus");
+        }
+    });
 });
 $('#formUbahSlider').on('submit', function (e) {
-var form = $('#formUbahSlider');
-var id = $('#inputUbahId').val();
-$.ajax({
-type: form.attr('method'),
-url: form.attr('action'),
-data: {
-id: id,
-_token: '{{ csrf_token() }}'
-},
-success: function () {
-console.log("SUKSES");
-},
-});
+    var form = $('#formUbahSlider');
+    var id = $('#inputUbahId').val();
+    $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: {
+            id: id,
+            _token: '{{ csrf_token() }}'
+        },
+        success: function () {
+            console.log("SUKSES");
+        },
+    });
 });
 </script>
 @endsection

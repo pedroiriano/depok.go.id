@@ -1,4 +1,7 @@
 @extends('includes.admin-layout')
+@push('css')
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+@endpush
 @section('content')
 <div class="container-fluid">
     @if ($message = Session::get('success'))
@@ -64,7 +67,7 @@
                                     </span>
                                     <span class="text">Ubah</span>
                                 </button>
-                                <button class="btn btn-danger btn-icon-split btn-sm" id="deleteSlider">
+                                <button class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#modalHapusLayanan">
                                     <span class="icon">
                                         <i class="fas fa-trash"></i>
                                     </span>
@@ -106,11 +109,6 @@
                         <input type="text" class="form-control" id="inputURL" name="inputURL" placeholder="URL">
                     </div>
                     <div class="form-group">
-                        <label for="inputTooltip">Tooltip</label>
-                        <input type="text" class="form-control" id="inputTooltip" name="inputTooltip"
-                            placeholder="Tooltip">
-                    </div>
-                    <div class="form-group">
                         <label for="inputStatus">Status</label>
                         <select class="form-control form-control-sm" name="inputStatus" id="inputStatus">
                             <option value="0" selected="selected">Tidak Aktif</option>
@@ -118,25 +116,12 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="inputPosisi">Posisi</label>
-                        <select class="form-control form-control-sm" name="inputPosisi" id="inputPosisi" disabled>
-                            <option value="0" selected="selected">Tidak muncul di halaman utama</option>
-                            @for ($i = 1; $i < 12; $i++) <option value={{ $i }}>{{ $i }}</option>
-                                @endfor
+                        <label for="inputKategori">Kategori</label>
+                        <select name="inputKategori" id="inputKategori" class="form-control">
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->nama }}</option>
+                            @endforeach
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="input-group">Upload Icon</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputIcon"
-                                    aria-describedby="inputGroupFileAddon01" name="inputIcon">
-                                <label class="custom-file-label" for="inputGroupFile01" id="labelIcon">Pilih Icon</label>
-                            </div>
-                        </div>
                     </div>
                </div>
                <div class=" modal-footer">
@@ -152,13 +137,13 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form method="POST" action="#" enctype="multipart/form-data" id="formUbahLayanan">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Layanan</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Layanan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
+                </div>   
+            <form method="POST" action="{{ route('admin.ubahLayanan', $service->id) }}" enctype="multipart/form-data" id="formUbahLayanan">
                 <div class="modal-body">
                     @csrf
                     <input type="hidden" id="inputUbahIdLayanan">
@@ -181,7 +166,7 @@
                     <div class="form-group">
                         <label for="inputUbahKategori">Kategori</label>
                         <input type="text" class="form-control" id="inputUbahKategori" name="inputUbahKategori">
-                        <select name="" id="" class="form-control">
+                        <select name="inputUbahKategori" id="inputUbahKategori" class="form-control">
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->nama }}</option>
                             @endforeach
@@ -191,6 +176,30 @@
                 <div class=" modal-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Delete Layanan -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modalHapusLayanan">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title text-white">Konfirmasi Hapus Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('admin.hapusLayanan', $service->id) }}" method="POST">
+                @csrf
+                @method('POST')
+                <div class="modal-body">
+                    <p>Apakah anda yakin untuk menghapus data ini?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Iya</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                 </div>
             </form>
         </div>
@@ -253,3 +262,11 @@
     });
 </script>
 @endsection
+@push('js')
+<script type="text/javascript" src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+        $('#dataTable').DataTable();
+    } );
+    </script>
+@endpush

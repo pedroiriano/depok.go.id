@@ -23,7 +23,12 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Panitia PDAM',
                 'email' => 'panitia-pdam@depok.go.id',
                 'password' => bcrypt('pdambersahabat'),
-            ]
+            ],
+            [
+                'name' => 'Admin IKP',
+                'email' => 'ikp@depok.go.id',
+                'password' => bcrypt('Awe@qwsKhZtE'),
+            ],
         ]);
     }
 }

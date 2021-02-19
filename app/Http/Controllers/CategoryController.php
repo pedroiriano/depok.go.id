@@ -40,7 +40,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
         request()->validate([
             'nama' => 'required',
             'status' => 'required',
@@ -68,9 +67,9 @@ class CategoryController extends Controller
             $image->move(public_path('img/icon'), $imageName);
             $category->icon = $imageName;
             $category->save();
+            
         }
-
-        return back()->with('success', 'Kategori '. $category->nama .'telah berhasil ditambahkan');
+        return redirect('admin-kategori-dsw')->with('success', 'Kategori '. $category->nama .'telah berhasil ditambahkan');
     }
 
     /**
@@ -92,7 +91,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.form_kategori', compact('category'));
     }
 
     /**
@@ -104,7 +104,36 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        request()->validate([
+            'nama' => 'required',
+            'status' => 'required',
+            'tooltip' => 'required',
+            'posisi' => 'required',
+        ]);
+        $category = Category::find($id);
+        $category->nama = $request->nama;
+        $category->tooltip = $request->tooltip;
+        $category->status = $request->status;
+        if($request->hasFile('icon')){
+            File::delete(public_path('img/icon/'.$category->icon));
+            $icon = $request->file('icon');
+            $imageName = time().'.'.request()->$icon->getClientOriginalExtension();
+            request()->$icon->move(public_path('img/icon'), $imageName);
+            $category->icon = $imageName;
+        }
+        if ($request->status == '0') {
+            $category->pos = 99;
+        }else{
+            if ($request->posisi == '0') {
+                $category->pos = 99;
+            }else{
+                $othercategory = category::where('pos', $request->posisi)->update(['pos' => 99]);
+                $category->pos = $request->posisi;
+            }
+        }
+        $category->save();
+
+        return redirect('admin-kategori-dsw')->with('success', 'Kategori '. $category->nama . 'telah berhasil diupdate');
     }
 
     /**
@@ -115,6 +144,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return back()->with('success', 'Data berhasil di hapus');
     }
 }

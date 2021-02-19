@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
 use Alaouy\Youtube\Facades\Youtube;
 use GuzzleHttp\Exception\RequestException;
+use Illuminate\Support\Facades\Cache;
 use App\Agenda;
 use App\Sejarah;
 use App\Service;
@@ -18,6 +19,9 @@ use App\Slider;
 use App\Category;
 use App\Infografis;
 use App\Ikon;
+use App\Content;
+use App\Kecamatan;
+use App\Kelurahan;
 
 class BerandaController extends Controller
 {
@@ -27,92 +31,55 @@ class BerandaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    private $seconds = 60*60;
+
     public function index()
     {
-        $tanggal = Carbon::now()->format('d F Y');
-        $infografis = Infografis::where('status', 1)->orderBy('created_at', 'desc')->take(2)->get();
+        $tanggal = Carbon::now()->format('l, d F');
         $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
-        $categories = Category::with('services')->orderBy('pos', 'asc')->take(12)->get();
+        $categories = Category::with('services')->orderBy('pos', 'asc')->take(8)->get();
         $agendas = Agenda::orderBy('tanggal', 'asc')->get();
-        $popup = Slider::where('popup', 1)->latest()->first();
+        $agendasToday = Agenda::where('tanggal', Carbon::today())->orderBy('tanggal', 'asc')->take(3)->get();
+        $agendasNext = Agenda::where('tanggal', '!=', Carbon::today())->orderBy('tanggal', 'asc')->take(2)->get();
+        $popup = Slider::where('popup', 1)->first();
 
-        return view('beranda-new', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'popup'));
+        return view('beranda-v1', compact('agendas','agendasToday','agendasNext' ,'categories', 'sliders','tanggal', 'popup'));
+    }
+     public function pimpinanDaerah()
+    {
+        return view('pimpinan-daerah');
+    }
+    public function data()
+    {
+        $tanggalHijriyah  = \GeniusTS\HijriDate\Date::now()->format('d F Y');
+        $tanggal = Carbon::now()->format('d F Y');
+        $infografis = Infografis::where('status', 1)->get();
+        $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
+        $categories = Category::with('services')->orderBy('pos', 'asc')->take(8)->get();
+        $agendas = Agenda::orderBy('tanggal', 'asc')->get();
+        $popup = Slider::where('popup', 1)->first();
+
+
+        return view('data', compact('agendas', 'categories', 'sliders', 'infografis','tanggal', 'tanggalHijriyah', 'popup'));
     }
     public function agenda()
     {
         $agendas = Agenda::orderBy('created_at', 'desc')->get();
         return view('agenda', compact('agendas'));
     }
-    public function sejarah()
+    public function content($nama)
     {
-        $sejarah = Sejarah::find(1);
-        return view('sejarah')->with('sejarah', $sejarah);
-    }
-    public function lambangIdentitas()
-    {
-        return view('lambang');
-    }
-    public function ikonKota()
-    {
-        //$ikon = Ikon::find(1);
-        return view('ikon');
-    }
-    public function seniBudaya()
-    {
-        return view('seni-budaya');
-    }
-    public function sosialEkonomi()
-    {
-        return view('sosial-ekonomi');
-    }
-    public function demografi()
-    {
-        return view('demografi');
-    }
-    public function geografi()
-    {
-        return view('geografi');
-    }
-    public function dinas()
-    {
-        return view('dinas');
-    }
-    public function kecamatan()
-    {
-        return view('kecamatan');
-    }
-    public function sekda()
-    {
-        return view('sekda');
-    }
-    public function kelurahan()
-    {
-        return view('kelurahan');
+        $content = Content::where('slug', $nama)->first();
+        if ($content == NULL) {
+            abort(404);
+        }
+        return view('content', compact('content'));
+    
     }
     public function layanan()
     {
         $categories = Category::with('services')->orderBy('pos', 'asc')->get();
         return view('layanan', compact('categories'));
-    }
-    public function visiMisi()
-    {
-        return view('visi-misi');
-    }
-    public function pimpinanDaerah()
-    {
-        return view('pimpinan-daerah');
-    }
-    public function strukturDaerah()
-    {
-        return view('struktur-daerah');
-    }
-    public function perundangundangan()
-    {
-        return view ('perundangundangan');
-    }
-    public function penghargaan()
-    {
-        return view('penghargaan');
     }
     public function infografis()
     {
@@ -124,10 +91,6 @@ class BerandaController extends Controller
         $agendas = Agenda::all();
         return response()->json($agendas);
     }
-    public function berita()
-    {
-        return view('berita');
-    }
     public function listPengumuman()
     {
         $pengumuman = Slider::where('status', 1)->orderBy('created_at', 'desc')->get();
@@ -138,10 +101,115 @@ class BerandaController extends Controller
         $pengumuman = Slider::where('url', '=', $url)->firstOrFail();
         return view('pengumuman', compact('pengumuman'));
     }
-    public function cuacaAPI()
+    public function pengumumanAPI()
+    {
+        $pengumuman = Slider::where('status', 1)->orderBy('created_at', 'desc')->get();
+        return $pengumuman;
+    }
+    public function kependudukanAPI()
+    {
+        $client = new \GuzzleHttp\Client();
+        $md5 = md5('CMSDataWaReHoUseK3PeNduDukaN'.str_replace('-','',Carbon::now()->toDateString()));
+        $response = $client->request('GET', 'https://cms.depok.go.id/Api/Penduduk?Auth='. $md5 .'&kecamatan=&kelurahan=&dimensi=Jenis%20Kelamin&subdimensi=&Limit=&Offset=');
+        $data = $response->getBody()->getContents();
+        $population = json_decode($data, true);
+        
+        $result = array();
+        $result['Pria'] = 0;
+        $result['Wanita'] = 0;
+
+        foreach($population['data'] as $key => $data){
+            if ($data['subdimensi'] == 'Laki - Laki'){
+                $result['Pria'] = $result['Pria'] + $data['jumlah'];
+            }else{
+                $result['Wanita'] = $result['Wanita'] + $data['jumlah'];
+            }
+        }
+        $result['Jumlah_Penduduk'] = $population['Jumlah_Penduduk'];
+        return $result;
+    }
+    public function getTableHTML($url, $x, $y)
+    {
+        $htmlContent = file_get_contents($url);
+        
+        $DOM = new \DOMDocument();
+        $DOM->loadHTML($htmlContent);
+        
+        $Header = $DOM->getElementsByTagName('tr');
+        $Detail = $DOM->getElementsByTagName('td');
+
+        foreach($Header as $NodeHeader) 
+        {
+            $aDataTableHeaderHTML[] = trim($NodeHeader->textContent);
+        }
+        $i = 0;
+        $j = 0;
+        foreach($Detail as $sNodeDetail) 
+        {
+            $dataDetail[$j][] = trim($sNodeDetail->textContent);
+            $i = $i + 1;
+            $j = $i % count($aDataTableHeaderHTML) == 0 ? $j + 1 : $j;
+        }
+        return $dataDetail[$x][$y];
+    }
+    public function bphtbAPI()
+    {
+        $dataBphtb = Cache::remember('data-bphtb', $this->seconds, function(){
+            return $this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx', 2, 15);
+        });
+        return response()->json($dataBphtb);
+    }
+    public function pbbAPI()
+    {
+        $dataPBB = Cache::remember('data-pbb', $this->seconds, function(){
+            return $this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx', 1, 10);
+        });
+        return response()->json($dataPBB);
+    }
+    public function kesehatanAPI()
+    {
+        $dataCache = Cache::remember('data-kesehatan', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'http://dsw.depok.go.id/html/penyakitdata', ['verify' => false]);
+            return $response->getBody()->getContents();
+        });
+        $diseases = json_decode($dataCache, true);
+
+        return $diseases;
+    }
+    public function covidAPI()
+    {
+        $dataCovid = Cache::remember('data-covid', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'https://picodep.depok.go.id/api', ['verify' => false]);
+            $data = $response->getBody()->getContents();
+            return $data;
+        });
+        $covid = json_decode($dataCovid, true);
+
+        return $covid;
+    }
+    public function pendidikanAPI()
+    {
+        $dataPendidikan = Cache::remember('data-pendidikan', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
+            
+            $jenjang = ['SD', 'SMP', 'SMA'];
+            foreach($jenjang as $key => $value){
+                $response = $client->request('GET', 'https://cms.depok.go.id/Api/Sekolah?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=&jenjang='. $value .'&semester=&Limit=&Offset=');
+                $data = $response->getBody()->getContents();
+                $result = json_decode($data, true);
+                $education[$value] = $result['Count'];
+            }
+            return $education;
+        });
+        
+        return $dataPendidikan;
+    }
+        public function cuacaAPI()
     {
         $cuaca = $this->cuaca();
-        return $cuaca;
         $suhu['temperature_hariini']        = $this->celcius($cuaca['temperature_current']);
         $suhu['temperature_besok_rendah']   = $this->celcius($cuaca['temperature_besok_rendah']);
         $suhu['temperature_besok_tinggi']   = $this->celcius($cuaca['temperature_besok_tinggi']);
@@ -151,6 +219,128 @@ class BerandaController extends Controller
         $suhu['temperature_lusa'] = ($suhu['temperature_lusa_rendah']+$suhu['temperature_lusa_tinggi'])/2;
         $suhu['icon_cuaca'] = ['hari_ini' => $this->get_icon($cuaca['icon']['hari_ini']) , 'besok' => $this->get_icon($cuaca['icon']['besok']) , 'lusa' => $this->get_icon($cuaca['icon']['lusa']) , ];
         return array('suhu' => $suhu);
+    }
+    public function cuacaBMKGAPI()
+    {
+        $dataCuaca = Cache::remember('data-cuaca', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'https://data.bmkg.go.id/datamkg/MEWS/DigitalForecast/DigitalForecast-JawaBarat.xml');
+            $xml = simplexml_load_string($response->getBody(),'SimpleXMLElement',LIBXML_NOCDATA);
+            return json_encode($xml->forecast->area[11]);
+        });
+        $array = json_decode($dataCuaca, TRUE);
+        $forecast = array();
+        $x = 0; $y = 0;
+        foreach($array['parameter'][6]['timerange'] as $key => $data){
+            if(Carbon::parse($data['@attributes']['datetime'])->gt(Carbon::now())){
+                $forecast['suhu'][$x]['icon'] = $this->getIconBMKG($data['value']);
+                $x++;
+            }
+        }
+        foreach($array['parameter'][5]['timerange'] as $key => $data){
+            if(Carbon::parse($data['@attributes']['datetime'])->gt(Carbon::now())){
+                $forecast['suhu'][$y]['time'] = Carbon::parse($data['@attributes']['datetime'])->format('j M, H:i');
+                $forecast['suhu'][$y]['value'] = $data['value'][0];
+                $y++;
+            }
+        }
+        $forecast['kelembapan'] = $array['parameter'][0]['timerange'][0];
+        $forecast['angin'] = $array['parameter'][8]['timerange'][1];
+        return $forecast;
+    }
+    public function getIconBMKG($icon)
+    {
+        $the_icon = array();
+        if ($icon == 0)
+        {
+            $the_icon['icon'] = 'fas fa-sun';
+            $the_icon['desc'] = 'Cerah';
+            
+            return $the_icon;
+        }
+        elseif ($icon == 1)
+        {
+            $the_icon['icon'] = 'fas fa-cloud-sun';
+            $the_icon['desc'] = 'Cerah Berawan';
+            return $the_icon;
+        }
+        elseif ($icon == 2)
+        {
+            $the_icon['icon'] = 'fas fa-cloud-sun';
+            $the_icon['desc'] = 'Cerah Berawan';
+            return $the_icon;
+        }
+        elseif ($icon == 3)
+        {
+            $the_icon['icon'] = 'fas fa-cloud';
+            $the_icon['desc'] = 'Berawan';
+            return $the_icon;
+        }
+        elseif ($icon == 4)
+        {
+            $the_icon['icon'] = 'fas fa-cloud';
+            $the_icon['desc'] = 'Berawan Tebal';
+            return $the_icon;
+        }
+        elseif ($icon == 5)
+        {
+            $the_icon['icon'] = 'fas fa-smog';
+            $the_icon['desc'] = 'Udara Kabur';
+            return $the_icon;
+        }
+        elseif ($icon == 10)
+        {
+            $the_icon['icon'] = 'fas fa-smog';
+            $the_icon['desc'] = 'Asap';
+            return $the_icon;
+        }
+        elseif ($icon == 45)
+        {
+            $the_icon['icon'] = 'fas fa-smog';
+            $the_icon['desc'] = 'Kabut';
+            return $the_icon;
+        }
+        elseif ($icon == 60)
+        {
+            $the_icon['icon'] = 'fas fa-umbrella';
+            $the_icon['desc'] = 'Hujan Ringan';
+            return $the_icon;
+        }
+        elseif ($icon == 61)
+        {
+            $the_icon['icon'] = 'fas fa-cloud-rain';
+            $the_icon['desc'] = 'Hujan Sedang';
+            return $the_icon;
+        }
+        elseif ($icon == 63)
+        {
+            $the_icon['icon'] = 'fas fa-cloud-rain';
+            $the_icon['desc'] = 'Hujan Lebat';
+            return $the_icon;
+        }
+        elseif ($icon == 80)
+        {
+            $the_icon['icon'] = 'fas fa-cloud-rain';
+            $the_icon['desc'] = 'Hujan Lokal';
+            return $the_icon;
+        }
+        elseif ($icon == 95)
+        {
+            $the_icon['icon'] = 'fas fa-bolt';
+            $the_icon['desc'] = 'Hujan Petir';
+            return $the_icon;
+        }
+        elseif ($icon == 97)
+        {
+            $the_icon['icon'] = 'fas fa-bolt';
+            $the_icon['desc'] = 'Hujan Petir';
+            return $the_icon;
+        }
+        else
+        {
+            $the_icon['icon'] = 'fas fa-cloud-sun';
+            $the_icon['desc'] = 'Cerah Berawan';
+        }
     }
     public function beritaAPI()
     {
@@ -167,6 +357,45 @@ class BerandaController extends Controller
             $result[$key]['date'] = Carbon::parse($value['published_at'], 'Asia/Jakarta')->format('d M, Y');
         }
         return array('berita' => $result);
+    }
+    public function kunjunganAPI()
+    {
+        $month = Carbon::now()->format('F');
+        $dataKunjungan = Cache::remember('data-kunjungan', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $md5 = md5('CMSDataWaReHoUse'.str_replace('-','',Carbon::now()->toDateString()));
+            $response = $client->request('GET', 'https://cms.depok.go.id/Api/KesehatanKunjungan?Auth='. $md5 .'&kecamatan=&kelurahan=&tahun=2020&bulan=&Limit=&Offset=');
+            $data = $response->getBody()->getContents();
+            return json_decode($data, true);
+        });
+        $count = array();
+        $count['puskesmas'] = 0;
+        $count['rsud'] = 0;
+
+        foreach ($dataKunjungan['data'] as $key => $value) {
+            if ($value['JenisFaskes'] == 'puskesmas') {
+                $count['puskesmas'] = $count['puskesmas'] + $value['jumlah'];
+            } elseif ($value['JenisFaskes'] == 'Rumah Sakit') {
+                $count['rsud'] = $count['rsud'] + $value['jumlah'];
+            }
+        }
+
+        return $count;
+    }
+    public function hargaKomoditasAPI()
+    {
+        $dataKomoditas = Cache::remember('data-komoditas', $this->seconds, function(){
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'https://dsw.depok.go.id/api/komoditas/harga_depok', ['verify' => false]);
+            $data = $response->getBody()->getContents();
+            return $data;
+        });
+        $price = json_decode($dataKomoditas, true);
+        
+        foreach($price['data'] as $key => $data){
+            $price['data'][$key]['src'] =  asset('img/komoditi/'. $data['komoditi'].'.jpg');
+        }
+        return $price['data'];
     }
     public function youtubeAPI()
     {
@@ -191,6 +420,14 @@ class BerandaController extends Controller
 
         }
     }
+    public function infografisAPI()
+    {
+        $infografis = Infografis::where('status', 1)->get();
+        foreach ($infografis as $key => $data) {
+            $infografis[$key]['src'] = asset('/uploads/infografis/'.$data->imageName);
+        }
+        return response()->json($infografis);
+    }
     public function beritaRSS()
     {
         $feed = FeedReader::read('http://feeds.feedburner.com/testdepokgoid');
@@ -205,101 +442,9 @@ class BerandaController extends Controller
         }
         return array('berita' => $result);
     }
-    //=========================================================================//
-    //GET API CUACA DRAKSKY UNTUK DIKIRIM KE INDEX
-    public function cuaca()
+    public function getKelurahan($kecamatanId)
     {
-        $coordinates = '-6.3944475, 106.8213664';
-        $api_url = 'https://api.darksky.net/forecast/760b82e261c5be16214234e316b05fd8/' . $coordinates;
-
-        try {
-            $forecast = json_decode(file_get_contents($api_url));
-            Storage::put('cuaca.json', json_encode($forecast));
-        } catch (exception $e) {
-            if(Str::contains($e->getMessage(), ['403', 'Forbidden'])){
-                // Get Cache or return custom response
-                if (!Storage::exists('cuaca.json')) {
-                    return ['errors' => 'API Limit Reached'];
-                }
-                $forecast = json_decode(Storage::get('cuaca.json'));
-            }
-        }
-        if ($forecast) {
-            $temperature_current                = round($forecast->currently->temperature);
-            $icon['hari_ini']                   = $this->get_icon($forecast->currently->icon);
-            $icon['besok']                      = $this->get_icon($forecast->daily->data[1]->icon);
-            $icon['lusa']                       = $this->get_icon($forecast->daily->data[2]->icon);
-            $result['temperature_current']      = $this->celcius($temperature_current);
-            $result['temperature_besok_rendah'] = $this->celcius($forecast->daily->data[1]->temperatureLow);
-            $result['temperature_besok_tinggi'] = $this->celcius($forecast->daily->data[1]->temperatureHigh);
-            $result['temperature_lusa_tinggi']  = $this->celcius($forecast->daily->data[2]->temperatureHigh);
-            $result['temperature_lusa_rendah']  = $this->celcius($forecast->daily->data[2]->temperatureLow);
-            $result['icon'] = $icon;
-        }
-
-        return $result;
-    }
-    //MENGHITUNG SUHU DALAM CELCIUS
-    public function celcius($temperature_current)
-    {
-        return round(($temperature_current - 32) * .5556);
-    }
-    //SETTING ICON CUACA SESUAI DENGAN DATA DARI API
-    public function get_icon($icon)
-    {
-        if ($icon === 'clear-day')
-        {
-            $the_icon = 'fas fa-cloud-sun';
-            return $the_icon;
-        }
-        elseif ($icon === 'clear-night')
-        {
-            $the_icon = 'fas fa-moon';
-            return $the_icon;
-        }
-        elseif ($icon === 'rain')
-        {
-            $the_icon = 'fas fa-cloud-rain';
-            return $the_icon;
-        }
-        elseif ($icon === 'snow')
-        {
-            $the_icon = 'fas fa-snowflake';
-            return $the_icon;
-        }
-        elseif ($icon === 'sleet')
-        {
-            $the_icon = 'fas fa-snowflake';
-            return $the_icon;
-        }
-        elseif ($icon === 'wind')
-        {
-            $the_icon = 'fas fa-wind';
-            return $the_icon;
-        }
-        elseif ($icon === 'fog')
-        {
-            $the_icon = 'fas fa-cloud';
-            return $the_icon;
-        }
-        elseif ($icon === 'cloudy')
-        {
-            $the_icon = 'fas fa-cloud';
-            return $the_icon;
-        }
-        elseif ($icon === 'partly-cloudy-day')
-        {
-            $the_icon = 'fas fa-cloud-sun';
-            return $the_icon;
-        }
-        elseif ($icon === 'partly-cloudy-night')
-        {
-            $the_icon = 'fas fa-cloud-moon';
-            return $the_icon;
-        }
-        else
-        {
-            $the_icon = 'fas fa-cloud';
-        }
+        $kelurahan = Kelurahan::where('kd_kecamatan', $kecamatanId)->get();
+        return $kelurahan;
     }
 }
