@@ -421,7 +421,7 @@ class BerandaController extends Controller
     }
     public function infografisAPI()
     {
-        $infografis = Infografis::take(4)->where('status', 1)->get();
+        $infografis = Infografis::take(4)->where('status', 1)->orderBy('created_at', 'desc')->get();
         foreach ($infografis as $key => $data) {
             $infografis[$key]['src'] = asset('storage/uploads/infografis/'.$data->imageName);
         }
