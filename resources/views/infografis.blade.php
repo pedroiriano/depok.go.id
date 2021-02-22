@@ -37,7 +37,7 @@
             <div class="col-12 col-md-3 d-flex align-items-stretch">
                 <div class="card mb-3">
                     <a href="#" data-target="#modalInfografis-{{ $infografi->id }}" data-toggle="modal">
-                        <img class="card-img-top" src="{{ asset('uploads/infografis/'.$infografi->imageName) }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $infografi->nama }}</h5>
                             <p class="card-text"><small class="text-muted">Sumber: {{ $infografi->opd->nama }}</small></p>

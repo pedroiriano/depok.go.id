@@ -318,42 +318,6 @@ class ServicesTableSeeder extends Seeder
                 'url' => 'https://ccc-19.depok.go.id/Forum/',
                 'statusservice' => 1,
             ],
-            [
-                'namaservice' => 'Berita BNN ',
-                'category_id' => 16,
-                'url' => 'https://bnn.go.id/berita/',
-                'statusservice' => 1,
-            ],
-            [
-                'namaservice' => 'Login BNN ',
-                'category_id' => 16,
-                'url' => 'https://rehabilitasi.bnn.go.id/public/user/login/',
-                'statusservice' => 1,
-            ],
-            [
-                'namaservice' => 'Daftar BNN ',
-                'category_id' => 16,
-                'url' => 'https://rehabilitasi.bnn.go.id/public/user/register/',
-                'statusservice' => 1,
-            ],
-            [
-                'namaservice' => 'Prosedur Pendaftaran BNN ',
-                'category_id' => 16,
-                'url' => 'https://rehabilitasi.bnn.go.id/public/psd',
-                'statusservice' => 1,
-            ],
-            [
-                'namaservice' => 'Lapor Rehab BNN ',
-                'category_id' => 16,
-                'url' => 'https://bnn.go.id/lapor/',
-                'statusservice' => 1,
-            ],
-            [
-                'namaservice' => 'Pelayanan BNN ',
-                'category_id' => 16,
-                'url' => 'https://rehabilitasi.bnn.go.id/public/layanan/',
-                'statusservice' => 1,
-            ],
         ]);
     }
 }
