@@ -117,13 +117,6 @@ class CategoriesTableSeeder extends Seeder
                 'pos' => 1,
                 'status' => 1,
             ],
-            [
-                'nama' => 'BNN',
-                'icon' => 'bnn.png',
-                'tooltip' => 'Tooltip with Html',
-                'pos' => 99,
-                'status' => 1,
-            ],
         ]);
     }
 }
