@@ -39,7 +39,7 @@
                 <img src="{{ asset('img/Walikota.png') }}" alt="" class="img-fluid w-50">
                     <h5 class="display-5 pt-3">Mohammad Idris</h5>
                 </a>
-                <h5 class="lead">Walikota Depok 2021-2024</h5>
+                <h5 class="lead">Wali Kota Depok 2021-2024</h5>
                 <div class="row justify-content-center pt-3">
                     <div class="col-2">
                         <a target="_blank" href="https://www.instagram.com/idrisashomad/?hl=en">
@@ -63,7 +63,7 @@
                 <img src="{{ asset('img/Wakil-Walikota-2021.png') }}" alt="" class="img-fluid w-50">
                     <h5 class="display-5 pt-3">Imam Budi Hartono</h5>
                 </a>
-                <h5 class="lead">Wakil Walikota Depok 2021-2024</h5>
+                <h5 class="lead">Wakil Wali Kota Depok 2021-2024</h5>
                 <div class="row justify-content-center pt-3">
                     <div class="col-2">
                         <a target="_blank" href="https://www.instagram.com/imambhartono/">
