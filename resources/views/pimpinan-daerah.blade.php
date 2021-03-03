@@ -27,7 +27,7 @@
 @endpush
 @extends('includes.layout')
 @section('content')
-<div class="jumbotron jumbotron-fluid banner" style="background-image: url({{ asset('img/content/pimpinan.jpeg') }})">
+<div class="jumbotron jumbotron-fluid banner" style="background-image: url({{ asset('img/content/pimpinan-2021.png') }})">
 </div>
 <div class="container-fluid">
     <div class="container">
@@ -39,7 +39,7 @@
                 <img src="{{ asset('img/Walikota.png') }}" alt="" class="img-fluid w-50">
                     <h5 class="display-5 pt-3">Mohammad Idris</h5>
                 </a>
-                <h5 class="lead">Walikota Depok 2015-2020</h5>
+                <h5 class="lead">Walikota Depok 2021-2024</h5>
                 <div class="row justify-content-center pt-3">
                     <div class="col-2">
                         <a target="_blank" href="https://www.instagram.com/idrisashomad/?hl=en">
@@ -59,20 +59,25 @@
                 </div>
             </div>
             <div class="col-6">
-                <a href="https://id.wikipedia.org/wiki/Pradi_Supriatna" target="_blank">
-                <img src="{{ asset('img/Wakil-Walikota.png') }}" alt="" class="img-fluid w-50">
-                    <h5 class="display-5 pt-3">Pradi Supriatna</h5>
+                <a href="https://id.wikipedia.org/wiki/Imam_Budi_Hartono" target="_blank">
+                <img src="{{ asset('img/Wakil-Walikota-2021.png') }}" alt="" class="img-fluid w-50">
+                    <h5 class="display-5 pt-3">Imam Budi Hartono</h5>
                 </a>
-                <h5 class="lead">Wakil Walikota Depok 2015-2020</h5>
+                <h5 class="lead">Wakil Walikota Depok 2021-2024</h5>
                 <div class="row justify-content-center pt-3">
                     <div class="col-2">
-                        <a target="_blank" href="https://www.instagram.com/pradi_supriatna/?hl=en">
+                        <a target="_blank" href="https://www.instagram.com/imambhartono/">
                             <i class="fab fa-instagram fa-2x"></i>
                         </a>
                     </div>
                     <div class="col-2">
-                        <a target="_blank" href="https://twitter.com/bang_pradi?lang=en">
+                        <a target="_blank" href="https://twitter.com/imambhartono">
                             <i class="fab fa-twitter fa-2x"></i>
+                        </a>
+                    </div>
+                     <div class="col-2">
+                        <a target="_blank" href="https://www.facebook.com/ImamBHartono/">
+                            <i class="fab fa-facebook fa-2x"></i>
                         </a>
                     </div>
                 </div>
