@@ -180,7 +180,7 @@ class BerandaController extends Controller
     {
         $dataCovid = Cache::remember('data-covid', $this->seconds, function(){
             $client = new \GuzzleHttp\Client();
-            $response = $client->request('GET', 'https://picodep.depok.go.id/api', ['verify' => false]);
+            $response = $client->request('GET', 'https://ccc-19.depok.go.id//Data/getWidget', ['verify' => false]);
             $data = $response->getBody()->getContents();
             return $data;
         });

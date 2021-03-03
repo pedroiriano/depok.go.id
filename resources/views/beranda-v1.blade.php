@@ -66,7 +66,7 @@
                     <div id="headingOne">
                         <h5 class="my-1" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             <button class="btn text-white">
-                                Selengkapnya
+                                <i class="fa fa-plus mr-3"></i>Selengkapnya
                             </button>
                         </h5>
                     </div>
@@ -159,7 +159,7 @@
                     <div class="carousel-inner rounded-bottom">
                         @foreach($sliders as $key => $slider)
                         <div class="carousel-item @if($key == 0) {{ 'active' }} @endif">
-                                <img class="pengumuman-img" src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="First slide">
+                                <img class="pengumuman-img" loading="lazy" src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="First slide">
                                 <div class="carousel-caption" style="background-color: rgba(0,0,0,0.7);left: 0;right: 0;bottom: 0;text-align: left">
                                     <span class="ml-3 text-light pb-3">{{ $slider->nama }}</span>
                                 </div>
@@ -260,7 +260,7 @@
                                      </button>
                                   </div>
                                   <div class="modal-body text-center">
-                                     <img src="{{ asset('uploads/agenda/'.$agenda->imageName) }}" alt="" class="img-fluid">
+                                     <img src="{{ asset('uploads/agenda/'.$agenda->imageName) }}" alt="" class="img-fluid" loading="lazy">
                                   </div>
                                   <div class="modal-footer">
                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -287,7 +287,7 @@
                                 <div class="card h-100 card-service border">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img src="{{ asset('img/icon/'. $category->icon) }}" alt="" class="img-fluid" style="width: 40% !important">
+                                            <img src="{{ asset('img/icon/'. $category->icon) }}" alt="" class="img-fluid" style="width: 40% !important" loading="lazy">
                                             <h5 class="card-title pt-2 f-12">{{ $category->nama }}</h5>
                                         </div>
                                     </div>
@@ -706,7 +706,7 @@
                         '<div class="col-6">' +
                             '<a href="#" data-target="#modal-infografis-'+ item.id +'" data-toggle="modal">'+
                             '<img src="' + item.src + '" alt="" class="img-fluid rounded">' +
-                            '<h6 class="h6" style="font-size:18px">' + item.nama + '</h6>' +
+                            '<h6 class="h6 mt-2 mb-5" style="font-size:18px">' + item.nama + '</h6>' +
                             '</a>'+
                         '</div>'+
                         '<div class="modal fade" id="modal-infografis-'+ item.id +'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">'+
@@ -801,19 +801,19 @@
             success: function (data){
                 console.log(data);
                 $('#covid-last-update').text(data.LastUpdate);
-                $('#covid-konfirmasi').text(getNumberWithDot(data.positif.total_terkonfirmasi));
-                $('#covid-aktif').text(getNumberWithDot(data.positif.total_aktif));
-                $('#covid-sembuh').text(getNumberWithDot(data.positif.total_sembuh));
-                $('#covid-meninggal').text(getNumberWithDot(data.positif.total_meninggal));
-                $('#covid-kontakerat-total').text(getNumberWithDot(data.kontakerat.total_kontakerat));
-                $('#covid-kontakerat-selesai').text(getNumberWithDot(data.kontakerat.total_kontakeratselesai));
-                $('#covid-kontakerat-pantau').text(getNumberWithDot(data.kontakerat.total_kontakeratpemantauan));
-                $('#covid-suspek-total').text(getNumberWithDot(data.suspek.total_suspek));
-                $('#covid-suspek-selesai').text(getNumberWithDot(data.suspek.total_suspekselesai));
-                $('#covid-suspek-pantau').text(getNumberWithDot(data.suspek.total_suspekpemantauan));
-                $('#covid-probabel-total').text(getNumberWithDot(data.probabel.total_probabel));
-                $('#covid-probabel-selesai').text(getNumberWithDot(data.probabel.total_probabelselesai));
-                $('#covid-probabel-pengawasan').text(getNumberWithDot(data.probabel.total_probabelpengawasan));
+                $('#covid-konfirmasi').text(getNumberWithDot(data.positiftotal));
+                $('#covid-aktif').text(getNumberWithDot(data.positifaktif));
+                $('#covid-sembuh').text(getNumberWithDot(data.positifsembuh));
+                $('#covid-meninggal').text(getNumberWithDot(data.positifmeninggal));
+                $('#covid-kontakerat-total').text(getNumberWithDot(data.kontakerattotal));
+                $('#covid-kontakerat-selesai').text(getNumberWithDot(data.kontakeratselesai));
+                $('#covid-kontakerat-pantau').text(getNumberWithDot(data.kontakeratkarantina));
+                $('#covid-suspek-total').text(getNumberWithDot(data.suspektotal));
+                $('#covid-suspek-selesai').text(getNumberWithDot(data.suspekselesai));
+                $('#covid-suspek-pantau').text(getNumberWithDot(data.suspekperawatan));
+                $('#covid-probabel-total').text(getNumberWithDot(data.probabeltotal));
+                $('#covid-probabel-selesai').text(getNumberWithDot(data.probabelselesai));
+                $('#covid-probabel-pengawasan').text(getNumberWithDot(data.probabelpengawasan));
             }
         });
         $.ajax({
