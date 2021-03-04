@@ -27,8 +27,6 @@
 @endpush
 @extends('includes.layout')
 @section('content')
-<div class="jumbotron jumbotron-fluid banner" style="background-image: url({{ asset('img/karya_new_watermark/Umum_Squack_Delight.png') }})">
-</div>
 <div class="container-fluid">
     <div class="container">
         <h1 class="display-3 py-5">Infografis</h1>
@@ -56,7 +54,7 @@
                             </button>
                         </div>
                         <div class="modal-body text-center">
-                            <img src="{{ asset('uploads/infografis/'.$infografi->imageName) }}" alt="" class="img-fluid">
+                            <img src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" alt="infografis" class="img-fluid">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
