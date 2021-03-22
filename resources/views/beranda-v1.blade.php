@@ -305,7 +305,7 @@
     <div class="row py-2">
         <div class="col-12 p-3">
             <h3>Harga Komoditas Pasar</h3>
-            <a href="http://disperdagin.depok.go.id/"><h6>Sumber: Dinas Perdagangan dan Perindustrian Kota Depok</h6></a>
+            <h6>Sumber: Dinas Perdagangan dan Perindustrian Kota Depok</h6>
         </div>
         <div class="col-12">
             @include('includes.komoditas-pasar')
