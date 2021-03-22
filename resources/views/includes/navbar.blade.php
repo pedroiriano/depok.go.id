@@ -50,6 +50,8 @@
                         <a class="dropdown-item" href="{{ route('content', 'visi-misi') }}">Visi & Misi Kota</a>
                         <a class="dropdown-item" href="{{ route('pimpinan') }}">Pimpinan Daerah</a>
                         <a class="dropdown-item" href="{{ route('content', 'dinas') }}">Perangkat Daerah</a>
+                        <a class="dropdown-item" href="{{ route('content', 'kecamatan') }}">Kecamatan</a>
+                        <a class="dropdown-item" href="{{ route('content', 'kelurahan') }}">Kelurahan</a>
                         <a class="dropdown-item" href="{{ route('content', 'struktur-daerah') }}">Struktur Daerah</a>
                     </div>
                 </li>
@@ -59,6 +61,7 @@
                         Info Publik
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('list.pengumuman') }}">Pengumuman</a>
                         <a class="dropdown-item" href="{{ route('infografis') }}">Infografis</a>
                         <a class="dropdown-item" target="_blank" href="https://jdih.depok.go.id">Produk Hukum</a>
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/#1532597359183-e12432b3-c0a9">Info Berkala</a>
