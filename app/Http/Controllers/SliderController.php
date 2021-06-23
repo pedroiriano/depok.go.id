@@ -187,8 +187,7 @@ class SliderController extends Controller
             }
         Slider::find($slider->id)->delete($slider->id);
 
-        return response()->json([
-            'success' => "Slider telah dihapus"
-        ]);
+        return back()->with('success', 'Pengumuman telah di hapus');
+
     }
 }
