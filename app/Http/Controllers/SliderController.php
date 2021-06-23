@@ -180,12 +180,12 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        $slider = Slider::find($id);
+        $slider = Slider::find($slider->id);
         $userImage = public_path("uploads/slider/{$slider->imageName}");
             if(file::exists($userImage)){
                 unlink($userImage);
             }
-        Slider::find($id)->delete($id);
+        Slider::find($slider->id)->delete($slider->id);
 
         return response()->json([
             'success' => "Slider telah dihapus"
