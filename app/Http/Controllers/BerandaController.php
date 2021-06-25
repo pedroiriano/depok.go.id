@@ -399,26 +399,9 @@ class BerandaController extends Controller
     }
     public function youtubeAPI()
     {
-        try {
-            $youtube = Youtube::listChannelVideos('UCco0gmWTlN9nsxnlAy-tWFA', 5, "date");
-
-            Storage::put('youtube.json', json_encode($youtube));
-
-            return response()->json($youtube);
-
-        } catch (Exception $e) {
-            if (Str::startsWith($e->getMessage(), 'Error 403')) {
-                // Get Cache or return custom response
-                if (Storage::exists('youtube.json')) {
-                    return response(Storage::get('youtube.json'))->header('Content-Type', 'application/json');
-                }
-
-                return ['errors' => 'API Limit Reached'];
-            }
-
-            throw $e;
-
-        }
+        return Cache::remember('youtube-api', 60 * 60 * 24, function () {
+            return Youtube::listChannelVideos('UCco0gmWTlN9nsxnlAy-tWFA', 5, "date");
+        });
     }
     public function infografisAPI()
     {
