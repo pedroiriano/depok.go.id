@@ -132,25 +132,25 @@
                             <a href="{{ route('content','sejarah') }}">Sejarah</a>
                         </li>
                         <li>
-                            <a href="{{ route('content','lambangIdentitas') }}">Lambang Identitas</a>
+                            <a href="{{ route('content','lambang-identitas') }}">Lambang Identitas</a>
                         </li>
                         <li>
-                            <a href="{{ route('content','ikonKota') }}">Ikon Kota</a>
+                            <a href="{{ route('content','ikon-kota') }}">Ikon Kota</a>
                         </li>
                         <li>
-                            <a href="{{ route('content','seniBudaya') }}">Seni Budaya</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('content','sosialEkonomi') }}">Sosial Ekonomi</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('content','demografi') }}">Demografi</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('content','geografi') }}">Geografi</a>
+                            <a href="{{ route('content','seni-budaya') }}">Seni Budaya</a>
                         </li>
                         <li>
                             <a href="{{route('content','penghargaan')}}">Penghargaan</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('demografi') }}">Demografi</a>
+                        </li>
+                        <li>
+                            <a href="{{route('pendidikan')}}">Pendidikan</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('content','geografi') }}">Geografi</a>
                         </li>
                     </ul>
                 </div>
@@ -159,13 +159,13 @@
                     <h5>Pemerintahan</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{route('content','visiMisi')}}">Visi & Misi</a>
+                            <a href="{{route('content','visi-misi')}}">Visi & Misi</a>
                         </li>
                         <li>
-                            <a href="{{route('content','pimpinanDaerah')}}">Pimpinan Daerah</a>
+                            <a href="{{route('pimpinan')}}">Pimpinan Daerah</a>
                         </li>
                         <li>
-                            <a href="{{route('content','strukturDaerah')}}">Struktur Daerah</a>
+                            <a href="{{route('content','struktur-daerah')}}">Struktur Daerah</a>
                         </li>
                     </ul>
                 </div>
@@ -175,9 +175,6 @@
                     <ul class="list-unstyled">
                         <li>
                             <a href="{{ route('content','dinas') }}">Dinas</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('content','sekda') }}">Sekretariat Daerah</a>
                         </li>
                         <li>
                             <a href="{{ route('content','kecamatan') }}">Kecamatan</a>
@@ -192,7 +189,13 @@
                     <h5>Info Publik</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{ route('content','infografis') }}">Infografis</a>
+                            <a href="{{ route('list.pengumuman') }}">Pengumuman</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('infografis') }}">Infografis</a>
+                        </li>
+                        <li>
+                            <a href="https://jdih.depok.go.id">Produk Hukum</a>
                         </li>
                         <li>
                             <a href="https://ppid.depok.go.id/#1532597359183-e12432b3-c0a9">Info Berkala</a>
