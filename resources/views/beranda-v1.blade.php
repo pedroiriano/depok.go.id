@@ -523,9 +523,9 @@
                             <div class="card-body">
                                 <h6 class="pb-3" style="font-size:.875rem"><i class="fas fa-money-bill-wave-alt pr-1"></i>Penerimaan Bulan ini</h6>
                                 <a href="http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx" style="font-size: 0.8rem" target="_blank">BPHTB</a>
-                                <h5 style="color: #1D4F88" id="bphtb" class="h5"></h5>
+                                <h6 style="color: #1D4F88" id="bphtb" class="h6"></h6>
                                 <a href="http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx" style="font-size: 0.8rem" target="_blank">PBB</a>
-                                <h5 style="color: #1D4F88" id="pbb" class="h5"></h5>
+                                <h6 style="color: #1D4F88" id="pbb" class="h6"></h6>
                             </div>
                             <div class="card-footer">
                                 <a href="http://bkd.depok.go.id/" target="_blank">

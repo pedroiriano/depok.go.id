@@ -155,7 +155,7 @@ class BerandaController extends Controller
     public function bphtbAPI()
     {
         $dataBphtb = Cache::remember('data-bphtb', $this->seconds, function(){
-            return $this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx', 2, 15);
+            return $this->getTableHTML('http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx', 2, 14);
         });
         return response()->json($dataBphtb);
     }
