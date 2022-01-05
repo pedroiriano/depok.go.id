@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
     <meta name="description" content="Portal Resmi Pemerintah Kota Depok. Depok sebagai Kota untuk Berbagi, Bersahabat dan Berkolaborasi">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -25,6 +26,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('img/favicon/site.webmanifest') }}">
+    <script type="text/javascript" src="https://dummy.smartcity.co.id/sso-library/api.js" name="tf-login-button"
+   data-client_id="cOpNH1nlhdfLfTCw"></script><script>
 </head>
 
 <body style="background-color: #F7FAFC">

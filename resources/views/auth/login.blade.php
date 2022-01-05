@@ -43,6 +43,7 @@
                                     <button type="submit" class="btn btn-primary btn-block py-2">
                                         Login
                                     </button>
+                                    <div class="sso-depok-login-btn mt-1 text-center"></div>
                                 </form>
                             </div>
                         </div>
