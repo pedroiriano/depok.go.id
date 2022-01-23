@@ -77,7 +77,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/ubah-layanan/{id}', 'AdministratorController@ubahLayanan')->name('admin.ubahLayanan');
     Route::post('/hapus-layanan/{id}', 'AdministratorController@hapusLayanan')->name('admin.hapusLayanan');
     Route::get('/admin-ikon', 'AdministratorController@ikon')->name('admin.ikon');
-    Route::post('/ubah-ikon', 'AdministratorController@ubahIkon')->name('admin.ubahIkon');\
+    Route::post('/ubah-ikon', 'AdministratorController@ubahIkon')->name('admin.ubahIkon');
     Route::get('/admin/content/{content}', 'AdministratorController@content')->name('admin.content');
     Route::post('/admin/content/update/{content}', 'AdministratorController@updateContent')->name('admin.update.content');
 });
