@@ -60,9 +60,6 @@
                                             <i class="fas fa-edit"></i>
                                         </span>
                                     </a>
-                                    <button type="button" class="btn btn-sm btn-primary rounded-0">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
                                     <form action="{{ route("admin-agenda.destroy", $agenda->id) }}" method="POST" class="form-inline">
                                         @method('DELETE')
                                         @csrf
@@ -78,73 +75,4 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="modalTambahAgenda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Agenda</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="POST" action="{{ route('admin.tambahAgenda') }}" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group">
-                        <label for="inputNamaKegiatan">Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="inputNamaKegiatan" name="inputNamaKegiatan"
-                            placeholder="Tulis Nama Kegiatan">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputOPD">Perangkat Daerah</label>
-                        <input type="text" class="form-control" id="inputOPD" name="inputOPD"
-                            placeholder="Perangkat Daerah">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputTanggal">Tanggal</label>
-                        <input type="date" name="inputTanggalKegiatan" max="2100-12-31" min="1900-01-01" id="date" class="form-control" data-provide="datepicker">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputTempat">Tempat</label>
-                        <input type="text" name="inputTempat" id="inputTempat" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputStatus">Status</label>
-                        <select class="form-control form-control-sm" name="inputStatus">
-                            <option value="1">Aktif</option>
-                            <option valie="0">Tidak Aktif</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="input-group">Upload Banner Kegiatan</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                    aria-describedby="inputGroupFileAddon01" name="image">
-                                <label class="custom-file-label" for="inputGroupFile01">Pilih Gambar</label>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
-<script>
-    var date = new Date();
-    date.setDate(date.getDate());
-
-    $('#date').datepicker({ 
-        startDate: date
-    });
-</script>
 @endsection

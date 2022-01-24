@@ -71,7 +71,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('/admin-infografis', 'InfografisController', ['parameters' => ['admin-infografis' => 'infografis']]);
     Route::resource('/user', 'UserController');
     Route::get('/admin-slider', 'AdministratorController@slider')->name('admin.slider');
-    Route::post('/tambahAgenda', 'AdministratorController@tambahAgenda')->name('admin.tambahAgenda');
     Route::get('/admin-layanan-dsw', 'AdministratorController@layanan')->name('admin.layanan');
     Route::post('/tambah-layanan', 'AdministratorController@tambahLayanan')->name('admin.tambahLayanan');
     Route::post('/ubah-layanan/{id}', 'AdministratorController@ubahLayanan')->name('admin.ubahLayanan');

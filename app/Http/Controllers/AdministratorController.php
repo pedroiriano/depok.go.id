@@ -32,34 +32,7 @@ class AdministratorController extends Controller
         $agendas = Agenda::all();
         return view('admin.agenda')->with('agendas', $agendas);
     }
-    public function tambahAgenda(Request $request)
-    {
-        request()->validate([
-            'inputNamaKegiatan' => 'required',
-            'inputTanggalKegiatan' => 'required',
-            'inputTempat' => 'required',
-            // 'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-        ]);
 
-        $agenda = new Agenda();
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() .'.'.request()->image->getClientOriginalExtension();
-            request()->image->move(public_path('uploads/agenda'), $imageName);
-        } else{
-            $imageName = "no-image";
-        }
-            $agenda->nama = $request->inputNamaKegiatan;
-            $agenda->tanggal = $request->inputTanggalKegiatan;
-            $agenda->sumber = $request->inputOPD;
-            $agenda->status = $request->inputStatus;
-            $agenda->imageName = $imageName;
-            $agenda->tempat = $request->inputTempat;
-            $agenda->save();
-
-        return back()->with('success', 'Gambar telah diupload');
-
-    }
     public function layanan()
     {
         $categories = Category::all();
