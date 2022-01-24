@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 use App\User;
 
 class UserController extends Controller
@@ -15,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.user', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -25,7 +26,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.form_user');
+        $roles = Role::orderBy('id')->pluck('name', 'id');
+        return view('admin.users.form', compact('roles'));
     }
 
     /**
@@ -40,6 +42,7 @@ class UserController extends Controller
             [
                 'nama' => 'required',
                 'email' => 'required|email',
+                'role_id' => 'required',
                 'password' => 'required|min:6|confirmed',
             ]
         );
@@ -51,8 +54,13 @@ class UserController extends Controller
             $user->password = bcrypt($request->password);
             $user->save();
 
-            return back()->with('success', 'User telah ditambah');
-        } catch (Exception $e) {
+            $user->assignRole(Role::findById($request->role_id));
+
+            return redirect()
+                ->route('user.index')
+                ->with('success', 'User telah ditambah');
+
+            } catch (Exception $e) {
             return back()->withInput()->with('failed', 'User gagal ditambah');
         }
     }
@@ -77,7 +85,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.form_user', compact('user'));
+        $roles = Role::orderBy('id')->pluck('name', 'id');
+        return view('admin.users.form', compact('user', 'roles'));
     }
 
     /**
@@ -93,6 +102,7 @@ class UserController extends Controller
             [
                 'nama' => 'required',
                 'email' => 'required|email',
+                'role_id' => 'required',
                 'password' => 'required|min:6|confirmed',
             ]
         );
@@ -104,7 +114,12 @@ class UserController extends Controller
             $user->password = bcrypt($request->password);
             $user->save();
 
-            return back()->with('success', 'User telah diubah');
+            $user->assignRole(Role::findById($request->role_id));
+
+            return redirect()
+                ->route('user.index')
+                ->with('success', 'User telah diubah');
+
         } catch (Exception $e) {
             return back()->withInput()->with('failed', 'User gagal diubah');
         }
@@ -118,6 +133,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $name = $user->name;
+        $user->roles()->detach();
+        $user->delete();
+
+        return redirect()
+            ->route('user.index')
+            ->with('success', "Pengguna {$name} telah dihapus");
     }
 }

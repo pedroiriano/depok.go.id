@@ -28,8 +28,7 @@
     @endif
 
     <div class="row">
-        <div class="col-8">
-
+        <div class="col-6">
             <div class="card shadow mb-4">
                 <div class="card-header">User</div>
                 <div class="card-body">
@@ -39,9 +38,9 @@
                             {{ method_field('PATCH') }}
                         @endisset
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-12">
                                 <div class="form-group">
-                                    <label for="nama">Nama User</label>
+                                    <label for="nama">Nama</label>
                                     <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukkan Nama User" value="{{ old('nama', $user->name ?? '') }}">
                                     @error('nama')
                                     <div class="invalid-feedback">
@@ -53,6 +52,24 @@
                                     <label for="email">Email</label>
                                     <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Masukkan email" value="{{ old('email', $user->email ?? '') }}">
                                     @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="role">Role</label>
+                                    <select class="custom-select" name="role_id">
+                                        <option selected disabled>Pilih Role</option>
+                                        @foreach ($roles as $key => $role)
+                                        @if (isset($user))    
+                                            <option value="{{ $key }}" {{ $user->roles->pluck('name')[0] == $role ? 'selected' : '' }}>{{ $role }}</option>
+                                        @else
+                                            <option value="{{ $key }}">{{ $role }}</option>
+                                        @endif
+                                        @endforeach
+                                    </select>
+                                    @error('role')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

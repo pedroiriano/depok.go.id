@@ -176,6 +176,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Vedmant\FeedReader\FeedReaderServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 
