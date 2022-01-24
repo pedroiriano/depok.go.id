@@ -23,9 +23,6 @@ Route::get('/download/{file}', 'DownloadsController@download')->name('download')
 Route::get('/pimpinan-daerah', 'BerandaController@pimpinanDaerah')->name('pimpinan');
 Route::get('/demografi', 'api\PendudukController@index')->name('demografi');
 Route::get('/pendidikan', 'api\PendidikanController@index')->name('pendidikan');
-//Pendaftaran PDAM
-//Route::get('/pendaftaran-direksi-pdam/berhasil', 'PendaftaranController@success')->name('pendaftaran.success');
-//Route::resource('/pendaftaran-direksi-pdam', 'PendaftaranController');
 
 Route::get('/get-kelurahan-list/{kecamatanId}', 'BerandaController@getKelurahan');
 Route::get('/layanan', 'BerandaController@layanan')->name('layanan');
@@ -62,9 +59,6 @@ Auth::routes([
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/pendaftaran-pdam', 'HomeController@pendaftaranPDAM')->name('pendaftaran.pdam');
-    Route::get('/pendaftaran-pdam/unduh-surat-lamaran-{fileName}', 'HomeController@downloadSuratLamaran')->name('pendaftaran.unduh.surat-lamaran');
-    Route::get('/pendaftaran-pdam/unduh-persyaratan-{fileName}', 'HomeController@downloadPersyaratan')->name('pendaftaran.unduh.persyaratan');
     Route::resource('/slider', 'SliderController');
     Route::resource('/admin-kategori-dsw', 'CategoryController');
     Route::resource('/admin-agenda', 'AgendaController');

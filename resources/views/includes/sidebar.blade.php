@@ -16,11 +16,6 @@
             <i class="fas fa-home"></i>
             <span>Dashboard</span></a>
     </li>
-    <li class="nav-item {{ Request::is('pendaftaran-pdam') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('pendaftaran.pdam') }}">
-            <i class="fas fa-tint"></i>
-            <span>Pendaftaran PDAM</span></a>
-    </li>
     @endauth
     {{-- @if(Auth::user()->email == 'admin@depok.go.id') --}}
     <!-- Nav Item - Agenda -->
