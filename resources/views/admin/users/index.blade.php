@@ -2,12 +2,12 @@
 @section('content')
 <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
 <div class="container-fluid">
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">User</h1>
+    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Pengguna</h1>
     <a class="btn btn-primary btn-icon-split text-white mb-4" href="{{ route('user.create') }}">
         <span class="icon">
             <i class="fas fa-plus"></i>
         </span>
-        <span class="text">Tambah User</span>
+        <span class="text">Tambah Pengguna</span>
     </a>
     @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block">
@@ -33,7 +33,6 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Role</th>
                             <th>Email</th>
                             <th>Action</th>
                         </tr>
@@ -46,11 +45,6 @@
                             </td>
                             <td>
                                 {{ $user->name }}
-                            </td>
-                            <td>
-                                @foreach ($user->getRoleNames() as $roleNames)
-                                    {{ $roleNames }}
-                                @endforeach
                             </td>
                             <td>
                                 {{ $user->email }}

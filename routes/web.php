@@ -64,6 +64,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/admin-agenda', 'AgendaController');
     Route::resource('/admin-infografis', 'InfografisController', ['parameters' => ['admin-infografis' => 'infografis']]);
     Route::resource('/user', 'UserController');
+    Route::post('/user/{id}/update-password', 'UserController@updatePassword')->name('user.update-password');
     Route::get('/admin-slider', 'AdministratorController@slider')->name('admin.slider');
     Route::get('/admin-layanan-dsw', 'AdministratorController@layanan')->name('admin.layanan');
     Route::post('/tambah-layanan', 'AdministratorController@tambahLayanan')->name('admin.tambahLayanan');
