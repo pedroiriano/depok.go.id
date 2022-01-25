@@ -59,21 +59,33 @@ Auth::routes([
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::resource('/slider', 'SliderController');
-    Route::resource('/admin-kategori-dsw', 'CategoryController');
-    Route::resource('/admin-agenda', 'AgendaController');
-    Route::resource('/admin-infografis', 'InfografisController', ['parameters' => ['admin-infografis' => 'infografis']]);
-    Route::resource('/user', 'UserController');
-    Route::post('/user/{id}/update-password', 'UserController@updatePassword')->name('user.update-password');
-    Route::get('/admin-slider', 'AdministratorController@slider')->name('admin.slider');
-    Route::get('/admin-layanan-dsw', 'AdministratorController@layanan')->name('admin.layanan');
-    Route::post('/tambah-layanan', 'AdministratorController@tambahLayanan')->name('admin.tambahLayanan');
-    Route::post('/ubah-layanan/{id}', 'AdministratorController@ubahLayanan')->name('admin.ubahLayanan');
-    Route::post('/hapus-layanan/{id}', 'AdministratorController@hapusLayanan')->name('admin.hapusLayanan');
-    Route::get('/admin-ikon', 'AdministratorController@ikon')->name('admin.ikon');
-    Route::post('/ubah-ikon', 'AdministratorController@ubahIkon')->name('admin.ubahIkon');
-    Route::get('/admin/content/{content}', 'AdministratorController@content')->name('admin.content');
-    Route::post('/admin/content/update/{content}', 'AdministratorController@updateContent')->name('admin.update.content');
+    Route::group(['middleware' => ['permission:mengelola agenda']], function(){
+        Route::resource('/admin-agenda', 'AgendaController');
+    });
+    Route::group(['middleware' => ['permission:mengelola dsw']], function () {
+        Route::resource('/admin-kategori-dsw', 'CategoryController');
+        Route::get('/admin-layanan-dsw', 'AdministratorController@layanan')->name('admin.layanan');
+        Route::post('/tambah-layanan', 'AdministratorController@tambahLayanan')->name('admin.tambahLayanan');
+        Route::post('/ubah-layanan/{id}', 'AdministratorController@ubahLayanan')->name('admin.ubahLayanan');
+        Route::post('/hapus-layanan/{id}', 'AdministratorController@hapusLayanan')->name('admin.hapusLayanan');
+        Route::get('/admin-ikon', 'AdministratorController@ikon')->name('admin.ikon');
+        Route::post('/ubah-ikon', 'AdministratorController@ubahIkon')->name('admin.ubahIkon');
+    });
+    Route::group(['middleware' => ['permission:mengelola pengumuman']], function () {
+        Route::resource('/slider', 'SliderController');
+        Route::get('/admin-slider', 'AdministratorController@slider')->name('admin.slider');
+    });
+    Route::group(['middleware' => ['permission:mengelola infografis']], function () {
+        Route::resource('/admin-infografis', 'InfografisController', ['parameters' => ['admin-infografis' => 'infografis']]);
+    });
+    Route::group(['middleware' => ['permission:mengelola konten']], function () {
+        Route::get('/admin/content/{content}', 'AdministratorController@content')->name('admin.content');
+        Route::post('/admin/content/update/{content}', 'AdministratorController@updateContent')->name('admin.update.content');
+    });
+    Route::group(['middleware' => ['role:administrator']], function () {
+        Route::resource('/user', 'UserController');
+        Route::post('/user/{id}/update-password', 'UserController@updatePassword')->name('user.update-password');
+    });
 });
 
 Route::get('/{content}', 'BerandaController@content')->name('content');

@@ -15,7 +15,6 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         // Create Role
-        $superadmin = Role::create(['name' => 'super-admin']);
         $administrator = Role::create(['name' => 'administrator']);
 
         $agendaPermission= Permission::create(['name' => 'mengelola agenda']);
@@ -42,13 +41,11 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
         
-        $admin = User::find(1)->assignRole('super-admin');
-        $ikp = User::find(2)->assignRole('super-admin');
-        $humas = User::find(3)->assignRole('administrator');
+        $admin = User::find(1)->assignRole('administrator');
+        $ikp = User::find(2)->assignRole('administrator');
+        $humas = User::find(3)->givePermissionTo('mengelola agenda', 'mengelola infografis');
 
-        $superadmin->givePermissionTo(['manage agenda','manage dsw', 'manage publication', 'manage infographics', 'manage content']);
-
-        $humas->givePermissionTo(['manage agenda','manage infographics']);
+        $administrator->givePermissionTo('mengelola agenda','mengelola dsw', 'mengelola pengumuman', 'mengelola infografis', 'mengelola konten');
 
     }
 }

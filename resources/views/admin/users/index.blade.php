@@ -58,12 +58,14 @@
                                         <span class="text">Ubah</span>
                                     </button>
                                 </a>
-                                <button class="btn btn-danger btn-sm btn-icon-split" data-toggle="modal" data-target="#deleteModal-{{ $key }}">
-                                    <span class="icon">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                    <span class="text">Hapus</span>
-                                </button>
+                                @if ($user->id != 1)    
+                                    <button class="btn btn-danger btn-sm btn-icon-split" data-toggle="modal" data-target="#deleteModal-{{ $key }}">
+                                        <span class="icon">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">Hapus</span>
+                                    </button>
+                                @endif
                                 <!-- Modal -->
                                 <div class="modal fade" id="deleteModal-{{ $key }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">

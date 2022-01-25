@@ -24,6 +24,7 @@
     @endif
 
     <div class="row">
+        @if (!$user->hasRole('administrator'))
         <div class="col-6">
             <div class="card shadow mb-4">
                 <div class="card-header">Pengguna</div>
@@ -75,6 +76,7 @@
                 </form>
             </div>
         </div>
+        @endif
         <div class="col-6">
             <form role="form" method="POST" action="{{ route('user.update-password', $user->id) }}" enctype="multipart/form-data">
             @csrf
