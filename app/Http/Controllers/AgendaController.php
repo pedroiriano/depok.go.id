@@ -20,7 +20,7 @@ class AgendaController extends Controller
     public function index()
     {
         $agendas = Agenda::orderBy('created_at', 'DESC')->get();
-        return view('admin.agenda')->with('agendas', $agendas);
+        return view('admin.agenda.index')->with('agendas', $agendas);
     }
 
     /**
@@ -31,7 +31,7 @@ class AgendaController extends Controller
     public function create()
     {
         $opd = OPD::all();
-        return view('admin.form_agenda', compact('opd'));
+        return view('admin.agenda.form', compact('opd'));
     }
 
     /**
@@ -57,10 +57,10 @@ class AgendaController extends Controller
             $agenda = new Agenda();
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() .'.'.request()->image->getClientOriginalExtension();
-                request()->image->move(public_path('uploads/agenda'), $imageName);
+                $imageName = 'agenda-' . \Carbon\Carbon::now()->format('Y-m-dH:i:s') . '.' . $image->getClientOriginalExtension();
+                $path = $image->storeAs('public/uploads/agenda', $imageName);
             } else{
-                $imageName = "no-image";
+                $imageName = "no-image.png";
             }
             $agenda->nama = $request->nama;
             $agenda->tanggal = $request->tanggal;
@@ -97,7 +97,7 @@ class AgendaController extends Controller
     {
         $opd = OPD::all();
         $agenda = Agenda::find($id);
-        return view('admin.form_agenda', compact('agenda','opd'));
+        return view('admin.agenda.form', compact('agenda','opd'));
     }
 
     /**
@@ -122,10 +122,10 @@ class AgendaController extends Controller
             $agenda = Agenda::find($id);
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() .'.'.request()->image->getClientOriginalExtension();
-                request()->image->move(public_path('uploads/agenda'), $imageName);
+                $imageName = 'agenda-' . \Carbon\Carbon::now()->format('Y-m-dH:i:s') . '.' . $image->getClientOriginalExtension();
+                $path = $image->storeAs('public/uploads/agenda', $imageName);
             } else{
-                $imageName = "no-image";
+                $imageName = "no-image.png";
             }
             $agenda->nama = $request->nama;
             $agenda->tanggal = $request->tanggal;
@@ -136,7 +136,6 @@ class AgendaController extends Controller
             $agenda->save();
 
             return redirect('admin-agenda')->with('success', 'Agenda Berhasil diupdate');
-        
     }
 
     /**
@@ -149,6 +148,6 @@ class AgendaController extends Controller
     {
         $agenda = Agenda::findOrFail($id);
         $agenda->delete();
-        return back()->with('success', 'Data berhasil di hapus');
+        return back()->with('success', 'Agenda berhasil di hapus');
     }
 }

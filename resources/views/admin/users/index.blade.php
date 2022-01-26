@@ -92,12 +92,5 @@
             </div>
         </div>
     </div>
-<script>
-$(document).on('click','.delete',function(){
-    let id = $(this).attr('data-id');
-    let name = $(this).attr('data-name');
-    $('#id').val(id);
-    $('#delete-modal-body').text(" Apakah anda ingin menghapus " + name + "?");
-});
-</script>
+</div>
 @endsection

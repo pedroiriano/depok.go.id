@@ -24,26 +24,26 @@
         </span>
         <span class="text">Tambah Agenda</span>
     </a>
-    <div class="card shadow mb-4">
+    <div class="card">
         <div class="card-header py-3">
             <h6 class="m-0 text-primary">Daftar Agenda Pemerintah Kota Depok</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th style="width: 5%">No</th>
+                            <th>No</th>
                             <th>Nama</th>
                             <th>Tanggal</th>
                             <th>Status</th>
-                            <th style="width: 8%">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($agendas as $key=>$agenda)
                         <tr>
-                            <td>{{ ++$key }}</td>
+                            <td>{{ $key+1 }}</td>
                             <td>{{ $agenda->nama }}</td>
                             <td>{{ $agenda->tanggal }}</td>
                             <td>
@@ -54,18 +54,22 @@
                                 @endif
                             </td>
                             <td>
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <a class="btn btn-sm btn-success float-left rounded-0" href="{{ route('admin-agenda.edit', $agenda->id) }}">
+                                <a href="{{ route('admin-agenda.edit', $agenda->id) }}" style="text-decoration:none;">
+                                    <button class="btn btn-success btn-sm btn-icon-split">
                                         <span class="icon">
                                             <i class="fas fa-edit"></i>
                                         </span>
-                                    </a>
-                                    <form action="{{ route("admin-agenda.destroy", $agenda->id) }}" method="POST" class="form-inline">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button class="btn btn-sm btn-danger rounded-0" onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')" style=""><i class="fa fa-trash"></i></button>
-                                    </form>
-                                </div>
+                                        <span class="text">Ubah</span>
+                                    </button>
+                                </a>
+                                <form action="{{ route("admin-agenda.destroy", $agenda->id) }}" method="POST" class="d-inline">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm btn-icon-split" onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')" style="">
+                                        <span class="icon"><i class="fas fa-trash"></i></span>
+                                        <span class="text">Hapus</span>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
