@@ -9,6 +9,12 @@
         </span>
         <span class="text">Tambah Pengguna</span>
     </a>
+    <a class="btn btn-info btn-icon-split text-white mb-4" href="{{ route('user.create') }}">
+        <span class="icon">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="text">Tambah Admin</span>
+    </a>
     @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>

@@ -1,6 +1,12 @@
 @extends('includes.admin-layout')
 @push('css')
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+<style>
+    table.dataTable thead th
+    {
+        border-bottom: 1px;
+    }
+</style>
 @endpush
 @section('content')
 <div class="container-fluid">

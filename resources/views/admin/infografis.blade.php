@@ -30,14 +30,14 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th style="width: 5%">No</th>
                             <th>Nama</th>
                             <th>OPD</th>
                             <th>Status</th>
-                            <th style="width: 8%">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,21 +61,22 @@
                                 @endif
                             </td>
                             <td>
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <a class="btn btn-sm btn-success float-left rounded-0" href="{{ route('admin-infografis.edit', $data->id) }}">
+                                <a href="{{ route('admin-infografis.edit', $data->id) }}" style="text-decoration:none;">
+                                    <button class="btn btn-success btn-sm btn-icon-split">
                                         <span class="icon">
                                             <i class="fas fa-edit"></i>
                                         </span>
-                                    </a>
-                                    <button type="button" class="btn btn-sm btn-primary rounded-0">
-                                        <i class="fas fa-eye"></i>
+                                        <span class="text">Ubah</span>
                                     </button>
-                                    <form action="{{ route("admin-infografis.destroy", $data->id) }}" method="POST" class="form-inline">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button class="btn btn-sm btn-danger rounded-0" onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')" style=""><i class="fa fa-trash"></i></button>
-                                    </form>
-                                </div>
+                                </a>
+                                <form action="{{ route("admin-infografis.destroy", $data->id) }}" method="POST" class="d-inline">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm btn-icon-split" onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')" style="">
+                                        <span class="icon"><i class="fas fa-trash"></i></span>
+                                        <span class="text">Hapus</span>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
