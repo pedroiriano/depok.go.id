@@ -114,27 +114,6 @@ class AdministratorController extends Controller
         $content->save();
         return back()->with('success', 'Konten '.$content->nama.' telah diubah'); 
     }
-    public function sejarah()
-    {
-        $sejarah = Sejarah::find(1);
-        return view('admin.sejarah')->with('sejarah', $sejarah);
-    }
-    public function ubahSejarah(Request $request)
-    {
-        $sejarah = Sejarah::find(1);
-        $sejarah->content = $request->inputContent;
-        $sejarah->save();
-
-        return back()->with('success', 'Sukses');
-    }
-    public function header()
-    {
-        return view('admin.header');
-    }
-    public function ubahHeader()
-    {
-        return "ini adalah header";
-    }
     public function ikon()
     {
         $ikon = ikon::find(1);
