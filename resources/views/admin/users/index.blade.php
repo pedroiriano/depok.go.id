@@ -67,7 +67,7 @@
                                         <span class="text">Ubah</span>
                                     </button>
                                 </a>
-                                @if ($user->id != 1)    
+                                @if ($user->email != 'admin@depok.go.id')    
                                     <button class="btn btn-danger btn-sm btn-icon-split" data-toggle="modal" data-target="#deleteModal-{{ $key }}">
                                         <span class="icon">
                                             <i class="fas fa-trash"></i>
