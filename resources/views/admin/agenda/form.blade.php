@@ -69,7 +69,7 @@
                         </div>
                         @isset($agenda)
                         <div class="form-group">
-                            <img src="{{ asset('storage/uploads/agendas/'.$agenda->imageName) }}" alt="" class="img-thumbnail">
+                            <img src="{{ asset('storage/uploads/agenda/'.$agenda->imageName) }}" alt="" class="img-thumbnail">
                         </div>
                         @endisset
                         <div class="form-group">

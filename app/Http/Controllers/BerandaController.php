@@ -63,7 +63,7 @@ class BerandaController extends Controller
     }
     public function agenda()
     {
-        $agendas = Agenda::orderBy('created_at', 'desc')->get();
+        $agendas = Agenda::orderBy('created_at', 'desc')->paginate(8);
         return view('agenda', compact('agendas'));
     }
     public function content($nama)
