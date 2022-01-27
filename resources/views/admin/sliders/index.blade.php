@@ -1,6 +1,13 @@
 @extends('includes.admin-layout')
 @section('content')
 <div class="container-fluid">
+    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Pengumuman</h1>
+    <a class="btn btn-primary btn-icon-split text-white mb-4" href="{{ route('slider.create') }}">
+        <span class="icon">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="text">Tambah Pengumuman</span>
+    </a>
     @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -17,13 +24,6 @@
         </ul>
     </div>
     @endif
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Pengumuman</h1>
-    <a class="btn btn-primary btn-icon-split text-white mb-4" href="{{ route('slider.create') }}">
-        <span class="icon">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span class="text">Tambah Pengumuman</span>
-    </a>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Daftar Pengumuman</h6>

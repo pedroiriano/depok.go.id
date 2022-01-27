@@ -30,7 +30,7 @@ class AdministratorController extends Controller
     public function create()
     {
         $roles = Role::orderBy('id')->pluck('name', 'id');
-        return view('admin.create', compact('roles'));
+        return view('admin.users.admin', compact('roles'));
     }
 
     public function store(Request $request)

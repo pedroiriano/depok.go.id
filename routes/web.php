@@ -73,7 +73,6 @@ Route::middleware('auth')->group(function () {
     });
     Route::group(['middleware' => ['permission:mengelola pengumuman']], function () {
         Route::resource('/slider', 'SliderController');
-        Route::get('/admin-slider', 'AdministratorController@slider')->name('admin.slider');
     });
     Route::group(['middleware' => ['permission:mengelola infografis']], function () {
         Route::resource('/admin-infografis', 'InfografisController', ['parameters' => ['admin-infografis' => 'infografis']]);
