@@ -1,7 +1,14 @@
 @extends('includes.admin-layout')
 @section('content')
 <div class="container-fluid">
-    @if ($message = Session::get('success'))
+    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Infografis</h1>
+    <a class="btn btn-primary btn-icon-split text-white mb-4" href="{{ route('admin-infografis.create') }}">
+        <span class="icon">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="text">Tambah Infografis</span>
+    </a>
+     @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>{{ $message }}</strong>
@@ -17,13 +24,6 @@
         </ul>
     </div>
     @endif
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Infografis</h1>
-    <a class="btn btn-primary btn-icon-split text-white mb-4" href="{{ route('admin-infografis.create') }}">
-        <span class="icon">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span class="text">Tambah Infografis</span>
-    </a>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Daftar Infografis</h6>
@@ -69,7 +69,7 @@
                                         <span class="text">Ubah</span>
                                     </button>
                                 </a>
-                                <form action="{{ route("admin-infografis.destroy", $data->id) }}" method="POST" class="d-inline">
+                                <form action="{{ route("admin-infografis.destroy", $data) }}" method="POST" class="d-inline">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-danger btn-sm btn-icon-split" onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')" style="">

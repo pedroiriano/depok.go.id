@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Infografis;
 use App\OPD;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class InfografisController extends Controller
@@ -20,7 +21,7 @@ class InfografisController extends Controller
     public function index()
     {
         $infografis = Infografis::orderBy('created_at', 'DESC')->get();
-        return view('admin.infografis')->with('infografis', $infografis);
+        return view('admin.infographics.index')->with('infografis', $infografis);
     }
 
     /**
@@ -31,7 +32,7 @@ class InfografisController extends Controller
     public function create()
     {
         $opd = OPD::all();
-        return view('admin.form_infografis', compact('opd'));
+        return view('admin.infographics.form', compact('opd'));
     }
 
     /**
@@ -63,9 +64,11 @@ class InfografisController extends Controller
             $infografis->status = $request->status;
             $infografis->save();
 
-            return back()->with('success', 'Infografis telah diupload');
+            return redirect()
+                ->route('admin-infografis.index')
+                ->with('success', "Infografis {$infografis->nama} telah berhasil ditambah");
         } catch (Exception $e) {
-            return back()->withInput()->with('failed', 'Data gagal ditambah');
+            return back()->withInput()->with('failed', 'Infografis gagal ditambah');
         }
     }
 
@@ -89,7 +92,7 @@ class InfografisController extends Controller
     public function edit(Infografis $infografis)
     {
         $opd = OPD::all();
-        return view('admin.form_infografis', compact('infografis','opd'));
+        return view('admin.infographics.form', compact('infografis','opd'));
     }
 
     /**
@@ -99,7 +102,7 @@ class InfografisController extends Controller
      * @param  \App\Infografis  $infografis
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Infografis $infografis)
+    public function update(Request $request, $id)
     {
         $request->validate(
             [
@@ -110,9 +113,9 @@ class InfografisController extends Controller
             ]
         );
         try {
-            $infographic = Infografis::find($infografis->id);
-            $infographic->nama = $request->nama;
-            $infographic->sumber = $request->opd;
+            $infografis = Infografis::find($id);
+            $infografis->nama = $request->nama;
+            $infografis->sumber = $request->opd;
             if ($request->hasFile('image')) {
                 unlink(storage_path('app/public/uploads/infografis/'.$infografis->imageName));
                 $image = $request->file('image');
@@ -121,13 +124,15 @@ class InfografisController extends Controller
             }else{
                 $imageName = $infografis->imageName;
             }
-            $infographic->imageName = $imageName;
-            $infographic->status = $request->status;
-            $infographic->save();
+            $infografis->imageName = $imageName;
+            $infografis->status = $request->status;
+            $infografis->save();
 
-            return back()->with('success', 'Infografis telah diubah');
+            return redirect()
+                ->route('admin-infografis.index')
+                ->with('success', "Infografis {$infografis->nama} telah berhasil diubah");
         } catch (Exception $e) {
-            return back()->withInput()->with('failed', 'Data gagal diubah');
+            return back()->withInput()->with('failed', 'Infografis gagal diubah');
         }
     }
 
@@ -139,6 +144,13 @@ class InfografisController extends Controller
      */
     public function destroy(Infografis $infografis)
     {
-        //
+        $name = $infografis->nama;
+        $image = storage_path('app/public/uploads/infografis/'.$infografis->imageName);
+        if (File::exists($image)) {
+            unlink($image);
+        }
+        $infografis->delete();
+
+        return back()->with('success', "Pengumuman {$name} telah di hapus");
     }
 }
