@@ -85,6 +85,8 @@ Route::middleware('auth')->group(function () {
     Route::group(['middleware' => ['role:administrator']], function () {
         Route::resource('/user', 'UserController');
         Route::post('/user/{id}/update-password', 'UserController@updatePassword')->name('user.update-password');
+        Route::get('/admin', 'AdministratorController@create')->name('admin.create');
+        Route::post('/admin', 'AdministratorController@store')->name('admin.store');
     });
 });
 

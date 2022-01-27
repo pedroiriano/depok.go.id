@@ -9,7 +9,7 @@
         </span>
         <span class="text">Tambah Pengguna</span>
     </a>
-    <a class="btn btn-info btn-icon-split text-white mb-4" href="{{ route('user.create') }}">
+    <a class="btn btn-info btn-icon-split text-white mb-4" href="{{ route('admin.create') }}">
         <span class="icon">
             <i class="fas fa-plus"></i>
         </span>
@@ -32,6 +32,9 @@
     </div>
     @endif
     <div class="card">
+        <div class="card-header">
+            <h6 class="m-0 font-weight-bold text-primary">Daftar Administrator dan Pengguna</h6>
+        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">

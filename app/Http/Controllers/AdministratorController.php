@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Filesystem\FilesystemManager;
 use File;
-use App\Agenda;
+use Spatie\Permission\Models\Role;
+use App\User;
 use App\Category;
 use App\Sejarah;
-use App\Slider;
 use App\Service;
 use App\Ikon;
 use App\Content;
@@ -27,10 +27,33 @@ class AdministratorController extends Controller
         $this->middleware('auth');
     }
 
-    public function agenda()
+    public function create()
     {
-        $agendas = Agenda::all();
-        return view('admin.agenda')->with('agendas', $agendas);
+        $roles = Role::orderBy('id')->pluck('name', 'id');
+        return view('admin.create', compact('roles'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate(
+            [
+                'nama' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|min:6|confirmed',
+            ]
+        );
+
+        $user = new User();
+        $user->name = $request->nama;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        $user->assignRole('administrator');
+
+        return redirect()
+            ->route('user.index')
+            ->with('success', "Administrator {$user->name} telah ditambah");
     }
 
     public function layanan()
