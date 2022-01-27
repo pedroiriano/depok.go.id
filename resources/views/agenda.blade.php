@@ -15,7 +15,7 @@
       <div class="col-md-3 col-sm-12 mb-3">      
         <div class="card h-100">
           <a href="#" data-target="#modalAgendas-{{ $agenda->id }}" data-toggle="modal">
-            <img class="card-img-top" src="{{ asset('uploads/agenda/'.$agenda->imageName) }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('storage/uploads/agenda/'.$agenda->imageName) }}" alt="Card image cap">
             <div class="card-body">
 								<h6 class="card-subtitle mb-2 text-muted">{{ $agenda->tanggal }}</h6>
                 <h5 class="card-title">{{ $agenda->nama }}</h5>
@@ -28,7 +28,7 @@
         <div class="modal-dialog modal-md" role="document">
           <div class="modal-content">
             <div class="modal-body">
-                <img src="{{ asset('uploads/agenda/'.$agenda->imageName) }}" alt="" class="img-fluid">
+                <img src="{{ asset('storage/uploads/agenda/'.$agenda->imageName) }}" alt="" class="img-fluid">
                 <h6 class="text-secondary mt-4">{{ $agenda->tanggal }}</h6>
 								<h5 class="modal-title">{{ $agenda->nama }}</h5>
 								<h6 class="text-secondary">{{ $agenda->tempat }}</h5>
