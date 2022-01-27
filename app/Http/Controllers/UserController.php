@@ -42,7 +42,7 @@ class UserController extends Controller
         $request->validate(
             [
                 'nama' => 'required',
-                'email' => 'required|email',
+                'email' => 'required|email|unique:users',
                 'permission' => 'required',
                 'password' => 'required|min:6|confirmed',
             ]
@@ -102,7 +102,7 @@ class UserController extends Controller
         $request->validate(
             [
                 'nama' => 'required',
-                'email' => 'required|email',
+                'email' => 'required|email|unique:users',
                 'permission' => 'required',
             ]
         );
