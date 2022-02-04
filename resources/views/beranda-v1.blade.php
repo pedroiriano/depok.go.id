@@ -231,7 +231,7 @@
                                         </div>
                                     @endforeach
                                     <div class="pt-2">
-                                        <a href="https://www.depok.go.id/agenda-kota" class="pt-2">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+                                        <a href="{{ route('list.agenda-kota') }}" class="pt-2">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="mendatang" role="tabpanel" aria-labelledby="mendatang-tab">
@@ -244,7 +244,7 @@
                                         </a>
                                     @endforeach
                                     <div class="pt-2">
-                                        <a href="https://www.depok.go.id/agenda-kota" class="pt-2">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
+                                        <a href="{{ route('list.agenda-kota') }}" class="pt-2">Agenda Lainnya <i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>

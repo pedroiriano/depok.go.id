@@ -14,7 +14,7 @@ class AgendasTableSeeder extends Seeder
         DB::table('agendas')->insert([
         [
             'nama' => 'The Night Market',
-            'tanggal' => '2020-10-05',
+            'tanggal' => '2022-02-04',
             'sumber' => '8',
             'tempat' => 'Kantor Walikota Depok',
             'ImageName' => '1.png',
