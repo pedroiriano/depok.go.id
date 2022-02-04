@@ -63,6 +63,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('list.pengumuman') }}">Pengumuman</a>
                         <a class="dropdown-item" href="{{ route('infografis') }}">Infografis</a>
+                        <a class="dropdown-item" href="http://cctv.depok.go.id:8083/">CCTV</a>
                         <a class="dropdown-item" target="_blank" href="https://jdih.depok.go.id">Produk Hukum</a>
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/#1532597359183-e12432b3-c0a9">Info Berkala</a>
                         <a class="dropdown-item" target="_blank" href="https://ppid.depok.go.id/#1532600380234-c404d293-d71b">Info Serta Merta</a>
