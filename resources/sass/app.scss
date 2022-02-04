@@ -1,49 +1,9 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-// @import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lora:700&display=swap');
-
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// //Font Awesome
-// @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-// @import '~@fortawesome/fontawesome-free/scss/brands';
-// @import '~@fortawesome/fontawesome-free/scss/regular';
-// @import '~@fortawesome/fontawesome-free/scss/solid';
-
-.lora {
-    font-family: 'Lora', serif;
-}
-
-.display-1 {
-    font-family: 'Lora', serif;
-    color: #1A4D8E;
-}
-
-.display-2 {
-    font-family: 'Lora', serif;
-    color: #1A4D8E;
-}
-
-.display-3 {
-    font-family: 'Lora', serif;
-    color: #1A4D8E;
-}
-
-.display-4 {
-    font-family: 'Lora', serif;
-    color: #1A4D8E;
-}
-
-.display-5 {
-    font-family: 'Lora', serif;
-    color: #1A4D8E;
-    font-size: 42px;
-}
 
 .navbar-nav>li {
     padding-left: 5px;

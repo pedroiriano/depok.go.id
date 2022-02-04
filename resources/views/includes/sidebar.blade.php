@@ -36,7 +36,7 @@
         <div id="collapseDSW" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Depok Single Window:</h6>
-                <a class="collapse-item {{ Request::is('admin-layanan-dsw') ? 'active' : '' }}" href="{{ route('admin.layanan') }}">Layanan</a>
+                <a class="collapse-item {{ Request::is('admin-layanan-dsw') ? 'active' : '' }}" href="{{ route('admin-service.index') }}">Layanan</a>
                 <a class="collapse-item {{ Request::is('admin-kategori-dsw') ? 'active' : '' }}" href="{{ route('admin-kategori-dsw.index') }}">Kategori</a>
             </div>
         </div>

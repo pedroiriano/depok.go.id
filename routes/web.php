@@ -63,13 +63,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('/admin-agenda', 'AgendaController');
     });
     Route::group(['middleware' => ['permission:mengelola dsw']], function () {
+        Route::resource('/admin-service', 'ServiceController');
         Route::resource('/admin-kategori-dsw', 'CategoryController');
-        Route::get('/admin-layanan-dsw', 'AdministratorController@layanan')->name('admin.layanan');
-        Route::post('/tambah-layanan', 'AdministratorController@tambahLayanan')->name('admin.tambahLayanan');
-        Route::post('/ubah-layanan/{id}', 'AdministratorController@ubahLayanan')->name('admin.ubahLayanan');
-        Route::post('/hapus-layanan/{id}', 'AdministratorController@hapusLayanan')->name('admin.hapusLayanan');
-        Route::get('/admin-ikon', 'AdministratorController@ikon')->name('admin.ikon');
-        Route::post('/ubah-ikon', 'AdministratorController@ubahIkon')->name('admin.ubahIkon');
     });
     Route::group(['middleware' => ['permission:mengelola pengumuman']], function () {
         Route::resource('/slider', 'SliderController');

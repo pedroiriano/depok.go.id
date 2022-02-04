@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Filesystem\FilesystemManager;
 use File;
 use Spatie\Permission\Models\Role;
+use App\DataTables\ServiceDataTable;
 use App\User;
 use App\Category;
 use App\Sejarah;
@@ -56,49 +57,6 @@ class AdministratorController extends Controller
             ->with('success', "Administrator {$user->name} telah ditambah");
     }
 
-    public function layanan()
-    {
-        $categories = Category::all();
-        $services = Service::paginate(10);
-        return view('admin.layanan', compact('services', 'categories'));
-    }
-    public function tambahLayanan(Request $request)
-    { 
-        request()->validate([
-            'inputNamaLayanan' => 'required',
-            'inputURL' => 'required',
-            'inputStatus' => 'required',
-        ]);
-            $service = new Service();
-            $service->namaservice = $request->inputNamaLayanan;
-            $service->url = $request->inputURL;
-            $service->statusservice = $request->inputStatus;
-            $service->category_id = $request->inputKategori;
-            $service->save();
-
-        return back()->with('success', 'Layanan ' . $service->namaservice . ' telah sukses ditambahkan');
-    }
-    public function ubahLayanan(Request $request, $id)
-    {
-        request()->validate([
-            'inputUbahNamaLayanan' => 'required',
-            'inputUbahURL' => 'required',
-            'inputUbahStatus' => 'required',
-        ]);
-        $service = Service::find($id);
-        $service->namaservice = $request->inputUbahNamaLayanan;
-        $service->url = $request->inputUbahURL;
-        $service->statusservice = $request->inputUbahStatus;
-        $service->category_id = $request->inputUbahKategori;
-        $service->save();
-        return back()->with('success', 'Layanan telah di Update');
-    }
-    public function hapusLayanan($id)
-    {
-        $service = Service::findOrFail($id);
-        $service->delete();
-        return back()->with('success', 'Data berhasil di hapus');
-    }
     public function content($content)
     {
         $content = Content::where('slug', $content)->first();
@@ -113,18 +71,5 @@ class AdministratorController extends Controller
         $content->desc = $request->inputContent;
         $content->save();
         return back()->with('success', 'Konten '.$content->nama.' telah diubah'); 
-    }
-    public function ikon()
-    {
-        $ikon = ikon::find(1);
-        return view('admin.ikon')->with('ikon', $ikon);
-    }
-    public function ubahIkon(Request $request)
-    {
-        $ikon = ikon::find(1);
-        $ikon->content = $request->inputContent;
-        $ikon->save();
-
-        return back()->with('success', 'Sukses');
     }
 }
