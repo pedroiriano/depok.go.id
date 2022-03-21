@@ -29,7 +29,7 @@ Route::get('/layanan', 'BerandaController@layanan')->name('layanan');
 
 Route::get('/api/agenda', 'BerandaController@AgendaAPI')->name('api.agenda');
 Route::get('/api/harga-komoditas', 'BerandaController@hargaKomoditasAPI')->name('api.harga-komoditas');
-Route::get('/api/berita', 'BerandaController@beritaAPI');
+Route::get('/api/berita', 'BerandaController@beritaAPI')->name('api.berita');
 Route::get('/api/cuacaBMKG', 'BerandaController@cuacaBMKGAPI');
 Route::get('/api/cuaca', 'BerandaController@cuacaAPI');
 Route::get('/api/youtube', 'BerandaController@youtubeAPI');
