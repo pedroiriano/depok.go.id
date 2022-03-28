@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group">
                         <label for="tanggal">Tanggal</label>
-                            <input type="date" name="tanggal" max="2100-12-31" min="1900-01-01" id="date" class="form-control @error('tanggal') is-invalid @enderror" data-provide="datepicker">
+                            <input type="date" name="tanggal" max="2100-12-31" min="1900-01-01" id="date" class="form-control @error('tanggal') is-invalid @enderror" data-provide="datepicker" value="{{ old('tanggal', $agenda->tanggal ?? '') }}">
                             @error('tanggal')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -69,7 +69,7 @@
                         </div>
                         @isset($agenda)
                         <div class="form-group">
-                            <img src="{{ asset('storage/uploads/agendas/'.$agenda->imageName) }}" alt="" class="img-thumbnail">
+                            <img src="{{ asset('storage/uploads/agenda/'.$agenda->imageName) }}" alt="" class="img-thumbnail">
                         </div>
                         @endisset
                         <div class="form-group">

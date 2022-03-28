@@ -39,7 +39,7 @@ class BerandaController extends Controller
         $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
         $categories = Category::with('services')->orderBy('pos', 'asc')->take(8)->get();
         $agendasToday = Agenda::where('tanggal', Carbon::today())->orderBy('tanggal', 'asc')->take(3)->get();
-        $agendasNext = Agenda::where('tanggal', '!=', Carbon::today())->orderBy('tanggal', 'asc')->take(2)->get();
+        $agendasNext = Agenda::whereDate('tanggal', '>', Carbon::today())->orderBy('tanggal', 'asc')->take(2)->get();
         $popup = Slider::where('popup', 1)->first();
 
         return view('beranda-v1', compact('agendasToday','agendasNext' ,'categories', 'sliders','tanggal', 'popup'));
@@ -63,7 +63,7 @@ class BerandaController extends Controller
     }
     public function agenda()
     {
-        $agendas = Agenda::orderBy('created_at', 'desc')->get();
+        $agendas = Agenda::whereDate('tanggal', '>=', Carbon::today())->orderBy('tanggal', 'asc')->paginate(8);
         return view('agenda', compact('agendas'));
     }
     public function content($nama)

@@ -23,7 +23,7 @@ class SliderController extends Controller
     public function index()
     {
         $sliders = Slider::orderBy('created_at', 'DESC')->get();
-        return view('admin.slider')->with('sliders', $sliders);
+        return view('admin.sliders.index')->with('sliders', $sliders);
     }
 
     /**
@@ -34,7 +34,7 @@ class SliderController extends Controller
     public function create()
     {
         $opd = OPD::all();
-        return view('form_slider', compact('opd'));
+        return view('admin.sliders.form', compact('opd'));
     }
 
     /**
@@ -80,9 +80,11 @@ class SliderController extends Controller
             $slider->status = $request->status;
             $slider->save();
 
-            return back()->with('success', 'Slider telah diupload');
+            return redirect()
+                ->route('slider.index')
+                ->with('success', "Pengumuman {$slider->nama} telah berhasil dibuat");
         } catch (Exception $e) {
-            return back()->withInput()->with('failed', 'Data gagal ditambah');
+            return back()->withInput()->with('failed', 'Pengumuman gagal ditambah');
         }
     }
 
@@ -106,7 +108,7 @@ class SliderController extends Controller
     public function edit(Slider $slider)
     {
         $opd = OPD::all();
-        return view('form_slider', compact('slider', 'opd'));
+        return view('admin.sliders.form', compact('slider', 'opd'));
     }
 
     /**
@@ -158,7 +160,7 @@ class SliderController extends Controller
             $file = $request->file('file');
             $userFile = public_path("storage/uploads/file/{$slider->file}");
 
-            if(file::exists($userFile)){
+            if(File::exists($userFile)){
                 unlink($userFile);
             }
             $fileName = $opd->nama .'-'. $file->getClientOriginalName();
@@ -168,8 +170,10 @@ class SliderController extends Controller
         }
         $slider->save();
 
-        return back()->with('success', 'Slider telah di Update');
-
+        return redirect()
+            ->route('slider.index')
+            ->with('success', "Pengumuman {$slider->nama} telah berhasil diubah");
+        
     }
 
     /**

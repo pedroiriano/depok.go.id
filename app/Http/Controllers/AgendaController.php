@@ -20,7 +20,7 @@ class AgendaController extends Controller
     public function index()
     {
         $agendas = Agenda::orderBy('created_at', 'DESC')->get();
-        return view('admin.agenda')->with('agendas', $agendas);
+        return view('admin.agenda.index')->with('agendas', $agendas);
     }
 
     /**
@@ -31,7 +31,7 @@ class AgendaController extends Controller
     public function create()
     {
         $opd = OPD::all();
-        return view('admin.form_agenda', compact('opd'));
+        return view('admin.agenda.form', compact('opd'));
     }
 
     /**
@@ -42,7 +42,7 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
+            $request->validate(
             [
                 'nama' => 'required',
                 'opd' => 'required',
@@ -57,10 +57,10 @@ class AgendaController extends Controller
             $agenda = new Agenda();
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() .'.'.request()->image->getClientOriginalExtension();
-                request()->image->move(public_path('uploads/agenda'), $imageName);
+                $imageName = 'agenda-' . \Carbon\Carbon::now()->format('Y-m-dH:i:s') . '.' . $image->getClientOriginalExtension();
+                $path = $image->storeAs('public/uploads/agenda', $imageName);
             } else{
-                $imageName = "no-image";
+                $imageName = "no-image.png";
             }
             $agenda->nama = $request->nama;
             $agenda->tanggal = $request->tanggal;
@@ -70,7 +70,10 @@ class AgendaController extends Controller
             $agenda->tempat = $request->tempat;
             $agenda->save();
 
-            return back()->with('success', 'Agenda telah diupload');
+            return redirect()
+                ->route('admin-agenda.index')
+                ->with('success', "Agenda {$agenda->nama} telah berhasil ditambah");
+
         } catch (Exception $e) {
             return back()->withInput()->with('failed', 'Data gagal ditambah');
         }
@@ -97,7 +100,7 @@ class AgendaController extends Controller
     {
         $opd = OPD::all();
         $agenda = Agenda::find($id);
-        return view('admin.form_agenda', compact('agenda','opd'));
+        return view('admin.agenda.form', compact('agenda','opd'));
     }
 
     /**
@@ -119,24 +122,26 @@ class AgendaController extends Controller
                 'image' => 'mimes:jpg,png,jpeg|max:2048',
             ]
         );
-            $agenda = Agenda::find($id);
-            if ($request->hasFile('image')) {
-                $image = $request->file('image');
-                $imageName = time() .'.'.request()->image->getClientOriginalExtension();
-                request()->image->move(public_path('uploads/agenda'), $imageName);
-            } else{
-                $imageName = "no-image";
-            }
-            $agenda->nama = $request->nama;
-            $agenda->tanggal = $request->tanggal;
-            $agenda->sumber = $request->opd;
-            $agenda->status = $request->status;
-            $agenda->imageName = $imageName;
-            $agenda->tempat = $request->tempat;
-            $agenda->save();
+        $agenda = Agenda::find($id);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = 'agenda-' . \Carbon\Carbon::now()->format('Y-m-dH:i:s') . '.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs('public/uploads/agenda', $imageName);
+        } else{
+            $imageName = "no-image.png";
+        }
+        $agenda->nama = $request->nama;
+        $agenda->tanggal = $request->tanggal;
+        $agenda->sumber = $request->opd;
+        $agenda->status = $request->status;
+        $agenda->imageName = $imageName;
+        $agenda->tempat = $request->tempat;
+        $agenda->save();
 
-            return redirect('admin-agenda')->with('success', 'Agenda Berhasil diupdate');
-        
+        return redirect()
+            ->route('admin-agenda.index')
+            ->with('success', "Agenda {$agenda->nama} telah berhasil diubah");
+
     }
 
     /**
@@ -149,6 +154,6 @@ class AgendaController extends Controller
     {
         $agenda = Agenda::findOrFail($id);
         $agenda->delete();
-        return back()->with('success', 'Data berhasil di hapus');
+        return back()->with('success', 'Agenda berhasil di hapus');
     }
 }

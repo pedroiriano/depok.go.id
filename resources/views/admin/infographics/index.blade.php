@@ -1,7 +1,14 @@
 @extends('includes.admin-layout')
 @section('content')
 <div class="container-fluid">
-    @if ($message = Session::get('success'))
+    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Infografis</h1>
+    <a class="btn btn-primary btn-icon-split text-white mb-4" href="{{ route('admin-infografis.create') }}">
+        <span class="icon">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="text">Tambah Infografis</span>
+    </a>
+     @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>{{ $message }}</strong>
@@ -17,27 +24,20 @@
         </ul>
     </div>
     @endif
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Infografis</h1>
-    <a class="btn btn-primary btn-icon-split text-white mb-4" href="{{ route('admin-infografis.create') }}">
-        <span class="icon">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span class="text">Tambah Infografis</span>
-    </a>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Daftar Infografis</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th style="width: 5%">No</th>
                             <th>Nama</th>
                             <th>OPD</th>
                             <th>Status</th>
-                            <th style="width: 8%">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,21 +61,22 @@
                                 @endif
                             </td>
                             <td>
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <a class="btn btn-sm btn-success float-left rounded-0" href="{{ route('admin-infografis.edit', $data->id) }}">
+                                <a href="{{ route('admin-infografis.edit', $data->id) }}" style="text-decoration:none;">
+                                    <button class="btn btn-success btn-sm btn-icon-split">
                                         <span class="icon">
                                             <i class="fas fa-edit"></i>
                                         </span>
-                                    </a>
-                                    <button type="button" class="btn btn-sm btn-primary rounded-0">
-                                        <i class="fas fa-eye"></i>
+                                        <span class="text">Ubah</span>
                                     </button>
-                                    <form action="{{ route("admin-infografis.destroy", $data->id) }}" method="POST" class="form-inline">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button class="btn btn-sm btn-danger rounded-0" onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')" style=""><i class="fa fa-trash"></i></button>
-                                    </form>
-                                </div>
+                                </a>
+                                <form action="{{ route("admin-infografis.destroy", $data) }}" method="POST" class="d-inline">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm btn-icon-split" onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')" style="">
+                                        <span class="icon"><i class="fas fa-trash"></i></span>
+                                        <span class="text">Hapus</span>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

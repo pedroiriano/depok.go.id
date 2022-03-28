@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use App\User;
 
 class UserController extends Controller
@@ -15,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.user', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -25,7 +27,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.form_user');
+        $permissions = Permission::orderBy('id')->pluck('name', 'id');
+        return view('admin.users.create', compact('permissions'));
     }
 
     /**
@@ -39,7 +42,8 @@ class UserController extends Controller
         $request->validate(
             [
                 'nama' => 'required',
-                'email' => 'required|email',
+                'email' => 'required|email|unique:users',
+                'permission' => 'required',
                 'password' => 'required|min:6|confirmed',
             ]
         );
@@ -51,8 +55,13 @@ class UserController extends Controller
             $user->password = bcrypt($request->password);
             $user->save();
 
-            return back()->with('success', 'User telah ditambah');
-        } catch (Exception $e) {
+            $user->syncPermissions($request->permission);
+
+            return redirect()
+                ->route('user.index')
+                ->with('success', "Pengguna {$user->name} telah ditambah");
+
+            } catch (Exception $e) {
             return back()->withInput()->with('failed', 'User gagal ditambah');
         }
     }
@@ -77,7 +86,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.form_user', compact('user'));
+        $permissions = Permission::orderBy('id')->pluck('name', 'id');
+        return view('admin.users.edit', compact('user', 'permissions'));
     }
 
     /**
@@ -92,8 +102,8 @@ class UserController extends Controller
         $request->validate(
             [
                 'nama' => 'required',
-                'email' => 'required|email',
-                'password' => 'required|min:6|confirmed',
+                'email' => 'required|email|unique:users',
+                'permission' => 'required',
             ]
         );
 
@@ -101,10 +111,15 @@ class UserController extends Controller
             $user = User::find($id);
             $user->name = $request->nama;
             $user->email = $request->email;
-            $user->password = bcrypt($request->password);
+
             $user->save();
 
-            return back()->with('success', 'User telah diubah');
+            $user->syncPermissions($request->permission);
+
+            return redirect()
+                ->route('user.index')
+                ->with('success', "Pengguna {$user->name} telah diubah");
+
         } catch (Exception $e) {
             return back()->withInput()->with('failed', 'User gagal diubah');
         }
@@ -118,6 +133,36 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $name = $user->name;
+        $user->roles()->detach();
+        $user->delete();
+
+        return redirect()
+            ->route('user.index')
+            ->with('success', "Pengguna {$name} telah dihapus");
+    }
+
+    /**
+     * Update user password.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updatePassword(Request $request, $id)
+    {
+        $request->validate(
+            [
+                'password' => 'min:6|confirmed',
+            ]
+        );
+
+        $user = User::find($id);
+        $user->password = bcrypt($request->password);
+        $user->update();
+
+        return redirect()
+            ->route('user.index')
+            ->with('success', "Pengguna {$user->name} password telah diubah");
     }
 }
