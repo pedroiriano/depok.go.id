@@ -23,7 +23,6 @@
         <div class="form-group">
             <textarea class="content" name="inputContent" id="content"></textarea>
         </div>
-        {!! $content->desc !!}
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
@@ -31,18 +30,19 @@
 @push('js')
 <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
 <script>
+    var content = {!!json_encode($content->desc) !!}
     tinymce.init({
         selector:'textarea.content',
-        plugins: 'code',
+        plugins: 'code lists',
         menubar: false,
         statusbar: false,
-        toolbar: 'undo redo | bold italic | link | alignleft aligncenter alignright | code',
+        toolbar: 'undo redo | bold italic | link | alignleft aligncenter alignright | numlist bullist | code',
         image_title: true,
         automatic_uploads: true,
         file_picker_types: 'image',
         setup: function (editor) {
             editor.on('init', function (e) {
-                editor.setContent('{!!json_encode($content->desc) !!}');
+                editor.setContent(content);
             });
         },
     });
