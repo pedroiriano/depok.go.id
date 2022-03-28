@@ -30,16 +30,15 @@
 @push('js')
 <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
 <script>
-    var content = {!!json_encode($content->desc) !!}
+    var content = {!! json_encode($content->desc) !!}
     tinymce.init({
         selector:'textarea.content',
+        content_css: '{{ asset("css/admin.css") }}',
         plugins: 'code lists',
         menubar: false,
         statusbar: false,
         toolbar: 'undo redo | bold italic | link | alignleft aligncenter alignright | numlist bullist | code',
-        image_title: true,
-        automatic_uploads: true,
-        file_picker_types: 'image',
+        content_style: "body { font-size: 12pt; font-family: Outfit; }",
         setup: function (editor) {
             editor.on('init', function (e) {
                 editor.setContent(content);
