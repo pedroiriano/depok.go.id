@@ -285,6 +285,15 @@
     </div>
     <div class="row py-2">
         <div class="col-12 p-3">
+            <h3>Harga Komoditas Pasar</h3>
+            <h6>Sumber: Dinas Perdagangan dan Perindustrian Kota Depok</h6>
+        </div>
+        <div class="col-12">
+            @include('includes.komoditas-pasar')
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-12 p-3">
             <h3>Sekilas Tentang Depok</h3>
         </div>
         <div class="col-md-3 my-2">
@@ -299,14 +308,14 @@
                             <h6 class="text-muted" id="desc-weather">...</h6>
                         </div>
                     </div>
-                    <div class="row text-center pt-3 pb-4">
+                    {{-- <div class="row text-center pt-3 pb-4">
                         <div class="col-6">
                             <h6><i class="fas fa-wind pr-1"></i><span id="anginHariIni">...</span></h6>
                         </div>
                         <div class="col-6">
                             <h6><i class="fas fa-tint pr-1"></i><span id="kelembapanHariIni">...</span></h6>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row" style="font-size: .85rem">
                         <div class="col-7">
                             <p class="text-dark"><span id="time-1">...</span></p>
@@ -707,20 +716,25 @@
             }
         });
         $.ajax({
-            url: '/api/harga-komoditas',
+            url: 'http://localhost/depok.go.id/public/api/harga-komoditas',
             dataType: 'json',
             success: function (data){
                 console.log(data);
                 $('#pangan-loading').addClass('d-none');
                 $.each(data, function(index, item){
-                    if (item.selisih.slice(0,1) == '-') {
+                    if (item.selisih == null) {
+                        text = "text-primary";
+                        desc = " Harga stabil ";
+                        icon = '<i class="fas fa-equals"></i>';
+                    }
+                    else if (item.selisih.slice(0,1) == '-') {
                         text = "text-success";
                         desc = " Harga turun ";
                         icon = '<i class="fas fa-arrow-down"></i>';
                     }else if(item.selisih == '0'){
                         text = "text-primary";
                         desc = " Harga stabil ";
-                        icon = '<i class="fas fa-equals"></i>';    
+                        icon = '<i class="fas fa-equals"></i>';
                     }
                     else{
                         text = "text-danger";
@@ -728,24 +742,49 @@
                         icon = '<i class="fas fa-arrow-up"></i>';
                     }
                     $('#pangan-wrapper').append(
-                        '<div class="item card border">' +
-                                '<div class="card-body">' +
-                                    '<img src="'+ item.src +'" alt="" class="img-komoditi">' +
-                                    '<div class="card-body-header" style="height:190px">' +
-                                        '<h6 id="pangan-komoditi" class="pt-2" style="font-size: .875rem">' + item.komoditi +'</h6>' +
+                        '<div class="item">' +
+                            '<div class="card border">' +
+                                    '<div class="card-body">' +
+                                        '<img src="'+ item.src +'" alt="" class="img-komoditi">' +
+                                        '<div class="card-body-header" style="height:190px">' +
+                                            '<h6 id="pangan-komoditi" class="pt-2" style="font-size: .875rem">' + item.komoditi +'</h6>' +
+                                        '</div>' +
+                                        '<h6 class="font-weight-bold" style="font-size: 1rem">Rp. ' +
+                                            parseInt(item.price_today).toLocaleString() + '<small class="font-weight-bold">/Kg</small>' +
+                                        '</h6>' +
+                                        '<h6 class="'+ text +'">(' +
+                                        icon + desc + parseInt(item.selisih).toLocaleString().replace('-', '') + ')' +
+                                        '</h6>' +
                                     '</div>' +
-                                    '<h6 class="font-weight-bold" style="font-size: 1rem">Rp. ' + 
-                                        parseInt(item.price_today).toLocaleString() + '<small class="font-weight-bold">/Kg</small>' + 
-                                    '</h6>' +
-                                    '<h6 class="'+ text +'">(' + 
-                                    icon + desc + parseInt(item.selisih).toLocaleString().replace('-', '') + ')' + 
-                                    '</h6>' +
-                                '</div>' +
+                            '</div>' + 
                         '</div>'
                     );
                 });
+                $(".owl-carousel").owlCarousel({
+                    loop:true,
+                    margin:10,
+                    nav:true,
+                    autoplay:true,
+                    autoplayTimeout:2000,
+                    autoplayHoverPause:true,
+                    dots: false,
+                    navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+                    responsive:{
+                        0:{
+                            items:2
+                        },
+                        600:{
+                            items:3
+                        },
+                        1000:{
+                            items:5
+                        }
+                    }
+                });
             }
         });
+
+
         $.ajax({
             url: '/api/covid',
             dataType: 'json',
@@ -935,28 +974,6 @@
             },
             error: function(){
 
-            }
-        });
-
-        $(".owl-carousel").owlCarousel({
-            loop:true,
-            margin:10,
-            nav:true,
-            autoplay:true,
-            autoplayTimeout:2000,
-            autoplayHoverPause:true,
-            dots: false,
-            navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
-            responsive:{
-                0:{
-                    items:2
-                },
-                600:{
-                    items:3
-                },
-                1000:{
-                    items:5
-                }
             }
         });
     });

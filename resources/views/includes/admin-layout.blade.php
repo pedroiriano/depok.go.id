@@ -17,7 +17,7 @@
 
         <!-- Styles -->
         <script src="https://kit.fontawesome.com/d54b50045e.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://dummy.smartcity.co.id/sso-library/api.js" name="tf-login-button" data-client_id="NiRWfvnYFZyXk9Ue"></script>
+        {{-- <script type="text/javascript" src="https://dummy.smartcity.co.id/sso-library/api.js" name="tf-login-button" data-client_id="NiRWfvnYFZyXk9Ue"></script> --}}
         <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
         @stack('css')
     </head>
