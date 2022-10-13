@@ -7,9 +7,7 @@
     
     <div class="card my-4 border">
         <div class="card-body">
-            <div class="row">
-                {{ $dataTable->table() }}
-            </div>
+            {{ $dataTable->table() }}
         </div>
     </div>
 </div>
