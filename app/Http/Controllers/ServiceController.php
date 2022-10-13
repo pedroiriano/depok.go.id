@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DataTables\ServiceDataTable;
-use App\Service;
-use App\Category;
+use App\Models\Service;
+use App\Models\Category;
 
 class ServiceController extends Controller
 {

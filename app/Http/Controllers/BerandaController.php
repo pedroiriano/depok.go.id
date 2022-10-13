@@ -2,26 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
-use FeedReader;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Response;
 use Alaouy\Youtube\Facades\Youtube;
-use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Facades\Cache;
-use App\Agenda;
-use App\Sejarah;
-use App\Service;
-use App\Slider;
-use App\Category;
-use App\Infografis;
-use App\Ikon;
-use App\Content;
-use App\Kecamatan;
-use App\Kelurahan;
+use App\Models\Agenda;
+use App\Models\Slider;
+use App\Models\Category;
+use App\Models\Infografis;
+use App\Models\Content;
+use App\Models\Kelurahan;
+use Vedmant\FeedReader\FeedReader;
 
 class BerandaController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +10,6 @@ class Kecamatan extends Model
     
     public function kel()
     {
-        return $this->hasMany('App\Kelurahan', 'kecamatan_id','id');
+        return $this->hasMany(Kelurahan::class, 'kecamatan_id','id');
     }
 }

@@ -3,16 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Filesystem\FilesystemManager;
-use File;
 use Spatie\Permission\Models\Role;
-use App\DataTables\ServiceDataTable;
-use App\User;
-use App\Category;
-use App\Sejarah;
-use App\Service;
-use App\Ikon;
-use App\Content;
+use App\Models\User;
+use App\Models\Content;
 
 class AdministratorController extends Controller
 {

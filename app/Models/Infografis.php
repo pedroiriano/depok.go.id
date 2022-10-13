@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +10,6 @@ class Infografis extends Model
 
     public function opd()
     {
-        return $this->hasOne('App\OPD', 'id', 'sumber');
+        return $this->hasOne(OPD::class, 'id', 'sumber');
     }
 }

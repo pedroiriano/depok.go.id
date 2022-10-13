@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Infografis;
-use App\OPD;
+use Exception;
+use App\Models\Infografis;
+use App\Models\OPD;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 

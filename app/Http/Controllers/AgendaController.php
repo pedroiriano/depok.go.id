@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Agenda;
-use App\OPD;
+use App\Models\Agenda;
+use App\Models\OPD;
 use Illuminate\Http\Request;
+use Exception;
 
 class AgendaController extends Controller
 {
