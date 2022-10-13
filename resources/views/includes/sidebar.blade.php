@@ -3,33 +3,31 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-text" style="font-weight: 500; text-transform: none;">Depok.go.id</div>
+        <div class="sidebar-brand-text" style="text-transform: none;">Depok.go.id</div>
     </a>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-    @auth()
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
             <i class="fas fa-home"></i>
-            <span>Dashboard</span></a>
+            <span>Dashboard</span>
+        </a>
     </li>
-    @endauth
-    {{-- @if(Auth::user()->email == 'admin@depok.go.id') --}}
     <!-- Nav Item - Agenda -->
     @can('mengelola agenda')
-    <li class="nav-item {{ Request::is('admin-agenda') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin-agenda.index') }}">
+    <li class="nav-item {{ Request::is('admin/agenda') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('agenda.index') }}">
             <i class="fas fa-calendar-alt"></i>
-            <span>Agenda</span></a>
+            <span>Agenda</span>
+        </a>
     </li>
     @endcan
     <!-- Nav Item - Layanan DSW -->
     @can('mengelola dsw')
     <li class="nav-item">
-        <a class="nav-link collapsed {{ Request::is('admin-layanan-dsw') ? 'active' : '' }}" href="#" data-toggle="collapse" data-target="#collapseDSW"
-            aria-expanded="true" aria-controls="collapseDSW">
+        <a class="nav-link collapsed {{ Request::is('admin-layanan-dsw') ? 'active' : '' }}" href="#" data-toggle="collapse" data-target="#collapseDSW" aria-expanded="true" aria-controls="collapseDSW">
             <i class="fas fa-hashtag"></i>
             <span>DSW</span>
         </a>

@@ -75,7 +75,7 @@ Auth::routes([
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class,'index'])->name('home');
     Route::group(['middleware' => ['permission:mengelola agenda']], function(){
-        Route::resource('/admin-agenda', AgendaController::class);
+        Route::resource('/admin/agenda', AgendaController::class);
     });
     Route::group(['middleware' => ['permission:mengelola dsw']], function () {
         Route::resource('/admin-service', ServiceController::class);
