@@ -2,9 +2,11 @@
 @section('content')
 <div class="container-fluid">
     @empty($agenda)
-        <h5 class="h5 fw-bold mb-4 text-gray-800">Tambah Agenda</h5>
+        {!! Breadcrumbs::render('agenda.create') !!}
+        <x-header text="Tambah Agenda"></x-header>
     @else
-        <h5 class="h5 fw-bold mb-4 text-gray-800">Ubah Agenda {{ $agenda->nama }}</h5>
+        {!! Breadcrumbs::render('agenda.edit', $agenda) !!}
+        <x-header text="Tambah Agenda"></x-header>
     @endempty
     
     <x-alert></x-alert>

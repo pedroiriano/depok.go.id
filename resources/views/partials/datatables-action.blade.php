@@ -9,7 +9,7 @@
 
 {{-- @can('delete', $model) --}}
     {{-- @if (!Request::routeIs('admin.permissions.*')) --}}
-    <a href="{{ $deleteUrl }}" class="btn btn-sm btn-danger btn-icon-split btn-delete" data-bs-toggle="modal" data-bs-target="#delete-modal" data-name="{{ $modelName }}" data-model="{{ $modelText }}" title="Delete">
+    <a href="{{ $deleteUrl }}" class="btn btn-sm btn-danger btn-icon-split btn-delete" data-toggle="modal" data-target="#delete-modal" data-name="{{ $modelName }}" data-model="{{ $modelText }}" title="Delete">
         <span class="icon">
             <i class="fas fa-trash"></i>
         </span>

@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Service;
+use App\Models\Service;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -22,16 +22,22 @@ class ServiceDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->editColumn('statusservice', function(Service $model){
-                $status = $model->statusservice == 1 ? 'Aktif' : 'Tidak Aktif';
-                return $status;
+                if ($model->statusservice == 1) {
+                    return '<span class="badge badge-pill badge-success">Aktif</span>';
+                } else {
+                    return '<span class="badge badge-pill badge-danger">Tidak Aktif</span>';
+                }
             })
-            ->addColumn('action', fn (Service $model) => view('vendor.datatables.datatables-action', [
+            ->addColumn('action', fn (Service $model) => view('partials.datatables-action', [
                 'model' => $model,
-                'editUrl' =>  route('admin-service.edit', $model->id),
-                'deleteUrl' =>  route('admin-service.destroy', $model->id),
+                'editUrl' =>  route('service.edit', $model->id),
+                'deleteUrl' =>  route('service.destroy', $model->id),
                 'modelName' =>  $model->name,
                 'modelText' => 'Layanan',
-            ]));
+            ]))
+            ->rawColumns([
+                'statusservice',
+            ]);
     }
 
     /**
@@ -56,7 +62,7 @@ class ServiceDataTable extends DataTable
                     ->setTableId('service-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
+                    ->dom('frtip')
                     ->orderBy(1)
                     ->buttons(
                         Button::make('export'),
@@ -80,9 +86,10 @@ class ServiceDataTable extends DataTable
             Column::make('namaservice')->title('Nama'),
             Column::make('statusservice')->title('Status'),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->addClass('text-center'),
+                ->width(200)
+                ->exportable(false)
+                ->printable(false)
+                ->addClass('text-center'),
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\InfografisDataTable;
 use Exception;
 use App\Models\Infografis;
 use App\Models\OPD;
@@ -19,10 +20,9 @@ class InfografisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(InfografisDataTable $datatable)
     {
-        $infografis = Infografis::orderBy('created_at', 'DESC')->get();
-        return view('admin.infographics.index')->with('infografis', $infografis);
+        return $datatable->render('admin.infographics.index');
     }
 
     /**
@@ -66,7 +66,7 @@ class InfografisController extends Controller
             $infografis->save();
 
             return redirect()
-                ->route('admin-infografis.index')
+                ->route('infografis.index')
                 ->with('success', "Infografis {$infografis->nama} telah berhasil ditambah");
         } catch (Exception $e) {
             return back()->withInput()->with('failed', 'Infografis gagal ditambah');
@@ -130,7 +130,7 @@ class InfografisController extends Controller
             $infografis->save();
 
             return redirect()
-                ->route('admin-infografis.index')
+                ->route('infografis.index')
                 ->with('success', "Infografis {$infografis->nama} telah berhasil diubah");
         } catch (Exception $e) {
             return back()->withInput()->with('failed', 'Infografis gagal diubah');

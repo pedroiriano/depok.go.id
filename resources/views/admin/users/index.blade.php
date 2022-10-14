@@ -1,44 +1,24 @@
 @extends('includes.admin-layout')
 @section('content')
-<script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
 <div class="container-fluid">
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Pengguna</h1>
-    <a class="btn btn-primary btn-icon-split text-white mb-4" href="{{ route('user.create') }}">
-        <span class="icon">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span class="text">Tambah Pengguna</span>
-    </a>
-    <a class="btn btn-info btn-icon-split text-white mb-4" href="{{ route('admin.create') }}">
-        <span class="icon">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span class="text">Tambah Admin</span>
-    </a>
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        {{ $message }}
-    </div>
-    @endif
-    @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+    {!! Breadcrumbs::render('pengguna') !!}
+
+    <x-header text="pengguna">
+        <x-button route="user.create" icon="fas fa-plus">
+            Tambah Pengguna
+        </x-button>
+        <x-button route="admin.create" icon="fas fa-plus" class="btn btn-info">
+            Tambah Admin
+        </x-button>
+    </x-header>
+
+    <x-alert></x-alert>
+
     <div class="card">
-        <div class="card-header">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Administrator dan Pengguna</h6>
-        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
+                    <thead class="border-top-0">
                         <tr>
                             <th>No</th>
                             <th>Nama</th>

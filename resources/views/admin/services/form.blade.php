@@ -2,34 +2,18 @@
 @section('content')
 <div class="container-fluid">
     @empty($service)
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Tambah Layanan</h1>
+        {!! Breadcrumbs::render('layanan-dsw.create') !!}
+        <x-header text="Tambah Layanan"></x-header>
     @else
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Ubah Layanan {{ $service->namaservice }}</h1>
+        {!! Breadcrumbs::render('layanan-dsw.edit', $service) !!}
+        <x-header text="Ubah Layanan"></x-header>
     @endempty
-    
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
 
-    @if ($errors->any())
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Whoops!</strong> There were some problems with your input.
-    </div>
-    @endif
-    @if ($message = Session::get('failed'))
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
+    <x-alert></x-alert>
 
     <div class="row">
         <div class="col-md-6 col-12">
-            <form role="form" method="POST" action="{{ empty($service) ? route('admin-service.store') : route('admin-service.update', $service->id) }}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{ empty($service) ? route('service.store') : route('service.update', $service->id) }}" enctype="multipart/form-data">
             @csrf
             @isset($service)
                 {{ method_field('PATCH') }}
@@ -64,7 +48,7 @@
                 </div>     
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="{{ route('admin-service.index') }}" class="btn btn-outline-secondary">Kembali</a>
+                    <a href="{{ route('service.index') }}" class="btn btn-outline-secondary">Kembali</a>
                 </div>
             </div>
         </form>

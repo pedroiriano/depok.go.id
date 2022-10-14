@@ -72,24 +72,24 @@ Auth::routes([
 ]);
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/home', [HomeController::class,'index'])->name('home');
     Route::group(['middleware' => ['permission:mengelola agenda']], function(){
-        Route::resource('/admin/agenda', AgendaController::class);
+        Route::resource('/agenda', AgendaController::class);
     });
     Route::group(['middleware' => ['permission:mengelola dsw']], function () {
-        Route::resource('/admin-service', ServiceController::class);
-        Route::resource('/admin-kategori-dsw', CategoryController::class);
+        Route::resource('/service', ServiceController::class);
+        Route::resource('/kategori-dsw', CategoryController::class);
     });
     Route::group(['middleware' => ['permission:mengelola pengumuman']], function () {
         Route::resource('/slider', SliderController::class);
     });
     Route::group(['middleware' => ['permission:mengelola infografis']], function () {
-        Route::resource('/admin-infografis', InfografisController::class, ['parameters' => ['admin-infografis' => 'infografis']]);
+        Route::resource('/infografis', InfografisController::class, ['parameters' => ['infografis' => 'infografis']]);
     });
     Route::group(['middleware' => ['permission:mengelola konten']], function () {
-        Route::get('/admin/content/{content}', [AdministratorController::class, 'content'])->name('admin.content');
-        Route::post('/admin/content/update/{content}', [AdministratorController::class, 'updateContent'])->name('admin.update.content');
+        Route::get('/content/{content}', [AdministratorController::class, 'content'])->name('admin.content');
+        Route::post('/content/update/{content}', [AdministratorController::class, 'updateContent'])->name('admin.update.content');
     });
     Route::group(['middleware' => ['role:administrator']], function () {
         Route::resource('/user', UserController::class);

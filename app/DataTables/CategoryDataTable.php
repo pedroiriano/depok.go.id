@@ -2,15 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Models\Agenda;
-use Illuminate\Support\Carbon;
+use App\Models\Category;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class AgendaDatatable extends DataTable
+class CategoryDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,36 +21,22 @@ class AgendaDatatable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->editColumn('tanggal', function(Agenda $model) {
-                $formatedDate = Carbon::createFromFormat('Y-m-d', $model->tanggal)->format('d-m-Y');
-                return $formatedDate;
-            })
-            ->editColumn('status', function(Agenda $model) {
-                if ($model->status == 1) {
-                    return '<span class="badge badge-pill badge-success">Aktif</span>';
-                } else {
-                    return '<span class="badge badge-pill badge-danger">Tidak Aktif</span>';
-                }
-            })
-            ->addColumn('action', fn (Agenda $model) => view('partials.datatables-action',[
+            ->addColumn('action', fn (Category $model) => view('partials.datatables-action', [
                 'model' => $model,
-                'editUrl' => route('agenda.edit', $model->id),
-                'deleteUrl' => route('agenda.destroy', $model->id),
-                'modelName' => $model->nama,
-                'modelText' => 'Agenda'
-            ]))
-            ->rawColumns([
-                'status',
-            ]);
+                'editUrl' =>  route('kategori-dsw.edit', $model->id),
+                'deleteUrl' =>  route('kategori-dsw.destroy', $model->id),
+                'modelName' =>  $model->name,
+                'modelText' => 'Layanan',
+            ]));
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Agenda $model
+     * @param \App\Models\Category $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Agenda $model)
+    public function query(Category $model)
     {
         return $model->newQuery();
     }
@@ -64,12 +49,12 @@ class AgendaDatatable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('agendadatatable-table')
+                    ->setTableId('categorydatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->autoWidth()
                     ->dom('frtip')
-                    ->orderBy(2, 'desc')
+                    ->autoWidth()
+                    ->orderBy(2, 'asc')
                     ->buttons(
                         Button::make('create'),
                         Button::make('export'),
@@ -91,12 +76,13 @@ class AgendaDatatable extends DataTable
                 ->width(30)
                 ->title('#'),
             Column::make('nama'),
-            Column::make('tanggal'),
-            Column::make('status'),
+            Column::make('pos')
+                ->title('Posisi')
+                ->hidden(),
             Column::computed('action')
+                ->width(200)
                 ->exportable(false)
                 ->printable(false)
-                ->width(200)
                 ->addClass('text-center'),
         ];
     }
@@ -108,6 +94,6 @@ class AgendaDatatable extends DataTable
      */
     protected function filename()
     {
-        return 'Agenda_' . date('YmdHis');
+        return 'Category_' . date('YmdHis');
     }
 }

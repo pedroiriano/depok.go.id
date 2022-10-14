@@ -55,7 +55,7 @@ class ServiceController extends Controller
         $service->save();
 
         return redirect()
-            ->route('admin-service.index')
+            ->route('service.index')
             ->with('success', "Layanan DSW {$service->namaservice} telah ditambah");
     }
 
@@ -105,7 +105,7 @@ class ServiceController extends Controller
         $service->save();
 
         return redirect()
-            ->route('admin-service.index')
+            ->route('service.index')
             ->with('success', "Layanan DSW {$service->namaservice} telah diubah");
     }
 

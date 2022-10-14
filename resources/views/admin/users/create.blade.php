@@ -1,27 +1,10 @@
 @extends('includes.admin-layout')
 @section('content')
 <div class="container-fluid">
-    <h1 class="mb-0 text-gray-800 mb-4">Tambah Pengguna</h1>
-    
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        {{ $message }}
-    </div>
-    @endif
+    {!! Breadcrumbs::render('pengguna.create') !!}
+    <x-header text="Tambah Pengguna"></x-header>
 
-    @if ($errors->any())
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Whoops!</strong> There were some problems with your input.
-    </div>
-    @endif
-    @if ($message = Session::get('failed'))
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
+    <x-alert></x-alert>
 
     <div class="row">
         <div class="col-6">
