@@ -1,52 +1,48 @@
-@push('css')
-<link rel="stylesheet" href={{ asset("css/owl/owl.carousel.min.css") }}>
-<link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}>
-@endpush
 <div class="container-fluid">
     <div class="container">
-            <div class="owl-carousel owl-theme owl-loaded py-5" id="owl-carousel">
-                <div class="owl-stage-outer">
-                    <div class="owl-stage">
-                        <div class="owl-item">
-                            <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
-                                <img src="{{ asset('images/dsw.png') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="owl-item">
-                            <a href="https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en" target="_blank">
-                                <img src="{{ asset('images/depok-sigap.png') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="owl-item">
-                            <a href="https://smartcity.depok.go.id/" target="_blank">
-                                <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="owl-item">
-                            <a href="https://dinkes.depok.go.id/" target="_blank">
-                                <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="owl-item">
-                            <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
-                                <img src="{{ asset('images/dsw.png') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="owl-item">
-                            <a href="https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en" target="_blank">
-                                <img src="{{ asset('images/depok-sigap.png') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="owl-item">
-                            <a href="https://smartcity.depok.go.id/" target="_blank">
-                                <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="owl-item">
-                            <a href="https://dinkes.depok.go.id/" target="_blank">
-                                <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
+        <div class="owl-carousel owl-theme owl-loaded py-5" id="owl-carousel">
+            <div class="owl-stage-outer">
+                <div class="owl-stage">
+                    <div class="owl-item">
+                        <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
+                            <img src="{{ asset('images/dsw.png') }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="owl-item">
+                        <a href="https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en" target="_blank">
+                            <img src="{{ asset('images/depok-sigap.png') }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="owl-item">
+                        <a href="https://smartcity.depok.go.id/" target="_blank">
+                            <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="owl-item">
+                        <a href="https://dinkes.depok.go.id/" target="_blank">
+                            <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="owl-item">
+                        <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
+                            <img src="{{ asset('images/dsw.png') }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="owl-item">
+                        <a href="https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en" target="_blank">
+                            <img src="{{ asset('images/depok-sigap.png') }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="owl-item">
+                        <a href="https://smartcity.depok.go.id/" target="_blank">
+                            <img src="{{ asset('img/smart-city.png') }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="owl-item">
+                        <a href="https://dinkes.depok.go.id/" target="_blank">
+                            <img src="{{ asset('img/smart-healthy-city.png') }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

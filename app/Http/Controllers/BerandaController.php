@@ -340,10 +340,10 @@ class BerandaController extends Controller
         $berita = json_decode($data, true);
         $result = array();
         foreach ($berita as $key => $value) {
-            $result[$key]['title'] = $berita[$key]['title'];
-            $result[$key]['isi'] = strip_tags($value['body']);
-            $result[$key]['link'] = 'https://berita.depok.go.id/' . $value['type'] . '/' . $value['slug'] . '-' . $value['id'];
-            $result[$key]['image'] = 'https://berita.depok.go.id/upload/media/posts/' . $value['thumb'] . '-s.jpg';
+            $result[$key]['title'] = $value['title'];
+            $result[$key]['isi'] = strip_tags($value['description']);
+            $result[$key]['link'] = $value['link'];
+            $result[$key]['image'] = $value['image'];
             $result[$key]['date'] = Carbon::parse($value['published_at'], 'Asia/Jakarta')->format('d M, Y');
         }
         return array('berita' => $result);

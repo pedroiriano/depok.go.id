@@ -34,6 +34,7 @@
         "datatables.net-searchpanes-bs4": "^2.0.2",
         "datatables.net-searchpanes-dt": "^2.0.2",
         "datatables.net-select-bs4": "^1.4.0",
+        "dayjs": "^1.11.5",
         "placeholder-loading": "^0.2.5",
         "tinymce": "^5.1.1"
     }

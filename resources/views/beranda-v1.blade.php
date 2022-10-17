@@ -308,14 +308,6 @@
                             <h6 class="text-muted" id="desc-weather">...</h6>
                         </div>
                     </div>
-                    <div class="row text-center pt-3 pb-4">
-                        <div class="col-6">
-                            <h6><i class="fas fa-wind pr-1"></i><span id="anginHariIni">...</span></h6>
-                        </div>
-                        <div class="col-6">
-                            <h6><i class="fas fa-tint pr-1"></i><span id="kelembapanHariIni">...</span></h6>
-                        </div>
-                    </div>
                     <div class="row" style="font-size: .85rem">
                         <div class="col-7">
                             <p class="text-dark"><span id="time-1">...</span></p>
@@ -660,7 +652,7 @@
 </div>
 @push('js')
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
+{{-- <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script> --}}
 <script type="text/javascript">
     function getNumberWithDot(number) {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -719,10 +711,14 @@
             url: '/api/harga-komoditas',
             dataType: 'json',
             success: function (data){
-                console.log(data);
                 $('#pangan-loading').addClass('d-none');
                 $.each(data, function(index, item){
-                    if (item.selisih.slice(0,1) == '-') {
+                    if(item.selisih == null){
+                        text = "text-primary";
+                        desc = " Harga stabil ";
+                        icon = '<i class="fas fa-equals"></i>';    
+                    }
+                    else if (item.selisih.slice(0,1) == '-') {
                         text = "text-success";
                         desc = " Harga turun ";
                         icon = '<i class="fas fa-arrow-down"></i>';
@@ -737,7 +733,8 @@
                         icon = '<i class="fas fa-arrow-up"></i>';
                     }
                     $('#pangan-wrapper').append(
-                        '<div class="item card border">' +
+                        '<div class="item">' +
+                            '<div class="card border">' +
                                 '<div class="card-body">' +
                                     '<img src="'+ item.src +'" alt="" class="img-komoditi">' +
                                     '<div class="card-body-header" style="height:190px">' +
@@ -750,8 +747,30 @@
                                     icon + desc + parseInt(item.selisih).toLocaleString().replace('-', '') + ')' + 
                                     '</h6>' +
                                 '</div>' +
+                            '</div>' +
                         '</div>'
                     );
+                });
+                $("#pangan-wrapper").owlCarousel({
+                    loop:true,
+                    margin:10,
+                    nav:true,
+                    autoplay:true,
+                    autoplayTimeout:2000,
+                    autoplayHoverPause:true,
+                    dots: false,
+                    navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+                    responsive:{
+                        0:{
+                            items:2
+                        },
+                        600:{
+                            items:3
+                        },
+                        1000:{
+                            items:5
+                        }
+                    }
                 });
             }
         });
@@ -908,8 +927,6 @@
                     $('#time-' + i).html(data.suhu[i].time);
                     $('#icon-weather-' + i).addClass(data.suhu[i].icon.icon)
                 }
-                $('#anginHariIni').html(data.angin[0].slice(0,3) + ' MPH');
-                $('#kelembapanHariIni').html(data.kelembapan[0] + ' %');
             },
             error: function(){
 
@@ -921,9 +938,9 @@
                 $('#youtube-frame').removeClass('d-none');
                 youtubeFrame = 'youtube-frame';
                 $.each(data, function(index, item){
-                    var date =new Date(item.snippet.publishedAt);
+                    var date = new Date(item.snippet.publishedAt);
                     var linkYoutube = 'https://www.youtube.com/embed/';
-                    date = moment().format('D MMM, YYYY');
+
                     $('#youtube-wrapper').append(
                         '<div class="row py-2">' +
                             '<div class="col-4">' +
@@ -947,7 +964,7 @@
             }
         });
 
-        $(".owl-carousel").owlCarousel({
+        $("#owl-carousel").owlCarousel({
             loop:true,
             margin:10,
             nav:true,
