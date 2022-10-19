@@ -76,6 +76,13 @@
     </div>
 
     <!-- Nav Item - Pages Sekilas Depok -->
+    <li class="nav-item {{ Request::is('admin/pimpinan*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('pimpinan.index') }}">
+            <i class="fas fa-user"></i>
+            <span>Pimpinan</span>
+        </a>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSekilasDepok"
             aria-expanded="true" aria-controls="collapseSekilasDepok">
