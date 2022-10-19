@@ -20,133 +20,8 @@
 @endpush
 @section('content')
 {{-- Segement 1 --}}
-<div class="container py-4">    
-    <h3 class="pt-3">Info Covid-19 Kota Depok</h3>
-    <h6 class="text-muted">Update terakhir: <span id="covid-last-update">...</span></h6>
-    <div class="row py-4">
-        <div class="col-md-3 col-12 mb-2">
-            <div class="card shadow border-0 bg-primary text-white">
-                <div class="card-body text-center">
-                    <small>Jumlah Pasien</small>
-                    <h6 class="h6">Total Terkonfirmasi</h6>
-                    <h5 class="h5" id="covid-konfirmasi">...</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-12 mb-2">
-            <div class="card shadow border-0 bg-warning text-white">
-                <div class="card-body text-center">
-                    <small>Jumlah Pasien</small>
-                    <h6 class="h6">Total Aktif</h6>
-                    <h5 class="h5" id="covid-aktif">...</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-12 mb-2">
-            <div class="card shadow border-0 bg-success text-white">
-                <div class="card-body text-center">
-                    <small>Jumlah Pasien</small>
-                    <h6 class="h6">Total Sembuh</h6>
-                    <h5 class="h5" id="covid-sembuh">...</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-12 mb-2">
-            <div class="card shadow border-0 bg-danger text-white">
-                <div class="card-body text-center">
-                    <small>Jumlah Pasien</small>
-                    <h6 class="h6">Total Meninggal</h6>
-                    <h5 class="h5" id="covid-meninggal">...</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 mt-2 mb-2">
-            <div id="accordion">
-                <div class="card bg-secondary border-0" style="cursor: pointer;">
-                    <div id="headingOne">
-                        <h5 class="my-1" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <button class="btn text-white">
-                                <i class="fa fa-plus mr-3"></i>Selengkapnya
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="card card-body">
-                            <div class="row">
-                                <div class="col-md-4 col-12">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h6 class="h6 mb-0">Kontak Erat</h6>
-                                            <div class="row pt-3">
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-kontakerat-total">...</h6>
-                                                    <small>Total</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-kontakerat-pantau">...</h6>
-                                                    <small>Pemantauan</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-kontakerat-selesai">...</h6>
-                                                    <small>Selesai</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h6 class="h6 mb-0">Suspek</h6>
-                                            <div class="row pt-3">
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-suspek-total">...</h6>
-                                                    <small>Total</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-suspek-pantau">...</h6>
-                                                    <small>Pemantauan</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-suspek-selesai">...</h6>
-                                                    <small>Selesai</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h6 class="h6 mb-0">Probabel</h6>
-                                            <div class="row pt-3">
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-probabel-total">...</h6>
-                                                    <small>Total</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-probabel-pengawasan">...</h6>
-                                                    <small>Pengawasan</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-probabel-selesai">...</h6>
-                                                    <small>Selesai</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-12 mt-2">
-                                    <a href="https://ccc-19.depok.go.id/">Sumber: ccc-19.depok.go.id</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row py-3">
+<div class="container py-4">
+    {{-- <div class="row py-3">
         <div class="col-md-8">
             <div class="card text-white bg-primary mb-3 border-0 shadow">
                 <div class="card-header" style="background-color: #5EB154">Pengumuman</div>
@@ -201,6 +76,29 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <div class="row py-3">
+        <div class="col-12">
+            <div class="card mb-3 border-0 shadow w-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div class="text-center">
+                            <img src="{{ asset('img/Walikota.png') }}" alt="" class="img-fluid w-50">
+                            <h5 class="font-weight-bold">Mohammad Idris</h5>
+                            <h6 class="text-muted">Wali Kota Depok</h6>
+                        </div>
+                        <div class="w-100 text-center align-self-center">
+                            <h3 class="font-weight-bold">Maju, Berbudaya, Sejahtera</h3>
+                        </div>
+                        <div class="text-center">
+                            <img src="{{ asset('img/Wakil-Walikota-2021.png') }}" alt="" class="img-fluid w-50">
+                            <h5 class="font-weight-bold">Imam Budi Hartono</h5>
+                            <h6 class="text-muted">Wakil Wali Kota Depok</h6>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
