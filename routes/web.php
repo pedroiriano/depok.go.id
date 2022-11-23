@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DownloadsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfografisController;
+use App\Http\Controllers\PimpinanController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserController;
@@ -61,8 +62,8 @@ Route::get('/api/covid', [BerandaController::class,'covidAPI'])->name('api.covid
 Route::get('/api/demografi/{type}', [PendudukController::class, 'demografi'])
     ->name('api.demografi')
     ->where('type', 'Agama|Jenis Kelamin|Kelompok Umur|Pekerjaan|Pendidikan|Status Kawin');
-Route::get('/api/pendidikan/{type}', [PendidikanController::class, 'pendidikan'])
-    ->name('api.pendidikan')
+Route::get('/api/pendidikan/detail/{type}', [PendidikanController::class, 'pendidikan'])
+    ->name('api.pendidikan.detail')
     ->where('type', 'Sekolah|SekolahAkreditasi|SekolahKepemilikan|Pekerjaan|Pendidikan|SekolahKebutuhanKhusus');
 
 Auth::routes([
@@ -88,6 +89,9 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::resource('/infografis', InfografisController::class, ['parameters' => ['infografis' => 'infografis']]);
     });
     Route::group(['middleware' => ['permission:mengelola konten']], function () {
+        Route::resource('/pimpinan', PimpinanController::class)->only(['index', 'update']);
+        Route::post('/pimpinan/walikota', [PimpinanController::class, 'updateWalikota'])->name('admin.walikota.update');
+        Route::post('/pimpinan/wakil-walikota', [PimpinanController::class, 'updateWakilWalikota'])->name('admin.wakil-walikota.update');
         Route::get('/content/{content}', [AdministratorController::class, 'content'])->name('admin.content');
         Route::post('/content/update/{content}', [AdministratorController::class, 'updateContent'])->name('admin.update.content');
     });

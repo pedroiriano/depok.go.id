@@ -35,6 +35,11 @@
         "datatables.net-searchpanes-dt": "^2.0.2",
         "datatables.net-select-bs4": "^1.4.0",
         "dayjs": "^1.11.5",
+        "filepond": "^4.30.4",
+        "filepond-plugin-file-validate-size": "^2.2.7",
+        "filepond-plugin-file-validate-type": "^1.2.8",
+        "filepond-plugin-image-preview": "^4.6.11",
+        "jquery-filepond": "^1.0.0",
         "placeholder-loading": "^0.2.5",
         "tinymce": "^5.1.1"
     }

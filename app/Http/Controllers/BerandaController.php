@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Infografis;
 use App\Models\Content;
 use App\Models\Kelurahan;
+use App\Models\Pimpinan;
 use Vedmant\FeedReader\FeedReader;
 
 class BerandaController extends Controller
@@ -36,7 +37,9 @@ class BerandaController extends Controller
     }
      public function pimpinanDaerah()
     {
-        return view('pimpinan-daerah');
+        $pimpinan = Pimpinan::all();
+        $content = Content::where('slug', 'pimpinan')->first();
+        return view('pimpinan-daerah', compact('pimpinan', 'content'));
     }
     public function data()
     {

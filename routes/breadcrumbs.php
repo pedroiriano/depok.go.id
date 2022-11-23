@@ -120,6 +120,12 @@ Breadcrumbs::for(
     fn (Generator $trail, $user) => $trail->parent('pengguna')->push($user->name, route('user.edit', $user->id))
 );
 
+// Home > Pengguna
+Breadcrumbs::for(
+    'pimpinan',
+    fn (Generator $trail) => $trail->parent('home')->push('Pimpinan', route('pimpinan.index'))
+);
+
 // Home > Konten
 Breadcrumbs::for(
     'content',
