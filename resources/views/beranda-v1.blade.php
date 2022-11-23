@@ -623,7 +623,7 @@
                     }else if(item.selisih == '0'){
                         text = "text-primary";
                         desc = " Harga stabil ";
-                        icon = '<i class="fas fa-equals"></i>';    
+                        icon = '<i class="fas fa-equals"></i>';
                     }
                     else{
                         text = "text-danger";
@@ -672,6 +672,8 @@
                 });
             }
         });
+
+
         $.ajax({
             url: '/api/covid',
             dataType: 'json',

@@ -60,9 +60,9 @@ class AdministratorController extends Controller
     }
     public function updateContent(Request $request, $content)
     {
-        $content = Content::where('slug', $content)->first();
-        $content->desc = $request->inputContent;
-        $content->save();
-        return back()->with('success', 'Konten '.$content->nama.' telah diubah'); 
+        $data = Content::where('slug', $content)->first();
+        $data->desc = $request->inputContent;
+        $data->save();
+        return back()->with('success', 'Konten '.$data->nama.' telah diubah'); 
     }
 }
