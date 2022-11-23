@@ -29,5 +29,5 @@
     </div>
     @endfor
 </div>
-<div class="owl-carousel owl-theme" id="pangan-wrapper">
+<div class="owl-carousel owl-theme owl-loaded owl-drag" id="pangan-wrapper">
 </div>

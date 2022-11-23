@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use File;
-use App\Slider;
-use App\OPD;
+use App\DataTables\SliderDataTable;
+use App\Models\Slider;
+use App\Models\OPD;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
@@ -20,10 +22,9 @@ class SliderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SliderDataTable $datatable)
     {
-        $sliders = Slider::orderBy('created_at', 'DESC')->get();
-        return view('admin.sliders.index')->with('sliders', $sliders);
+        return $datatable->render('admin.sliders.index');
     }
 
     /**

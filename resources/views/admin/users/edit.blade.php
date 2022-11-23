@@ -1,27 +1,10 @@
 @extends('includes.admin-layout')
 @section('content')
 <div class="container-fluid">
-    <h1 class="mb-0 text-gray-800 mb-4">Ubah Pengguna {{ $user->name }}</h1>
+    {!! Breadcrumbs::render('pengguna.edit', $user) !!}
+    <x-header text="Ubah {{ $user->name }}"></x-header>
     
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        {{ $message }}
-    </div>
-    @endif
-
-    @if ($errors->any())
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Whoops!</strong> There were some problems with your input.
-    </div>
-    @endif
-    @if ($message = Session::get('failed'))
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
+    <x-alert></x-alert>
 
     <div class="row">
         @if (!$user->hasRole('administrator'))

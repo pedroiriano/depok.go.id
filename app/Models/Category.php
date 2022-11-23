@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +10,6 @@ class Category extends Model
 
     public function services()
     {
-        return $this->hasMany('App\Service', 'category_id','id');
+        return $this->hasMany(Service::class, 'category_id','id');
     }
 }

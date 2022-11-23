@@ -1,9 +1,12 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
+
 // Variables
 @import 'variables';
 @import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
 @import "~datatables.net-buttons-bs4/css/buttons.bootstrap4.css";
+@import '~datatables.net-select-bs4/css/select.bootstrap4.css';
+@import '~datatables.net-searchpanes-dt/css/searchPanes.dataTables.css';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

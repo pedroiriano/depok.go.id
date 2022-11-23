@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Alaouy\Youtube\YoutubeServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,6 +233,7 @@ return [
         'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
         'FeedReader' => Vedmant\FeedReader\Facades\FeedReader::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

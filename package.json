@@ -10,8 +10,9 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@popperjs/core": "^2.10.2",
         "axios": "^0.18",
-        "bootstrap": "^4.1.0",
+        "bootstrap": "^4.6.2",
         "browser-sync": "^2.26.7",
         "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^5.2.1",
@@ -20,20 +21,26 @@
         "lodash": "^4.17.15",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
+        "sass": "^1.32.11",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.12.1",
-        "datatables.net-bs4": "^1.11.4",
-        "datatables.net-buttons-bs4": "^2.2.2",
-        "moment": "^2.24.0",
+        "datatables.net-bs4": "^1.12.1",
+        "datatables.net-buttons-bs4": "^2.2.3",
+        "datatables.net-searchpanes": "^2.0.2",
+        "datatables.net-searchpanes-bs4": "^2.0.2",
+        "datatables.net-searchpanes-dt": "^2.0.2",
+        "datatables.net-select-bs4": "^1.4.0",
+        "dayjs": "^1.11.5",
+        "filepond": "^4.30.4",
+        "filepond-plugin-file-validate-size": "^2.2.7",
+        "filepond-plugin-file-validate-type": "^1.2.8",
+        "filepond-plugin-image-preview": "^4.6.11",
+        "jquery-filepond": "^1.0.0",
         "placeholder-loading": "^0.2.5",
-        "scroll-parallax": "^3.0.3",
-        "simple-parallax-js": "^5.1.0",
-        "tinymce": "^5.1.1",
-        "vegas": "^2.4.4"
+        "tinymce": "^5.1.1"
     }
 }

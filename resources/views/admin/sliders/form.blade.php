@@ -2,30 +2,14 @@
 @section('content')
 <div class="container-fluid">
     @empty($slider)
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Tambah Pengumuman</h1>
+        {!! Breadcrumbs::render('pengumuman.create') !!}
+        <x-header text="Tambah Pengumuman"></x-header>
     @else
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Ubah Pengumuman</h1>
+        {!! Breadcrumbs::render('pengumuman.edit', $slider) !!}
+        <x-header text="Ubah Pengumuman"></x-header>
     @endempty
     
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
-
-    @if ($errors->any())
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Whoops!</strong> There were some problems with your input.
-    </div>
-    @endif
-    @if ($message = Session::get('failed'))
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
+    <x-alert></x-alert>
 
     <div class="card shadow mb-4">
         <div class="card-header">Pengumuman</div>

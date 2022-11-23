@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\DataTables\CategoryDataTable;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -16,10 +18,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CategoryDataTable $datatable)
     {
-        $categories = Category::paginate(10);
-        return view('admin.kategori', compact('categories'));
+        return $datatable->render('admin.kategori.index');
     }
 
     /**
@@ -29,7 +30,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.form_kategori');
+        return view('admin.kategori.form');
     }
 
     /**
@@ -69,7 +70,7 @@ class CategoryController extends Controller
             $category->save();
             
         }
-        return redirect('admin-kategori-dsw')->with('success', 'Kategori '. $category->nama .'telah berhasil ditambahkan');
+        return redirect('kategori-dsw')->with('success', 'Kategori '. $category->nama .'telah berhasil ditambahkan');
     }
 
     /**
@@ -92,7 +93,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.form_kategori', compact('category'));
+        return view('admin.kategori.form', compact('category'));
     }
 
     /**
@@ -133,7 +134,7 @@ class CategoryController extends Controller
         }
         $category->save();
 
-        return redirect('admin-kategori-dsw')->with('success', 'Kategori '. $category->nama . 'telah berhasil diupdate');
+        return redirect('kategori-dsw')->with('success', 'Kategori '. $category->nama . 'telah berhasil diupdate');
     }
 
     /**

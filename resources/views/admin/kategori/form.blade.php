@@ -2,33 +2,18 @@
 @section('content')
 <div class="container-fluid">
     @empty($category)
-    <h1 class="h3 mb-0 text-gray-800 mb-4">Tambah Kategori</h1>
+        {!! Breadcrumbs::render('kategori-dsw.create') !!}
+        <x-header text="Tambah Kategori"></x-header>
     @else
-    <h1 class="h3 mb-0 text-gray-800 mb-4">Ubah Kategori</h1>
+        {!! Breadcrumbs::render('kategori-dsw.edit', $infografis) !!}
+        <x-header text="Ubah Kategori"></x-header>
     @endempty
-    
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
 
-    @if ($errors->any())
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Whoops!</strong> There were some problems with your input.
-    </div>
-    @endif
-    @if ($message = Session::get('failed'))
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
+    <x-alert></x-alert>
+
     <div class="card shadow mb-4">
         <div class="card-header">Kategori DSW</div>
-            <form role="form" method="POST" action="{{ empty($category) ? route('admin-kategori-dsw.store') : route('admin-kategori-dsw.update', $category->id) }}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{ empty($category) ? route('kategori-dsw.store') : route('kategori-dsw.update', $category->id) }}" enctype="multipart/form-data">
                 @csrf
                 @isset($category)
                     {{ method_field('PATCH') }}
@@ -101,7 +86,7 @@
             </div>     
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{ route('admin-kategori-dsw.index') }}" class="btn btn-outline-secondary">Kembali</a>
+                <a href="{{ route('kategori-dsw.index') }}" class="btn btn-outline-secondary">Kembali</a>
             </div>
         </form>
     </div>

@@ -2,35 +2,19 @@
 @section('content')
 <div class="container-fluid">
     @empty($agenda)
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Tambah Agenda</h1>
+        {!! Breadcrumbs::render('agenda.create') !!}
+        <x-header text="Tambah Agenda"></x-header>
     @else
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Ubah Agenda</h1>
+        {!! Breadcrumbs::render('agenda.edit', $agenda) !!}
+        <x-header text="Tambah Agenda"></x-header>
     @endempty
     
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        {{ $message }}
-    </div>
-    @endif
-
-    @if ($errors->any())
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Whoops!</strong> There were some problems with your input.
-    </div>
-    @endif
-    @if ($message = Session::get('failed'))
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
+    <x-alert></x-alert>
 
     <div class="card shadow mb-4">
         <div class="card-header">Agenda</div>
         <div class="card-body">
-            <form role="form" method="POST" action="{{ empty($agenda) ? route('admin-agenda.store') : route('admin-agenda.update', $agenda->id) }}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{ empty($agenda) ? route('agenda.store') : route('agenda.update', $agenda->id) }}" enctype="multipart/form-data">
                 @csrf
                 @isset($agenda)
                     {{ method_field('PATCH') }}
@@ -114,7 +98,7 @@
             </div>     
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{ route('admin-agenda.index') }}" class="btn btn-outline-secondary">Kembali</a>
+                <a href="{{ route('agenda.index') }}" class="btn btn-outline-secondary">Kembali</a>
             </div>
         </form>
     </div>

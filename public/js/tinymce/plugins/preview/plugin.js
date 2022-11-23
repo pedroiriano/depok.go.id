@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 6.0.1 (2022-03-23)
+ * TinyMCE version 6.2.0 (2022-09-08)
  */
 
 (function () {
@@ -50,7 +50,8 @@
           items: [{
               name: 'preview',
               type: 'iframe',
-              sandboxed: true
+              sandboxed: true,
+              transparent: false
             }]
         },
         buttons: [{

@@ -20,133 +20,8 @@
 @endpush
 @section('content')
 {{-- Segement 1 --}}
-<div class="container py-4">    
-    <h3 class="pt-3">Info Covid-19 Kota Depok</h3>
-    <h6 class="text-muted">Update terakhir: <span id="covid-last-update">...</span></h6>
-    <div class="row py-4">
-        <div class="col-md-3 col-12 mb-2">
-            <div class="card shadow border-0 bg-primary text-white">
-                <div class="card-body text-center">
-                    <small>Jumlah Pasien</small>
-                    <h6 class="h6">Total Terkonfirmasi</h6>
-                    <h5 class="h5" id="covid-konfirmasi">...</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-12 mb-2">
-            <div class="card shadow border-0 bg-warning text-white">
-                <div class="card-body text-center">
-                    <small>Jumlah Pasien</small>
-                    <h6 class="h6">Total Aktif</h6>
-                    <h5 class="h5" id="covid-aktif">...</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-12 mb-2">
-            <div class="card shadow border-0 bg-success text-white">
-                <div class="card-body text-center">
-                    <small>Jumlah Pasien</small>
-                    <h6 class="h6">Total Sembuh</h6>
-                    <h5 class="h5" id="covid-sembuh">...</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-12 mb-2">
-            <div class="card shadow border-0 bg-danger text-white">
-                <div class="card-body text-center">
-                    <small>Jumlah Pasien</small>
-                    <h6 class="h6">Total Meninggal</h6>
-                    <h5 class="h5" id="covid-meninggal">...</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 mt-2 mb-2">
-            <div id="accordion">
-                <div class="card bg-secondary border-0" style="cursor: pointer;">
-                    <div id="headingOne">
-                        <h5 class="my-1" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <button class="btn text-white">
-                                <i class="fa fa-plus mr-3"></i>Selengkapnya
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="card card-body">
-                            <div class="row">
-                                <div class="col-md-4 col-12">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h6 class="h6 mb-0">Kontak Erat</h6>
-                                            <div class="row pt-3">
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-kontakerat-total">...</h6>
-                                                    <small>Total</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-kontakerat-pantau">...</h6>
-                                                    <small>Pemantauan</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-kontakerat-selesai">...</h6>
-                                                    <small>Selesai</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h6 class="h6 mb-0">Suspek</h6>
-                                            <div class="row pt-3">
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-suspek-total">...</h6>
-                                                    <small>Total</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-suspek-pantau">...</h6>
-                                                    <small>Pemantauan</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-suspek-selesai">...</h6>
-                                                    <small>Selesai</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h6 class="h6 mb-0">Probabel</h6>
-                                            <div class="row pt-3">
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-probabel-total">...</h6>
-                                                    <small>Total</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-probabel-pengawasan">...</h6>
-                                                    <small>Pengawasan</small>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h6 class="h6 mb-0" id="covid-probabel-selesai">...</h6>
-                                                    <small>Selesai</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-12 mt-2">
-                                    <a href="https://ccc-19.depok.go.id/">Sumber: ccc-19.depok.go.id</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row py-3">
+<div class="container py-4">
+    {{-- <div class="row py-3">
         <div class="col-md-8">
             <div class="card text-white bg-primary mb-3 border-0 shadow">
                 <div class="card-header" style="background-color: #5EB154">Pengumuman</div>
@@ -201,6 +76,29 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <div class="row py-3">
+        <div class="col-12">
+            <div class="card mb-3 border-0 shadow w-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div class="text-center">
+                            <img src="{{ asset('img/Walikota.png') }}" alt="" class="img-fluid w-50">
+                            <h5 class="font-weight-bold">Mohammad Idris</h5>
+                            <h6 class="text-muted">Wali Kota Depok</h6>
+                        </div>
+                        <div class="w-100 text-center align-self-center">
+                            <h3 class="font-weight-bold">Maju, Berbudaya, Sejahtera</h3>
+                        </div>
+                        <div class="text-center">
+                            <img src="{{ asset('img/Wakil-Walikota-2021.png') }}" alt="" class="img-fluid w-50">
+                            <h5 class="font-weight-bold">Imam Budi Hartono</h5>
+                            <h6 class="text-muted">Wakil Wali Kota Depok</h6>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -308,14 +206,6 @@
                             <h6 class="text-muted" id="desc-weather">...</h6>
                         </div>
                     </div>
-                    {{-- <div class="row text-center pt-3 pb-4">
-                        <div class="col-6">
-                            <h6><i class="fas fa-wind pr-1"></i><span id="anginHariIni">...</span></h6>
-                        </div>
-                        <div class="col-6">
-                            <h6><i class="fas fa-tint pr-1"></i><span id="kelembapanHariIni">...</span></h6>
-                        </div>
-                    </div> --}}
                     <div class="row" style="font-size: .85rem">
                         <div class="col-7">
                             <p class="text-dark"><span id="time-1">...</span></p>
@@ -660,7 +550,7 @@
 </div>
 @push('js')
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
+{{-- <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script> --}}
 <script type="text/javascript">
     function getNumberWithDot(number) {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -716,16 +606,15 @@
             }
         });
         $.ajax({
-            url: 'http://localhost/depok.go.id/public/api/harga-komoditas',
+            url: '/api/harga-komoditas',
             dataType: 'json',
             success: function (data){
-                console.log(data);
                 $('#pangan-loading').addClass('d-none');
                 $.each(data, function(index, item){
-                    if (item.selisih == null) {
+                    if(item.selisih == null){
                         text = "text-primary";
                         desc = " Harga stabil ";
-                        icon = '<i class="fas fa-equals"></i>';
+                        icon = '<i class="fas fa-equals"></i>';    
                     }
                     else if (item.selisih.slice(0,1) == '-') {
                         text = "text-success";
@@ -744,23 +633,23 @@
                     $('#pangan-wrapper').append(
                         '<div class="item">' +
                             '<div class="card border">' +
-                                    '<div class="card-body">' +
-                                        '<img src="'+ item.src +'" alt="" class="img-komoditi">' +
-                                        '<div class="card-body-header" style="height:190px">' +
-                                            '<h6 id="pangan-komoditi" class="pt-2" style="font-size: .875rem">' + item.komoditi +'</h6>' +
-                                        '</div>' +
-                                        '<h6 class="font-weight-bold" style="font-size: 1rem">Rp. ' +
-                                            parseInt(item.price_today).toLocaleString() + '<small class="font-weight-bold">/Kg</small>' +
-                                        '</h6>' +
-                                        '<h6 class="'+ text +'">(' +
-                                        icon + desc + parseInt(item.selisih).toLocaleString().replace('-', '') + ')' +
-                                        '</h6>' +
+                                '<div class="card-body">' +
+                                    '<img src="'+ item.src +'" alt="" class="img-komoditi">' +
+                                    '<div class="card-body-header" style="height:190px">' +
+                                        '<h6 id="pangan-komoditi" class="pt-2" style="font-size: .875rem">' + item.komoditi +'</h6>' +
                                     '</div>' +
-                            '</div>' + 
+                                    '<h6 class="font-weight-bold" style="font-size: 1rem">Rp. ' + 
+                                        parseInt(item.price_today).toLocaleString() + '<small class="font-weight-bold">/Kg</small>' + 
+                                    '</h6>' +
+                                    '<h6 class="'+ text +'">(' + 
+                                    icon + desc + parseInt(item.selisih).toLocaleString().replace('-', '') + ')' + 
+                                    '</h6>' +
+                                '</div>' +
+                            '</div>' +
                         '</div>'
                     );
                 });
-                $(".owl-carousel").owlCarousel({
+                $("#pangan-wrapper").owlCarousel({
                     loop:true,
                     margin:10,
                     nav:true,
@@ -938,8 +827,6 @@
                     $('#time-' + i).html(data.suhu[i].time);
                     $('#icon-weather-' + i).addClass(data.suhu[i].icon.icon)
                 }
-                $('#anginHariIni').html(data.angin[0].slice(0,3) + ' MPH');
-                $('#kelembapanHariIni').html(data.kelembapan[0] + ' %');
             },
             error: function(){
 
@@ -951,9 +838,9 @@
                 $('#youtube-frame').removeClass('d-none');
                 youtubeFrame = 'youtube-frame';
                 $.each(data, function(index, item){
-                    var date =new Date(item.snippet.publishedAt);
+                    var date = new Date(item.snippet.publishedAt);
                     var linkYoutube = 'https://www.youtube.com/embed/';
-                    date = moment().format('D MMM, YYYY');
+
                     $('#youtube-wrapper').append(
                         '<div class="row py-2">' +
                             '<div class="col-4">' +
@@ -974,6 +861,28 @@
             },
             error: function(){
 
+            }
+        });
+
+        $("#owl-carousel").owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            autoplay:true,
+            autoplayTimeout:2000,
+            autoplayHoverPause:true,
+            dots: false,
+            navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+            responsive:{
+                0:{
+                    items:2
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
             }
         });
     });

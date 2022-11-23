@@ -2,35 +2,19 @@
 @section('content')
 <div class="container-fluid">
     @empty($infografis)
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Tambah Infografis</h1>
+        {!! Breadcrumbs::render('infografis.create') !!}
+        <x-header text="Tambah Infografis"></x-header>
     @else
-    <h1 class="h3 mb-0 text-gray-800 lora mb-4">Ubah Infografis</h1>
+        {!! Breadcrumbs::render('infografis.edit', $infografis) !!}
+        <x-header text="Ubah Infografis"></x-header>
     @endempty
-    
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
 
-    @if ($errors->any())
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Whoops!</strong> There were some problems with your input.
-    </div>
-    @endif
-    @if ($message = Session::get('failed'))
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
+    <x-alert></x-alert>
 
     <div class="card shadow mb-4">
         <div class="card-header">Infografis</div>
         <div class="card-body">
-            <form role="form" method="POST" action="{{ empty($infografis) ? route('admin-infografis.store') : route('admin-infografis.update', $infografis->id) }}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{ empty($infografis) ? route('infografis.store') : route('infografis.update', $infografis->id) }}" enctype="multipart/form-data">
                 @csrf
                 @isset($infografis)
                     {{ method_field('PATCH') }}
@@ -96,7 +80,7 @@
             </div>     
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{ route('admin-infografis.index') }}" class="btn btn-outline-secondary">Kembali</a>
+                <a href="{{ route('infografis.index') }}" class="btn btn-outline-secondary">Kembali</a>
             </div>
         </form>
     </div>

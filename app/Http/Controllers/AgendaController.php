@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Agenda;
-use App\OPD;
+use App\DataTables\AgendaDatatable;
+use App\Models\Agenda;
+use App\Models\OPD;
 use Illuminate\Http\Request;
+use Exception;
 
 class AgendaController extends Controller
 {
@@ -17,10 +19,10 @@ class AgendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(AgendaDatatable $datatable)
     {
-        $agendas = Agenda::orderBy('created_at', 'DESC')->get();
-        return view('admin.agenda.index')->with('agendas', $agendas);
+        return $datatable->render('admin.agenda.index');    
+
     }
 
     /**
@@ -71,7 +73,7 @@ class AgendaController extends Controller
             $agenda->save();
 
             return redirect()
-                ->route('admin-agenda.index')
+                ->route('agenda.index')
                 ->with('success', "Agenda {$agenda->nama} telah berhasil ditambah");
 
         } catch (Exception $e) {
@@ -139,7 +141,7 @@ class AgendaController extends Controller
         $agenda->save();
 
         return redirect()
-            ->route('admin-agenda.index')
+            ->route('agenda.index')
             ->with('success', "Agenda {$agenda->nama} telah berhasil diubah");
 
     }

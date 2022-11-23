@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DataTables\ServiceDataTable;
-use App\Service;
-use App\Category;
+use App\Models\Service;
+use App\Models\Category;
 
 class ServiceController extends Controller
 {
@@ -55,7 +55,7 @@ class ServiceController extends Controller
         $service->save();
 
         return redirect()
-            ->route('admin-service.index')
+            ->route('service.index')
             ->with('success', "Layanan DSW {$service->namaservice} telah ditambah");
     }
 
@@ -105,7 +105,7 @@ class ServiceController extends Controller
         $service->save();
 
         return redirect()
-            ->route('admin-service.index')
+            ->route('service.index')
             ->with('success', "Layanan DSW {$service->namaservice} telah diubah");
     }
 
