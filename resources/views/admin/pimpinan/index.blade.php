@@ -113,11 +113,22 @@
                         <input type="text" class="form-control @error('instagram') is-invalid @enderror" id="instagram" name="instagram" value="{{ old('instagram', $wakilWalikota->instagram) }}">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="status" class="col-sm-2 col-form-label">Status</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="status" id="active-status" value="1" {{ $wakilWalikota->status == 1 ? "checked" : "" }}>
+                        <label class="form-check-label" for="active-status">Aktif</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="status" id="deactive-status" value="0" {{ $wakilWalikota->status == 0 ? "checked" : "" }}>
+                        <label class="form-check-label" for="deactive-status">Tidak Aktif</label>
+                      </div>
+                      
+                </div>
                 <button type="submit" class="btn btn-primary">Ubah</button>
             </form>
         </div>
     </div>
-
 
     <form method="POST" action="{{ route('pimpinan.update', $content->id) }}" enctype="multipart/form-data" class="pb-5">
         @csrf
@@ -125,14 +136,11 @@
             {{ method_field('PATCH') }}
         @endisset
         <x-header text="Artikel Pimpinan"></x-header>
-        <div class="form-group">
-            <textarea class="content" name="content" id="content"></textarea>
-        </div>
+        <x-editor id="content" name="content" value="{!! $content->desc !!}" height="700px"></x-editor>
         <button type="submit" class="btn btn-primary">Ubah</button>
     </form>
 @endsection
 @push('js')
-<script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
 <script src="{{ asset(mix('js/plugin/filepond.js')) }}"></script>
 <script>
     $('#walikota-image').filepond({
@@ -155,23 +163,6 @@
         @if (isset($wakilWalikota) && $wakilWalikota->image)
             files: [{ source: '{{ $wakilWalikota->image_url }}' }]
         @endif
-    });
-
-    var content = {!! json_encode($content->desc) !!}
-
-    tinymce.init({
-        selector:'textarea.content',
-        content_css: '{{ asset("css/admin.css") }}',
-        plugins: 'code lists',
-        menubar: false,
-        statusbar: false,
-        toolbar: 'undo redo | bold italic | link | alignleft aligncenter alignright | numlist bullist | code',
-        content_style: "body { font-size: 12pt; font-family: Outfit; }",
-        setup: function (editor) {
-            editor.on('init', function (e) {
-                editor.setContent(content);
-            });
-        },
     });
 </script>
 @endpush

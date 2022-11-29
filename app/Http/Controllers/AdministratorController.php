@@ -58,11 +58,19 @@ class AdministratorController extends Controller
         }
         return view('admin.content', compact('content'));
     }
+
     public function updateContent(Request $request, $content)
     {
         $data = Content::where('slug', $content)->first();
         $data->desc = $request->inputContent;
         $data->save();
         return back()->with('success', 'Konten '.$data->nama.' telah diubah'); 
+    }
+
+    public function uploadImage(Request $request)
+    {
+        $fileName = $request->file('file')->getClientOriginalName();
+        $path = $request->file('file')->storeAs('uploads', $fileName, 'public');
+        return response()->json(['location' => "/storage/$path"]);
     }
 }

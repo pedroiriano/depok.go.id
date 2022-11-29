@@ -75,6 +75,7 @@ Auth::routes([
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/home', [HomeController::class,'index'])->name('home');
+    Route::post('/upload-image', [AdministratorController::class, 'uploadImage'])->name('upload.image');
     Route::group(['middleware' => ['permission:mengelola agenda']], function(){
         Route::resource('/agenda', AgendaController::class);
     });
