@@ -37,7 +37,7 @@ class BerandaController extends Controller
     }
      public function pimpinanDaerah()
     {
-        $pimpinan = Pimpinan::all();
+        $pimpinan = Pimpinan::where('status', 1)->get();
         $content = Content::where('slug', 'pimpinan')->first();
         return view('pimpinan-daerah', compact('pimpinan', 'content'));
     }

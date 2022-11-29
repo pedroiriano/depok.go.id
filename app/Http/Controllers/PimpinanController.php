@@ -126,6 +126,7 @@ class PimpinanController extends Controller
         $wakilWalikota->facebook = $request->facebook;
         $wakilWalikota->twitter = $request->twitter;
         $wakilWalikota->instagram = $request->instagram;
+        $wakilWalikota->status = $request->status;
         
         $wakilWalikota->save();
 

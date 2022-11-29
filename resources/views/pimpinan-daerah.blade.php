@@ -35,7 +35,7 @@
 
         <div class="row text-center py-5">
             @foreach ($pimpinan as $item)
-            <div class="col-6">
+            <div class="col-6 mx-auto">
                 <img src="{{ asset($item->image_url) }}" alt="" class="img-fluid w-50">
                     <h5 class="display-5 pt-3">{{ $item->nama }}</h5>
                 </a>

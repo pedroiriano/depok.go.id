@@ -20,6 +20,7 @@ class PimpinanTableSeeder extends Seeder
                 'instagram' =>  'https://www.instagram.com/idrisashomad/?hl=en',
                 'twitter' =>  'https://twitter.com/idrisashomad?lang=en',
                 'facebook' =>  'https://www.facebook.com/IdrisAShomad/',
+                'status' =>  1,
             ],
             [
                 'nama' => 'Imam Budi Hartono',
@@ -28,7 +29,7 @@ class PimpinanTableSeeder extends Seeder
                 'instagram' =>  'https://www.instagram.com/imambhartono/',
                 'twitter' =>  'https://twitter.com/imambhartono',
                 'facebook' =>  'https://www.facebook.com/ImamBHartono/',
-                
+                'status' => 1,
             ]
         ]);
     }
