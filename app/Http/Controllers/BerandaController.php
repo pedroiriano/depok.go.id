@@ -33,7 +33,7 @@ class BerandaController extends Controller
         $agendasNext = Agenda::whereDate('tanggal', '>', Carbon::today())->orderBy('tanggal', 'asc')->take(2)->get();
         $popup = Slider::where('popup', 1)->first();
 
-        return view('beranda-v1', compact('agendasToday','agendasNext' ,'categories', 'sliders','tanggal', 'popup'));
+        return view('landing', compact('agendasToday','agendasNext' ,'categories', 'sliders','tanggal', 'popup'));
     }
      public function pimpinanDaerah()
     {

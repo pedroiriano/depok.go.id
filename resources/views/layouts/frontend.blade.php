@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    @include('includes.meta')
+    @include('includes.frontend-meta')
 </head>
 <body class="font-nunito text-base text-black dark:text-white dark:bg-slate-900">
     <!-- BEGIN::Loader -->

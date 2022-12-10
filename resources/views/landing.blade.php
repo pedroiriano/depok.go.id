@@ -1,3 +1,6 @@
+@extends('layouts.frontend')
+
+@section('content')
 <!-- BEGIN::Header -->
 <section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/promosi-depok-ori.gif') }}'); background-size: cover;">
     <div class="absolute inset-0 bg-black opacity-30"></div>
@@ -33,7 +36,7 @@
                                 <div class="text-center">
                                     <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                         <div class="relative">
-                                            <img src="./assets/images/bg/slider-depok-01.jpg" alt="Gambar Pengumuman">
+                                            <img src="{{ asset('assets/images/bg/slider-depok-01.jpg') }}" alt="Gambar Pengumuman">
                                             <div class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-500 ease-in-out">
                                                 <a href="" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Selengkapnya</a>
                                             </div>
@@ -47,7 +50,7 @@
                                 <div class="text-center">
                                     <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                         <div class="relative">
-                                            <img src="./assets/images/bg/slider-depok-02.jpg" alt="Gambar Pengumuman">
+                                            <img src="{{ asset('assets/images/bg/slider-depok-02.jpg') }}" alt="Gambar Pengumuman">
                                             <div class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-500 ease-in-out">
                                                 <a href="" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Selengkapnya</a>
                                             </div>
@@ -61,7 +64,7 @@
                                 <div class="text-center">
                                     <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                         <div class="relative">
-                                            <img src="./assets/images/bg/slider-depok-03.jpg" alt="Gambar Pengumuman">
+                                            <img src="{{ asset('assets/images/bg/slider-depok-03.jpg') }}" alt="Gambar Pengumuman">
                                             <div class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-500 ease-in-out">
                                                 <a href="" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Selengkapnya</a>
                                             </div>
@@ -90,7 +93,7 @@
                                     <!-- Start Mayor -->
                                     <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                         <div class="relative">
-                                            <img src="assets/images/mayor/wali-kota-depok.png" alt="Gambar Pimpinan Daerah">
+                                            <img src="{{ asset('assets/images/mayor/wali-kota-depok.png') }}" alt="Gambar Pimpinan Daerah">
                                         </div>
                                         <div class="py-4 relative">
                                             <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Dr. K.H. Mohammad Idris, M.A.</div>
@@ -103,7 +106,7 @@
                                     <!-- Start Vice Mayor -->
                                     <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                         <div class="relative">
-                                            <img src="assets/images/mayor/wakil-wali-kota-depok.png" alt="Gambar Pimpinan Daerah">
+                                            <img src="{{ asset('assets/images/mayor/wakil-wali-kota-depok.png') }}" alt="Gambar Pimpinan Daerah">
                                         </div>
                                         <div class="py-4 relative">
                                             <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Ir. H. Imam Budi Hartono</div>
@@ -126,7 +129,7 @@
 <!-- END::Announcement & Mayor -->
 
 <!-- BEGIN::Small Parallax -->
-<section class="relative py-16 bg-no-repeat bg-fixed bg-top" style="background-image: url('./assets/images/bg/bg-00016.png'); background-size: cover;">
+<section class="relative py-16 bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/bg-00016.png') }}'); background-size: cover;">
     <div class="absolute inset-0 bg-slate-900/70"></div>
     <div class="container relative">
         <div class="grid grid-cols-1 text-center">
@@ -142,7 +145,7 @@
     <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-6">
             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="assets/images/dsw/pajak.png" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
+                <img src="{{ asset('assets/images/dsw/pajak.png') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
                 <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
                 <div class="content">
                     <div class="title absolute z-10 hidden group-hover:block bottom-4 left-4">
@@ -152,7 +155,7 @@
                 </div>
             </div>
             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="assets/images/dsw/penduduk.png" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
+                <img src="{{ asset('assets/images/dsw/penduduk.png') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
                 <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
                 <div class="content">
                     <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
@@ -162,7 +165,7 @@
                 </div>
             </div>
             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="assets/images/dsw/izin.png" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
+                <img src="{{ asset('assets/images/dsw/izin.png') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
                 <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
                 <div class="content">
                     <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
@@ -172,7 +175,7 @@
                 </div>
             </div>
             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="assets/images/portfolio/4.jpg" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
+                <img src="{{ asset('assets/images/portfolio/4.jpg') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
                 <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
                 <div class="content">
                     <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
@@ -182,7 +185,7 @@
                 </div>
             </div>
             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="assets/images/dsw/peta.png" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
+                <img src="{{ asset('assets/images/dsw/peta.png') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
                 <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
                 <div class="content">
                     <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
@@ -192,11 +195,11 @@
                 </div>
             </div>
             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="assets/images/portfolio/6.jpg" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
+                <img src="{{ asset('assets/images/portfolio/6.jpg') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
                 <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
                 <div class="content">
                     <div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500">
-                        <a href="assets/images/portfolio/6.jpg" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
+                        <a href="{{ asset('assets/images/portfolio/6.jpg') }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
                     </div>
                     <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
                         <a href="portfolio-detail-one.html" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Mockup Collection</a>
@@ -205,12 +208,12 @@
                 </div>
             </div>
             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="assets/images/portfolio/7.jpg" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
+                <img src="{{ asset('assets/images/portfolio/7.jpg') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
                 <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
 
                 <div class="content">
                     <div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500">
-                        <a href="assets/images/portfolio/7.jpg" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
+                        <a href="{{ asset('assets/images/portfolio/7.jpg') }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
                     </div>
                     <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
                         <a href="portfolio-detail-one.html" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Mockup Collection</a>
@@ -219,11 +222,11 @@
                 </div>
             </div>
             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="assets/images/portfolio/8.jpg" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
+                <img src="{{ asset('assets/images/portfolio/8.jpg') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
                 <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
                 <div class="content">
                     <div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500">
-                        <a href="assets/images/portfolio/8.jpg" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
+                        <a href="{{ asset('assets/images/portfolio/8.jpg') }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
                     </div>
                     <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
                         <a href="portfolio-detail-one.html" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Mockup Collection</a>
@@ -371,20 +374,20 @@
                         <div class="p-2 rounded-md shadow dark:shadow-gray-800">
                             <div class="flex items-center">
                                 <div class="w-1/2 p-1">
-                                    <img src="assets/images/social/twitter.png" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
+                                    <img src="{{ asset('assets/images/social/twitter.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
                                 </div>
 
                                 <div class="w-1/2 p-1">
-                                    <img src="assets/images/social/facebook.png" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
+                                    <img src="{{ asset('assets/images/social/facebook.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
                                 </div>
                             </div>
                             <div class="flex items-center">
                                 <div class="w-1/2 p-1">
-                                    <img src="assets/images/social/instagram.png" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
+                                    <img src="{{ asset('assets/images/social/instagram.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
                                 </div>
     
                                 <div class="w-1/2 p-1">
-                                    <img src="assets/images/social/youtube.png" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
+                                    <img src="{{ asset('assets/images/social/youtube.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
                                 </div>
                             </div>
                         </div>
@@ -401,12 +404,12 @@
 <!-- BEGIN::Info Widget -->
 
 <!-- BEGIN::DSW -->
-<section class="relative md:py-24 py-16 bg-no-repeat bg-fixed bg-center" id="dsw" style="background-image: url('./assets/images/bg/bg-00014.png'); background-size: cover;">
+<section class="relative md:py-24 py-16 bg-no-repeat bg-fixed bg-center" id="dsw" style="background-image: url('{{ asset('assets/images/bg/bg-00014.png') }}'); background-size: cover;">
     <div class="absolute inset-0 bg-black/50"></div>
     <div class="container">
         <div class="grid md:grid-cols-12 grid-cols-1 items-center">
             <div class="lg:col-span-5 md:col-span-6">
-                <img src="./assets/images/app/smartphone-dsw.png" class="mx-auto d-block" alt="Gambar Ilustrasi DSW">
+                <img src="{{ asset('assets/images/app/smartphone-dsw.png') }}" class="mx-auto d-block" alt="Gambar Ilustrasi DSW">
             </div>
             <div class="lg:col-span-7 md:col-span-6">
                 <span class="bg-indigo-600 text-white text-xs font-bold px-2.5 py-0.5 rounded h-5">Aplikasi Seluler</span>
@@ -416,10 +419,10 @@
                 </p>
                 <div class="my-5">
                     <a href="https://apps.apple.com/us/app/depok-single-window-dsw/id1530183936?app=itunes&ign-mpt=uo%3D4" target="_blank">
-                        <img src="./assets/images/app/app.png" class="m-1 inline-block" alt="Gambar Logo App Strore">
+                        <img src="{{ asset('assets/images/app/app.png') }}" class="m-1 inline-block" alt="Gambar Logo App Strore">
                     </a>
                     <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
-                        <img src="./assets/images/app/playstore.png" class="m-1 inline-block" alt="Gambar Logo Playstore">
+                        <img src="{{ asset('assets/images/app/playstore.png') }}" class="m-1 inline-block" alt="Gambar Logo Playstore">
                     </a>
                 </div>
                 <div class="inline-block">
@@ -461,7 +464,7 @@
                 <div class="" id="news" role="tabpanel" aria-labelledby="news-tab">
                     <div class="grid lg:grid-cols-2 grid-cols-1 items-center mt-8 gap-4">
                         <div class="group relative overflow-hidden rounded-md">
-                            <img src="assets/images/food/blog/8.jpg" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
+                            <img src="{{ asset('assets/images/food/blog/8.jpg') }}" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
                             <div class="absolute inset-0 bg-gradient-to-b to-slate-900 via-slate-900/50 from-transparent opacity-0 group-hover:opacity-100 duration-500 ease-in-out"></div>
                             <div class="absolute bottom-0 left-0 right-0 p-6 -mb-96 group-hover:mb-0 duration-500 ease-in-out">
                                 <div class="text-center">
@@ -477,7 +480,7 @@
                             <div class="grid grid-cols-1 gap-4">
                                 <div class="group md:flex items-center relative overflow-hidden">
                                     <div class="md:w-[40%] relative overflow-hidden rounded-md">
-                                        <img src="assets/images/food/blog/1.jpg" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
+                                        <img src="{{ asset('assets/images/food/blog/1.jpg') }}" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
                                         <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"></div>
                                         <div class="absolute right-0 top-0 p-4 opacity-0 group-hover:opacity-100 duration-500 ease-in-out">
                                             <a href="#!" class="btn btn-icon text-lg bg-white dark:bg-slate-900 border-0 shadow dark:shadow-gray-800 rounded-full text-red-600/20 hover:text-red-600 focus:text-red-600"><i class="mdi mdi-heart"></i></a>
@@ -491,7 +494,7 @@
                                 </div>
                                 <div class="group md:flex items-center relative overflow-hidden">
                                     <div class="md:w-[40%] relative overflow-hidden rounded-md">
-                                        <img src="assets/images/food/blog/5.jpg" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
+                                        <img src="{{ asset('assets/images/food/blog/5.jpg') }}" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
                                         <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"></div>
                                         <div class="absolute right-0 top-0 p-4 opacity-0 group-hover:opacity-100 duration-500 ease-in-out">
                                             <a href="#!" class="btn btn-icon text-lg bg-white dark:bg-slate-900 border-0 shadow dark:shadow-gray-800 rounded-full text-red-600/20 hover:text-red-600 focus:text-red-600"><i class="mdi mdi-heart"></i></a>
@@ -505,7 +508,7 @@
                                 </div>
                                 <div class="group md:flex items-center relative overflow-hidden">
                                     <div class="md:w-[40%] relative overflow-hidden rounded-md">
-                                        <img src="assets/images/food/blog/4.jpg" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
+                                        <img src="{{ asset('assets/images/food/blog/4.jpg') }}" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
                                         <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"></div>
                                         <div class="absolute right-0 top-0 p-4 opacity-0 group-hover:opacity-100 duration-500 ease-in-out">
                                             <a href="#!" class="btn btn-icon text-lg bg-white dark:bg-slate-900 border-0 shadow dark:shadow-gray-800 rounded-full text-red-600/20 hover:text-red-600 focus:text-red-600"><i class="mdi mdi-heart"></i></a>
@@ -526,10 +529,10 @@
                         <div class="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
                             <div class="md:col-span-5">
                                 <div class="relative">
-                                    <img src="assets/images/smartwatch/1.jpg" class="rounded-md" alt="Gambar Youtube">
+                                    <img src="{{ asset('assets/images/smartwatch/1.jpg') }}" class="rounded-md" alt="Gambar Youtube">
         
                                     <div class="absolute bottom-16 right-0">
-                                        <img src="assets/images/smartwatch/2.jpg" class="rounded-md shadow-md w-48 h-48" alt="Gambar Youtube">
+                                        <img src="{{ asset('assets/images/smartwatch/2.jpg') }}" class="rounded-md shadow-md w-48 h-48" alt="Gambar Youtube">
                                         <div class="absolute bottom-2/4 translate-y-2/4 right-0 left-0 text-center">
                                             <a href="#!" data-type="youtube" data-id="Vx9GOE4kzNI" class="lightbox h-14 w-14 rounded-full shadow-lg inline-flex items-center justify-center bg-white text-indigo-600">
                                                 <i class="mdi mdi-play inline-flex items-center justify-center text-xl"></i>
@@ -553,8 +556,8 @@
                     <div id="grid" class="md:flex justify-center">
                         <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
                             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="./assets/images/dsw/dsw-pajak-01.png" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="./assets/images/dsw/dsw-pajak-01.png" class="" alt="Gambar Infografis">
+                                <a href="{{ asset('assets/images/dsw/dsw-pajak-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
+                                    <img src="{{ asset('assets/images/dsw/dsw-pajak-01.png') }}" class="" alt="Gambar Infografis">
                                 </a>
                                 <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
                                     <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Pajak</a>
@@ -564,8 +567,8 @@
                         </div>
                         <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
                             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="./assets/images/dsw/dsw-kependudukan-01.png" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="./assets/images/dsw/dsw-kependudukan-01.png" class="" alt="Gambar Infografis">
+                                <a href="{{ asset('assets/images/dsw/dsw-kependudukan-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
+                                    <img src="{{ asset('assets/images/dsw/dsw-kependudukan-01.png') }}" class="" alt="Gambar Infografis">
                                 </a>
                                 <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
                                     <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Kependudukan</a>
@@ -575,8 +578,8 @@
                         </div>
                         <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
                             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="./assets/images/dsw/dsw-perizinan-01.png" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="./assets/images/dsw/dsw-perizinan-01.png" class="" alt="Gambar Infografis">
+                                <a href="{{ asset('assets/images/dsw/dsw-perizinan-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
+                                    <img src="{{ asset('assets/images/dsw/dsw-perizinan-01.png') }}" class="" alt="Gambar Infografis">
                                 </a>
                                 <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
                                     <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Perizinan</a>
@@ -586,8 +589,8 @@
                         </div>
                         <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
                             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="./assets/images/dsw/dsw-kesehatan-01.png" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="./assets/images/dsw/dsw-kesehatan-01.png" class="" alt="Gambar Infografis">
+                                <a href="{{ asset('assets/images/dsw/dsw-kesehatan-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
+                                    <img src="{{ asset('assets/images/dsw/dsw-kesehatan-01.png') }}" class="" alt="Gambar Infografis">
                                 </a>
                                 <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
                                     <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Kesehatan</a>
@@ -597,8 +600,8 @@
                         </div>
                         <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
                             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="./assets/images/dsw/dsw-peta-01.png" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="./assets/images/dsw/dsw-peta-01.png" class="" alt="Gambar Infografis">
+                                <a href="{{ asset('assets/images/dsw/dsw-peta-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
+                                    <img src="{{ asset('assets/images/dsw/dsw-peta-01.png') }}" class="" alt="Gambar Infografis">
                                 </a>
                                 <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
                                     <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Peta</a>
@@ -608,8 +611,8 @@
                         </div>
                         <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
                             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="./assets/images/dsw/dsw-loker-01.png" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="./assets/images/dsw/dsw-loker-01.png" class="" alt="Gambar Infografis">
+                                <a href="{{ asset('assets/images/dsw/dsw-loker-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
+                                    <img src="{{ asset('assets/images/dsw/dsw-loker-01.png') }}" class="" alt="Gambar Infografis">
                                 </a>
                                 <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
                                     <a href="portfolio-detail-four.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Lowongan Kerja</a>
@@ -619,8 +622,8 @@
                         </div>
                         <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
                             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="./assets/images/dsw/dsw-pdam-pln-01.png" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="./assets/images/dsw/dsw-pdam-pln-01.png" class="" alt="Gambar Infografis">
+                                <a href="{{ asset('assets/images/dsw/dsw-pdam-pln-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
+                                    <img src="{{ asset('assets/images/dsw/dsw-pdam-pln-01.png') }}" class="" alt="Gambar Infografis">
                                 </a>
                                 <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
                                     <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">PDAM & PLN</a>
@@ -630,8 +633,8 @@
                         </div>
                         <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
                             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="./assets/images/dsw/dsw-aspirasi-01.png" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="./assets/images/dsw/dsw-aspirasi-01.png" class="" alt="Gambar Infografis">
+                                <a href="{{ asset('assets/images/dsw/dsw-aspirasi-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
+                                    <img src="{{ asset('assets/images/dsw/dsw-aspirasi-01.png') }}" class="" alt="Gambar Infografis">
                                 </a>
                                 <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
                                     <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Aspirasi</a>
@@ -654,8 +657,8 @@
             <div class="tiny-slide">
                 <div class="card border-0 rounded-0">
                     <div class="card-body p-0">
-                        <a href="assets/images/food/1.jpg" class="lightbox d-inline-block" title="">
-                            <img src="assets/images/food/1.jpg" class="" alt="Insta Post">
+                        <a href="{{ asset('assets/images/food/1.jpg') }}" class="lightbox d-inline-block" title="">
+                            <img src="{{ asset('assets/images/food/1.jpg') }}" class="" alt="Insta Post">
                             <div class="overlay bg-dark"></div>
                         </a>
                     </div>
@@ -664,8 +667,8 @@
             <div class="tiny-slide">
                 <div class="card border-0 rounded-0">
                     <div class="card-body p-0">
-                        <a href="assets/images/bg/smart-city.png" class="lightbox d-inline-block" title="">
-                            <img src="assets/images/bg/smart-city.png" class="" alt="Gambar Tautan Eksternal">
+                        <a href="{{ asset('assets/images/bg/smart-city.png') }}" class="lightbox d-inline-block" title="">
+                            <img src="{{ asset('assets/images/bg/smart-city.png') }}" class="" alt="Gambar Tautan Eksternal">
                             <div class="overlay bg-dark"></div>
                         </a>
                     </div>
@@ -674,8 +677,8 @@
             <div class="tiny-slide">
                 <div class="card border-0 rounded-0">
                     <div class="card-body p-0">
-                        <a href="assets/images/bg/dsw.png" class="lightbox d-inline-block" title="">
-                            <img src="assets/images/bg/dsw.png" class="" alt="Gambar Tautan Eksternal">
+                        <a href="{{ asset('assets/images/bg/dsw.png') }}" class="lightbox d-inline-block" title="">
+                            <img src="{{ asset('assets/images/bg/dsw.png') }}" class="" alt="Gambar Tautan Eksternal">
                             <div class="overlay bg-dark"></div>
                         </a>
                     </div>
@@ -684,8 +687,8 @@
             <div class="tiny-slide">
                 <div class="card border-0 rounded-0">
                     <div class="card-body p-0">
-                        <a href="assets/images/bg/depok-sigap.png" class="lightbox d-inline-block" title="">
-                            <img src="assets/images/bg/depok-sigap.png" class="" alt="Gambar Tautan Eksternal">
+                        <a href="{{ asset('assets/images/bg/depok-sigap.png') }}" class="lightbox d-inline-block" title="">
+                            <img src="{{ asset('assets/images/bg/depok-sigap.png') }}" class="" alt="Gambar Tautan Eksternal">
                             <div class="overlay bg-dark"></div>
                         </a>
                     </div>
@@ -694,17 +697,15 @@
             <div class="tiny-slide">
                 <div class="card border-0 rounded-0">
                     <div class="card-body p-0">
-                        <a href="assets/images/bg/smart-healthy-city.png" class="lightbox d-inline-block" title="">
-                            <img src="assets/images/bg/smart-healthy-city.png" class="" alt="Gambar Tautan Eksternal">
+                        <a href="{{ asset('assets/images/bg/smart-healthy-city.png') }}" class="lightbox d-inline-block" title="">
+                            <img src="{{ asset('assets/images/bg/smart-healthy-city.png') }}" class="" alt="Gambar Tautan Eksternal">
                             <div class="overlay bg-dark"></div>
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="absolute top-2/4 -translate-y-2/4 left-2/4 -translate-x-2/4 text-center hidden md:block">
-            <a href="https://www.instagram.com/shreethemes/" target="_blank" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Follow Now</a>
         </div>
     </div>
 </div>
 <!-- END::External Links -->
+@endsection

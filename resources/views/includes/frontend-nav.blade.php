@@ -1,7 +1,7 @@
 <!-- BEGIN::Navbar -->
 <nav id="topnav" class="defaultscroll is-sticky justify-start nav-light">
     <div class="container">
-        <a class="logo pl-0" href="index.html">
+        <a class="logo pl-0" href="{{ route('beranda') }}">
             <span class="inline-block dark:hidden">
                 <img src="{{ asset('assets/images/brand/lambang-depok_dark.png') }}" class="l-dark" height="24" alt="Lambang Kota Depok">
                 <img src="{{ asset('assets/images/brand/lambang-depok_light.png') }}" class="l-light" height="24" alt="Lambang Kota Depok">
@@ -33,8 +33,8 @@
                     <ul class="submenu">
                         <li>
                             <ul>
-                                <li><a href="history.html" class="sub-menu-item">Sejarah</a></li>
-                                <li><a href="symbol.html" class="sub-menu-item">Lambang Identitas</a></li>
+                                <li><a href="{{ route('content', 'sejarah') }}" class="sub-menu-item">Sejarah</a></li>
+                                <li><a href="{{ route('content', 'lambang-identitas') }}" class="sub-menu-item">Lambang Identitas</a></li>
                                 <li><a href="iconical.html" class="sub-menu-item">Ikon Kota</a></li>
                                 <li><a href="culture.html" class="sub-menu-item">Seni Budaya</a></li>
                                 <li><a href="award.html" class="sub-menu-item">Penghargaan</a></li>
@@ -61,7 +61,7 @@
                     </ul>
                 </li>
                 <li class="has-submenu parent-parent-menu-item">
-                    <a href="javascript:void(0)">Informasi dan Layanan</a><span class="menu-arrow"></span>
+                    <a href="javascript:void(0)">Informasi & Layanan</a><span class="menu-arrow"></span>
                     <ul class="submenu">
                         <li>
                             <ul>
