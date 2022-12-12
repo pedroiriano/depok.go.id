@@ -37,10 +37,10 @@
                                 <li><a href="{{ route('content', 'lambang-identitas') }}" class="sub-menu-item">Lambang Identitas</a></li>
                                 <li><a href="{{ route('content', 'ikon-kota') }}" class="sub-menu-item">Ikon Kota</a></li>
                                 <li><a href="{{ route('content', 'seni-budaya') }}" class="sub-menu-item">Seni Budaya</a></li>
-                                <li><a href="award.html" class="sub-menu-item">Penghargaan</a></li>
-                                <li><a href="demographic.html" class="sub-menu-item">Demografi</a></li>
-                                <li><a href="education.html" class="sub-menu-item">Pendidikan</a></li>
-                                <li><a href="geography.html" class="sub-menu-item">Geografi</a></li>
+                                <li><a href="{{ route('content', 'penghargaan') }}" class="sub-menu-item">Penghargaan</a></li>
+                                <li><a href="{{ route('demografi') }}" class="sub-menu-item">Demografi</a></li>
+                                <li><a href="{{ route('pendidikan') }}" class="sub-menu-item">Pendidikan</a></li>
+                                <li><a href="{{ route('content', 'geografi') }}" class="sub-menu-item">Geografi</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -50,12 +50,12 @@
                     <ul class="submenu">
                         <li>
                             <ul>
-                                <li><a href="#" class="sub-menu-item">Visi & Misi Kota</a></li>
-                                <li><a href="#" class="sub-menu-item">Pimpinan Daerah</a></li>
-                                <li><a href="#" class="sub-menu-item">Perangkat Daerah</a></li>
-                                <li><a href="#" class="sub-menu-item">Kecamatan</a></li>
-                                <li><a href="#" class="sub-menu-item">Kelurahan</a></li>
-                                <li><a href="#" class="sub-menu-item">Struktur Daerah</a></li>
+                                <li><a href="{{ route('content', 'visi-misi') }}" class="sub-menu-item">Visi & Misi Kota</a></li>
+                                <li><a href="{{ route('pimpinan') }}" class="sub-menu-item">Pimpinan Daerah</a></li>
+                                <li><a href="{{ route('content', 'dinas') }}" class="sub-menu-item">Perangkat Daerah</a></li>
+                                <li><a href="{{ route('content', 'kecamatan') }}" class="sub-menu-item">Kecamatan</a></li>
+                                <li><a href="{{ route('content', 'kelurahan') }}" class="sub-menu-item">Kelurahan</a></li>
+                                <li><a href="{{ route('content', 'struktur-daerah') }}" class="sub-menu-item">Struktur Daerah</a></li>
                             </ul>
                         </li>
                     </ul>
