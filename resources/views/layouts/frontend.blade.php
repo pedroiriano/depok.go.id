@@ -17,6 +17,7 @@
     @include('includes.frontend-nav')
     @yield('content')
     @include('includes.frontend-footer')
+    @stack('announcement-widget')
     @include('includes.frontend-js')
 </body>
 </html>

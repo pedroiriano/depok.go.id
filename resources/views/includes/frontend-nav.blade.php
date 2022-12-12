@@ -35,8 +35,8 @@
                             <ul>
                                 <li><a href="{{ route('content', 'sejarah') }}" class="sub-menu-item">Sejarah</a></li>
                                 <li><a href="{{ route('content', 'lambang-identitas') }}" class="sub-menu-item">Lambang Identitas</a></li>
-                                <li><a href="iconical.html" class="sub-menu-item">Ikon Kota</a></li>
-                                <li><a href="culture.html" class="sub-menu-item">Seni Budaya</a></li>
+                                <li><a href="{{ route('content', 'ikon-kota') }}" class="sub-menu-item">Ikon Kota</a></li>
+                                <li><a href="{{ route('content', 'seni-budaya') }}" class="sub-menu-item">Seni Budaya</a></li>
                                 <li><a href="award.html" class="sub-menu-item">Penghargaan</a></li>
                                 <li><a href="demographic.html" class="sub-menu-item">Demografi</a></li>
                                 <li><a href="education.html" class="sub-menu-item">Pendidikan</a></li>
