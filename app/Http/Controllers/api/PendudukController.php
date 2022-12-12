@@ -5,8 +5,8 @@ namespace App\Http\Controllers\api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use App\Kecamatan;
-use App\Kelurahan;
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use Illuminate\Support\Facades\Cache;
 
 class PendudukController extends Controller
