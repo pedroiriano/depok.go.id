@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@push('datatables-css')
+@push('css')
 <!-- BEGIN::Data Tables -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css" crossorigin="anonymous">
 <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -40,7 +40,7 @@
 <!-- END::History -->
 @endsection
 
-@push('datatables-js')
+@push('js')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" crossorigin="anonymous"></script>
