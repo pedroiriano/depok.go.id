@@ -1,113 +1,151 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div class="jumbotron jumbotron-fluid banner" style="background-image: url({{ asset('img/content/demografi.png') }})">
-</div>
-
-<div class="container-fluid">
+<!-- BEGIN::Header -->
+<section class="relative table w-full py-16 lg:py-24 bg-center bg-no-repeat bg-fixed" style="background-image: url({{ asset('img/content/demografi.png') }}); background-size: cover;">
+    <div class="absolute inset-0 bg-black opacity-80"></div>
     <div class="container">
-        <h1 class="display-3 pt-4">Demografi</h1>
-        <h6 class="h6 pb-4">Sumber data: Disdukcapil Kota Depok Tahun 2020 Semester 1</h6>
-        <div class="row pb-4">
-            <div class="col-md-12">
-                <div class="card acik-renk-form">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group ">
-                                    <select name="kecamatan" id="kecamatan" class="custom-select">
-                                        <option value="0">Semua Kecamatan</option>
-                                        @foreach($kecamatan as $kec)
-                                            <option value="{{ $kec->id }}">{{ $kec->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group ">
-                                    <select name="kelurahan" id="kelurahan" class="custom-select">
-                                        <option value="0">Semua Kelurahan</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <button type="button" class="btn btn-info  pl-5 pr-5" id="submit">Pilih</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 pb-8 text-center mt-10">
+            <h3 class="md:text-4xl text-3xl md:leading-normal leading-normal font-medium text-white">Demografi</h3>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="h5" id="total-penduduk"></h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-2 shadow w-100">
-                            <div class="card-body">
-                                <h6 class="pb-3">Jenis Kelamin</h6>
-                                <h6 class="text-muted text-center" id="kelurahan-label"></h6>
-                                <div class="px-5">
-                                    <canvas id="kelamin-chart" width="200" height="200"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-2 shadow w-100">
-                            <div class="card-body">
-                                <h6 class="pb-3">Agama</h6>
-                                <div class="px-5">
-                                    <canvas id="agama-chart" width="200" height="200"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-2 shadow w-100">
-                            <div class="card-body">
-                                <h6 class="pb-3">Pendidikan</h6>
-                                <canvas id="pendidikan-chart" width="200" height="200"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-2 shadow w-100">
-                            <div class="card-body">
-                                <h6 class="pb-3">Status Kawin</h6>
-                                <canvas id="status-kawin-chart" width="200" height="200"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card mb-2 shadow w-100">
-                            <div class="card-body">
-                                <h6 class="pb-3">Kelompok Umur</h6>
-                                <canvas id="kelompok-umur-chart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card mb-2 shadow w-100">
-                            <div class="card-body">
-                                <h6 class="pb-3">Pekerjaan</h6>
-                                <canvas id="pekerjaan-chart" height="500"></canvas>
-                            </div>
-                        </div>
-                    </div>
+    </div>
+    <div class="absolute text-center z-10 bottom-5 right-0 left-0 mx-3">
+        <ul class="breadcrumb tracking-[0.5px] breadcrumb-light mb-0 inline-block">
+            <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><a href="/">Depok</a></li>
+            <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white" aria-current="page">Demografi</li>
+        </ul>
+    </div>
+</section>
+<!-- END::Header -->
+
+<!-- BEGIN::Demographic -->
+<section class="relative md:py-24 py-16">
+    <div class="container">
+        <div class="md:flex items-center justify-center">
+            <div class="md:w-full">
+                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
+                    <h5 class="text-xl font-semibold">Sumber Data: DISDUKCAPIL Kota Depok Tahun 2020 Semester 1</h5>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="container mt-4">
+        <div class="md:flex items-center justify-center">
+            <div class="md:w-full">
+                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
+                    <form class="w-full max-w-sm">
+                        <div class="flex flex-wrap -mx-3 mb-2">
+                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                <div class="relative">
+                                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="kecamatan" id="kecamatan" aria-label="Pilihan Kecamatan">
+                                        <option value="0">Semua Kecamatan</option>
+                                        @if ($kecamatan === NULL)
+                                            
+                                        @else
+                                            @foreach($kecamatan as $kec)
+                                                <option value="{{ $kec->id }}">{{ $kec->nama }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                <div class="relative">
+                                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="kelurahan" id="kelurahan" aria-label="Pilihan Kelurahan">
+                                        <option value="0">Semua Kelurahan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                <div class="relative">
+                                    <button id="submit" type="button" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xs rounded-md">
+                                        Pilih
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="md:flex items-center justify-center">
+            <div class="md:w-full">
+                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
+                    <h5 id="total-penduduk"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="grid md:grid-cols-2 md:flex items-center justify-center gap-[30px]">
+            <div class="md:w-full">
+                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
+                    <p class="text-slate-400">
+                        <h6 class="pb-3">Jenis Kelamin</h6>
+                        <h6 class="text-muted text-center" id="kelurahan-label"></h6>
+                        <div class="px-5">
+                            <canvas id="kelamin-chart" width="200" height="200"></canvas>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="md:w-full">
+                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
+                    <p class="text-slate-400">
+                        <h6 class="pb-3">Agama</h6>
+                        <div class="px-5">
+                            <canvas id="agama-chart" width="200" height="200"></canvas>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="grid md:grid-cols-2 md:flex items-center justify-center gap-[30px]">
+            <div class="md:w-full">
+                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
+                    <p class="text-slate-400">
+                        <h6 class="pb-3">Pendidikan</h6>
+                        <canvas id="pendidikan-chart" width="200" height="200"></canvas>
+                    </p>
+                </div>
+            </div>
+            <div class="md:w-full">
+                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
+                    <p class="text-slate-400">
+                        <h6 class="pb-3">Status Kawin</h6>
+                        <canvas id="status-kawin-chart" width="200" height="200"></canvas>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="md:flex items-center justify-center">
+            <div class="md:w-full">
+                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
+                    <h6 class="pb-3">Kelompok Umur</h6>
+                    <canvas id="kelompok-umur-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="md:flex items-center justify-center">
+            <div class="md:w-full">
+                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
+                    <h6 class="pb-3">Pekerjaan</h6>
+                    <canvas id="pekerjaan-chart" height="500"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END::Demographic -->
+@endsection
 
 @push('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
@@ -238,4 +276,3 @@
     }
 </script>
 @endpush
-@endsection
