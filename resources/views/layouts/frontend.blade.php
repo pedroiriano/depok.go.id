@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     @include('includes.frontend-meta')
-    @stack('datatables-css')
+    @stack('css')
 </head>
 <body class="font-nunito text-base text-black dark:text-white dark:bg-slate-900">
     <!-- BEGIN::Loader -->
@@ -18,8 +18,8 @@
     @include('includes.frontend-nav')
     @yield('content')
     @include('includes.frontend-footer')
-    @stack('announcement-widget')
+    @stack('widget')
     @include('includes.frontend-js')
-    @stack('datatables-js')
+    @stack('js')
 </body>
 </html>
