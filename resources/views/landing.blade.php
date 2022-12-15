@@ -235,6 +235,7 @@
 <!-- BEGIN::Commodities -->
 <section class="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800" id="commodity">
     <div class="container">
+        @include('includes.komoditas-pasar')
         <div class="grid md:grid-cols-12 grid-cols-1 pb-8 items-end">
             <div class="lg:col-span-8 md:col-span-6 md:text-left text-center">
                 <h3 class="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Harga Komoditas Pasar</h3>
