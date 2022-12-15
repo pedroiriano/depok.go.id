@@ -453,66 +453,8 @@
             </ul>
             <div id="newsInfographicVideo" class="mt-1">
                 <div class="" id="news" role="tabpanel" aria-labelledby="news-tab">
-                    <div class="grid lg:grid-cols-2 grid-cols-1 items-center mt-8 gap-4">
-                        <div class="group relative overflow-hidden rounded-md">
-                            <img src="{{ asset('assets/images/food/blog/8.jpg') }}" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
-                            <div class="absolute inset-0 bg-gradient-to-b to-slate-900 via-slate-900/50 from-transparent opacity-0 group-hover:opacity-100 duration-500 ease-in-out"></div>
-                            <div class="absolute bottom-0 left-0 right-0 p-6 -mb-96 group-hover:mb-0 duration-500 ease-in-out">
-                                <div class="text-center">
-                                    <a href="" class="bg-indigo-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded w-fit mx-auto h-5">Berita</a>
-                                    <a href="food-recipe.html" class="text-white font-semibold hover:text-indigo-600 block text-lg mt-4 duration-500 ease-in-out">Spicy Cauliflower Burgers and Salad Recipe</a>
-                                </div>
-                            </div>
-                            <div class="absolute right-0 top-0 p-4 opacity-0 group-hover:opacity-100 duration-500 ease-in-out">
-                                <a href="#!" class="btn btn-icon text-lg bg-white dark:bg-slate-900 border-0 shadow dark:shadow-gray-800 rounded-full text-red-600/20 hover:text-red-600 focus:text-red-600"><i class="mdi mdi-heart"></i></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="grid grid-cols-1 gap-4">
-                                <div class="group md:flex items-center relative overflow-hidden">
-                                    <div class="md:w-[40%] relative overflow-hidden rounded-md">
-                                        <img src="{{ asset('assets/images/food/blog/1.jpg') }}" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
-                                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"></div>
-                                        <div class="absolute right-0 top-0 p-4 opacity-0 group-hover:opacity-100 duration-500 ease-in-out">
-                                            <a href="#!" class="btn btn-icon text-lg bg-white dark:bg-slate-900 border-0 shadow dark:shadow-gray-800 rounded-full text-red-600/20 hover:text-red-600 focus:text-red-600"><i class="mdi mdi-heart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="md:w-[60%] md:pl-4 pt-4 md:pt-0">
-                                        <a href="" class="bg-indigo-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded w-fit mx-auto h-5">Berita</a>
-                                        <a href="food-recipe.html" class="block hover:text-indigo-600 text-lg font-semibold mt-3">Change Your Strategy: Find a Business Consultant</a>
-                                        <span class="text-slate-400 block mt-3"><i class="uil uil-calendar-alt"></i> 14th July 2022</span>
-                                    </div>
-                                </div>
-                                <div class="group md:flex items-center relative overflow-hidden">
-                                    <div class="md:w-[40%] relative overflow-hidden rounded-md">
-                                        <img src="{{ asset('assets/images/food/blog/5.jpg') }}" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
-                                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"></div>
-                                        <div class="absolute right-0 top-0 p-4 opacity-0 group-hover:opacity-100 duration-500 ease-in-out">
-                                            <a href="#!" class="btn btn-icon text-lg bg-white dark:bg-slate-900 border-0 shadow dark:shadow-gray-800 rounded-full text-red-600/20 hover:text-red-600 focus:text-red-600"><i class="mdi mdi-heart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="md:w-[60%] md:pl-4 pt-4 md:pt-0">
-                                        <a href="" class="bg-indigo-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded w-fit mx-auto h-5">Berita</a>
-                                        <a href="food-recipe.html" class="block hover:text-indigo-600 text-lg font-semibold mt-3">Creamy Garlic Parmesan Chicken Salad</a>
-                                        <span class="text-slate-400 block mt-3"><i class="uil uil-calendar-alt"></i> 14th July 2022</span>
-                                    </div>
-                                </div>
-                                <div class="group md:flex items-center relative overflow-hidden">
-                                    <div class="md:w-[40%] relative overflow-hidden rounded-md">
-                                        <img src="{{ asset('assets/images/food/blog/4.jpg') }}" class="group-hover:scale-105 duration-500 ease-in-out" alt="Gambar Berita">
-                                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"></div>
-                                        <div class="absolute right-0 top-0 p-4 opacity-0 group-hover:opacity-100 duration-500 ease-in-out">
-                                            <a href="#!" class="btn btn-icon text-lg bg-white dark:bg-slate-900 border-0 shadow dark:shadow-gray-800 rounded-full text-red-600/20 hover:text-red-600 focus:text-red-600"><i class="mdi mdi-heart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="md:w-[60%] md:pl-4 pt-4 md:pt-0">
-                                        <a href="" class="bg-indigo-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded w-fit mx-auto h-5">Berita</a>
-                                        <a href="food-recipe.html" class="block hover:text-indigo-600 text-lg font-semibold mt-3">Bourbon Street Rib-Eye Steak With Cheese</a>
-                                        <span class="text-slate-400 block mt-3"><i class="uil uil-calendar-alt"></i> 14th July 2022</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="berita-wrapper" class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 mt-8 gap-[30px]">
+                        {{-- Ajax News Content --}}
                     </div>
                 </div>
                 <div class="hidden" id="video" role="tabpanel" aria-labelledby="video-tab">
@@ -545,7 +487,10 @@
                 </div>
                 <div class="hidden" id="infographic" role="tabpanel" aria-labelledby="infographic-tab">
                     <div id="grid" class="md:flex justify-center">
-                        <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
+                        <div id="infografis-wrapper">
+
+                        </div>
+                        {{-- <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
                             <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
                                 <a href="{{ asset('assets/images/dsw/dsw-pajak-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
                                     <img src="{{ asset('assets/images/dsw/dsw-pajak-01.png') }}" class="" alt="Gambar Infografis">
@@ -632,7 +577,7 @@
                                     <h6 class="text-slate-400">DSW</h6>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -786,30 +731,7 @@
                 console.log(data)
                 $.each(data, function(index, item){
                     $('#infografis-wrapper').append(
-                        '<div class="col-6">' +
-                            '<a href="#" data-target="#modal-infografis-'+ item.id +'" data-toggle="modal">'+
-                            '<img src="' + item.src + '" alt="" class="img-fluid rounded">' +
-                            '<h6 class="h6 mt-2 mb-5" style="font-size:18px">' + item.nama + '</h6>' +
-                            '</a>'+
-                        '</div>'+
-                        '<div class="modal fade" id="modal-infografis-'+ item.id +'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">'+
-                            '<div class="modal-dialog modal-md" role="document">'+
-                                '<div class="modal-content">'+
-                                    '<div class="modal-header">'+
-                                        '<h5 class="modal-title" id="exampleModalLabel">'+ item.nama +'</h5>'+
-                                        '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'+
-                                        '<span aria-hidden="true">&times;</span>'+
-                                        '</button>'+
-                                    '</div>'+
-                                    '<div class="modal-body text-center">'+
-                                        '<img src="' + item.src + '" alt="" class="img-fluid rounded">' +
-                                    '</div>'+
-                                    '<div class="modal-footer">'+
-                                        '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'+
-                                    '</div>'+
-                                '</div>'+
-                            '</div>'+
-                        '</div>'
+                        '<div class="lg:w-1/5 md:w-1/3 p-1 picture-item"><div class="group relative block overflow-hidden rounded-md transition-all duration-500"><a href="' + item.src + '" class="lightbox transition-all duration-500 group-hover:scale-105" title=""><img src="' + item.src + '" class="" alt="Gambar Infografis"></a><div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800"><a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">' + item.nama + '</a><h6 class="text-slate-400">'+ item.id +'</h6></div></div></div>'
                     );
                 });
                 $('#infografis-loading').addClass('d-none');
@@ -989,20 +911,7 @@
                 $.each(data.berita, function(index, item){
                     var desc = item.isi;
                     $('#berita-wrapper').append(
-                        '<div class="row py-3">' +
-                            '<div class="col-4">' +
-                                '<a href="'+ item.link +'" target="_blank">' +
-                                '<img src="' + item.image + '" alt="" class="img-fluid rounded">' +
-                                '</a>' +
-                            '</div>' +
-                            '<div class="col">' +
-                                '<a href="'+ item.link +'" target="_blank" style="color:#1D4F88">'+
-                                '<h6 class="h6" style="font-size:18px">' + item.title + '</h6>' +
-                                '</a>' +
-                                '<small class="text-muted">' + item.date + '</small>' +
-                                '<p class="text-muted">' + desc.slice(0, 120) + '...</p>' +
-                            '</div>' +
-                        '</div>'
+                        '<div class="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden"><img src="' + item.image + '" alt="Gambar Berita"><div class="content p-6"><a href="'+ item.link +'" target="_blank" class="title h5 text-lg font-medium hover:text-indigo-600 duration-500 ease-in-out">' + item.title + '</a><p class="text-slate-400 mt-3">' + desc.slice(0, 120) + '...</p><h6>' + item.date + '</h6><div class="mt-4"><a href="'+ item.link +'" target="_blank" class="btn btn-link font-normal hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a></div></div></div>'
                     );
                     $('#berita-indicators').append(
                         '<li data-target="#carouselBerita" data-slide-to="'+ index +'" class="active"></li>'
