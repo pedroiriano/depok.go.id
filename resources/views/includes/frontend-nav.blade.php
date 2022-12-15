@@ -66,7 +66,7 @@
                         <li>
                             <ul>
                                 <li><a href="#" class="sub-menu-item">Sekilas Depok</a></li>
-                                <li><a href="#" class="sub-menu-item">Pengumuman</a></li>
+                                <li><a href="{{ route('list.pengumuman') }}" class="sub-menu-item">Pengumuman</a></li>
                                 <li><a href="#" class="sub-menu-item">Infografis</a></li>
                                 <li><a href="http://cctv.depok.go.id:8083" class="sub-menu-item" target="_blank">CCTV</a></li>
                                 <li><a href="https://jdih.depok.go.id/" class="sub-menu-item" target="_blank">Produk Hukum</a></li>

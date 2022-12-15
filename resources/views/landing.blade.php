@@ -53,7 +53,7 @@
                                                 <div class="relative">
                                                     <img src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="Gambar Pengumuman">
                                                     <div class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-500 ease-in-out">
-                                                        <a href="" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Selengkapnya</a>
+                                                        <a href="{{ route('list.pengumuman') }}" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Selengkapnya</a>
                                                     </div>
                                                 </div>
                                             </div>
