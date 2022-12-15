@@ -759,3 +759,344 @@
 </div>
 <!-- END::Modal GPR -->
 @endpush
+
+@push('js')
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+
+<script type="text/javascript">
+    function getNumberWithDot(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+    if ($(window).width() < 514) {
+        $('#data-all-wrapper').removeClass('col-12');
+    } else {
+        $('#data-all-wrapper').addClass('col-12');
+    }
+    $(document).ready(function(){
+        $('#pengumuman-modal').modal('show');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/api/infografis',
+            dataType: 'json',
+            success: function(data){
+                console.log(data)
+                $.each(data, function(index, item){
+                    $('#infografis-wrapper').append(
+                        '<div class="col-6">' +
+                            '<a href="#" data-target="#modal-infografis-'+ item.id +'" data-toggle="modal">'+
+                            '<img src="' + item.src + '" alt="" class="img-fluid rounded">' +
+                            '<h6 class="h6 mt-2 mb-5" style="font-size:18px">' + item.nama + '</h6>' +
+                            '</a>'+
+                        '</div>'+
+                        '<div class="modal fade" id="modal-infografis-'+ item.id +'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">'+
+                            '<div class="modal-dialog modal-md" role="document">'+
+                                '<div class="modal-content">'+
+                                    '<div class="modal-header">'+
+                                        '<h5 class="modal-title" id="exampleModalLabel">'+ item.nama +'</h5>'+
+                                        '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'+
+                                        '<span aria-hidden="true">&times;</span>'+
+                                        '</button>'+
+                                    '</div>'+
+                                    '<div class="modal-body text-center">'+
+                                        '<img src="' + item.src + '" alt="" class="img-fluid rounded">' +
+                                    '</div>'+
+                                    '<div class="modal-footer">'+
+                                        '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'
+                    );
+                });
+                $('#infografis-loading').addClass('d-none');
+                $('#infografis-wrapper').removeClass('d-none');
+                $('#infografis-other-link').removeClass('d-none');
+            }
+        });
+        $.ajax({
+            url: '/api/harga-komoditas',
+            dataType: 'json',
+            success: function (data){
+                $('#pangan-loading').addClass('d-none');
+                $.each(data, function(index, item){
+                    if(item.selisih == null){
+                        text = "text-primary";
+                        desc = " Harga stabil ";
+                        icon = '<i class="fas fa-equals"></i>';    
+                    }
+                    else if (item.selisih.slice(0,1) == '-') {
+                        text = "text-success";
+                        desc = " Harga turun ";
+                        icon = '<i class="fas fa-arrow-down"></i>';
+                    }else if(item.selisih == '0'){
+                        text = "text-primary";
+                        desc = " Harga stabil ";
+                        icon = '<i class="fas fa-equals"></i>';
+                    }
+                    else{
+                        text = "text-danger";
+                        desc = " Harga naik ";
+                        icon = '<i class="fas fa-arrow-up"></i>';
+                    }
+                    $('#pangan-wrapper').append(
+                        '<div class="item">' +
+                            '<div class="card border">' +
+                                '<div class="card-body">' +
+                                    '<img src="'+ item.src +'" alt="" class="img-komoditi">' +
+                                    '<div class="card-body-header" style="height:190px">' +
+                                        '<h6 id="pangan-komoditi" class="pt-2" style="font-size: .875rem">' + item.komoditi +'</h6>' +
+                                    '</div>' +
+                                    '<h6 class="font-weight-bold" style="font-size: 1rem">Rp. ' + 
+                                        parseInt(item.price_today).toLocaleString() + '<small class="font-weight-bold">/Kg</small>' + 
+                                    '</h6>' +
+                                    '<h6 class="'+ text +'">(' + 
+                                    icon + desc + parseInt(item.selisih).toLocaleString().replace('-', '') + ')' + 
+                                    '</h6>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>'
+                    );
+                });
+                $("#pangan-wrapper").owlCarousel({
+                    loop:true,
+                    margin:10,
+                    nav:true,
+                    autoplay:true,
+                    autoplayTimeout:2000,
+                    autoplayHoverPause:true,
+                    dots: false,
+                    navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+                    responsive:{
+                        0:{
+                            items:2
+                        },
+                        600:{
+                            items:3
+                        },
+                        1000:{
+                            items:5
+                        }
+                    }
+                });
+            }
+        });
+
+
+        $.ajax({
+            url: '/api/covid',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#covid-last-update').text(data.LastUpdate);
+                $('#covid-konfirmasi').text(getNumberWithDot(data.positiftotal));
+                $('#covid-aktif').text(getNumberWithDot(data.positifaktif));
+                $('#covid-sembuh').text(getNumberWithDot(data.positifsembuh));
+                $('#covid-meninggal').text(getNumberWithDot(data.positifmeninggal));
+                $('#covid-kontakerat-total').text(getNumberWithDot(data.kontakerattotal));
+                $('#covid-kontakerat-selesai').text(getNumberWithDot(data.kontakeratselesai));
+                $('#covid-kontakerat-pantau').text(getNumberWithDot(data.kontakeratkarantina));
+                $('#covid-suspek-total').text(getNumberWithDot(data.suspektotal));
+                $('#covid-suspek-selesai').text(getNumberWithDot(data.suspekselesai));
+                $('#covid-suspek-pantau').text(getNumberWithDot(data.suspekperawatan));
+                $('#covid-probabel-total').text(getNumberWithDot(data.probabeltotal));
+                $('#covid-probabel-selesai').text(getNumberWithDot(data.probabelselesai));
+                $('#covid-probabel-pengawasan').text(getNumberWithDot(data.probabelpengawasan));
+            }
+        });
+        $.ajax({
+            url: '/api/pendidikan',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#pendidikan-sd').text(data.SD[0].jumlah);
+                $('#pendidikan-smp').text(data.SMP[0].jumlah);
+                $('#pendidikan-sma').text(data.SMA[0].jumlah);
+            }
+        });
+        $.ajax({
+            url: '/api/kependudukan',
+            dataType: 'json',
+            success: function (data){
+                pria = (data.Pria / data.Jumlah_Penduduk[0].Total * 100).toFixed(1);
+                wanita = (data.Wanita / data.Jumlah_Penduduk[0].Total * 100).toFixed(1);
+                $('#jumlah-penduduk').text(parseFloat(data.Jumlah_Penduduk[0].Total  + ' Orang').toLocaleString(window.document.documentElement.lang)
+                );
+                $('#jumlah-pria').append(
+                    pria + '<small class="">%</small>'
+                );
+                $('#jumlah-wanita').append(
+                    wanita + '<small class="">%</small>'
+                );
+            }
+        });
+        $.ajax({
+            url: '/api/kunjungan',
+            dataType: 'json',
+            success:function(data){
+                console.log("ini jumlah kunjungan" + data.puskesmas);
+                $('#kunjungan-rsud').text(parseFloat(data.rsud).toLocaleString(window.document.documentElement.lang));
+                $('#kunjungan-puskesmas').text(parseFloat(data.puskesmas).toLocaleString(window.document.documentElement.lang));
+            }
+        })
+
+        $.ajax({
+            url: '/api/pbb',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#pbb').text(data);
+            }
+        });
+        $.ajax({
+            url: '/api/bphtb',
+            dataType: 'json',
+            success: function (data){
+                console.log(data);
+                $('#bphtb').text(data);
+
+            }
+        });
+        $.ajax({
+            url: '/api/kesehatan',
+            dataType: 'json',
+            success: function (data){
+                $('#penyakit-loading').addClass('d-none');
+                $('#penyakit-card').removeClass('d-none');
+                $('#penyakit-0').text(data.data[0].penyakit);
+                $('#penyakit-0-desc').text('Jumlah pasien ' + data.data[0].total + ' orang');
+                $('#penyakit-1').text(data.data[1].penyakit);
+                $('#penyakit-1-desc').text('Jumlah pasien ' + data.data[1].total + ' orang');
+                $('#penyakit-2').text(data.data[2].penyakit);
+                $('#penyakit-2-desc').text('Jumlah pasien ' + data.data[2].total + ' orang');
+                $('#penyakit-3').text(data.data[3].penyakit);
+                $('#penyakit-3-desc').text('Jumlah pasien ' + data.data[3].total + ' orang');
+                $('#penyakit-4').text(data.data[4].penyakit);
+                $('#penyakit-4-desc').text('Jumlah pasien ' + data.data[4].total + ' orang');
+                $('#data-loading').addClass('d-none');
+                $('#data-all-wrapper').addClass('d-flex align-items-stretch');
+                $('#data-wrapper').removeClass('d-none');
+            }
+        });
+        $.ajax({
+            url: '/api/berita',
+            dataType: 'json',
+            success: function (data) {
+                $('#berita-carousel-wrapper').empty();
+                $.each(data.berita, function(index, item){
+                    var desc = item.isi;
+                    $('#berita-wrapper').append(
+                        '<div class="row py-3">' +
+                            '<div class="col-4">' +
+                                '<a href="'+ item.link +'" target="_blank">' +
+                                '<img src="' + item.image + '" alt="" class="img-fluid rounded">' +
+                                '</a>' +
+                            '</div>' +
+                            '<div class="col">' +
+                                '<a href="'+ item.link +'" target="_blank" style="color:#1D4F88">'+
+                                '<h6 class="h6" style="font-size:18px">' + item.title + '</h6>' +
+                                '</a>' +
+                                '<small class="text-muted">' + item.date + '</small>' +
+                                '<p class="text-muted">' + desc.slice(0, 120) + '...</p>' +
+                            '</div>' +
+                        '</div>'
+                    );
+                    $('#berita-indicators').append(
+                        '<li data-target="#carouselBerita" data-slide-to="'+ index +'" class="active"></li>'
+                    );
+                    if (index == 0) {
+                        asd = " active";
+                    }else{
+                        asd = "";
+                    }
+                    $('#berita-carousel-wrapper').append(
+                        '<div class="carousel-item h-100 '+ asd +'">' +
+                        '<a href="'+ item.link +'" target="_blank">' +
+                            '<img class="d-block w-100 h-100" src="'+ item.image +'" style="object-fit: cover;">' +
+                                '<div class="carousel-caption" style="background-color: rgba(0,0,0,0.7);left: 0;right: 0;bottom: 0;text-align: left;padding-top:20px">' + 
+                                    '<span class="ml-3 text-light pb-3" style="font-size:14px">'+ item.title.slice(0,35) +' ...</span>' +
+                                '</div>' +
+                            '</div>' +
+                        '</a>'
+                    )
+                });
+                $('#berita-loading').addClass('d-none');
+                $('#berita-other-link').removeClass('d-none');
+            },
+            error: function() {}
+        });
+        $.ajax({
+            url: '/api/cuacaBMKG',
+            success: function(data) {
+                $('#suhuHariIni').html(data.suhu[0].value + ' <small>&deg;C</small>');
+                $('#desc-weather').html(data.suhu[0].icon.desc);
+                $('#icon-weather-0').addClass(data.suhu[0].icon.icon);
+                for(i = 1; i < data.suhu.length; i++){
+                    $('#weather-' + i).html(data.suhu[i].value + ' <small>&deg;C</small>');
+                    $('#time-' + i).html(data.suhu[i].time);
+                    $('#icon-weather-' + i).addClass(data.suhu[i].icon.icon)
+                }
+            },
+            error: function(){
+
+            }
+        });
+        $.ajax({
+            url: '/api/youtube',
+            success: function(data){
+                $('#youtube-frame').removeClass('d-none');
+                youtubeFrame = 'youtube-frame';
+                $.each(data, function(index, item){
+                    var date = new Date(item.snippet.publishedAt);
+                    var linkYoutube = 'https://www.youtube.com/embed/';
+
+                    $('#youtube-wrapper').append(
+                        '<div class="row py-2">' +
+                            '<div class="col-4">' +
+                                '<a class="alink" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
+                                    '<img src="'+ item.snippet.thumbnails.medium.url +'" class="img-fluid rounded">' +   
+                                '</a>' +
+                            '</div>' +
+                            '<div class="col-8">' +
+                                '<small class="text-muted">' + date + '</small>' +
+                                '<a class="alink" style="color:#1D4F88" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
+                                    '<h6 class="h6" style="font-size:18px">'+ item.snippet.title +'</h6>' +
+                                '</a>'+
+                            '</div>' +
+                        '</div>'
+                    );
+                    $('#youtube-loading').addClass('d-none');
+                });
+            },
+            error: function(){
+
+            }
+        });
+
+        $("#owl-carousel").owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            autoplay:true,
+            autoplayTimeout:2000,
+            autoplayHoverPause:true,
+            dots: false,
+            navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+            responsive:{
+                0:{
+                    items:2
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        });
+    });
+</script>
+@endpush
