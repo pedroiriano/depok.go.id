@@ -233,94 +233,18 @@
 <!-- END::City Showcase -->
 
 <!-- BEGIN::Commodities -->
-<section class="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800" id="commodity">
+<section class="relative md:py-16 py-8 bg-gray-50 dark:bg-slate-800" id="commodity">
     <div class="container">
-        @include('includes.komoditas-pasar')
         <div class="grid md:grid-cols-12 grid-cols-1 pb-8 items-end">
             <div class="lg:col-span-8 md:col-span-6 md:text-left text-center">
                 <h3 class="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Harga Komoditas Pasar</h3>
                 <p class="text-slate-400 max-w-xl">Sumber: Dinas Perdagangan dan Perindustrian Kota Depok</p>
             </div>
-            <div class="lg:col-span-4 md:col-span-6 md:text-right hidden md:block">
-                <a href="" class="btn btn-link text-slate-400 hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Semua Komoditas <i class="uil uil-arrow-right align-middle"></i></a>
-            </div>
         </div>
     </div>
     <div class="container">
-        <div class="grid grid-cols-1 relative">
-            <div class="tiny-five-item">
-                <div class="tiny-slide">
-                    <div class="px-3 py-10 rounded-md shadow dark:shadow-gray-800 group text-center bg-white dark:bg-slate-900 hover:bg-indigo-600/5 dark:hover:bg-indigo-600/5 transition duration-500 m-2">
-                        <div class="w-[84px] h-[84px] bg-indigo-600/5 group-hover:bg-indigo-600 text-indigo-600 group-hover:text-white rounded-full text-3xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-800 transition duration-500 mx-auto">
-                            <i class="uil uil-money-insert"></i>
-                        </div>
-                        <div class="content mt-6">
-                            <a href="" class="title h5 text-lg font-medium hover:text-indigo-600">Pajak</a>
-                            <p class="text-slate-400 mt-3">35 Lesson</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tiny-slide">
-                    <div class="px-3 py-10 rounded-md shadow dark:shadow-gray-800 group text-center bg-white dark:bg-slate-900 hover:bg-indigo-600/5 dark:hover:bg-indigo-600/5 transition duration-500 m-2">
-                        <div class="w-[84px] h-[84px] bg-indigo-600/5 group-hover:bg-indigo-600 text-indigo-600 group-hover:text-white rounded-full text-3xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-800 transition duration-500 mx-auto">
-                            <i class="uil uil-users-alt"></i>
-                        </div>
-                        <div class="content mt-6">
-                            <a href="" class="title h5 text-lg font-medium hover:text-indigo-600">Kependudukan</a>
-                            <p class="text-slate-400 mt-3">20 Lesson</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tiny-slide">
-                    <div class="px-3 py-10 rounded-md shadow dark:shadow-gray-800 group text-center bg-white dark:bg-slate-900 hover:bg-indigo-600/5 dark:hover:bg-indigo-600/5 transition duration-500 m-2">
-                        <div class="w-[84px] h-[84px] bg-indigo-600/5 group-hover:bg-indigo-600 text-indigo-600 group-hover:text-white rounded-full text-3xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-800 transition duration-500 mx-auto">
-                            <i class="uil uil-lock-access"></i>
-                        </div>
-                        <div class="content mt-6">
-                            <a href="" class="title h5 text-lg font-medium hover:text-indigo-600">Perizinan</a>
-                            <p class="text-slate-400 mt-3">35 Lesson</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tiny-slide">
-                    <div class="px-3 py-10 rounded-md shadow dark:shadow-gray-800 group text-center bg-white dark:bg-slate-900 hover:bg-indigo-600/5 dark:hover:bg-indigo-600/5 transition duration-500 m-2">
-                        <div class="w-[84px] h-[84px] bg-indigo-600/5 group-hover:bg-indigo-600 text-indigo-600 group-hover:text-white rounded-full text-3xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-800 transition duration-500 mx-auto">
-                            <i class="uil uil-medical-square"></i>
-                        </div>
-                        <div class="content mt-6">
-                            <a href="" class="title h5 text-lg font-medium hover:text-indigo-600">Kesehatan</a>
-                            <p class="text-slate-400 mt-3">46 Lesson</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tiny-slide">
-                    <div class="px-3 py-10 rounded-md shadow dark:shadow-gray-800 group text-center bg-white dark:bg-slate-900 hover:bg-indigo-600/5 dark:hover:bg-indigo-600/5 transition duration-500 m-2">
-                        <div class="w-[84px] h-[84px] bg-indigo-600/5 group-hover:bg-indigo-600 text-indigo-600 group-hover:text-white rounded-full text-3xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-800 transition duration-500 mx-auto">
-                            <i class="uil uil-map"></i>
-                        </div>
-                        <div class="content mt-6">
-                            <a href="" class="title h5 text-lg font-medium hover:text-indigo-600">Peta</a>
-                            <p class="text-slate-400 mt-3">60 Lesson</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tiny-slide">
-                    <div class="px-3 py-10 rounded-md shadow dark:shadow-gray-800 group text-center bg-white dark:bg-slate-900 hover:bg-indigo-600/5 dark:hover:bg-indigo-600/5 transition duration-500 m-2">
-                        <div class="w-[84px] h-[84px] bg-indigo-600/5 group-hover:bg-indigo-600 text-indigo-600 group-hover:text-white rounded-full text-3xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-800 transition duration-500 mx-auto">
-                            <i class="uil uil-mailbox"></i>
-                        </div>
-                        <div class="content mt-6">
-                            <a href="" class="title h5 text-lg font-medium hover:text-indigo-600">Aspirasi</a>
-                            <p class="text-slate-400 mt-3">05 Lesson</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid md:grid-cols-12 grid-cols-1 md:hidden mt-8">
-            <div class="md:col-span-12 text-center">
-                <a href="" class="btn btn-link text-slate-400 hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Semua Komoditas <i class="uil uil-arrow-right align-middle"></i></a>
-            </div>
+        <div id="pangan-wrapper" class="grid grid-cols-1 relative owl-carousel owl-theme owl-loaded owl-drag z-0">
+            {{-- Commodity Contents --}}
         </div>
     </div>
 </section>
@@ -746,34 +670,35 @@
                 $('#pangan-loading').addClass('d-none');
                 $.each(data, function(index, item){
                     if(item.selisih == null){
-                        text = "text-primary";
+                        text = "text-sm font-bold text-sky-500";
                         desc = " Harga stabil ";
-                        icon = '<i class="fas fa-equals"></i>';    
+                        icon = '<i class="mdi mdi-equal-box"></i>';    
                     }
                     else if (item.selisih.slice(0,1) == '-') {
-                        text = "text-success";
+                        text = "text-sm font-bold text-green-600";
                         desc = " Harga turun ";
-                        icon = '<i class="fas fa-arrow-down"></i>';
+                        icon = '<i class="mdi mdi-arrow-down-bold-box"></i>';
                     }else if(item.selisih == '0'){
-                        text = "text-primary";
+                        text = "text-sm font-bold text-sky-500";
                         desc = " Harga stabil ";
-                        icon = '<i class="fas fa-equals"></i>';
+                        icon = '<i class="mdi mdi-equal-box"></i>';
                     }
                     else{
-                        text = "text-danger";
+                        text = "text-sm font-bold text-red-600";
                         desc = " Harga naik ";
-                        icon = '<i class="fas fa-arrow-up"></i>';
+                        icon = '<i class="mdi mdi-arrow-up-bold-box"></i>';
                     }
                     $('#pangan-wrapper').append(
                         '<div class="item">' +
-                            '<div class="card border">' +
-                                '<div class="card-body">' +
-                                    '<img src="'+ item.src +'" alt="" class="img-komoditi">' +
-                                    '<div class="card-body-header" style="height:190px">' +
-                                        '<h6 id="pangan-komoditi" class="pt-2" style="font-size: .875rem">' + item.komoditi +'</h6>' +
-                                    '</div>' +
-                                    '<h6 class="font-weight-bold" style="font-size: 1rem">Rp. ' + 
-                                        parseInt(item.price_today).toLocaleString() + '<small class="font-weight-bold">/Kg</small>' + 
+                            '<div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">' +
+                                '<div class="relative">' +
+                                    '<img class="max-h-40" src="'+ item.src +'" alt="Gambar Komoditas">' +
+                                '</div>' +
+                                '<div class="p-2 relative">' +
+                                    '<div href="" class="text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">'+ item.komoditi +'</div>' +
+                                    '<h6 class="text-sm font-semibold">Rp. ' + 
+                                        parseInt(item.price_today).toLocaleString() +
+                                        '<small class="font-weight-bold">/Kg</small>' + 
                                     '</h6>' +
                                     '<h6 class="'+ text +'">(' + 
                                     icon + desc + parseInt(item.selisih).toLocaleString().replace('-', '') + ')' + 
@@ -783,6 +708,31 @@
                         '</div>'
                     );
                 });
+                // $('.main-content .owl-carousel').owlCarousel({
+                //     stagePadding: 50,
+                //     loop: true,
+                //     autoplay: true,
+                //     autoplayTimeout: 2000,
+                //     autoplayHoverPause: true,
+                //     margin: 10,
+                //     nav: true,
+                //     navText: [
+                //         '<i class="mdi mdi-chevron-left" aria-hidden="true"></i>',
+                //         '<i class="mdi mdi-chevron-right" aria-hidden="true"></i>'
+                //     ],
+                //     navContainer: '.main-content .custom-nav',
+                //     responsive:{
+                //         0:{
+                //             items: 1
+                //         },
+                //         600:{
+                //             items: 3
+                //         },
+                //         1000:{
+                //             items: 5
+                //         }
+                //     }
+                // });
                 $("#pangan-wrapper").owlCarousel({
                     loop:true,
                     margin:10,
@@ -791,7 +741,7 @@
                     autoplayTimeout:2000,
                     autoplayHoverPause:true,
                     dots: false,
-                    navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+                    navText : ['<i class="mdi mdi-chevron-left"></i>', '<i class="mdi mdi-chevron-right"></i>'],
                     responsive:{
                         0:{
                             items:2
