@@ -377,7 +377,7 @@
             </ul>
             <div id="newsInfographicVideo" class="mt-1">
                 <div class="" id="news" role="tabpanel" aria-labelledby="news-tab">
-                    <div id="berita-wrapper" class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 mt-8 gap-[30px]">
+                    <div id="berita-wrapper" class="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 mt-8 gap-[30px]">
                         {{-- Ajax News Content --}}
                     </div>
                 </div>
@@ -861,7 +861,7 @@
                 $.each(data.berita, function(index, item){
                     var desc = item.isi;
                     $('#berita-wrapper').append(
-                        '<div class="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden"><img src="' + item.image + '" alt="Gambar Berita"><div class="content p-6"><a href="'+ item.link +'" target="_blank" class="title h5 text-lg font-medium hover:text-indigo-600 duration-500 ease-in-out">' + item.title + '</a><p class="text-slate-400 mt-3">' + desc.slice(0, 120) + '...</p><h6>' + item.date + '</h6><div class="mt-4"><a href="'+ item.link +'" target="_blank" class="btn btn-link font-normal hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a></div></div></div>'
+                        '<div class="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden"><img class="mx-auto text-center max-h-40" src="' + item.image + '" alt="Gambar Berita"><div class="content p-6"><a href="'+ item.link +'" target="_blank" class="title h5 text-md font-medium hover:text-indigo-600 duration-500 ease-in-out">' + item.title + '</a><p class="text-slate-400 mt-3">' + desc.slice(0, 55) + '...</p><h6>' + item.date + '</h6><div class="mt-4"><a href="'+ item.link +'" target="_blank" class="btn btn-link font-normal hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a></div></div></div>'
                     );
                     $('#berita-indicators').append(
                         '<li data-target="#carouselBerita" data-slide-to="'+ index +'" class="active"></li>'
