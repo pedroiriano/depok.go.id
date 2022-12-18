@@ -14,7 +14,7 @@
 
 <!-- BEGIN::Analytics Google -->
 <script src="{{ asset('js/public.js') }}"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-17742526-4"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-17742526-4" crossorigin="anonymous"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
