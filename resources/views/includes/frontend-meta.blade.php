@@ -15,7 +15,8 @@
 <!-- BEGIN::Main CSS -->
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ asset('assets/css/icons.css') }}" />
-<link rel="stylesheet" href="{{ asset('assets/css/tailwind.css') }}" />
+{{-- <link rel="stylesheet" href="{{ asset('assets/css/tailwind.css') }}" /> --}}
+<link rel="stylesheet" href="{{ asset('css/tailwind.css') }}" />
 <!-- END::Main CSS -->
 
 <!-- BEGIN::Style CSS -->

@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.sass('resources/sass/filepond.scss', 'public/css')
+   .sass('resources/sass/tailwind.scss', 'public/css')
    .js('resources/js/filepond', 'public/js/plugin')
    .js('resources/js/app.js', 'public/js')
    .js('resources/js/public.js', 'public/js')
