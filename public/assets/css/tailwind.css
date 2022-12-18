@@ -1203,6 +1203,12 @@ video {
 .max-h-6{
   max-height: 1.5rem !important;
 }
+.max-h-20{
+  max-height: 5rem !important;
+}
+.max-h-30{
+  max-height: 7.5rem !important;
+}
 .max-h-40{
   max-height: 10rem !important;
 }
