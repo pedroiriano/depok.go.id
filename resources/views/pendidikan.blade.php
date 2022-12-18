@@ -34,6 +34,7 @@
             <div class="md:w-full">
                 <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
                     <form class="w-full max-w-sm">
+                        @csrf
                         <div class="flex flex-wrap -mx-3 mb-2">
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <div class="relative">
