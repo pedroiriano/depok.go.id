@@ -1,31 +1,99 @@
-@push('css')
-<link rel="stylesheet" href={{ asset("css/owl/owl.carousel.min.css") }}>
-<link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}>
-@endpush
-@push('js')
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script type="text/javascript">
-    $("#owl-carousel").owlCarousel({
-        loop:true,
-        margin:10,
-        nav:true,
-        dots: false,
-        navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
-        responsive:{
-            0:{
-                items:2
-            },
-            600:{
-                items:3
-            },
-            1000:{
-                items:5
-            }
-        }
-    });
-</script>
-@endpush
-@extends('includes.layout')
+@extends('layouts.frontend')
+
+@section('content')
+<!-- BEGIN::Header -->
+<section class="relative table w-full py-16 lg:py-24 bg-center bg-no-repeat bg-fixed" style="background-image: url({{ asset('img/content/pimpinan.png') }}); background-size: cover;">
+    <div class="absolute inset-0 bg-black opacity-80"></div>
+    <div class="container">
+        <div class="grid grid-cols-1 pb-8 text-center mt-10">
+            <h3 class="md:text-4xl text-3xl md:leading-normal leading-normal font-medium text-white">Pimpinan Daerah</h3>
+        </div>
+    </div>
+    <div class="absolute text-center z-10 bottom-5 right-0 left-0 mx-3">
+        <ul class="breadcrumb tracking-[0.5px] breadcrumb-light mb-0 inline-block">
+            <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><a href="/">Depok</a></li>
+            <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white" aria-current="page">Pimpinan Daerah</li>
+        </ul>
+    </div>
+</section>
+<!-- END::Header -->
+
+<!-- BEGIN::City Leader -->
+<section class="relative md:py-24 py-16">
+    <div class="container">
+        <div class="md:flex justify-center">
+            <div class="md:w-full">
+                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
+                    <div class="container">
+                        <div class="relative grid md:grid-cols-2 grid-cols-1 mt-2 gap-60">
+                            @if (!empty($pimpinan))
+                                @foreach ($pimpinan as $item)
+                                    <div class="group bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
+                                        <img src="{{ asset($item->image_url) }}" class="w-full" alt="Gambar Pimpinan Daerah">
+                                        <div class="content px-6 py-8 mt-4">
+                                            <a href="" class="text-lg font-medium hover:text-indigo-600 block">{{ $item->nama }}</a>
+                                            <span class="text-slate-400 block">{{ $item->deskripsi }}</span>
+                                            <ul class="list-none mt-4">
+                                                @isset($item->facebook)
+                                                    <li class="inline"><a href="{{ $item->facebook }}" target="_blank" class="btn btn-icon btn-sm border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"><i data-feather="facebook" class="h-4 w-4"></i></a></li>
+                                                @endisset
+                                                @isset($item->instagram)
+                                                    <li class="inline"><a href="{{ $item->instagram }}" target="_blank" class="btn btn-icon btn-sm border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"><i data-feather="instagram" class="h-4 w-4"></i></a></li>
+                                                @endisset
+                                                @isset($item->twitter)
+                                                <li class="inline"><a href="{{ $item->twitter }}" target="_blank" class="btn btn-icon btn-sm border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"><i data-feather="twitter" class="h-4 w-4"></i></a></li>
+                                                @endisset
+                                            </ul>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @else
+                                
+                            @endif
+                            <!-- Mayor -->
+                            {{-- <div class="group px-6 py-8 bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
+                                <img src="assets/images/client/01.jpg" class="w-full shadow-md dark:shadow-gray-800" alt="Gambar Pimpinan Daerah">
+                                <div class="content mt-4">
+                                    <a href="" class="text-lg font-medium hover:text-indigo-600 block">Mohammad Idris</a>
+                                    <span class="text-slate-400 block">Wali Kota Depok 2021-2026</span>
+                                    <ul class="list-none mt-4">
+                                        <li class="inline"><a href="" class="btn btn-icon btn-sm border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"><i data-feather="facebook" class="h-4 w-4"></i></a></li>
+                                        <li class="inline"><a href="" class="btn btn-icon btn-sm border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"><i data-feather="instagram" class="h-4 w-4"></i></a></li>
+                                        <li class="inline"><a href="" class="btn btn-icon btn-sm border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"><i data-feather="twitter" class="h-4 w-4"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div> --}}
+                            <!-- Mayor -->
+
+                            <!-- Vice Mayor -->
+                            {{-- <div class="group px-6 py-8 bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
+                                <img src="assets/images/client/01.jpg" class="w-full shadow-md dark:shadow-gray-800" alt="Gambar Pimpinan Daerah">
+                                <div class="content mt-4">
+                                    <a href="" class="text-lg font-medium hover:text-indigo-600 block">Imam Budi Hartono</a>
+                                    <span class="text-slate-400 block">Wakil Wali Kota Depok 2021-2026</span>
+                                    <ul class="list-none mt-4">
+                                        <li class="inline"><a href="" class="btn btn-icon btn-sm border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"><i data-feather="facebook" class="h-4 w-4"></i></a></li>
+                                        <li class="inline"><a href="" class="btn btn-icon btn-sm border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"><i data-feather="instagram" class="h-4 w-4"></i></a></li>
+                                        <li class="inline"><a href="" class="btn btn-icon btn-sm border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"><i data-feather="twitter" class="h-4 w-4"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div> --}}
+                            <!-- Vice Mayor -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div style="font-size: 16px">{!! $content->desc !!}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END::City Leader -->
+@endsection
+
 @section('content')
 <div class="jumbotron banner" style="background-image: url({{ asset('img/content/pimpinan.png') }})">
 </div>
