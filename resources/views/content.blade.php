@@ -9,12 +9,12 @@
 
 @section('content')
 <!-- BEGIN::Header -->
-<section class="relative table w-full py-36 lg:py-44 bg-center bg-no-repeat bg-fixed" style="background-image: url({{ asset($content->image) }}); background-size: cover;">
+<section class="relative table w-full py-36 lg:py-44 bg-top bg-no-repeat bg-fixed" style="background-image: url({{ asset($content->image) }});">
     <div class="absolute inset-0 bg-black opacity-75"></div>
     <div class="container">
         <div class="grid grid-cols-1 pb-8 text-center mt-10">
             <h3 class="mb-6 md:text-4xl text-3xl md:leading-normal leading-normal font-medium text-white">{{ $content->nama }}</h3>
-            <p class="text-slate-300 text-lg max-w-xl mx-auto">Informasi dan Layanan Publik terlengkap serta terkini oleh Pemerintah Kota Depok.</p>
+            <p class="text-slate-300 text-lg max-w-xl mx-auto">Dapatkan Informasi serta Layanan Publik terlengkap dan terkini seputar Kota Depok.</p>
         </div>
     </div>
     <div class="absolute text-center z-10 bottom-5 right-0 left-0 mx-3">
