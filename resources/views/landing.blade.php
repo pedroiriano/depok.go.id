@@ -134,100 +134,25 @@
 <section class="relative min-h-screen md:py-12 py-8" id="showcase">
     <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-6">
-            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="{{ asset('assets/images/dsw/pajak.png') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
-                <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
-                <div class="content">
-                    <div class="title absolute z-10 hidden group-hover:block bottom-4 left-4">
-                        <a href="" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Pajak</a>
-                        <p class="text-slate-100 tag mb-0">DSW</p>
-                    </div>
-                </div>
-            </div>
-            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="{{ asset('assets/images/dsw/penduduk.png') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
-                <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
-                <div class="content">
-                    <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
-                        <a href="" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Kependudukan</a>
-                        <p class="text-slate-100 tag mb-0">DSW</p>
-                    </div>
-                </div>
-            </div>
-            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="{{ asset('assets/images/dsw/izin.png') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
-                <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
-                <div class="content">
-                    <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
-                        <a href="" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Perizinan</a>
-                        <p class="text-slate-100 tag mb-0">DSW</p>
-                    </div>
-                </div>
-            </div>
-            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="{{ asset('assets/images/portfolio/4.jpg') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
-                <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
-                <div class="content">
-                    <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
-                        <a href="" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Kesehatan</a>
-                        <p class="text-slate-100 tag mb-0">DSW</p>
-                    </div>
-                </div>
-            </div>
-            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="{{ asset('assets/images/dsw/peta.png') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
-                <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
-                <div class="content">
-                    <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
-                        <a href="" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Peta</a>
-                        <p class="text-slate-100 tag mb-0">DSW</p>
-                    </div>
-                </div>
-            </div>
-            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="{{ asset('assets/images/portfolio/6.jpg') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
-                <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
-                <div class="content">
-                    <div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500">
-                        <a href="{{ asset('assets/images/portfolio/6.jpg') }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
-                    </div>
-                    <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
-                        <a href="portfolio-detail-one.html" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Mockup Collection</a>
-                        <p class="text-slate-100 tag mb-0">DSW</p>
-                    </div>
-                </div>
-            </div>
-            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="{{ asset('assets/images/portfolio/7.jpg') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
-                <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
-
-                <div class="content">
-                    <div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500">
-                        <a href="{{ asset('assets/images/portfolio/7.jpg') }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
-                    </div>
-                    <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
-                        <a href="portfolio-detail-one.html" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Mockup Collection</a>
-                        <p class="text-slate-100 tag mb-0">DSW</p>
-                    </div>
-                </div>
-            </div>
-            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                <img src="{{ asset('assets/images/portfolio/8.jpg') }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Layanan DSW">
-                <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
-                <div class="content">
-                    <div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500">
-                        <a href="{{ asset('assets/images/portfolio/8.jpg') }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
-                    </div>
-                    <div class="absolute z-10 hidden group-hover:block bottom-4 left-4 transition-all duration-500">
-                        <a href="portfolio-detail-one.html" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">Mockup Collection</a>
-                        <p class="text-slate-100 tag mb-0">DSW</p>
-                    </div>
-                </div>
-            </div>
+            @if (!empty($categories))
+                @foreach ($categories as $key => $category)
+                    <!-- DSW Services -->
+                    <a href="#" id="btnModal-{{ $category->id }}" class="group btnModal bg-white dark:bg-slate-900 p-6 rounded shadow dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 border-4 border-white dark:border-slate-900 hover:border-b-indigo-600 dark:hover:border-b-indigo-600 text-center transition duration-500 h-fit" data-toggle="modal" data-target="#modalLayanan-{{ $category->id }}" data-content="#">
+                        <img src="{{ asset('img/icon/'. $category->icon) }}" class="h-16 w-16 mx-auto p-3 rounded-full bg-gray-50 dark:bg-slate-800 shadow-md dark:shadow-gray-800" alt="Ikon DSW">
+                        <div class="content mt-3">
+                            <span class="text-lg font-semibold group-hover:text-indigo-600 transition duration-500 block">{{ $category->nama }}</span>
+                        </div>
+                    </a>
+                    <!-- DSW Services -->
+                    {{-- @include('includes.modal-layanan') --}}
+                @endforeach
+            @else
+                
+            @endif
         </div>
     </div>
     <div class="flex justify-center mt-8">
-        <a href="" class="btn btn-link text-indigo-600 hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right align-middle"></i></a>
+        <a href="{{ route('layanan') }}" class="btn btn-link text-indigo-600 hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right align-middle"></i></a>
     </div>
 </section>
 <!-- END::City Showcase -->
@@ -265,7 +190,7 @@
             <div class="group px-6 py-8 bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
                 <div class="content">
                     <a href="" class="text-xl font-semibold hover:text-indigo-600 duration-500 ease-in-out">Sekilas Depok</a>
-                    <p class="text-slate-400 mt-4">The phrasal sequence of the is now so that many campaign and benefit</p>
+                    <p class="text-slate-400 mt-4" id="icon-weather-0"><span id="suhuHariIni"></span></p>
                     <div class="mt-5">
                         <a href="" class="btn btn-link text-indigo-600 hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a>
                     </div>
@@ -288,22 +213,22 @@
                     <div class="group relative overflow-hidden bg-gray-50 dark:bg-slate-800 rounded-md shadow dark:shadow-gray-800 mt-5">
                         <div class="p-2 rounded-md shadow dark:shadow-gray-800">
                             <div class="flex items-center">
-                                <div class="w-1/2 p-1">
+                                <a href="https://twitter.com/pemkotdepok" target="_blank" class="w-1/2 p-1">
                                     <img src="{{ asset('assets/images/social/twitter.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
-                                </div>
+                                </a>
 
-                                <div class="w-1/2 p-1">
+                                <a href="https://www.facebook.com/PemerintahKotaDepok/" target="_blank" class="w-1/2 p-1">
                                     <img src="{{ asset('assets/images/social/facebook.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
-                                </div>
+                                </a>
                             </div>
                             <div class="flex items-center">
-                                <div class="w-1/2 p-1">
+                                <a href="https://www.instagram.com/pemkotdepok/" target="_blank" class="w-1/2 p-1">
                                     <img src="{{ asset('assets/images/social/instagram.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
-                                </div>
+                                </a>
     
-                                <div class="w-1/2 p-1">
+                                <a href="https://www.youtube.com/@kominfodepok" target="_blank" class="w-1/2 p-1">
                                     <img src="{{ asset('assets/images/social/youtube.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
