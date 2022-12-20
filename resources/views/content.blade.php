@@ -36,12 +36,8 @@
 <!-- BEGIN::History -->
 <section class="relative md:py-24 py-16">
     <div class="container">
-        <div class="md:flex justify-center">
-            <div class="md:w-full">
-                <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md text-justify">
-                    {!! $content->desc !!}
-                </div>
-            </div>
+        <div class="grid grid-cols-1 items-center gap-[30px]">
+            {!! $content->desc !!}
         </div>
     </div>
 </section>
