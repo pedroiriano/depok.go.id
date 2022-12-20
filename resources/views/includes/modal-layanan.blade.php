@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <div class="row justify-content-md-center">
                     <div class="col-md-8">
-                        <h5 class="display-5">Pilih Layanan :</h5>
+                        <h5 class="display-5">Pilih Layanan:</h5>
                         <select class="custom-select custom-select-lg service-selector" id="serviceselector{{ $category->id }}">
                             @foreach ($category->services as $service)
                             <option value="{{ $service->id }}" data-url="{{ $service->url }}">{{ $service->namaservice }}</option>
