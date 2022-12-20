@@ -27,6 +27,8 @@
 <link href="{{ asset('assets/libs/js-datepicker/datepicker.min.css') }}" rel="stylesheet">
 <!-- END::Style CSS -->
 
+<script src="https://kit.fontawesome.com/d54b50045e.js" crossorigin="anonymous"></script>
+
 <!-- BEGIN::Canonical -->
 <link rel="canonical" href="https://depok.go.id" />
 <!-- END::Canonical -->
