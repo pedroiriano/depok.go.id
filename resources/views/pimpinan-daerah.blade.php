@@ -2,20 +2,28 @@
 
 @section('content')
 <!-- BEGIN::Header -->
-<section class="relative table w-full py-16 lg:py-24 bg-center bg-no-repeat bg-fixed" style="background-image: url({{ asset('img/content/pimpinan.png') }}); background-size: cover;">
-    <div class="absolute inset-0 bg-black opacity-80"></div>
+<section class="relative table w-full py-36 lg:py-44 bg-top bg-no-repeat bg-fixed" style="background-image: url({{ asset('img/content/pimpinan.png') }});">
+    <div class="absolute inset-0 bg-black opacity-75"></div>
     <div class="container">
         <div class="grid grid-cols-1 pb-8 text-center mt-10">
-            <h3 class="md:text-4xl text-3xl md:leading-normal leading-normal font-medium text-white">Pimpinan Daerah</h3>
+            <h3 class="mb-6 md:text-4xl text-3xl md:leading-normal leading-normal font-medium text-white">Pimpinan Daerah</h3>
+            <p class="text-slate-300 text-lg max-w-xl mx-auto">Dapatkan Informasi serta Layanan Publik terlengkap dan terkini seputar Kota Depok.</p>
         </div>
     </div>
     <div class="absolute text-center z-10 bottom-5 right-0 left-0 mx-3">
         <ul class="breadcrumb tracking-[0.5px] breadcrumb-light mb-0 inline-block">
-            <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><a href="/">Depok</a></li>
+           <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><a href="/">Depok</a></li>
             <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white" aria-current="page">Pimpinan Daerah</li>
         </ul>
     </div>
 </section>
+<div class="relative">
+    <div class="shape absolute right-0 sm:-bottom-px -bottom-[2px] left-0 overflow-hidden z-1 text-white dark:text-slate-900">
+        <svg class="w-full h-auto" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
 <!-- END::Header -->
 
 <!-- BEGIN::City Leader -->
