@@ -86,7 +86,7 @@
                                             <img src="{{ asset('assets/images/mayor/wali-kota-depok.png') }}" alt="Gambar Pimpinan Daerah">
                                         </div>
                                         <div class="py-4 relative">
-                                            <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Dr. K.H. Mohammad Idris, M.A.</div>
+                                            <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Mohammad Idris</div>
                                             <div class="flex items-center justify-center mt-2 md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">
                                                 Wali Kota Depok
                                             </div>
@@ -99,7 +99,7 @@
                                             <img src="{{ asset('assets/images/mayor/wakil-wali-kota-depok.png') }}" alt="Gambar Pimpinan Daerah">
                                         </div>
                                         <div class="py-4 relative">
-                                            <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Ir. H. Imam Budi Hartono</div>
+                                            <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Imam Budi Hartono</div>
                                             <div class="flex items-center justify-center mt-2 md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">
                                                 Wakil Wali Kota Depok
                                             </div>
