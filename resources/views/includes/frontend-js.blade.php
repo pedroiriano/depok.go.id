@@ -9,6 +9,7 @@
 <script src="{{ asset('assets/js/plugins.init.js') }}"></script>
 <script src="{{ asset('assets/js/app.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" crossorigin="anonymous" defer></script>
+<script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js" crossorigin="anonymous" defer></script>
 <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" crossorigin="anonymous"></script>
 <!-- END::Javascripts -->
 
