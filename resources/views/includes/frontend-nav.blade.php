@@ -21,7 +21,7 @@
         </div>
         <ul class="buy-button list-none mb-0">
             <li class="inline mb-0">
-                <a href="#dsw" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xs rounded-md">
+                <a href="/#dsw" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xs rounded-md">
                     <i class="uil uil-cloud-download"></i> DSW
                 </a>
             </li>
