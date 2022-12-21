@@ -336,98 +336,8 @@
                     </div>
                 </div>
                 <div class="hidden" id="infographic" role="tabpanel" aria-labelledby="infographic-tab">
-                    <div id="grid" class="md:flex justify-center">
-                        <div id="infografis-wrapper">
-
-                        </div>
-                        {{-- <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
-                            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="{{ asset('assets/images/dsw/dsw-pajak-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="{{ asset('assets/images/dsw/dsw-pajak-01.png') }}" class="" alt="Gambar Infografis">
-                                </a>
-                                <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
-                                    <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Pajak</a>
-                                    <h6 class="text-slate-400">DSW</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
-                            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="{{ asset('assets/images/dsw/dsw-kependudukan-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="{{ asset('assets/images/dsw/dsw-kependudukan-01.png') }}" class="" alt="Gambar Infografis">
-                                </a>
-                                <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
-                                    <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Kependudukan</a>
-                                    <h6 class="text-slate-400">DSW</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
-                            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="{{ asset('assets/images/dsw/dsw-perizinan-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="{{ asset('assets/images/dsw/dsw-perizinan-01.png') }}" class="" alt="Gambar Infografis">
-                                </a>
-                                <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
-                                    <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Perizinan</a>
-                                    <h6 class="text-slate-400">DSW</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
-                            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="{{ asset('assets/images/dsw/dsw-kesehatan-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="{{ asset('assets/images/dsw/dsw-kesehatan-01.png') }}" class="" alt="Gambar Infografis">
-                                </a>
-                                <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
-                                    <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Kesehatan</a>
-                                    <h6 class="text-slate-400">DSW</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
-                            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="{{ asset('assets/images/dsw/dsw-peta-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="{{ asset('assets/images/dsw/dsw-peta-01.png') }}" class="" alt="Gambar Infografis">
-                                </a>
-                                <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
-                                    <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Peta</a>
-                                    <h6 class="text-slate-400">DSW</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
-                            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="{{ asset('assets/images/dsw/dsw-loker-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="{{ asset('assets/images/dsw/dsw-loker-01.png') }}" class="" alt="Gambar Infografis">
-                                </a>
-                                <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
-                                    <a href="portfolio-detail-four.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Lowongan Kerja</a>
-                                    <h6 class="text-slate-400">DSW</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
-                            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="{{ asset('assets/images/dsw/dsw-pdam-pln-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="{{ asset('assets/images/dsw/dsw-pdam-pln-01.png') }}" class="" alt="Gambar Infografis">
-                                </a>
-                                <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
-                                    <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">PDAM & PLN</a>
-                                    <h6 class="text-slate-400">DSW</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:w-1/5 md:w-1/3 p-1 picture-item" data-groups='["dsw"]'>
-                            <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                <a href="{{ asset('assets/images/dsw/dsw-aspirasi-01.png') }}" class="lightbox transition-all duration-500 group-hover:scale-105" title="">
-                                    <img src="{{ asset('assets/images/dsw/dsw-aspirasi-01.png') }}" class="" alt="Gambar Infografis">
-                                </a>
-                                <div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800">
-                                    <a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">Aspirasi</a>
-                                    <h6 class="text-slate-400">DSW</h6>
-                                </div>
-                            </div>
-                        </div> --}}
+                    <div id="infografis-wrapper" class="grid lg:grid-cols-4 md:grid-cols-2 gap-[30px] mt-10">
+                        {{-- Ajax Infographics Content --}}
                     </div>
                 </div>
             </div>
@@ -581,12 +491,12 @@
                 console.log(data)
                 $.each(data, function(index, item){
                     $('#infografis-wrapper').append(
-                        '<div class="lg:w-1/5 md:w-1/3 p-1 picture-item"><div class="group relative block overflow-hidden rounded-md transition-all duration-500"><a href="' + item.src + '" class="lightbox transition-all duration-500 group-hover:scale-105" title=""><img src="' + item.src + '" class="" alt="Gambar Infografis"></a><div class="absolute -bottom-52 group-hover:bottom-2 right-2 left-2 transition-all duration-500 bg-white dark:bg-slate-900 p-4 rounded shadow dark:shadow-gray-800"><a href="portfolio-detail-two.html" class="hover:text-indigo-600 text-lg transition duration-500 font-medium">' + item.nama + '</a><h6 class="text-slate-400">'+ item.id +'</h6></div></div></div>'
+                        '<div class="group relative block overflow-hidden rounded-md transition-all duration-500"><img src="' + item.src + '" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Infografis"><div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div><div class="content"><div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500"><a href="' + item.src + '" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a></div><div class="title absolute z-10 hidden group-hover:block bottom-4 left-4"><a href="' + item.src + '" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">' + item.nama + '</a><p class="text-slate-100 tag mb-0">' + item.id + '</p></div></div></div>'
                     );
                 });
-                $('#infografis-loading').addClass('d-none');
-                $('#infografis-wrapper').removeClass('d-none');
-                $('#infografis-other-link').removeClass('d-none');
+                $('#infografis-loading').addClass('hidden');
+                $('#infografis-wrapper').removeClass('hidden');
+                $('#infografis-other-link').removeClass('hidden');
             }
         });
         $.ajax({
