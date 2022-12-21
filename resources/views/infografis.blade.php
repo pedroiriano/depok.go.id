@@ -1,71 +1,56 @@
-@push('css')
-<link rel="stylesheet" href={{ asset("css/owl/owl.carousel.min.css") }}>
-<link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}>
-@endpush
-@push('js')
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script type="text/javascript">
-    $("#owl-carousel").owlCarousel({
-        loop:true,
-        margin:10,
-        nav:true,
-        dots: false,
-        navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
-        responsive:{
-            0:{
-                items:2
-            },
-            600:{
-                items:3
-            },
-            1000:{
-                items:5
-            }
-        }
-    });
-</script>
-@endpush
-@extends('includes.layout')
+@extends('layouts.frontend')
+
 @section('content')
-<div class="container-fluid">
+<!-- BEGIN::Header -->
+<section class="relative table w-full py-36 lg:py-44 bg-top bg-no-repeat bg-fixed" style="background-image: url({{ asset('img/content/pimpinan.png') }});">
+    <div class="absolute inset-0 bg-black opacity-75"></div>
     <div class="container">
-        <h1 class="display-3 py-5">Infografis</h1>
-        <div class="row py-5">
-        @foreach ($infografis as $infografi)
-            <div class="col-12 col-md-3 d-flex align-items-stretch">
-                <div class="card mb-3">
-                    <a href="#" data-target="#modalInfografis-{{ $infografi->id }}" data-toggle="modal">
-                        <img class="card-img-top" src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $infografi->nama }}</h5>
-                            <p class="card-text"><small class="text-muted">Sumber: {{ $infografi->opd->nama }}</small></p>
+        <div class="grid grid-cols-1 pb-8 text-center mt-10">
+            <h3 class="mb-6 md:text-4xl text-3xl md:leading-normal leading-normal font-medium text-white">Infografis</h3>
+            <p class="text-slate-300 text-lg max-w-xl mx-auto">Dapatkan Informasi serta Layanan Publik terlengkap dan terkini seputar Kota Depok.</p>
+        </div>
+    </div>
+    <div class="absolute text-center z-10 bottom-5 right-0 left-0 mx-3">
+        <ul class="breadcrumb tracking-[0.5px] breadcrumb-light mb-0 inline-block">
+           <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><a href="/">Depok</a></li>
+            <li class="inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white" aria-current="page">Infografis</li>
+        </ul>
+    </div>
+</section>
+<div class="relative">
+    <div class="shape absolute right-0 sm:-bottom-px -bottom-[2px] left-0 overflow-hidden z-1 text-white dark:text-slate-900">
+        <svg class="w-full h-auto" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!-- END::Header -->
+
+<!-- BEGIN::Infographic -->
+<section class="relative md:py-24 py-16">
+    <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6 mt-8">
+            @if (!empty($infografis))
+                @foreach ($infografis as $infografi)
+                <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
+                    <img src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Infografis">
+                    <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
+                    <div class="content">
+                        <div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500">
+                            <a href="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
                         </div>
-                    </a>
-                </div>
-            </div>
-            <!-- Modal Infografis-->
-            <div class="modal fade" id="modalInfografis-{{ $infografi->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-md" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">{{ $infografi->nama }}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body text-center">
-                            <img src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" alt="infografis" class="img-fluid">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <div class="title absolute z-10 hidden group-hover:block bottom-4 left-4">
+                            <a href="portfolio-detail-one.html" class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">{{ $infografi->nama }}</a>
+                            <p class="text-slate-100 tag mb-0">Sumber: {{ $infografi->opd->nama }}</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+                @endforeach
+            @else
+                
+            @endif
         </div>
     </div>
-</div>
-</div>
+</section>
+<!-- END::Infographic -->
 @endsection
-
