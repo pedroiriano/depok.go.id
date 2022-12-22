@@ -18,7 +18,7 @@
         Header set X-XSS-Protection "1; mode=block"
         Header set X-Content-Type-Options "nosniff"
         Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-        Header set Content-Security-Policy "block-all-mixed-content"
+        # Header set Content-Security-Policy "block-all-mixed-content"
         Header set Feature-Policy "geolocation 'self'; vibrate 'none'"
     </IfModule>
 
