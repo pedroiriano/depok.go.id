@@ -9,7 +9,7 @@
         Header append X-Frame-Options "SAMEORIGIN"
         Header set X-Content-Type-Options "nosniff"
         Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
-        Header append Content-Security-Policy "block-all-mixed-content"
+        Header set Content-Security-Policy "block-all-mixed-content"
         Header set Referrer-Policy "same-origin"
         Header set Feature-Policy "geolocation 'self'; vibrate 'none'"
     </IfModule>
