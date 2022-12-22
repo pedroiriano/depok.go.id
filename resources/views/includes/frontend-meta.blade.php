@@ -13,23 +13,23 @@
 {{-- END::Title --}}
 
 <!-- BEGIN::Main CSS -->
-<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css" crossorigin="SAMEORIGIN">
 <link rel="stylesheet" href="{{ asset('assets/css/icons.css') }}" />
 {{-- <link rel="stylesheet" href="{{ asset('assets/css/tailwind.css') }}" /> --}}
 <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}" />
 <!-- END::Main CSS -->
 
 <!-- BEGIN::Style CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.min.css" crossorigin="SAMEORIGIN">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="SAMEORIGIN">
 <link href="{{ asset('assets/libs/tobii/css/tobii.min.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/libs/choices.js/public/assets/styles/choices.min.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/libs/js-datepicker/datepicker.min.css') }}" rel="stylesheet">
 <!-- END::Style CSS -->
 
-<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" crossorigin="SAMEORIGIN" />
 
-<script src="https://kit.fontawesome.com/d54b50045e.js"></script>
+<script src="https://kit.fontawesome.com/d54b50045e.js" crossorigin="SAMEORIGIN"></script>
 
 <!-- BEGIN::Canonical -->
 <link rel="canonical" href="https://depok.go.id" />
