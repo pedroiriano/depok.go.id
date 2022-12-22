@@ -17,7 +17,7 @@ class XframeHeaderMiddleware
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
-        $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
+        $response->headers->set('X-Frame-Options', 'anonymous', false);
         return $response;
     }
 }
