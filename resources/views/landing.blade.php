@@ -3,7 +3,7 @@
 @section('content')
 <!-- BEGIN::Header -->
 {{-- <section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/promosi-depok-ori.gif') }}'); background-size: cover;"> --}}
-<section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/promosi-depok-ori.gif') }}'); background-size: cover;">
+<section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/smartcity.png') }}'); background-size: cover;">
     <div class="absolute inset-0 bg-black opacity-30"></div>
     <div class="container">
         <div class="grid grid-cols-1 justify-center text-center">
