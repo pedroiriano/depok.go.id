@@ -347,63 +347,95 @@
 </section>
 <!-- END::Informations -->
 
-<!-- BEGIN::External Links -->
-<div class="container-fluid relative">
-    <div class="grid grid-cols-1 relative">
-        <div class="tiny-twelve-item">
-            <div class="tiny-slide">
-                <div class="card border-0 rounded-0">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('assets/images/food/1.jpg') }}" class="lightbox d-inline-block" title="">
-                            <img src="{{ asset('assets/images/food/1.jpg') }}" class="" alt="Insta Post">
-                            <div class="overlay bg-dark"></div>
-                        </a>
+<!-- BEGIN::External Links-->
+<section class="relative md:py-16 py-8">
+    <div class="container">
+        <div class="grid grid-cols-1 relative">
+            <div class="tiny-four-item">
+                <div class="tiny-slide">
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body p-0">
+                            <a href="https://smartcity.depok.go.id/" target="_blank">
+                                <img src="{{ asset('assets/images/bg/smart-city.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <div class="overlay bg-dark"></div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="tiny-slide">
-                <div class="card border-0 rounded-0">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('assets/images/bg/smart-city.png') }}" class="lightbox d-inline-block" title="">
-                            <img src="{{ asset('assets/images/bg/smart-city.png') }}" class="" alt="Gambar Tautan Eksternal">
-                            <div class="overlay bg-dark"></div>
-                        </a>
+                <div class="tiny-slide">
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body p-0">
+                            <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
+                                <img src="{{ asset('assets/images/bg/dsw.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <div class="overlay bg-dark"></div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="tiny-slide">
-                <div class="card border-0 rounded-0">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('assets/images/bg/dsw.png') }}" class="lightbox d-inline-block" title="">
-                            <img src="{{ asset('assets/images/bg/dsw.png') }}" class="" alt="Gambar Tautan Eksternal">
-                            <div class="overlay bg-dark"></div>
-                        </a>
+                <div class="tiny-slide">
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body p-0">
+                            <a href="{{ asset('https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en') }}" target="_blank">
+                                <img src="{{ asset('assets/images/bg/depok-sigap.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <div class="overlay bg-dark"></div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="tiny-slide">
-                <div class="card border-0 rounded-0">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('assets/images/bg/depok-sigap.png') }}" class="lightbox d-inline-block" title="">
-                            <img src="{{ asset('assets/images/bg/depok-sigap.png') }}" class="" alt="Gambar Tautan Eksternal">
-                            <div class="overlay bg-dark"></div>
-                        </a>
+                <div class="tiny-slide">
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body p-0">
+                            <a href="https://dinkes.depok.go.id/" target="_blank">
+                                <img src="{{ asset('assets/images/bg/smart-healthy-city.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <div class="overlay bg-dark"></div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="tiny-slide">
-                <div class="card border-0 rounded-0">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('assets/images/bg/smart-healthy-city.png') }}" class="lightbox d-inline-block" title="">
-                            <img src="{{ asset('assets/images/bg/smart-healthy-city.png') }}" class="" alt="Gambar Tautan Eksternal">
-                            <div class="overlay bg-dark"></div>
-                        </a>
+                <div class="tiny-slide">
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body p-0">
+                            <a href="https://smartcity.depok.go.id/" target="_blank">
+                                <img src="{{ asset('assets/images/bg/smart-city.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <div class="overlay bg-dark"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tiny-slide">
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body p-0">
+                            <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
+                                <img src="{{ asset('assets/images/bg/dsw.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <div class="overlay bg-dark"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tiny-slide">
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body p-0">
+                            <a href="{{ asset('https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en') }}" target="_blank">
+                                <img src="{{ asset('assets/images/bg/depok-sigap.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <div class="overlay bg-dark"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tiny-slide">
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body p-0">
+                            <a href="https://dinkes.depok.go.id/" target="_blank">
+                                <img src="{{ asset('assets/images/bg/smart-healthy-city.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <div class="overlay bg-dark"></div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 <!-- END::External Links -->
 @endsection
 
