@@ -38,7 +38,7 @@
                                     <div class="text-center">
                                         <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                             <div class="relative">
-                                                <img src="{{ asset('assets/images/bg/slider-depok-01.jpg') }}" alt="Gambar Pengumuman">
+                                                <img loading="lazy" loading="lazy" loading="lazy" class="" src="{{ asset('assets/images/bg/slider-depok-01.jpg') }}" alt="Gambar Pengumuman">
                                                 <div class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-500 ease-in-out">
                                                     <a href="" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Data Masih Kosong</a>
                                                 </div>
@@ -52,7 +52,7 @@
                                         <div class="text-center">
                                             <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                                 <div class="relative">
-                                                    <img src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="Gambar Pengumuman">
+                                                    <img loading="lazy" class="" src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="Gambar Pengumuman">
                                                     <div class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-500 ease-in-out">
                                                         <a href="{{ route('list.pengumuman') }}" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Selengkapnya</a>
                                                     </div>
@@ -84,7 +84,7 @@
                                     <!-- Start Mayor -->
                                     <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                         <div class="relative">
-                                            <img src="{{ asset('assets/images/mayor/wali-kota-depok.png') }}" alt="Gambar Pimpinan Daerah">
+                                            <img loading="lazy" class="" src="{{ asset('assets/images/mayor/wali-kota-depok.png') }}" alt="Gambar Pimpinan Daerah">
                                         </div>
                                         <div class="py-4 relative">
                                             <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Mohammad Idris</div>
@@ -97,7 +97,7 @@
                                     <!-- Start Vice Mayor -->
                                     <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                         <div class="relative">
-                                            <img src="{{ asset('assets/images/mayor/wakil-wali-kota-depok.png') }}" alt="Gambar Pimpinan Daerah">
+                                            <img loading="lazy" class="" src="{{ asset('assets/images/mayor/wakil-wali-kota-depok.png') }}" alt="Gambar Pimpinan Daerah">
                                         </div>
                                         <div class="py-4 relative">
                                             <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Imam Budi Hartono</div>
@@ -139,7 +139,7 @@
                 @foreach ($categories as $key => $category)
                     <!-- DSW Services -->
                     <a href="#" id="btnModal-{{ $category->id }}" class="group btnModal bg-white dark:bg-slate-900 p-6 rounded shadow dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 border-4 border-white dark:border-slate-900 hover:border-b-indigo-600 dark:hover:border-b-indigo-600 text-center transition duration-500 h-fit" data-toggle="modal" data-target="#modalLayanan-{{ $category->id }}" data-content="#">
-                        <img src="{{ asset('img/icon/'. $category->icon) }}" class="h-16 w-16 mx-auto p-3 rounded-full bg-gray-50 dark:bg-slate-800 shadow-md dark:shadow-gray-800" alt="Ikon DSW">
+                        <img loading="lazy" src="{{ asset('img loading="lazy"/icon/'. $category->icon) }}" class="h-16 w-16 mx-auto p-3 rounded-full bg-gray-50 dark:bg-slate-800 shadow-md dark:shadow-gray-800" alt="Ikon DSW">
                         <div class="content mt-3">
                             <span class="text-lg font-semibold group-hover:text-indigo-600 transition duration-500 block">{{ $category->nama }}</span>
                         </div>
@@ -216,20 +216,20 @@
                         <div class="p-2 rounded-md shadow dark:shadow-gray-800">
                             <div class="flex items-center">
                                 <a href="https://twitter.com/pemkotdepok" target="_blank" class="w-1/2 p-1">
-                                    <img src="{{ asset('assets/images/social/twitter.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
+                                    <img loading="lazy" src="{{ asset('assets/images/social/twitter.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
                                 </a>
 
                                 <a href="https://www.facebook.com/PemerintahKotaDepok/" target="_blank" class="w-1/2 p-1">
-                                    <img src="{{ asset('assets/images/social/facebook.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
+                                    <img loading="lazy" src="{{ asset('assets/images/social/facebook.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
                                 </a>
                             </div>
                             <div class="flex items-center">
                                 <a href="https://www.instagram.com/pemkotdepok/" target="_blank" class="w-1/2 p-1">
-                                    <img src="{{ asset('assets/images/social/instagram.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
+                                    <img loading="lazy" src="{{ asset('assets/images/social/instagram.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
                                 </a>
     
                                 <a href="https://www.youtube.com/@kominfodepok" target="_blank" class="w-1/2 p-1">
-                                    <img src="{{ asset('assets/images/social/youtube.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
+                                    <img loading="lazy" src="{{ asset('assets/images/social/youtube.png') }}" class="rounded-md hover:origin-center hover:scale-105 transition duration-500" alt="Gambar Media Sosial">
                                 </a>
                             </div>
                         </div>
@@ -251,7 +251,7 @@
     <div class="container">
         <div class="grid md:grid-cols-12 grid-cols-1 items-center">
             <div class="lg:col-span-5 md:col-span-6">
-                <img src="{{ asset('assets/images/app/smartphone-dsw.png') }}" class="mx-auto d-block" alt="Gambar Ilustrasi DSW">
+                <img loading="lazy" src="{{ asset('assets/images/app/smartphone-dsw.png') }}" class="mx-auto d-block" alt="Gambar Ilustrasi DSW">
             </div>
             <div class="lg:col-span-7 md:col-span-6">
                 <span class="bg-indigo-600 text-white text-xs font-bold px-2.5 py-0.5 rounded h-5">Aplikasi Seluler</span>
@@ -261,10 +261,10 @@
                 </p>
                 <div class="my-5">
                     <a href="https://apps.apple.com/us/app/depok-single-window-dsw/id1530183936?app=itunes&ign-mpt=uo%3D4" target="_blank">
-                        <img src="{{ asset('assets/images/app/app.png') }}" class="m-1 inline-block" alt="Gambar Logo App Strore">
+                        <img loading="lazy" src="{{ asset('assets/images/app/app.png') }}" class="m-1 inline-block" alt="Gambar Logo App Strore">
                     </a>
                     <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
-                        <img src="{{ asset('assets/images/app/playstore.png') }}" class="m-1 inline-block" alt="Gambar Logo Playstore">
+                        <img loading="lazy" src="{{ asset('assets/images/app/playstore.png') }}" class="m-1 inline-block" alt="Gambar Logo Playstore">
                     </a>
                 </div>
                 <div class="inline-block">
@@ -313,10 +313,10 @@
                         <div class="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
                             <div class="md:col-span-5">
                                 <div class="relative">
-                                    <img src="{{ asset('assets/images/smartwatch/1.jpg') }}" class="rounded-md" alt="Gambar Youtube">
+                                    <img loading="lazy" src="{{ asset('assets/images/smartwatch/1.jpg') }}" class="rounded-md" alt="Gambar Youtube">
         
                                     <div class="absolute bottom-16 right-0">
-                                        <img src="{{ asset('assets/images/smartwatch/2.jpg') }}" class="rounded-md shadow-md w-48 h-48" alt="Gambar Youtube">
+                                        <img loading="lazy" src="{{ asset('assets/images/smartwatch/2.jpg') }}" class="rounded-md shadow-md w-48 h-48" alt="Gambar Youtube">
                                         <div class="absolute bottom-2/4 translate-y-2/4 right-0 left-0 text-center">
                                             <a href="#!" data-type="youtube" data-id="Vx9GOE4kzNI" class="lightbox h-14 w-14 rounded-full shadow-lg inline-flex items-center justify-center bg-white text-indigo-600">
                                                 <i class="mdi mdi-play inline-flex items-center justify-center text-xl"></i>
@@ -342,7 +342,7 @@
                         {{-- Ajax Infographics Content --}}
                         @if (!empty($infografis))
                             @foreach ($infografis as $infografi)
-                                <div class="group relative block overflow-hidden rounded-md transition-all duration-500"><a data-modal-toggle="{{ $infografi->id }}"><img src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Infografis"><div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div><div class="content"><div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500"><a href="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a></div><div class="title absolute z-10 hidden group-hover:block bottom-4 left-4"><a class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out" data-modal-toggle="{{ $infografi->id }}">{{ $infografi->nama }}</a></div></div></a></div><div id="{{ $infografi->id }}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-16 left-0 right-0 z-999 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"><div class="relative w-full h-full max-w-2xl md:h-auto"><div class="relative bg-white rounded-lg shadow dark:bg-gray-700"><div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"><h3 class="text-xl font-semibold text-gray-900 dark:text-white">Infografis</h3><button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="{{ $infografi->id }}"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button></div><div class="flex p-6 space-y-6 items-center justify-center"><div class="group relative block overflow-hidden rounded-md transition-all duration-500"><img src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500 max-w-xs" alt="Gambar Infografis"></div></div></div></div></div>
+                                <div class="group relative block overflow-hidden rounded-md transition-all duration-500"><a data-modal-toggle="{{ $infografi->id }}"><img loading="lazy" src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Infografis"><div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div><div class="content"><div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500"><a href="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a></div><div class="title absolute z-10 hidden group-hover:block bottom-4 left-4"><a class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out" data-modal-toggle="{{ $infografi->id }}">{{ $infografi->nama }}</a></div></div></a></div><div id="{{ $infografi->id }}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-16 left-0 right-0 z-999 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"><div class="relative w-full h-full max-w-2xl md:h-auto"><div class="relative bg-white rounded-lg shadow dark:bg-gray-700"><div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"><h3 class="text-xl font-semibold text-gray-900 dark:text-white">Infografis</h3><button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="{{ $infografi->id }}"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button></div><div class="flex p-6 space-y-6 items-center justify-center"><div class="group relative block overflow-hidden rounded-md transition-all duration-500"><img loading="lazy" src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500 max-w-xs" alt="Gambar Infografis"></div></div></div></div></div>
                             @endforeach
                         @endif
                     </div>
@@ -362,7 +362,7 @@
                     <div class="card border-0 rounded-0">
                         <div class="card-body p-0">
                             <a href="https://smartcity.depok.go.id/" target="_blank">
-                                <img src="{{ asset('assets/images/bg/smart-city.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <img loading="lazy" src="{{ asset('assets/images/bg/smart-city.png') }}" class="" alt="Gambar Tautan Eksternal">
                                 <div class="overlay bg-dark"></div>
                             </a>
                         </div>
@@ -372,7 +372,7 @@
                     <div class="card border-0 rounded-0">
                         <div class="card-body p-0">
                             <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
-                                <img src="{{ asset('assets/images/bg/dsw.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <img loading="lazy" src="{{ asset('assets/images/bg/dsw.png') }}" class="" alt="Gambar Tautan Eksternal">
                                 <div class="overlay bg-dark"></div>
                             </a>
                         </div>
@@ -382,7 +382,7 @@
                     <div class="card border-0 rounded-0">
                         <div class="card-body p-0">
                             <a href="{{ asset('https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en') }}" target="_blank">
-                                <img src="{{ asset('assets/images/bg/depok-sigap.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <img loading="lazy" src="{{ asset('assets/images/bg/depok-sigap.png') }}" class="" alt="Gambar Tautan Eksternal">
                                 <div class="overlay bg-dark"></div>
                             </a>
                         </div>
@@ -392,7 +392,7 @@
                     <div class="card border-0 rounded-0">
                         <div class="card-body p-0">
                             <a href="https://dinkes.depok.go.id/" target="_blank">
-                                <img src="{{ asset('assets/images/bg/smart-healthy-city.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <img loading="lazy" src="{{ asset('assets/images/bg/smart-healthy-city.png') }}" class="" alt="Gambar Tautan Eksternal">
                                 <div class="overlay bg-dark"></div>
                             </a>
                         </div>
@@ -402,7 +402,7 @@
                     <div class="card border-0 rounded-0">
                         <div class="card-body p-0">
                             <a href="https://smartcity.depok.go.id/" target="_blank">
-                                <img src="{{ asset('assets/images/bg/smart-city.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <img loading="lazy" src="{{ asset('assets/images/bg/smart-city.png') }}" class="" alt="Gambar Tautan Eksternal">
                                 <div class="overlay bg-dark"></div>
                             </a>
                         </div>
@@ -412,7 +412,7 @@
                     <div class="card border-0 rounded-0">
                         <div class="card-body p-0">
                             <a href="https://play.google.com/store/apps/details?id=id.depok.depoksinglewindow&hl=en" target="_blank">
-                                <img src="{{ asset('assets/images/bg/dsw.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <img loading="lazy" src="{{ asset('assets/images/bg/dsw.png') }}" class="" alt="Gambar Tautan Eksternal">
                                 <div class="overlay bg-dark"></div>
                             </a>
                         </div>
@@ -422,7 +422,7 @@
                     <div class="card border-0 rounded-0">
                         <div class="card-body p-0">
                             <a href="{{ asset('https://play.google.com/store/apps/details?id=com.depok.sigap&hl=en') }}" target="_blank">
-                                <img src="{{ asset('assets/images/bg/depok-sigap.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <img loading="lazy" src="{{ asset('assets/images/bg/depok-sigap.png') }}" class="" alt="Gambar Tautan Eksternal">
                                 <div class="overlay bg-dark"></div>
                             </a>
                         </div>
@@ -432,7 +432,7 @@
                     <div class="card border-0 rounded-0">
                         <div class="card-body p-0">
                             <a href="https://dinkes.depok.go.id/" target="_blank">
-                                <img src="{{ asset('assets/images/bg/smart-healthy-city.png') }}" class="" alt="Gambar Tautan Eksternal">
+                                <img loading="lazy" src="{{ asset('assets/images/bg/smart-healthy-city.png') }}" class="" alt="Gambar Tautan Eksternal">
                                 <div class="overlay bg-dark"></div>
                             </a>
                         </div>
@@ -459,7 +459,7 @@
                         <div class="mt-2">
                             <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                 <div class="relative">
-                                    <img src="{{ asset('assets/images/bg/slider-depok-01.jpg') }}" alt="Gambar Pengumuman">
+                                    <img loading="lazy" class="" src="{{ asset('assets/images/bg/slider-depok-01.jpg') }}" alt="Gambar Pengumuman">
                                     <div class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-500 ease-in-out">
                                         <a href="" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Selengkapnya</a>
                                     </div>
@@ -478,7 +478,7 @@
 <!-- END::Announcement Modal -->
 
 <!-- BEGIN::Sticky Button GPR -->
-<div class="relative">
+{{-- <div class="relative">
     <div class="fixed bottom-4 left-4">
         <button class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xs rounded-xl" onclick="toggleModal001()">
             Government Public Relation
@@ -487,11 +487,11 @@
             &times;
         </span>
     </div>
-</div>
+</div> --}}
 <!-- END::Sticky Button GPR -->
 
 <!-- BEGIN::Modal GPR -->
-<div id="modal001" class="fixed bg-white left-4 rounded-lg md:max-w-md md:mx-auto p-4 bottom-0 z-10 mb-4 mx-4 overflow-y-visible md:relative dark:bg-slate-800 hidden">
+{{-- <div id="modal001" class="fixed bg-white left-4 rounded-lg md:max-w-md md:mx-auto p-4 bottom-0 z-10 mb-4 mx-4 overflow-y-visible md:relative dark:bg-slate-800 hidden">
     <div class="md:flex items-center">
         <div class="mt-4 md:mt-0 md:ml-0 text-center md:text-left">
             <div id="gpr-kominfo-widget-container"></div>
@@ -500,12 +500,13 @@
     <div class="button-del text-right" onclick="toggleModal001()">
         <button class="absolute border-none bg-none p-0 cursor-pointer font-extrabold bottom-0 right-0"><i class="uil uil-times text-dark dark:text-slate-200 text-xl"></i></button>
     </div>
-</div>
+</div> --}}
 <!-- END::Modal GPR -->
 @endpush
 
 @push('js')
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+{{-- <script src="{{ asset('js/owl/owl.carousel.min.js') }}"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
     function getNumberWithDot(number) {
@@ -516,6 +517,14 @@
     // } else {
     //     $('#data-all-wrapper').addClass('col-12');
     // }
+    // setTimeout(function () {
+    //     var gpr = document.getElementsByClassName("gpr-widget")[0];
+    //     gpr.id="gpr-kominfo-widget-container";
+    //     var d = document,
+    //     s = d.createElement("script");
+    //     s.src = "https://widget.kominfo.go.id/gpr-widget-kominfo.min.js";
+    //     d.body.appendChild(s);
+    // }, 120000);
     $(document).ready(function(){
         // $('#pengumuman-modal').modal('show');
         $.ajaxSetup({
@@ -530,7 +539,7 @@
                 console.log(data)
                 $.each(data, function(index, item){
                     $('#infografis-wrapper').append(
-                        '<div class="group relative block overflow-hidden rounded-md transition-all duration-500"><a data-modal-toggle="staticModal-'+ item.id +'"><img src="' + item.src + '" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Infografis"><div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div><div class="content"><div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500"><a href="' + item.src + '" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a></div><div class="title absolute z-10 hidden group-hover:block bottom-4 left-4"><a class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out" data-modal-toggle="staticModal-'+ item.id +'">' + item.nama + '</a></div></div></a></div><div id="staticModal-'+ item.id +'" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-16 left-0 right-0 z-999 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"><div class="relative w-full h-full max-w-2xl md:h-auto"><div class="relative bg-white rounded-lg shadow dark:bg-gray-700"><div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"><h3 class="text-xl font-semibold text-gray-900 dark:text-white">Infografis</h3><button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="staticModal-'+ item.id +'"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button></div><div class="flex p-6 space-y-6 items-center justify-center"><div class="group relative block overflow-hidden rounded-md transition-all duration-500"><img src="' + item.src + '" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500 max-w-xs" alt="Gambar Infografis"></div></div></div></div></div>'
+                        '<div class="group relative block overflow-hidden rounded-md transition-all duration-500"><a data-modal-toggle="staticModal-'+ item.id +'"><img loading="lazy" src="' + item.src + '" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Infografis"><div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div><div class="content"><div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500"><a href="' + item.src + '" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a></div><div class="title absolute z-10 hidden group-hover:block bottom-4 left-4"><a class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out" data-modal-toggle="staticModal-'+ item.id +'">' + item.nama + '</a></div></div></a></div><div id="staticModal-'+ item.id +'" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-16 left-0 right-0 z-999 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"><div class="relative w-full h-full max-w-2xl md:h-auto"><div class="relative bg-white rounded-lg shadow dark:bg-gray-700"><div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"><h3 class="text-xl font-semibold text-gray-900 dark:text-white">Infografis</h3><button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="staticModal-'+ item.id +'"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button></div><div class="flex p-6 space-y-6 items-center justify-center"><div class="group relative block overflow-hidden rounded-md transition-all duration-500"><img loading="lazy" src="' + item.src + '" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500 max-w-xs" alt="Gambar Infografis"></div></div></div></div></div>'
                     );
                 });
                 // $('#infografis-loading').addClass('hidden');
@@ -567,7 +576,7 @@
                         '<div class="item">' +
                             '<div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">' +
                                 '<div class="relative">' +
-                                    '<img class="max-h-40" src="'+ item.src +'" alt="Gambar Komoditas">' +
+                                    '<img loading="lazy" class="max-h-40" src="'+ item.src +'" alt="Gambar Komoditas">' +
                                 '</div>' +
                                 '<div class="p-2 relative">' +
                                     '<div href="" class="text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">'+ item.komoditi +'</div>' +
@@ -736,7 +745,7 @@
                 $.each(data.berita, function(index, item){
                     var desc = item.isi;
                     $('#berita-wrapper').append(
-                        '<div class="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden"><img class="mx-auto text-center max-h-40" src="' + item.image + '" alt="Gambar Berita"><div class="content p-6"><a href="'+ item.link +'" target="_blank" class="title h5 text-md font-medium hover:text-indigo-600 duration-500 ease-in-out">' + item.title + '</a><p class="text-slate-400 mt-3">' + desc.slice(0, 55) + '...</p><h6>' + item.date + '</h6><div class="mt-4"><a href="'+ item.link +'" target="_blank" class="btn btn-link font-normal hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a></div></div></div>'
+                        '<div class="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden"><img loading="lazy" class="mx-auto text-center max-h-40" src="' + item.image + '" alt="Gambar Berita"><div class="content p-6"><a href="'+ item.link +'" target="_blank" class="title h5 text-md font-medium hover:text-indigo-600 duration-500 ease-in-out">' + item.title + '</a><p class="text-slate-400 mt-3">' + desc.slice(0, 55) + '...</p><h6>' + item.date + '</h6><div class="mt-4"><a href="'+ item.link +'" target="_blank" class="btn btn-link font-normal hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a></div></div></div>'
                     );
                     $('#berita-indicators').append(
                         '<li data-target="#carouselBerita" data-slide-to="'+ index +'" class="active"></li>'
@@ -749,7 +758,7 @@
                     $('#berita-carousel-wrapper').append(
                         '<div class="carousel-item h-100 '+ asd +'">' +
                         '<a href="'+ item.link +'" target="_blank">' +
-                            '<img class="d-block w-100 h-100" src="'+ item.image +'" style="object-fit: cover;">' +
+                            '<img loading="lazy" class="d-block w-100 h-100" src="'+ item.image +'" style="object-fit: cover;">' +
                                 '<div class="carousel-caption" style="background-color: rgba(0,0,0,0.7);left: 0;right: 0;bottom: 0;text-align: left;padding-top:20px">' + 
                                     '<span class="ml-3 text-light pb-3" style="font-size:14px">'+ item.title.slice(0,35) +' ...</span>' +
                                 '</div>' +
@@ -791,7 +800,7 @@
                         '<div class="row py-2">' +
                             '<div class="col-4">' +
                                 '<a class="alink" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
-                                    '<img src="'+ item.snippet.thumbnails.medium.url +'" class="img-fluid rounded">' +   
+                                    '<img loading="lazy" src="'+ item.snippet.thumbnails.medium.url +'" class="img-fluid rounded">' +   
                                 '</a>' +
                             '</div>' +
                             '<div class="col-8">' +

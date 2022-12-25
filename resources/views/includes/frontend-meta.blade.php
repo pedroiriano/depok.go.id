@@ -17,26 +17,27 @@
 {{-- END::Title --}}
 
 <!-- BEGIN::Main CSS -->
-{{-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css" crossorigin="anonymous"> --}}
-<link rel="stylesheet" href="{{ asset('assets/libs/@iconscout/unicons/css/line.css') }}" />
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css" crossorigin="anonymous">
+{{-- <link rel="stylesheet" href="{{ asset('assets/libs/@iconscout/unicons/css/line.css') }}" /> --}}
 <link rel="stylesheet" href="{{ asset('assets/css/icons.css') }}" />
-{{-- <link rel="stylesheet" href="{{ asset('assets/css/tailwind.css') }}" /> --}}
 <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}" />
 <!-- END::Main CSS -->
 
 <!-- BEGIN::Style CSS -->
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.min.css" crossorigin="anonymous"> --}}
-<link href="{{ asset('assets/libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.min.css" crossorigin="anonymous">
+{{-- <link href="{{ asset('assets/libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet"> --}}
 <link href="{{ asset('assets/libs/choices.js/public/assets/styles/choices.min.css') }}" rel="stylesheet">
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous"> --}}
-<link rel="stylesheet" href={{ asset("css/owl/owl.carousel.min.css") }}>
-<link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" crossorigin="anonymous">
+{{-- <link rel="stylesheet" href={{ asset("css/owl/owl.carousel.min.css") }}>
+<link rel="stylesheet" href={{ asset("css/owl/owl.theme.default.min.css") }}> --}}
 <link href="{{ asset('assets/libs/tobii/css/tobii.min.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/libs/choices.js/public/assets/styles/choices.min.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/libs/js-datepicker/datepicker.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" crossorigin="anonymous" />
 {{-- <link rel="stylesheet" href={{ asset("css/flowbite/flowbite.min.css") }}> --}}
 <script src="https://kit.fontawesome.com/d54b50045e.js" crossorigin="anonymous"></script>
+{{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js" crossorigin="anonymous"></script> --}}
 <!-- END::Style CSS -->
 
 <!-- BEGIN::Canonical -->

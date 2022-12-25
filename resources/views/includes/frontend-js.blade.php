@@ -1,7 +1,6 @@
 <!-- BEGIN::Javascripts -->
-<script src="{{ asset('assets/libs/tiny-slider/min/tiny-slider.js') }}"></script>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script> --}}
-<script src="{{ asset('js/owl/owl.carousel.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js" crossorigin="anonymous"></script>
+{{-- <script src="{{ asset('assets/libs/tiny-slider/min/tiny-slider.js') }}"></script> --}}
 <script src="{{ asset('assets/libs/tobii/js/tobii.min.js') }}"></script>
 <script src="{{ asset('assets/libs/shufflejs/shuffle.min.js') }}"></script>
 <script src="{{ asset('assets/libs/js-datepicker/datepicker.min.js') }}"></script>
@@ -12,7 +11,7 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js" crossorigin="anonymous"></script>
 {{-- <script src="{{ asset('assets/js/flowbite/flowbite.js') }}"></script> --}}
-<script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" crossorigin="anonymous"></script>
+{{-- <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" crossorigin="anonymous"></script> --}}
 <!-- END::Javascripts -->
 
 <!-- BEGIN::Analytics Google -->
