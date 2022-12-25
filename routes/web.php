@@ -16,7 +16,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [BerandaController::class, 'index'])->name('beranda');
+Route::get('/', [BerandaController::class, 'index'])->name('beranda')->middleware(Spatie\Csp\AddCspHeaders::class);
 Route::get('/agenda-kota', [BerandaController::class, 'agenda'])->name('list.agenda-kota');
 Route::get('/pengumuman', [BerandaController::class, 'listPengumuman'])->name('list.pengumuman');
 Route::get('/pengumuman/{url}', [BerandaController::class, 'pengumuman'])->name('pengumuman');
