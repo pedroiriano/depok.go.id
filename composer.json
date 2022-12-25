@@ -25,6 +25,7 @@
         "maatwebsite/excel": "^3.1",
         "psr/simple-cache": "2.0",
         "rawilk/laravel-breadcrumbs": "^3.0",
+        "spatie/laravel-csp": "^2.8",
         "spatie/laravel-permission": "^5.5",
         "tinymce/tinymce": "^6.0",
         "vedmant/laravel-feed-reader": "^1.3",
