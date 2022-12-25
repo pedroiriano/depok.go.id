@@ -851,7 +851,7 @@
                         '<div class="flex items-center mt-8">' +
                             '<img src="'+ item.snippet.thumbnails.medium.url +'" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="">' +
                             '<div class="ml-3">' +
-                                '<a href="https://www.youtube.com/embed/'+ item.id.videoId +'" class="font-semibold hover:text-indigo-600">'+ item.snippet.title +'</a>' +
+                                '<a href="https://www.youtube.com/embed/'+ item.id.videoId +'" class="font-semibold hover:text-indigo-600" target="youtube-frame">'+ item.snippet.title +'</a>' +
                                 '<p class="text-sm text-slate-400">' + date + '</p>' +
                             '</div>' +
                         '</div>'
