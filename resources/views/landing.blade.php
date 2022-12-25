@@ -366,7 +366,7 @@
                         <div class="lg:col-span-8 md:col-span-6">
                             <div class="sticky top-20">
                                 <h5 class="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center">Youtube Pemerintah Kota Depok</h5>
-                                <div id="youtube-frame" class="relative h-0 overflow-hidden max-w-full w-full" style="padding-bottom: 56.25%">
+                                <div id="youtube-frame" class="relative h-0 overflow-hidden max-w-full w-full mt-8" style="padding-bottom: 56.25%">
 		                            <iframe name="youtube-frame" src="" frameborder="0" allowfullscreen class="absolute top-0 left-0 w-full h-full"></iframe>
 	                            </div>
                             </div>
@@ -834,20 +834,6 @@
                     var linkYoutube = 'https://www.youtube.com/embed/';
 
                     $('#youtube-wrapper').append(
-                        /* '<div class="row py-2">' +
-                            '<div class="col-4">' +
-                                '<a class="alink" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
-                                    '<img loading="lazy" src="'+ item.snippet.thumbnails.medium.url +'" class="img-fluid rounded">' +   
-                                '</a>' +
-                            '</div>' +
-                            '<div class="col-8">' +
-                                '<small class="text-muted">' + date + '</small>' +
-                                '<a class="alink" style="color:#1D4F88" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
-                                    '<h6 class="h6" style="font-size:18px">'+ item.snippet.title +'</h6>' +
-                                '</a>'+
-                            '</div>' +
-                        '</div>' */
-
                         '<div class="flex items-center mt-8">' +
                             '<img src="'+ item.snippet.thumbnails.medium.url +'" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="">' +
                             '<div class="ml-3">' +
