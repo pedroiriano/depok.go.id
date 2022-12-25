@@ -309,7 +309,7 @@
                     </div>
                 </div>
                 <div class="hidden" id="video" role="tabpanel" aria-labelledby="video-tab">
-                    <div class="container">
+                    {{-- <div class="container">
                         <div class="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
                             <div class="md:col-span-5">
                                 <div class="relative">
@@ -332,6 +332,43 @@
                                     <p class="text-slate-400 max-w-xl">Start working with Tailwind CSS that can provide everything you need to generate awareness, drive traffic, connect.</p>
                                     <a href="page-aboutus.html" class="btn btn-link text-indigo-600 hover:text-indigo-600 after:bg-indigo-600 transition duration-500 mt-4">Find Out More <i class="uil uil-angle-right-b align-middle"></i></a>
                                 </div>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                    <div class="grid md:grid-cols-12 grid-cols-1 mt-8 gap-[30px]">
+                        <div class="lg:col-span-4 md:col-span-6">
+                            <div id="youtube-wrapper" class="grid grid-cols-1 gap-[30px]">
+                                {{-- <div class="flex items-center mt-8">
+                                    <img src="assets/images/blog/06.jpg" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="">
+                                    <div class="ml-3">
+                                        <a href="" class="font-semibold hover:text-indigo-600">Consultant Business</a>
+                                        <p class="text-sm text-slate-400">1st May 2022</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mt-4">
+                                    <img src="assets/images/blog/07.jpg" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="">
+                                    <div class="ml-3">
+                                        <a href="" class="font-semibold hover:text-indigo-600">Grow Your Business</a>
+                                        <p class="text-sm text-slate-400">1st May 2022</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mt-4">
+                                    <img src="assets/images/blog/08.jpg" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="">
+                                    <div class="ml-3">
+                                        <a href="" class="font-semibold hover:text-indigo-600">Look On The Glorious Balance</a>
+                                        <p class="text-sm text-slate-400">1st May 2022</p>
+                                    </div>
+                                </div> --}}
+                            </div>
+                        </div>
+    
+                        <div class="lg:col-span-8 md:col-span-6">
+                            <div class="sticky top-20">
+                                <h5 class="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center">Youtube Pemerintah Kota Depok</h5>
+                                <div id="youtube-frame" class="relative h-0 overflow-hidden max-w-full w-full" style="padding-bottom: 56.25%">
+		                            <iframe name="youtube-frame" src="" frameborder="0" allowfullscreen class="absolute top-0 left-0 w-full h-full"></iframe>
+	                            </div>
                             </div>
                         </div>
                     </div>
@@ -790,14 +827,14 @@
         $.ajax({
             url: '/api/youtube',
             success: function(data){
-                $('#youtube-frame').removeClass('d-none');
+                $('#youtube-frame').removeClass('hidden');
                 youtubeFrame = 'youtube-frame';
                 $.each(data, function(index, item){
                     var date = new Date(item.snippet.publishedAt);
                     var linkYoutube = 'https://www.youtube.com/embed/';
 
                     $('#youtube-wrapper').append(
-                        '<div class="row py-2">' +
+                        /* '<div class="row py-2">' +
                             '<div class="col-4">' +
                                 '<a class="alink" href="https://www.youtube.com/embed/'+ item.id.videoId +'" target="youtube-frame">'+
                                     '<img loading="lazy" src="'+ item.snippet.thumbnails.medium.url +'" class="img-fluid rounded">' +   
@@ -809,9 +846,17 @@
                                     '<h6 class="h6" style="font-size:18px">'+ item.snippet.title +'</h6>' +
                                 '</a>'+
                             '</div>' +
+                        '</div>' */
+
+                        '<div class="flex items-center mt-8">' +
+                            '<img src="'+ item.snippet.thumbnails.medium.url +'" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="">' +
+                            '<div class="ml-3">' +
+                                '<a href="https://www.youtube.com/embed/'+ item.id.videoId +'" class="font-semibold hover:text-indigo-600">'+ item.snippet.title +'</a>' +
+                                '<p class="text-sm text-slate-400">' + date + '</p>' +
+                            '</div>' +
                         '</div>'
                     );
-                    $('#youtube-loading').addClass('d-none');
+                    $('#youtube-loading').addClass('hidden');
                 });
             },
             error: function(){
