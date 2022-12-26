@@ -139,7 +139,7 @@
                 @foreach ($categories as $key => $category)
                     <!-- DSW Services -->
                     <a href="#" id="btnModal-{{ $category->id }}" class="group btnModal bg-white dark:bg-slate-900 p-6 rounded shadow dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 border-4 border-white dark:border-slate-900 hover:border-b-indigo-600 dark:hover:border-b-indigo-600 text-center transition duration-500 h-fit" data-toggle="modal" data-target="#modalLayanan-{{ $category->id }}" data-content="#">
-                        <img loading="lazy" src="{{ asset('img loading="lazy"/icon/'. $category->icon) }}" class="h-16 w-16 mx-auto p-3 rounded-full bg-gray-50 dark:bg-slate-800 shadow-md dark:shadow-gray-800" alt="Ikon DSW">
+                        <img loading="lazy" src="{{ asset('img/icon/'. $category->icon) }}" class="h-16 w-16 mx-auto p-3 rounded-full bg-gray-50 dark:bg-slate-800 shadow-md dark:shadow-gray-800" alt="Ikon DSW">
                         <div class="content mt-3">
                             <span class="text-lg font-semibold group-hover:text-indigo-600 transition duration-500 block">{{ $category->nama }}</span>
                         </div>
