@@ -33,7 +33,7 @@
 </div>
 <!-- END::Header -->
 
-<!-- BEGIN::History -->
+<!-- BEGIN::Content -->
 <section class="relative md:py-24 py-16">
     <div class="container">
         <div class="grid grid-cols-1 items-center gap-[30px]">
@@ -41,7 +41,7 @@
         </div>
     </div>
 </section>
-<!-- END::History -->
+<!-- END::Content -->
 @endsection
 
 @push('js')
