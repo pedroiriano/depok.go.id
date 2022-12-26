@@ -1,5 +1,5 @@
-<div id="modalLayanan-{{ $category->id }}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-16 left-0 right-0 z-999 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-    <div class="relative w-full h-full max-w-2xl md:h-auto">
+<div id="modalLayanan-{{ $category->id }}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-999 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+    <div class="relative w-full h-full max-w-7xl md:h-auto">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $category->nama }}</h3>
@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="grid grid-cols-1 p-6 space-y-6">
-                <form class="w-full max-w-sm">
+                <form class="w-full">
                     @csrf
                     <div class="flex flex-wrap -mx-3 mb-2">
                         <div class="relative">
@@ -18,16 +18,16 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="relative">
-                            @foreach ($category->services as $service)
-                                <div class="service" id="{{ $service->id }}" @if (!$loop->first) style="display: none;" @endif>
-                                    <iframe src="" data-url="{{ $service->url }}" class="service-iframe" frameborder="0" width="100%" height="600px">
-                                    </iframe>
-                                </div>
-                            @endforeach
-                        </div>
                     </div>
                 </form>
+                <div class="relative">
+                    @foreach ($category->services as $service)
+                        <div class="service" id="{{ $service->id }}" @if (!$loop->first) style="display: none;" @endif>
+                            <iframe src="" data-url="{{ $service->url }}" class="service-iframe" frameborder="0" width="100%" height="600px">
+                            </iframe>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
