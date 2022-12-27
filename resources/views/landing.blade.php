@@ -205,7 +205,7 @@
                             </h2>
                             <div id="accordion-collapse-body-1" class="hidden bg-white dark:bg-slate-900" aria-labelledby="accordion-collapse-heading-1">
                                 <div class="p-5">
-                                    <p class="text-slate-400 dark:text-gray-400 text-sm">Penyakit Terpantau Bulan Ini</p>
+                                    <p id="penyakit-0-desc" class="text-slate-400 dark:text-gray-400 text-sm"></p>
                                 </div>
                             </div>
                         </div>
