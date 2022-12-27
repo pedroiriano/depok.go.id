@@ -380,6 +380,18 @@
                         @if (!empty($infografis))
                             @foreach ($infografis as $infografi)
                                 <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
+                                    <a href="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="lightbox">
+                                        <img loading="lazy" src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Infografis">
+                                        <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
+                                        <div class="content">
+                                            <div class="title absolute z-10 hidden group-hover:block bottom-4 left-4">
+                                                <div class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">{{ $infografi->nama }}</div>
+                                                <p class="text-slate-300 text-sm tag mb-0">Sumber: {{ $infografi->opd->nama }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                {{-- <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
                                     <a data-modal-toggle="{{ $infografi->id }}">
                                         <img loading="lazy" src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Infografis">
                                         <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
@@ -409,7 +421,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             @endforeach
                         @endif
                     </div>
