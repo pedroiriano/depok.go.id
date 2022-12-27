@@ -205,7 +205,31 @@
                             </h2>
                             <div id="accordion-collapse-body-1" class="hidden bg-white dark:bg-slate-900" aria-labelledby="accordion-collapse-heading-1">
                                 <div class="p-5">
-                                    <p id="penyakit-0-desc" class="text-slate-400 dark:text-gray-400 text-sm"></p>
+                                    <ol class="list-decimal text-sm text-slate-400">
+                                        <li class="mb-1 ml-4">
+                                            <span id="penyakit-0" class="block"></span>
+                                            <p id="penyakit-0-desc" class="block text-xs text-slate-400 dark:text-gray-400"></p>
+                                        </li>
+                                        <li class="mb-1 ml-4">
+                                            <span id="penyakit-1" class="block"></span>
+                                            <p id="penyakit-1-desc" class="block text-xs text-slate-400 dark:text-gray-400"></p>
+                                        </li>
+                                        <li class="mb-1 ml-4">
+                                            <span id="penyakit-2" class="block"></span>
+                                            <p id="penyakit-2-desc" class="block text-xs text-slate-400 dark:text-gray-400"></p>
+                                        </li>
+                                        <li class="mb-1 ml-4">
+                                            <span id="penyakit-3" class="block"></span>
+                                            <p id="penyakit-3-desc" class="block text-xs text-slate-400 dark:text-gray-400"></p>
+                                        </li>
+                                        <li class="mb-1 ml-4">
+                                            <span id="penyakit-4" class="block"></span>
+                                            <p id="penyakit-4-desc" class="block text-xs text-slate-400 dark:text-gray-400"></p>
+                                        </li>
+                                    </ol>
+                                    <a href="http://dinkes.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out" target="_blank">
+                                        Sumber: Dinkes Kota Depok
+                                    </a>
                                 </div>
                             </div>
                         </div>
