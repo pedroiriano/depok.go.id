@@ -287,7 +287,6 @@
     <div class="container relative">
         <div class="grid grid-cols-1 pb-8 text-center">
             <h3 class="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Informasi</h3>
-
             <p class="text-slate-400 max-w-xl mx-auto">Dapatkan Informasi seputar Pemerintah Kota Depok dalam bentuk Berita, Grafis dan Video.</p>
         </div>
         <div class="grid grid-cols-1 mt-8">
@@ -309,60 +308,11 @@
                     </div>
                 </div>
                 <div class="hidden" id="video" role="tabpanel" aria-labelledby="video-tab">
-                    {{-- <div class="container">
-                        <div class="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
-                            <div class="md:col-span-5">
-                                <div class="relative">
-                                    <img loading="lazy" src="{{ asset('assets/images/smartwatch/1.jpg') }}" class="rounded-md" alt="Gambar Youtube">
-        
-                                    <div class="absolute bottom-16 right-0">
-                                        <img loading="lazy" src="{{ asset('assets/images/smartwatch/2.jpg') }}" class="rounded-md shadow-md w-48 h-48" alt="Gambar Youtube">
-                                        <div class="absolute bottom-2/4 translate-y-2/4 right-0 left-0 text-center">
-                                            <a href="#!" data-type="youtube" data-id="Vx9GOE4kzNI" class="lightbox h-14 w-14 rounded-full shadow-lg inline-flex items-center justify-center bg-white text-indigo-600">
-                                                <i class="mdi mdi-play inline-flex items-center justify-center text-xl"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="md:col-span-7">
-                                <div class="lg:ml-4">
-                                    <h5 class="font-medium text-lg text-indigo-600">Nice Top Series</h5>
-                                    <h4 class="mb-6 md:text-4xl text-3xl lg:leading-normal leading-normal font-medium">Black Great Addition</h4>
-                                    <p class="text-slate-400 max-w-xl">Start working with Tailwind CSS that can provide everything you need to generate awareness, drive traffic, connect.</p>
-                                    <a href="page-aboutus.html" class="btn btn-link text-indigo-600 hover:text-indigo-600 after:bg-indigo-600 transition duration-500 mt-4">Find Out More <i class="uil uil-angle-right-b align-middle"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
                     <div class="grid md:grid-cols-12 grid-cols-1 mt-8 gap-[30px]">
                         <div class="lg:col-span-4 md:col-span-6">
                             <div id="youtube-wrapper" class="grid grid-cols-1 gap-[30px]">
-                                {{-- <div class="flex items-center mt-8">
-                                    <img src="assets/images/blog/06.jpg" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="">
-                                    <div class="ml-3">
-                                        <a href="" class="font-semibold hover:text-indigo-600">Consultant Business</a>
-                                        <p class="text-sm text-slate-400">1st May 2022</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center mt-4">
-                                    <img src="assets/images/blog/07.jpg" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="">
-                                    <div class="ml-3">
-                                        <a href="" class="font-semibold hover:text-indigo-600">Grow Your Business</a>
-                                        <p class="text-sm text-slate-400">1st May 2022</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center mt-4">
-                                    <img src="assets/images/blog/08.jpg" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="">
-                                    <div class="ml-3">
-                                        <a href="" class="font-semibold hover:text-indigo-600">Look On The Glorious Balance</a>
-                                        <p class="text-sm text-slate-400">1st May 2022</p>
-                                    </div>
-                                </div> --}}
                             </div>
                         </div>
-    
                         <div class="lg:col-span-8 md:col-span-6">
                             <div class="sticky top-20">
                                 <h5 class="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center">Youtube Pemerintah Kota Depok</h5>
@@ -374,9 +324,7 @@
                     </div>
                 </div>
                 <div class="hidden" id="infographic" role="tabpanel" aria-labelledby="infographic-tab">
-                    {{-- <div id="infografis-wrapper" class="grid lg:grid-cols-4 md:grid-cols-2 gap-[30px] mt-10"> --}}
                     <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-[30px] mt-10">
-                        {{-- Ajax Infographics Content --}}
                         @if (!empty($infografis))
                             @foreach ($infografis as $infografi)
                                 <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
@@ -391,37 +339,6 @@
                                         </div>
                                     </a>
                                 </div>
-                                {{-- <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                    <a data-modal-toggle="{{ $infografi->id }}">
-                                        <img loading="lazy" src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Infografis">
-                                        <div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div>
-                                        <div class="content">
-                                            <div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500">
-                                                <a href="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a>
-                                            </div>
-                                            <div class="title absolute z-10 hidden group-hover:block bottom-4 left-4">
-                                                <a class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out" data-modal-toggle="{{ $infografi->id }}">{{ $infografi->nama }}</a>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div id="{{ $infografi->id }}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-16 left-0 right-0 z-999 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-                                    <div class="relative w-full h-full max-w-2xl md:h-auto">
-                                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                            <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Infografis</h3>
-                                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="{{ $infografi->id }}">
-                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                                                </button>
-                                            </div>
-                                            <div class="flex p-6 space-y-6 items-center justify-center">
-                                                <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
-                                                    <img loading="lazy" src="{{ asset('storage/uploads/infografis/'.$infografi->imageName) }}" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500 max-w-xs" alt="Gambar Infografis">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             @endforeach
                         @endif
                     </div>
@@ -591,11 +508,6 @@
     function getNumberWithDot(number) {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
-    // if ($(window).width() < 514) {
-    //     $('#data-all-wrapper').removeClass('col-12');
-    // } else {
-    //     $('#data-all-wrapper').addClass('col-12');
-    // }
     // setTimeout(function () {
     //     var gpr = document.getElementsByClassName("gpr-widget")[0];
     //     gpr.id="gpr-kominfo-widget-container";
@@ -611,21 +523,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $.ajax({
-            url: '/api/infografis',
-            dataType: 'json',
-            success: function(data){
-                console.log(data)
-                $.each(data, function(index, item){
-                    $('#infografis-wrapper').append(
-                        '<div class="group relative block overflow-hidden rounded-md transition-all duration-500"><a data-modal-toggle="staticModal-'+ item.id +'"><img loading="lazy" src="' + item.src + '" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500" alt="Gambar Infografis"><div class="absolute inset-0 group-hover:bg-dark opacity-50 transition duration-500 z-0"></div><div class="content"><div class="icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500"><a href="' + item.src + '" class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox"><i class="uil uil-camera"></i></a></div><div class="title absolute z-10 hidden group-hover:block bottom-4 left-4"><a class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out" data-modal-toggle="staticModal-'+ item.id +'">' + item.nama + '</a></div></div></a></div><div id="staticModal-'+ item.id +'" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-16 left-0 right-0 z-999 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"><div class="relative w-full h-full max-w-2xl md:h-auto"><div class="relative bg-white rounded-lg shadow dark:bg-gray-700"><div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"><h3 class="text-xl font-semibold text-gray-900 dark:text-white">Infografis</h3><button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="staticModal-'+ item.id +'"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button></div><div class="flex p-6 space-y-6 items-center justify-center"><div class="group relative block overflow-hidden rounded-md transition-all duration-500"><img loading="lazy" src="' + item.src + '" class="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 transition duration-500 max-w-xs" alt="Gambar Infografis"></div></div></div></div></div>'
-                    );
-                });
-                // $('#infografis-loading').addClass('hidden');
-                // $('#infografis-wrapper').removeClass('hidden');
-                // $('#infografis-other-link').removeClass('hidden');
-            }
-        });
+
         $.ajax({
             url: '/api/harga-komoditas',
             dataType: 'json',
@@ -671,31 +569,6 @@
                         '</div>'
                     );
                 });
-                // $('.main-content .owl-carousel').owlCarousel({
-                //     stagePadding: 50,
-                //     loop: true,
-                //     autoplay: true,
-                //     autoplayTimeout: 2000,
-                //     autoplayHoverPause: true,
-                //     margin: 10,
-                //     nav: true,
-                //     navText: [
-                //         '<i class="mdi mdi-chevron-left" aria-hidden="true"></i>',
-                //         '<i class="mdi mdi-chevron-right" aria-hidden="true"></i>'
-                //     ],
-                //     navContainer: '.main-content .custom-nav',
-                //     responsive:{
-                //         0:{
-                //             items: 1
-                //         },
-                //         600:{
-                //             items: 3
-                //         },
-                //         1000:{
-                //             items: 5
-                //         }
-                //     }
-                // });
                 $("#pangan-wrapper").owlCarousel({
                     loop:true,
                     margin:10,
@@ -720,7 +593,6 @@
             }
         });
 
-
         $.ajax({
             url: '/api/covid',
             dataType: 'json',
@@ -742,6 +614,7 @@
                 $('#covid-probabel-pengawasan').text(getNumberWithDot(data.probabelpengawasan));
             }
         });
+
         $.ajax({
             url: '/api/pendidikan',
             dataType: 'json',
@@ -752,6 +625,7 @@
                 $('#pendidikan-sma').text(data.SMA[0].jumlah);
             }
         });
+
         $.ajax({
             url: '/api/kependudukan',
             dataType: 'json',
@@ -768,6 +642,7 @@
                 );
             }
         });
+
         $.ajax({
             url: '/api/kunjungan',
             dataType: 'json',
@@ -786,6 +661,7 @@
                 $('#pbb').text(data);
             }
         });
+
         $.ajax({
             url: '/api/bphtb',
             dataType: 'json',
@@ -795,6 +671,7 @@
 
             }
         });
+
         $.ajax({
             url: '/api/kesehatan',
             dataType: 'json',
@@ -816,6 +693,7 @@
                 $('#data-wrapper').removeClass('d-none');
             }
         });
+
         $.ajax({
             url: '/api/berita',
             dataType: 'json',
@@ -845,11 +723,12 @@
                         '</a>'
                     )
                 });
-                // $('#berita-loading').addClass('d-none');
-                // $('#berita-other-link').removeClass('d-none');
+                $('#berita-loading').addClass('hidden');
+                $('#berita-other-link').removeClass('hidden');
             },
             error: function() {}
         });
+
         $.ajax({
             url: '/api/cuacaBMKG',
             success: function(data) {
@@ -866,6 +745,7 @@
 
             }
         });
+        
         $.ajax({
             url: '/api/youtube',
             success: function(data){
