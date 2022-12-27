@@ -1532,6 +1532,12 @@ video {
 .list-none{
   list-style-type: none !important;
 }
+.list-disc{
+  list-style-type: disc !important;
+}
+.list-decimal{
+  list-style-type: decimal !important;
+}
 .grid-cols-1{
   grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
 }
