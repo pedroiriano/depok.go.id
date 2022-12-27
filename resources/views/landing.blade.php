@@ -191,8 +191,8 @@
             <div class="group px-6 py-8 bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
                 <div class="content">
                     <a href="" class="text-xl font-semibold hover:text-indigo-600 duration-500 ease-in-out">Sekilas Depok</a>
-                    <h4 class="text-3xl mt-4" style="color: #1D4F88"><i class="pr-2" id="icon-weather-0"></i><span id="suhuHariIni"></span></h4>
-                    <h6 class="text-md" id="desc-weather">...</h6>
+                    <h4 class="text-3xl text-indigo-600 mt-4" style="color: #1D4F88"><i class="pr-2" id="icon-weather-0"></i><span id="suhuHariIni"></span></h4>
+                    <h6 class="text-md text-indigo-600" id="desc-weather">...</h6>
                     <div id="accordion-collapse" data-accordion="collapse" class="mt-4">
                         <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden">
                             <h2 class="text-base font-semibold bg-white dark:bg-slate-900" id="accordion-collapse-heading-1">
