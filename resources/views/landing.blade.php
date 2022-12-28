@@ -205,7 +205,7 @@
                             </h2>
                             <div id="accordion-collapse-body-1" class="hidden bg-white dark:bg-slate-900" aria-labelledby="accordion-collapse-heading-1">
                                 <div class="p-5">
-                                    <ol class="list-decimal text-sm text-slate-400">
+                                    <ol class="list-decimal text-sm text-slate-400 font-extrabold text-indigo-600">
                                         <li class="mb-1 ml-4 mt-2">
                                             <span id="penyakit-0" class="block"></span>
                                             <p id="penyakit-0-desc" class="block text-xs text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out"></p>
@@ -227,7 +227,7 @@
                                             <p id="penyakit-4-desc" class="block text-xs text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out"></p>
                                         </li>
                                     </ol>
-                                    <a href="http://dinkes.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out mt-2" target="_blank">
+                                    <a href="http://dinkes.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out mt-4" target="_blank">
                                         Sumber: Dinkes Kota Depok
                                     </a>
                                 </div>
@@ -243,8 +243,23 @@
                                 </button>
                             </h2>
                             <div id="accordion-collapse-body-2" class="hidden bg-white dark:bg-slate-900" aria-labelledby="accordion-collapse-heading-2">
-                                <div class="p-5">
-                                    <p class="text-slate-400 dark:text-gray-400 text-sm">RSUD dan Puskesmas</p>
+                                <div class="flex items-center font-extrabold text-indigo-600 p-5">
+                                    <div class="flex flex-col w-1/2 text-sm">
+                                        <div id="kunjungan-rsud" class="text-xs text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
+                                            Kunjungan RSUD
+                                        </div>
+                                        <div class="block">
+                                            RSUD
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col w-1/2 text-sm">
+                                        <div id="kunjungan-puskesmas" class="text-xs text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
+                                            Kunjungan Puskesmas
+                                        </div>
+                                        <div class="block">
+                                            Puskesmas
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
