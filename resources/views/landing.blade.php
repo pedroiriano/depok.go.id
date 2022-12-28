@@ -244,7 +244,10 @@
                             </h2>
                             <div id="accordion-collapse-body-2" class="hidden bg-white dark:bg-slate-900" aria-labelledby="accordion-collapse-heading-2">
                                 <div class="p-5">
-                                    <div class="flex items-center font-extrabold text-indigo-600">
+                                    <div class="text-sm text-slate-400">
+                                        Jumlah Kunjungan yang Terlayani Tahun 2020 sampai dengan Bulan Ini
+                                    </div>
+                                    <div class="flex items-center font-extrabold text-indigo-600 mt-4">
                                         <div class="flex flex-col w-1/2 text-sm">
                                             <div id="kunjungan-rsud" class="text-lg text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
                                                 Kunjungan RSUD
@@ -261,9 +264,6 @@
                                                 Puskesmas
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="text-sm text-slate-400 mt-4">
-                                        Jumlah Kunjungan yang Terlayani Tahun 2020 sampai dengan Bulan Ini
                                     </div>
                                     <a href="http://dinkes.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out mt-4" target="_blank">
                                         Sumber: Dinkes Kota Depok
