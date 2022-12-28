@@ -262,6 +262,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="text-sm text-slate-400 mt-4">
+                                        Jumlah Kunjungan yang Terlayani Tahun 2020 sampai dengan Bulan Ini
+                                    </div>
                                     <a href="http://dinkes.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out mt-4" target="_blank">
                                         Sumber: Dinkes Kota Depok
                                     </a>
