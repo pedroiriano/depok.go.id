@@ -352,6 +352,9 @@
                                         PBB
                                     </a>
                                     <p id="pbb" class="text-indigo-600 dark:text-gray-400 text-lg"></p>
+                                    <a href="http://bkd.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out mt-4" target="_blank">
+                                        Sumber: BKD Kota Depok
+                                    </a>
                                 </div>
                             </div>
                         </div>
