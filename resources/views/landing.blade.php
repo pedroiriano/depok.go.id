@@ -297,7 +297,38 @@
                             </h2>
                             <div id="accordion-collapse-body-4" class="hidden bg-white dark:bg-slate-900" aria-labelledby="accordion-collapse-heading-4">
                                 <div class="p-5">
-                                    <p class="text-slate-400 dark:text-gray-400 text-sm">Jumlah Sekolah</p>
+                                    <div class="text-sm text-slate-400">
+                                        Jumlah Sekolah
+                                    </div>
+                                    <div class="flex items-center font-extrabold text-indigo-600 mt-4">
+                                        <div class="flex flex-col w-1/3 text-sm">
+                                            <div id="pendidikan-sd" class="text-lg text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
+                                                Jumlah SD
+                                            </div>
+                                            <div class="block">
+                                                SD
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col w-1/3 text-sm">
+                                            <div id="pendidikan-smp" class="text-lg text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
+                                                Jumlah SMP
+                                            </div>
+                                            <div class="block">
+                                                SMP
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col w-1/3 text-sm">
+                                            <div id="pendidikan-sma" class="text-lg text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
+                                                Jumlah SMA
+                                            </div>
+                                            <div class="block">
+                                                SMA
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="http://disdik.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out mt-4" target="_blank">
+                                        Sumber: Disdik Kota Depok
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -312,7 +343,15 @@
                             </h2>
                             <div id="accordion-collapse-body-5" class="hidden bg-white dark:bg-slate-900" aria-labelledby="accordion-collapse-heading-5">
                                 <div class="p-5">
-                                    <p id="bphtb" class="text-slate-400 dark:text-gray-400 text-sm"></p>
+                                    <a href="http://pbb-bphtb.depok.go.id:8081/Mbphtb/Reports/MonBPHTB.aspx" class="text-sm text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out" target="_blank">
+                                        BPHTB
+                                    </a>
+                                    <p id="bphtb" class="text-indigo-600 dark:text-gray-400 text-lg"></p>
+                                    <div class="mt-2"></div>
+                                    <a href="http://pbb-bphtb.depok.go.id:8081/DPBB/V_DASHBOARD/PrintV_DASHBOARDTable.aspx" class="text-sm text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out" target="_blank">
+                                        PBB
+                                    </a>
+                                    <p id="pbb" class="text-indigo-600 dark:text-gray-400 text-lg"></p>
                                 </div>
                             </div>
                         </div>
