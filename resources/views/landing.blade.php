@@ -595,7 +595,7 @@
 <!-- END::Announcement Modal -->
 
 <!-- BEGIN::Sticky Button GPR -->
-{{-- <div class="relative">
+<div class="relative">
     <div class="fixed bottom-4 left-4">
         <button class="btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xs rounded-xl" onclick="toggleModal001()">
             Government Public Relation
@@ -604,20 +604,20 @@
             &times;
         </span>
     </div>
-</div> --}}
+</div>
 <!-- END::Sticky Button GPR -->
 
 <!-- BEGIN::Modal GPR -->
-{{-- <div id="modal001" class="fixed bg-white left-4 rounded-lg md:max-w-md md:mx-auto p-4 bottom-0 z-10 mb-4 mx-4 overflow-y-visible md:relative dark:bg-slate-800 hidden">
+<div id="modal001" class="fixed bg-white left-4 rounded-lg md:max-w-md md:mx-auto p-4 bottom-0 z-10 mb-4 mx-4 overflow-y-visible md:relative dark:bg-slate-800 hidden">
     <div class="md:flex items-center">
         <div class="mt-4 md:mt-0 md:ml-0 text-center md:text-left">
-            <div id="gpr-kominfo-widget-container"></div>
+            <div loading="lazy" id="gpr-kominfo-widget-container"></div>
         </div>
     </div>
     <div class="button-del text-right" onclick="toggleModal001()">
         <button class="absolute border-none bg-none p-0 cursor-pointer font-extrabold bottom-0 right-0"><i class="uil uil-times text-dark dark:text-slate-200 text-xl"></i></button>
     </div>
-</div> --}}
+</div>
 <!-- END::Modal GPR -->
 @endpush
 
