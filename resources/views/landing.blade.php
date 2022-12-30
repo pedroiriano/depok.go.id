@@ -298,7 +298,7 @@
                             <div id="accordion-collapse-body-4" class="hidden bg-white dark:bg-slate-900" aria-labelledby="accordion-collapse-heading-4">
                                 <div class="p-5">
                                     <div class="text-sm text-slate-400">
-                                        Jumlah Sekolah
+                                        Jumlah Sekolah Negeri yang ada di Depok Tahun 2020
                                     </div>
                                     <div class="flex items-center font-extrabold text-indigo-600 mt-4">
                                         <div class="flex flex-col w-1/3 text-sm">
