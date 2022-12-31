@@ -287,17 +287,17 @@
                                     </div>
                                     <div class="flex items-center font-extrabold text-indigo-600 mt-4">
                                         <div class="flex flex-col w-1/2 text-sm">
-                                            <div id="kunjungan-rsud" class="text-lg text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
+                                            <a id="jumlah-pria" href="{{ route('demografi') }}" class="text-lg text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
                                                 Jumlah Pria
-                                            </div>
+                                            </a>
                                             <div class="block">
                                                 <i class="mdi mdi-human-male text-lg"></i> Pria
                                             </div>
                                         </div>
                                         <div class="flex flex-col w-1/2 text-sm">
-                                            <div id="kunjungan-puskesmas" class="text-lg text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
+                                            <a id="jumlah-wanita" href="{{ route('demografi') }}" class="text-lg text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
                                                 Jumlah Wanita
-                                            </div>
+                                            </a>
                                             <div class="block">
                                                 <i class="mdi mdi-human-female text-lg"></i> Wanita
                                             </div>
