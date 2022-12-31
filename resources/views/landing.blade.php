@@ -228,7 +228,7 @@
                                         </li>
                                     </ol>
                                     <a href="http://dinkes.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out mt-4" target="_blank">
-                                        Sumber: Dinkes Kota Depok
+                                        Sumber: DINKES Kota Depok
                                     </a>
                                 </div>
                             </div>
@@ -266,7 +266,7 @@
                                         </div>
                                     </div>
                                     <a href="http://dinkes.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out mt-4" target="_blank">
-                                        Sumber: Dinkes Kota Depok
+                                        Sumber: DINKES Kota Depok
                                     </a>
                                 </div>
                             </div>
@@ -282,7 +282,30 @@
                             </h2>
                             <div id="accordion-collapse-body-3" class="hidden bg-white dark:bg-slate-900" aria-labelledby="accordion-collapse-heading-3">
                                 <div class="p-5">
-                                    <p class="text-slate-400 dark:text-gray-400 text-sm">Jumlah Penduduk</p>
+                                    <div class="text-sm text-slate-400">
+                                        Total Penduduk berdasarkan Data Kependudukan Kota Depok Tahun 2020 Semester 1
+                                    </div>
+                                    <div class="flex items-center font-extrabold text-indigo-600 mt-4">
+                                        <div class="flex flex-col w-1/2 text-sm">
+                                            <div id="kunjungan-rsud" class="text-lg text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
+                                                Jumlah Pria
+                                            </div>
+                                            <div class="block">
+                                                <i class="mdi mdi-human-male text-lg"></i> Pria
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col w-1/2 text-sm">
+                                            <div id="kunjungan-puskesmas" class="text-lg text-slate-400 dark:text-gray-400 hover:text-indigo-600 duration-500 ease-in-out">
+                                                Jumlah Wanita
+                                            </div>
+                                            <div class="block">
+                                                <i class="mdi mdi-human-female text-lg"></i> Wanita
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="http://disdukcapil.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out mt-4" target="_blank">
+                                        Sumber: DISDUKCAPIL Kota Depok
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -327,7 +350,7 @@
                                         </div>
                                     </div>
                                     <a href="http://disdik.depok.go.id/" class="text-xs text-slate-400 dark:text-gray-400 font-semibold hover:text-indigo-600 duration-500 ease-in-out mt-4" target="_blank">
-                                        Sumber: Disdik Kota Depok
+                                        Sumber: DISDIK Kota Depok
                                     </a>
                                 </div>
                             </div>
@@ -606,7 +629,7 @@
 
 @push('widget')
 <!-- BEGIN::Announcement Modal -->
-<div id="announcementModal" x-data="{ open: true }" x-show="open" @open-me="open=true" @close-me="open=false" class="font-sans antialiased fixed fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center" onclick="toggleModal002()">
+<div id="announcementModal" x-data="{ open: true }" x-show="open" @open-me="open=true" @close-me="open=false" class="font-sans antialiased fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center" onclick="toggleModal002()">
     <div @keydown.window.escape="open = false" x-show="open" class="relative z-50" aria-labelledby="announcement-title" x-ref="dialog" aria-modal="true">
         <div x-show="open" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity">
             {{-- <div class="absolute inset-0 bg-gray-500 opacity-75"></div> --}}
