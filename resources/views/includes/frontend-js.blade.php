@@ -13,7 +13,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.5.5/flowbite.min.js" crossorigin="anonymous"></script>
 {{-- <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js" crossorigin="anonymous"></script> --}}
 {{-- <script src="{{ asset('assets/js/flowbite/flowbite.js') }}"></script> --}}
-{{-- <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" crossorigin="anonymous"></script> --}}
+<script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" crossorigin="anonymous"></script>
 <!-- END::Javascripts -->
 
 <!-- BEGIN::Analytics Google -->

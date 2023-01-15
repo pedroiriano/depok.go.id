@@ -2,8 +2,16 @@
 
 @section('content')
 <!-- BEGIN::Header -->
-{{-- <section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/promosi-depok-ori.gif') }}'); background-size: cover;"> --}}
-<section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/smartcity.png') }}'); background-size: cover;">
+<section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/promosi-depok.gif') }}'); background-size: cover;">
+{{-- <section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/smartcity.png') }}'); background-size: cover;"> --}}
+{{-- <section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-bottom"> --}}
+    {{-- <div class="hero-wrapper">
+        <figure>
+            <video loop="loop" muted="muted" autoplay="autoplay" height="800">
+                <source src="{{ asset('assets/images/bg/promosi-depok-ori.mp4') }}"/>
+            </video>
+        </figure>
+    </div> --}}
     <div class="absolute inset-0 bg-black opacity-30"></div>
     <div class="container">
         <div class="grid grid-cols-1 justify-center text-center">
@@ -694,14 +702,6 @@
     function getNumberWithDot(number) {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
-    // setTimeout(function () {
-    //     var gpr = document.getElementsByClassName("gpr-widget")[0];
-    //     gpr.id="gpr-kominfo-widget-container";
-    //     var d = document,
-    //     s = d.createElement("script");
-    //     s.src = "https://widget.kominfo.go.id/gpr-widget-kominfo.min.js";
-    //     d.body.appendChild(s);
-    // }, 120000);
     $(document).ready(function(){
         // $('#pengumuman-modal').modal('show');
         $.ajaxSetup({

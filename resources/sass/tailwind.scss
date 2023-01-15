@@ -7394,3 +7394,22 @@ h1,  h2,  h3,  h4,  h5,  h6,  .h1,  .h2,  .h3,  .h4,  .h5,  .h6{
     padding: 0.75rem !important;
   }
 }
+figure {
+  margin: 0;
+  position: relative;
+}
+.hero-wrapper{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  // min-height: 100%;
+  // min-width: 100%;
+  z-index: -9999;
+}
+// video {
+//   object-fit: cover;
+//   height: 100vh;
+// }
