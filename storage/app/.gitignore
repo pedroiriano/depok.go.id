@@ -1,5 +1,6 @@
 *
 !public/
+!public/img
 !public/uploads/
 !public/uploads/file
 !public/uploads/sliders
