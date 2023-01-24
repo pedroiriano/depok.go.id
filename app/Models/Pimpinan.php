@@ -12,7 +12,7 @@ class Pimpinan extends Model
 
     protected $table = "pimpinan";
 
-    public const STORAGE_PATH = 'public/img';
+    public const STORAGE_PATH = 'public/uploads/pimpinan';
 
     protected $fillable = [
         'nama',
