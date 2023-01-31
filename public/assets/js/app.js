@@ -272,6 +272,7 @@ try {
 try {
     function toggleModal001() {
         document.getElementById('modal001').classList.toggle('hidden')
+        document.getElementById('button001').classList.toggle('hidden')
     }
 } catch (error) {
     
