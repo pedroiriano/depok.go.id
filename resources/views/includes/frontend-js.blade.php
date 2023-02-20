@@ -1,6 +1,7 @@
 <!-- BEGIN::Javascripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js" crossorigin="anonymous"></script>
 {{-- <script src="{{ asset('assets/libs/tiny-slider/min/tiny-slider.js') }}"></script> --}}
+<script src="{{ asset('assets/libs/wow.js/wow.min.js') }}"></script>
 <script src="{{ asset('assets/libs/tobii/js/tobii.min.js') }}"></script>
 <script src="{{ asset('assets/libs/shufflejs/shuffle.min.js') }}"></script>
 <script src="{{ asset('assets/libs/js-datepicker/datepicker.min.js') }}"></script>
@@ -13,8 +14,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.5.5/flowbite.min.js" crossorigin="anonymous"></script>
 {{-- <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js" crossorigin="anonymous"></script> --}}
 {{-- <script src="{{ asset('assets/js/flowbite/flowbite.js') }}"></script> --}}
-<script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" crossorigin="anonymous"></script>
 <!-- END::Javascripts -->
+
+<!-- BEGIN::GPR Widget -->
+{{-- <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" crossorigin="anonymous"></script> --}}
+{{-- <script type="module" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" crossorigin="anonymous"></script> --}}
+{{-- <script async src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" crossorigin="anonymous"></script> --}}
+<script crossorigin="anonymous"></script>
+<script>
+    window.onload = function() {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://widget.kominfo.go.id/gpr-widget-kominfo.min.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+    }
+</script>
+<!-- END::GPR Widget -->
 
 <!-- BEGIN::Analytics Google -->
 <script src="{{ asset('js/public.js') }}"></script>

@@ -4,8 +4,8 @@
 <!-- BEGIN::Header -->
 <section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/promosi-depok.gif') }}'); background-size: cover;">
 {{-- <section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-top" style="background-image: url('{{ asset('assets/images/bg/smartcity.png') }}'); background-size: cover;"> --}}
-{{-- <section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-bottom"> --}}
-    {{-- <div class="hero-wrapper">
+{{-- <section class="flex md:h-screen py-36 items-center bg-no-repeat bg-fixed bg-bottom">
+    <div class="hero-wrapper">
         <figure>
             <video loop="loop" muted="muted" autoplay="autoplay" height="800">
                 <source src="{{ asset('assets/images/bg/promosi-depok-ori.mp4') }}"/>
@@ -33,7 +33,7 @@
     <div class="container">
         <div class="grid md:grid-cols-3 grid-cols-1 gap-[30px]">
             <!-- Start Announcement -->
-            <div class="flex md:col-span-2 justify-center relative w-full">
+            <div class="flex md:col-span-2 justify-center relative w-full wow animate__animated animate__fadeInLeft" data-wow-delay=".3s">
                 <div class="group px-6 py-6 bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
                     <div class="grid grid-cols-1 text-center">
                         <h3 class="mb-2 md:text-2xl text-xl md:leading-normal leading-normal font-semibold hover:text-indigo-600 duration-500 ease-in-out">Pengumuman</h3>
@@ -79,7 +79,7 @@
             <!-- End Announcement -->
 
             <!-- Start Mayor & Vice Mayor -->
-            <div class="flex justify-center relative">
+            <div class="flex justify-center relative wow animate__animated animate__fadeInRight" data-wow-delay=".3s">
                 <div class="group px-6 py-6 bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
                     <div class="content">
                         <div class="grid grid-cols-1">
@@ -141,7 +141,7 @@
 
 <!-- BEGIN::City Showcase -->
 <section class="relative min-h-screen md:py-12 py-8" id="showcase">
-    <div class="container">
+    <div class="container wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
         <div class="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-6">
             @if (!empty($categories))
                 @foreach ($categories as $key => $category)
@@ -194,7 +194,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container wow animate__animated animate__fadeIn" data-wow-delay=".3s">
         <div class="relative grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
             <div class="group px-6 py-8 bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
                 <div class="content">
@@ -442,7 +442,7 @@
 <!-- BEGIN::DSW -->
 <section class="relative md:py-24 py-16 bg-no-repeat bg-fixed bg-center" id="dsw" style="background-image: url('{{ asset('assets/images/bg/bg-00014.png') }}'); background-size: cover;">
     <div class="absolute inset-0 bg-black/50"></div>
-    <div class="container">
+    <div class="container wow animate__animated animate__fadeIn" data-wow-delay="1s">
         <div class="grid md:grid-cols-12 grid-cols-1 items-center">
             <div class="lg:col-span-5 md:col-span-6">
                 <img loading="lazy" src="{{ asset('assets/images/app/smartphone-dsw.png') }}" class="mx-auto d-block" alt="Gambar Ilustrasi DSW">
@@ -495,7 +495,7 @@
                     <button class="px-6 py-2 font-semibold rounded-md w-full transition-all duration-500 ease-in-out" id="infographic-tab" data-tabs-target="#infographic" type="button" role="tab" aria-controls="infographic" aria-selected="false">Infografis</button>
                 </li>
             </ul>
-            <div id="newsInfographicVideo" class="mt-1">
+            <div id="newsInfographicVideo" class="mt-1 wow animate__animated animate__fadeIn" data-wow-delay=".3s">
                 <div class="" id="news" role="tabpanel" aria-labelledby="news-tab">
                     <div id="berita-wrapper" class="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 mt-8 gap-[30px]">
                         {{-- Ajax News Content --}}
