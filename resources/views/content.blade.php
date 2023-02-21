@@ -9,7 +9,7 @@
 
 @section('content')
 <!-- BEGIN::Header -->
-<section class="relative table w-full py-36 lg:py-44 bg-top bg-no-repeat bg-fixed" style="background-image: url({{ asset($content->image) }});">
+<section class="relative table w-full py-36 lg:py-44 bg-top bg-no-repeat bg-fixed" style="background-image: url({{ asset($content->image) }}); background-size: 100%;">
     <div class="absolute inset-0 bg-black opacity-75"></div>
     <div class="container">
         <div class="grid grid-cols-1 pb-8 text-center mt-10">
