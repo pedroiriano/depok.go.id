@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1">
-{{-- <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"> --}}
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <meta name="description" content="Portal Resmi Pemerintah Kota Depok. Depok sebagai Kota untuk Berbagi, Bersahabat dan Berkolaborasi" />
 <meta name="keywords" content="website, portal, website resmi, portal resmi, depok, kota depok, pemerintah kota depok, website resmi kota depok, portal resmi kota depok, website resmi pemerintah kota depok, portal resmi pemerintah kota depok">
 <meta name="author" content="Pedro Iriano" />
