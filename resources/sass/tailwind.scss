@@ -35,6 +35,7 @@
 4. Use the user's configured `sans` font-family by default.
 */
 html {
+  scroll-behavior: smooth;
   line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -moz-tab-size: 4; /* 3 */
