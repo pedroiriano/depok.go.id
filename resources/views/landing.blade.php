@@ -176,7 +176,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container wow animate__animated animate__fadeIn" data-wow-delay="0.3s">
         <div id="pangan-wrapper" class="grid grid-cols-1 relative owl-carousel owl-theme owl-loaded owl-drag z-0">
             {{-- Commodity Contents --}}
         </div>
@@ -442,7 +442,7 @@
 <!-- BEGIN::DSW -->
 <section class="relative md:py-24 py-16 bg-no-repeat bg-fixed bg-center" id="dsw" style="background-image: url('{{ asset('assets/images/bg/bg-00014.png') }}'); background-size: cover;">
     <div class="absolute inset-0 bg-black/50"></div>
-    <div class="container wow animate__animated animate__fadeIn" data-wow-delay="1s">
+    <div class="container wow animate__animated animate__fadeIn" data-wow-delay="0.5s">
         <div class="grid md:grid-cols-12 grid-cols-1 items-center">
             <div class="lg:col-span-5 md:col-span-6">
                 <img loading="lazy" src="{{ asset('assets/images/app/smartphone-dsw.png') }}" class="mx-auto d-block" alt="Gambar Ilustrasi DSW">
