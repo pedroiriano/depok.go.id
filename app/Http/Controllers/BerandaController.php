@@ -28,7 +28,7 @@ class BerandaController extends Controller
     {
         $tanggal = Carbon::now()->format('l, d F');
         $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
-        $categories = Category::with('services')->orderBy('pos', 'asc')->take(8)->get();
+        $categories = Category::with('services')->orderBy('pos', 'asc')->take(10)->get();
         $agendasToday = Agenda::where('tanggal', Carbon::today())->orderBy('tanggal', 'asc')->take(3)->get();
         $agendasNext = Agenda::whereDate('tanggal', '>', Carbon::today())->orderBy('tanggal', 'asc')->take(2)->get();
         $popup = Slider::where('popup', 1)->first();
