@@ -86,8 +86,7 @@ class BerandaController extends Controller
     }
     public function listPengumuman()
     {
-
-        $pengumuman = Slider::where('status', 1)->orderBy('created_at', 'desc')->paginate(8);
+        $pengumuman = Slider::where('status', 1)->orderBy('created_at', 'desc')->get();
         return view('list-pengumuman', compact('pengumuman'));
     }
     public function pengumuman($url)
