@@ -95,7 +95,7 @@
                                             <img loading="lazy" class="" src="{{ asset('assets/images/mayor/wali-kota-depok.png') }}" alt="Gambar Pimpinan Daerah">
                                         </div>
                                         <div class="py-4 relative">
-                                            <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Mohammad Idris</div>
+                                            <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Dr. K.H. Mohammad Idris, Lc., M.A.</div>
                                             <div class="flex items-center justify-center mt-2 md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">
                                                 Wali Kota Depok
                                             </div>
@@ -108,7 +108,7 @@
                                             <img loading="lazy" class="" src="{{ asset('assets/images/mayor/wakil-wali-kota-depok.png') }}" alt="Gambar Pimpinan Daerah">
                                         </div>
                                         <div class="py-4 relative">
-                                            <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Imam Budi Hartono</div>
+                                            <div class="flex items-center justify-center md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">Ir. H. Imam Budi Hartono</div>
                                             <div class="flex items-center justify-center mt-2 md:text-2xs text-sm font-extrabold hover:text-indigo-600 duration-500 ease-in-out">
                                                 Wakil Wali Kota Depok
                                             </div>
@@ -395,11 +395,11 @@
             <div class="group px-6 py-8 bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
                 <div class="content">
                     <a href="" class="text-xl font-semibold hover:text-indigo-600 duration-500 ease-in-out">Agenda</a>
-                    <p class="text-slate-400 mt-4">The phrasal sequence of the is now so that many campaign and benefit</p>
+                    <p class="text-slate-400 mt-4">Agenda Kota Depok</p>
                     
-                    <div class="mt-5">
-                        <a href="" class="btn btn-link text-indigo-600 hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a>
-                    </div>
+                    {{-- <div class="mt-5">
+                        <a href="#" class="btn btn-link text-indigo-600 hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a>
+                    </div> --}}
                 </div>
             </div>
             <div class="group px-6 py-8 bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
@@ -429,9 +429,9 @@
                         </div>
                     </div>
                     <!-- END::Social Media -->
-                    <div class="mt-5">
-                        <a href="" class="btn btn-link text-indigo-600 hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a>
-                    </div>
+                    {{-- <div class="mt-5">
+                        <a href="#" class="btn btn-link text-indigo-600 hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a>
+                    </div> --}}
                 </div>
             </div>
         </div>
