@@ -60,7 +60,7 @@
                                         <div class="text-center">
                                             <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                                 <div class="relative">
-                                                    <img loading="lazy" class="" src="{{ asset('storage/uploads/sliders/'.$slider->imageName) }}" alt="Gambar Pengumuman">
+                                                    <img loading="lazy" class="" src="{{ asset('storage/uploads/sliders/'.str_replace(":", "_", $slider->imageName)) }}" alt="Gambar Pengumuman">
                                                     <div class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-500 ease-in-out">
                                                         <a href="{{ route('list.pengumuman') }}" class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Selengkapnya</a>
                                                     </div>
@@ -649,7 +649,7 @@
                         <div class="mt-2">
                             <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out">
                                 <div class="relative">
-                                    <img loading="lazy" class="" src="{{ asset('assets/images/bg/slider-depok-01.jpg') }}" alt="Gambar Pengumuman">
+                                    <img loading="lazy" class="" src="{{ asset('storage/uploads/sliders/'.str_replace(":", "_", $popup->imageName)) }}" alt="Gambar Pengumuman">
                                     <div class="absolute top-1/2 -translate-y-1/2 right-0 left-0 text-center opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 duration-500 ease-in-out">
                                     </div>
                                 </div>

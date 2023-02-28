@@ -57,8 +57,8 @@
                               {{ $item->nama }}
                            </td>
                            <td>
-                              <a href="{{ asset('storage/uploads/sliders/'.$item->imageName) }}" class="lightbox">
-                                 <img class="max-w-sm" src="{{ asset('storage/uploads/sliders/'.$item->imageName) }}" alt="Gambar Pengumuman">
+                              <a href="{{ asset('storage/uploads/sliders/'.str_replace(":", "_", $item->imageName)) }}" class="lightbox">
+                                 <img class="max-w-sm" src="{{ asset('storage/uploads/sliders/'.str_replace(":", "_", $item->imageName)) }}" alt="Gambar Pengumuman">
                               </a>
                            </td>
                            <td>
@@ -67,7 +67,7 @@
                         </tr>
                      @endforeach
                   @else
-                     
+                     <div>Data Masih Kosong</div>
                   @endif
                </tbody>
             </table>

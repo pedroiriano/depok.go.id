@@ -37,7 +37,7 @@
                   <div class="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden">
                      <div class="relative">
                            <div class="relative md:shrink-0">
-                              <img class="h-full w-full object-cover" src="{{ asset('storage/uploads/sliders/'.$pengumuman->imageName) }}" alt="Gambar Pengumuman">
+                              <img class="h-full w-full object-cover" src="{{ asset('storage/uploads/sliders/'.str_replace(":", "_", $pengumuman->imageName)) }}" alt="Gambar Pengumuman">
                            </div>
                      </div>
                   </div>
