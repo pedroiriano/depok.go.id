@@ -27,16 +27,16 @@
 <!-- END::Header -->
 
 <!-- BEGIN::City Leader -->
-<section class="relative px-48 pt-12">
+<section class="relative lg:px-48 lg:pt-12">
     <div class="container">
-        <div class="relative grid md:grid-cols-2 grid-cols-1 mt-2 gap-60">
+        <div class="relative grid lg:grid-cols-2 grid-cols-1 mt-2 lg:gap-24 gap-6">
             @if (!empty($pimpinan))
                 @foreach ($pimpinan as $item)
                     <div class="group bg-white dark:bg-slate-900 shadow hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out border-t-[3px] border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600">
                         <img src="{{ asset($item->image_url) }}" class="w-full" alt="Gambar Pimpinan Daerah">
                         <div class="content text-center px-4 py-4 mt-2">
-                            <a href="" class="text-lg font-medium hover:text-indigo-600 block">{{ $item->nama }}</a>
-                            <span class="text-slate-400 block">{{ $item->deskripsi }}</span>
+                            <div class="text-sm font-medium hover:text-indigo-600 block">{{ $item->nama }}</div>
+                            <span class="text-sm text-slate-400 block">{{ $item->deskripsi }}</span>
                             <ul class="list-none mt-4">
                                 @isset($item->facebook)
                                     <li class="inline"><a href="{{ $item->facebook }}" target="_blank" class="btn btn-icon btn-sm border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"><i data-feather="facebook" class="h-4 w-4"></i></a></li>
@@ -52,7 +52,7 @@
                     </div>
                 @endforeach
             @else
-                
+                <div>Data Kosong</div>
             @endif
         </div>
     </div>
