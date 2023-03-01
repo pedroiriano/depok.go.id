@@ -536,6 +536,9 @@
                             @endforeach
                         @endif
                     </div>
+                    <div class="flex justify-end mt-5">
+                        <a href="{{ route('infografis') }}" class="btn btn-link text-indigo-600 hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Selengkapnya <i class="uil uil-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
