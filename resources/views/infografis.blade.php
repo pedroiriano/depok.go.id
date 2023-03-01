@@ -39,7 +39,11 @@
                         <div class="content">
                             <div class="title absolute z-10 hidden group-hover:block bottom-4 left-4">
                                 <div class="h6 text-md font-medium text-white hover:text-indigo-600 duration-500 ease-in-out">{{ $infografi->nama }}</div>
-                                {{-- <p class="text-slate-300 text-sm tag mb-0">Sumber: {{ $infografi->opd->nama }}</p> --}}
+                                @if ($infografi->opd->nama === NULL)
+                                    <p class="text-slate-300 text-sm tag mb-0">Sumber: Tidak Terdefinisi</p>
+                                @else
+                                    <p class="text-slate-300 text-sm tag mb-0">Sumber: {{ $infografi->opd->nama }}</p>
+                                @endif
                             </div>
                         </div>
                     </a>
@@ -49,7 +53,7 @@
                 <div>Data Masih Kosong</div>
             @endif
         </div>
-        {{ $infografis->links('vendor.pagination.simple-tailwind') }}
+        {{ $infografis->links('vendor.pagination.custom-tailwind') }}
     </div>
 </section>
 <!-- END::Infographic -->
