@@ -29,7 +29,7 @@
 <!-- BEGIN::Infographic -->
 <section class="relative md:py-24 py-16">
     <div class="container">
-        <div class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6 mt-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6 mt-8 mb-4">
             @if (!empty($infografis))
                 @foreach ($infografis as $infografi)
                 <div class="group relative block overflow-hidden rounded-md transition-all duration-500">
@@ -49,6 +49,7 @@
                 <div>Data Masih Kosong</div>
             @endif
         </div>
+        {{ $infografis->links('vendor.pagination.simple-tailwind') }}
     </div>
 </section>
 <!-- END::Infographic -->
