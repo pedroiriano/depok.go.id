@@ -76,7 +76,7 @@ class BerandaController extends Controller
     }
     public function infografis()
     {
-        $infografis = Infografis::where('status', 1)->orderBy('created_at', 'desc')->get();
+        $infografis = Infografis::where('status', 1)->orderBy('created_at', 'desc')->paginate(8);
         return view('infografis', compact('infografis'));
     }
     public function agendaAPI()
