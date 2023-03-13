@@ -13,6 +13,9 @@ use App\Models\Content;
 use App\Models\Kelurahan;
 use App\Models\Pimpinan;
 use Vedmant\FeedReader\FeedReader;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class BerandaController extends Controller
 {
@@ -28,13 +31,35 @@ class BerandaController extends Controller
     {
         $tanggal = Carbon::now()->format('l, d F');
         $sliders = Slider::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
-        $categories = Category::with('services')->orderBy('pos', 'asc')->take(10)->get();
+        // $categories = Category::with('services')->orderBy('pos', 'asc')->take(10)->get();
         $agendasToday = Agenda::where('tanggal', Carbon::today())->orderBy('tanggal', 'asc')->take(3)->get();
         $agendasNext = Agenda::whereDate('tanggal', '>', Carbon::today())->orderBy('tanggal', 'asc')->take(2)->get();
         $popup = Slider::where('popup', 1)->first();
         $infografis = Infografis::take(4)->where('status', 1)->orderBy('created_at', 'desc')->get();
 
-        return view('landing', compact('agendasToday','agendasNext' ,'categories', 'sliders','tanggal', 'popup', 'infografis'));
+        /* $UrlWeb = 'https://cms.depok.go.id/';
+
+        $urlMenuLayanan = $UrlWeb . "ViewPortal/getExLink?siteId=2&code=&groupId=&typeId=LM&limit=&offset=&slug=&parent=";
+		$menuLayanan = json_decode(file_get_contents($urlMenuLayanan), true); */
+		
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://cms.depok.go.id/ViewPortal/getExLink?siteId=2&code=&groupId=&typeId=LM&limit=&offset=&slug=&parent=');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        $httpCode = curl_getinfo($ch , CURLINFO_HTTP_CODE);
+        $response = curl_exec($ch);
+        if ($response === false) 
+            $response = curl_error($ch);
+        curl_close($ch);
+        $menuLayanan = json_decode($response, TRUE);
+        // dd($menuLayanan);
+
+        return view('landing', compact('agendasToday','agendasNext' ,'menuLayanan', 'sliders','tanggal', 'popup', 'infografis'));
+
+        // return view('landing', compact('agendasToday','agendasNext' ,'categories', 'sliders','tanggal', 'popup', 'infografis'));
     }
      public function pimpinanDaerah()
     {
@@ -71,8 +96,38 @@ class BerandaController extends Controller
     }
     public function layanan()
     {
-        $categories = Category::with('services')->orderBy('pos', 'asc')->get();
-        return view('layanan', compact('categories'));
+        /* $categories = Category::with('services')->orderBy('pos', 'asc')->get();
+        return view('layanan', compact('categories')); */
+
+        /* $UrlWeb = 'https://cms.depok.go.id/';
+
+        $urlMenuLayanan = $UrlWeb . "ViewPortal/getExLink?siteId=2&code=&groupId=&typeId=LM&limit=&offset=&slug=&parent=";
+		$menuLayanan = json_decode(file_get_contents($urlMenuLayanan), true);
+        $menuLayanan = $this->array_pagination($menuLayanan); */
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://cms.depok.go.id/ViewPortal/getExLink?siteId=2&code=&groupId=&typeId=LM&limit=&offset=&slug=&parent=');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        $httpCode = curl_getinfo($ch , CURLINFO_HTTP_CODE);
+        $response = curl_exec($ch);
+        if ($response === false) 
+            $response = curl_error($ch);
+        curl_close($ch);
+        $menuLayanan = json_decode($response, TRUE);
+        /* $menuLayanan = $this->array_pagination($menuLayanan);
+        dd($menuLayanan); */
+
+        return view('layanan', compact('menuLayanan'));
+    }
+    private function array_pagination($items, $perPage = 10, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, array('path' => Paginator::resolveCurrentPath()), $options);
     }
     public function infografis()
     {
