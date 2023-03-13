@@ -30,21 +30,51 @@
 <section class="relative md:py-24 py-16">
     <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-6">
-            @if (!empty($categories))
-                @foreach ($categories as $key => $category)
+            {{-- @if (!empty($categories))
+                @foreach ($categories as $key => $category) --}}
                     <!-- DSW Services -->
-                    <a class="group btnModal bg-white dark:bg-slate-900 p-6 rounded shadow dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 border-4 border-white dark:border-slate-900 hover:border-b-indigo-600 dark:hover:border-b-indigo-600 text-center transition duration-500 h-fit" data-modal-toggle="modalLayanan-{{ $category->id }}">
+                    {{-- <a class="group btnModal bg-white dark:bg-slate-900 p-6 rounded shadow dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 border-4 border-white dark:border-slate-900 hover:border-b-indigo-600 dark:hover:border-b-indigo-600 text-center transition duration-500 h-fit" data-modal-toggle="modalLayanan-{{ $category->id }}">
                         <img loading="lazy" src="{{ asset('img/icon/'. $category->icon) }}" class="h-16 w-16 mx-auto p-3 rounded-sm bg-gray-50 dark:bg-slate-800 shadow-md dark:shadow-gray-800" alt="Ikon DSW">
                         <div class="content mt-3">
                             <span class="text-lg font-semibold group-hover:text-indigo-600 transition duration-500 block">{{ $category->nama }}</span>
                         </div>
-                    </a>
+                    </a> --}}
                     <!-- DSW Services -->
-                    @include('includes.modal-layanan')
+                    {{-- @include('includes.modal-layanan')
                 @endforeach
             @else
                 
+            @endif --}}
+            
+            @if (!empty($menuLayanan))
+                @foreach ($menuLayanan as $menu)
+                    @if ($menu['ParentId'] == "")
+                        @php
+                            $redirect;
+                        @endphp
+
+                        @if ($menu['URLMenu'] == "")
+                            @php
+                                $redirect = 'layanan/'.$menu["Id"];
+                            @endphp
+                        @else
+                            @php
+                                $redirect = $menu['URLMenu'];
+                            @endphp
+                        @endif
+
+                        <a class="group btnModal bg-white dark:bg-slate-900 p-6 rounded shadow dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 border-4 border-white dark:border-slate-900 hover:border-b-indigo-600 dark:hover:border-b-indigo-600 text-center transition duration-500 h-fit" href="{{ $redirect }}" target="_blank">
+                            <img loading="lazy" src="https://cms.depok.go.id/upload/externalLogo/{{ $menu["ImageMenu"] }}" class="h-16 w-16 mx-auto p-3 rounded-sm bg-gray-50 dark:bg-slate-800 shadow-md dark:shadow-gray-800" alt="Ikon DSW">
+                            <div class="content mt-3">
+                                <span class="text-lg font-semibold group-hover:text-indigo-600 transition duration-500 block">{{ $menu["TitleMenu"] }}</span>
+                            </div>
+                        </a>
+                    @endif
+                @endforeach
+            @else
+                <div>Data Masih Kosong</div>
             @endif
+            {{-- {{ $menuLayanan->links('vendor.pagination.custom-tailwind') }} --}}
         </div>
     </div>
 </section>
